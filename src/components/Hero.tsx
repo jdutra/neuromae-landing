@@ -1,4 +1,4 @@
-import { MessageCircle, Star, Shield, Brain } from "lucide-react";
+import { MessageCircle, Star, Shield } from "lucide-react";
 
 const WA_LINK = "https://wa.me/5543988264917?text=Oi%2C%20quero%20conhecer%20a%20Neuromae!";
 
@@ -14,9 +14,7 @@ export function Hero() {
       {/* Nav */}
       <nav className="relative z-10 flex items-center justify-between px-6 py-5 max-w-6xl mx-auto w-full">
         <div className="flex items-center gap-2">
-          <div className="w-9 h-9 rounded-xl bg-white/20 flex items-center justify-center">
-            <Brain className="w-5 h-5 text-white" />
-          </div>
+          <img src="/logoNM.jpeg" alt="Neuromae" className="w-9 h-9 rounded-xl object-cover" />
           <span className="text-white font-bold text-xl tracking-tight">Neuromae</span>
         </div>
         <a
@@ -92,9 +90,7 @@ export function Hero() {
         <div className="bg-white rounded-3xl shadow-2xl overflow-hidden">
           {/* WhatsApp header */}
           <div className="bg-[#075E54] px-4 py-3 flex items-center gap-3">
-            <div className="w-9 h-9 rounded-full bg-roxo-600 flex items-center justify-center">
-              <Brain className="w-5 h-5 text-white" />
-            </div>
+            <img src="/logoNM.jpeg" alt="Neuromae" className="w-9 h-9 rounded-full object-cover" />
             <div>
               <p className="text-white text-sm font-semibold">Neuromae</p>
               <div className="flex items-center gap-1">

@@ -1,4 +1,3 @@
-import { Brain } from "lucide-react";
 
 const WA_LINK = "https://wa.me/5543988264917?text=Oi%2C%20quero%20conhecer%20a%20Neuromae!";
 
@@ -10,8 +9,8 @@ export function CTA() {
       <div className="absolute -bottom-32 -left-32 w-96 h-96 rounded-full bg-indigo-500/20 blur-3xl pointer-events-none" />
 
       <div className="relative max-w-3xl mx-auto text-center">
-        <div className="w-16 h-16 rounded-2xl bg-white/15 border border-white/25 flex items-center justify-center mx-auto mb-6">
-          <Brain className="w-9 h-9 text-white" />
+        <div className="w-16 h-16 rounded-2xl overflow-hidden mx-auto mb-6">
+          <img src="/logoNM.jpeg" alt="Neuromae" className="w-full h-full object-cover" />
         </div>
 
         <h2 className="text-3xl sm:text-4xl font-black text-white mb-4">
@@ -47,7 +46,7 @@ export function Footer() {
     <footer className="bg-gray-950 py-10 px-6">
       <div className="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-gray-500 text-sm">
         <div className="flex items-center gap-2">
-          <Brain className="w-5 h-5 text-roxo-400" />
+          <img src="/logoNM.jpeg" alt="Neuromae" className="w-6 h-6 rounded object-cover" />
           <span className="text-white font-semibold">Neuromae</span>
           <span>— Apoio a mães de filhos neurodivergentes</span>
         </div>

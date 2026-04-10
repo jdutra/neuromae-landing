@@ -56,15 +56,11 @@ function SceneLogo() {
           width: 120,
           height: 120,
           borderRadius: 32,
-          background: "rgba(255,255,255,0.15)",
+          overflow: "hidden",
           border: "2px solid rgba(255,255,255,0.3)",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          fontSize: 64,
         }}
       >
-        🧠
+        <img src="/logoNM.jpeg" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
       </div>
 
       {/* Brand name */}
@@ -252,14 +248,10 @@ function SceneChat() {
             width: 48,
             height: 48,
             borderRadius: "50%",
-            background: ROXO,
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            fontSize: 24,
+            overflow: "hidden",
           }}
         >
-          🧠
+          <img src="/logoNM.jpeg" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
         </div>
         <div>
           <div style={{ color: BRANCO, fontWeight: 700, fontSize: 18 }}>Neuromae</div>
