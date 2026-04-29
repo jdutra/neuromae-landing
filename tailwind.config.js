@@ -4,41 +4,27 @@ export default {
   theme: {
     extend: {
       colors: {
-        roxo: {
-          50:  "#F5F3FF",
-          100: "#EDE9FE",
-          200: "#DDD6FE",
-          300: "#C4B5FD",
-          400: "#A78BFA",
-          500: "#8B5CF6",
-          600: "#7C3AED",
-          700: "#6D28D9",
-          800: "#5B21B6",
-          900: "#4C1D95",
-        },
-        rosa: {
-          400: "#F472B6",
-          500: "#EC4899",
-          600: "#DB2777",
-        },
+        cream:      "#F3ECE3",
+        "cream-2":  "#FFF8F1",
+        latte:      "#E5D5C7",
+        line:       "#DDCCBE",
+        ink:        "#40352E",  // texto principal — usado como text-ink
+        muted:      "#77675B",
+        soft:       "#8F8176",
+        olive:      "#667254",
+        "olive-2":  "#586348",
+        terracotta: "#B87967",
+        brown:      "#5F4B3E",
       },
       fontFamily: {
-        sans: ["Inter", "system-ui", "-apple-system", "sans-serif"],
+        sans:  ["Inter", "system-ui", "-apple-system", "BlinkMacSystemFont", "Segoe UI", "sans-serif"],
+        serif: ["Playfair Display", "Georgia", "serif"],
       },
-      animation: {
-        "float": "float 6s ease-in-out infinite",
-        "pulse-slow": "pulse 4s ease-in-out infinite",
-        "fade-up": "fadeUp 0.6s ease-out forwards",
+      maxWidth: {
+        wrap: "1120px",
       },
-      keyframes: {
-        float: {
-          "0%, 100%": { transform: "translateY(0px)" },
-          "50%": { transform: "translateY(-12px)" },
-        },
-        fadeUp: {
-          from: { opacity: "0", transform: "translateY(24px)" },
-          to:   { opacity: "1", transform: "translateY(0)" },
-        },
+      boxShadow: {
+        soft: "0 22px 60px rgba(70,55,44,0.10)",
       },
     },
   },

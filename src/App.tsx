@@ -1,20 +1,23 @@
+import { Nav } from "./components/Nav";
 import { Hero } from "./components/Hero";
-import { Problems } from "./components/Problems";
-import { HowItWorks } from "./components/HowItWorks";
-import { VideoSection } from "./components/VideoSection";
-import { Testimonials } from "./components/Testimonials";
-import { CTA, Footer } from "./components/CTA";
+import { Produto } from "./components/Produto";
+import { Funciona } from "./components/Funciona";
+import { Seguranca } from "./components/Seguranca";
+import { Final } from "./components/Final";
+import { MobileSticky } from "./components/MobileSticky";
 
 export default function App() {
   return (
-    <div className="min-h-screen">
-      <Hero />
-      <Problems />
-      <HowItWorks />
-      <VideoSection />
-      <Testimonials />
-      <CTA />
-      <Footer />
-    </div>
+    <>
+      <Nav />
+      <main id="top">
+        <Hero />
+        <Produto />
+        <Funciona />
+        <Seguranca />
+        <Final />
+      </main>
+      <MobileSticky />
+    </>
   );
 }
