@@ -4,6 +4,8 @@ export function MobileSticky() {
   return (
     <a
       href={WA_LINK}
+      target="_blank"
+      rel="noopener noreferrer"
       className="fixed left-3 right-3 bottom-3 z-30 flex items-center justify-center rounded-full font-extrabold text-cream-2 md:hidden"
       style={{
         minHeight: "54px",

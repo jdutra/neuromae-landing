@@ -30,6 +30,8 @@ export function Final() {
           </p>
           <a
             href={WA_LINK}
+            target="_blank"
+            rel="noopener noreferrer"
             className="inline-flex items-center justify-center gap-2 rounded-full px-7 font-extrabold text-cream-2 transition hover:-translate-y-px"
             style={{
               minHeight: "56px",
@@ -40,9 +42,9 @@ export function Final() {
           >
             Começar 7 dias grátis
           </a>
-          <div className="mt-[18px] text-[13px] text-muted">
-            GABAIA by NeuroMãe • apoio prático, seguro e acolhedor no WhatsApp
-          </div>
+          <p className="mt-[18px] text-[13px] text-muted">
+            7 dias grátis. Depois R$39,90/mês. Cancele por mensagem.
+          </p>
         </div>
       </div>
     </section>

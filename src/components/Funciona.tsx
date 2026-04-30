@@ -19,11 +19,16 @@ function MomentCard({ avatar, title, body }: MomentCardProps) {
         src={avatar}
         alt=""
         aria-hidden="true"
+        loading="lazy"
+        decoding="async"
         className="pointer-events-none absolute"
         style={{
           right: "-12px",
           top: "4px",
           width: "150px",
+          height: "150px",
+          objectFit: "contain",
+          objectPosition: "top right",
           opacity: 0.155,
           filter: "sepia(.16) saturate(.60) contrast(.72)",
           mixBlendMode: "multiply",
@@ -70,22 +75,22 @@ export function Funciona() {
 
         <div className="grid grid-cols-1 gap-[14px] sm:grid-cols-2 md:grid-cols-4">
           <MomentCard
-            avatar="/avatar-acolhe.svg"
+            avatar="/gaba-acolhe.png"
             title="Acolhe"
             body="Quando você precisa falar sem se sentir julgada."
           />
           <MomentCard
-            avatar="/avatar-escuta.svg"
+            avatar="/gaba-escuta.png"
             title="Escuta"
             body="Quando a rotina pesa e você precisa organizar o que sente."
           />
           <MomentCard
-            avatar="/avatar-organiza.svg"
+            avatar="/gaba-organiza.png"
             title="Organiza"
             body="Quando há muitas informações e pouca clareza."
           />
           <MomentCard
-            avatar="/avatar-cafe.svg"
+            avatar="/gaba-respira.png"
             title="Orienta"
             body="Quando você precisa pensar nos próximos passos."
           />
