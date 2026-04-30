@@ -26,25 +26,27 @@ export function Final() {
             Teste no seu dia real.
           </h2>
           <p className="mx-auto mt-[14px] mb-[26px] text-[17px] text-muted" style={{ maxWidth: "660px" }}>
-            Use a GABAIA quando a dúvida aparecer. Se fizer sentido para sua rotina, continue por R$39,90/mês.
+            Manda uma mensagem para a GABA quando a noite pesar. Se fizer sentido para sua rotina, continua por R$39,90/mês.
           </p>
           <a
             href={WA_LINK}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center justify-center gap-2 rounded-full px-7 font-extrabold text-cream-2 transition hover:-translate-y-px"
+            className="group inline-flex items-center justify-center gap-2.5 rounded-full px-[34px] font-bold text-cream-2 transition hover:-translate-y-px"
             style={{
-              minHeight: "56px",
+              minHeight: "62px",
+              fontSize: "17px",
+              letterSpacing: "0.005em",
               background: "linear-gradient(180deg,#667254,#586348)",
-              letterSpacing: "-0.01em",
-              boxShadow: "0 16px 34px rgba(88,99,72,0.21)",
+              boxShadow: "0 16px 34px rgba(88,99,72,0.24)",
             }}
           >
-            Começar 7 dias grátis
+            Começar agora · grátis{" "}
+            <span aria-hidden="true" className="inline-block transition group-hover:translate-x-[3px]">→</span>
           </a>
-          <p className="mt-[18px] text-[13px] text-muted">
-            7 dias grátis. Depois R$39,90/mês. Cancele por mensagem.
-          </p>
+          <div className="mt-[18px] text-[13px] text-muted">
+            GABAIA por NeuroMãe • presença prática e acolhedora no WhatsApp
+          </div>
         </div>
       </div>
     </section>
