@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <title>GABAIA — Conceito A.2: Receptor GABA-A com subunidades α/β/γ</title>
+  <desc>Receptor GABA-A pentamérico com a composição real (2α + 2β + 1γ) representada por cores diferentes. Subunidades em forma de feijão/proteína vista de topo, tocando-se no anel, com canal central de cloreto.</desc>
+  <g transform="translate(100,100)">
+    <!-- Subunidade γ (destaque - bege escuro) — topo -->
+    <path d="M -10,-22 C -25,-30 -30,-50 -22,-68 C -15,-78 15,-78 22,-68 C 30,-50 25,-30 10,-22 C 0,-19 0,-19 -10,-22 Z"
+          fill="#C9B7A6"/>
+    <!-- Subunidade α (rosa) — direita-cima -->
+    <g transform="rotate(72)">
+      <path d="M -10,-22 C -25,-30 -30,-50 -22,-68 C -15,-78 15,-78 22,-68 C 30,-50 25,-30 10,-22 C 0,-19 0,-19 -10,-22 Z"
+            fill="#D8A7A1"/>
+    </g>
+    <!-- Subunidade β (sage) — direita-baixo -->
+    <g transform="rotate(144)">
+      <path d="M -10,-22 C -25,-30 -30,-50 -22,-68 C -15,-78 15,-78 22,-68 C 30,-50 25,-30 10,-22 C 0,-19 0,-19 -10,-22 Z"
+            fill="#A8B5A2"/>
+    </g>
+    <!-- Subunidade α (rosa) — esquerda-baixo -->
+    <g transform="rotate(216)">
+      <path d="M -10,-22 C -25,-30 -30,-50 -22,-68 C -15,-78 15,-78 22,-68 C 30,-50 25,-30 10,-22 C 0,-19 0,-19 -10,-22 Z"
+            fill="#D8A7A1"/>
+    </g>
+    <!-- Subunidade β (sage) — esquerda-cima -->
+    <g transform="rotate(288)">
+      <path d="M -10,-22 C -25,-30 -30,-50 -22,-68 C -15,-78 15,-78 22,-68 C 30,-50 25,-30 10,-22 C 0,-19 0,-19 -10,-22 Z"
+            fill="#A8B5A2"/>
+    </g>
+    <!-- Canal central de cloreto (poro) -->
+    <circle cx="0" cy="0" r="20" fill="#EFE7DD"/>
+    <circle cx="0" cy="0" r="9" fill="#6B5547" opacity="0.7"/>
+  </g>
+</svg>

@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <title>GABAIA — Conceito C: γ + Nó IA</title>
+  <desc>A letra grega gama (γ) — primeira letra de gamma-aminobutyric acid (GABA) — desenhada como um traço orgânico em rosa salmão, atravessada por pontinhos sage que representam um nó de rede neural / IA. Tipográfico, minimalista, escala excelente em pequeno.</desc>
+  <!-- Letra γ desenhada como path orgânico (traço grosso) -->
+  <path d="M 50,55 Q 80,55 100,90 Q 115,115 110,170"
+        stroke="#D8A7A1" stroke-width="22" fill="none"
+        stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Pontinhos IA (nó de rede neural) sobrepostos ao gama -->
+  <circle cx="50" cy="55" r="7" fill="#A8B5A2"/>
+  <circle cx="148" cy="55" r="7" fill="#A8B5A2"/>
+  <circle cx="100" cy="90" r="6" fill="#EFE7DD"/>
+  <!-- Linhas finas de conexão (rede neural) -->
+  <line x1="50" y1="55" x2="100" y2="90" stroke="#A8B5A2" stroke-width="2" stroke-linecap="round" opacity="0.6"/>
+  <line x1="148" y1="55" x2="100" y2="90" stroke="#A8B5A2" stroke-width="2" stroke-linecap="round" opacity="0.6"/>
+</svg>

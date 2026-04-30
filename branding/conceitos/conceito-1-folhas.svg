@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <title>GABAIA — Conceito 1: Folhas-Vírgula (filho direto da NeuroMãe)</title>
+  <desc>Duas formas-vírgula entrelaçadas em yin-yang orgânico: rosa Acolhimento (superior-esquerda) e sage Transformação (inferior-direita). Versão minimalista e mais íntima do símbolo NeuroMãe — a Gabi como conexão entre acolhimento e transformação.</desc>
+  <!-- Folha rosa (Acolhimento) — superior esquerda, vírgula descendente -->
+  <path d="M 100,28
+           C 60,30 30,65 35,108
+           C 38,135 58,150 80,148
+           C 95,146 100,135 100,118
+           C 100,95 100,75 100,55
+           C 100,42 100,32 100,28 Z"
+        fill="#D8A7A1"/>
+  <!-- Folha sage (Transformação) — inferior direita, vírgula ascendente -->
+  <path d="M 100,172
+           C 140,170 170,135 165,92
+           C 162,65 142,50 120,52
+           C 105,54 100,65 100,82
+           C 100,105 100,125 100,145
+           C 100,158 100,168 100,172 Z"
+        fill="#A8B5A2"/>
+  <!-- Pontinho de conexão neuronal (creme sutil) -->
+  <circle cx="100" cy="100" r="3" fill="#EFE7DD"/>
+</svg>

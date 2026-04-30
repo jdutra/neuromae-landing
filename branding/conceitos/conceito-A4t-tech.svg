@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <title>GABAIA — Conceito A.4 Tech</title>
+  <desc>Versão tech do A.4: 5 nós de rede neural conectados aos setores por linhas finas (representando a IA recebendo sinais do receptor biológico), sítios GABA com marcadores em diamante, canal central com anel duplo concêntrico simbolizando fluxo computacional.</desc>
+
+  <g transform="translate(100,100)">
+    <!-- Linhas finas conectando o anel aos nós externos (rede neural) -->
+    <line x1="0" y1="-80" x2="0" y2="-92" stroke="#A8B5A2" stroke-width="1.2"/>
+    <line x1="0" y1="-80" x2="0" y2="-92" stroke="#A8B5A2" stroke-width="1.2" transform="rotate(72)"/>
+    <line x1="0" y1="-80" x2="0" y2="-92" stroke="#A8B5A2" stroke-width="1.2" transform="rotate(144)"/>
+    <line x1="0" y1="-80" x2="0" y2="-92" stroke="#A8B5A2" stroke-width="1.2" transform="rotate(216)"/>
+    <line x1="0" y1="-80" x2="0" y2="-92" stroke="#A8B5A2" stroke-width="1.2" transform="rotate(288)"/>
+
+    <!-- 5 setores anelares (mantém paleta original) -->
+    <path d="M -45.7,-65.6 A 80,80 0 0 1 45.7,-65.6 L 13.7,-19.7 A 24,24 0 0 0 -13.7,-19.7 Z" fill="#C9B7A6"/>
+    <g transform="rotate(72)">
+      <path d="M -45.7,-65.6 A 80,80 0 0 1 45.7,-65.6 L 13.7,-19.7 A 24,24 0 0 0 -13.7,-19.7 Z" fill="#D8A7A1"/>
+    </g>
+    <g transform="rotate(144)">
+      <path d="M -45.7,-65.6 A 80,80 0 0 1 45.7,-65.6 L 13.7,-19.7 A 24,24 0 0 0 -13.7,-19.7 Z" fill="#A8B5A2"/>
+    </g>
+    <g transform="rotate(216)">
+      <path d="M -45.7,-65.6 A 80,80 0 0 1 45.7,-65.6 L 13.7,-19.7 A 24,24 0 0 0 -13.7,-19.7 Z" fill="#D8A7A1"/>
+    </g>
+    <g transform="rotate(288)">
+      <path d="M -45.7,-65.6 A 80,80 0 0 1 45.7,-65.6 L 13.7,-19.7 A 24,24 0 0 0 -13.7,-19.7 Z" fill="#A8B5A2"/>
+    </g>
+
+    <!-- Nós externos de rede neural (5, alinhados com setores) -->
+    <circle cx="0" cy="-92" r="5" fill="#6B5547"/>
+    <circle cx="0" cy="-92" r="5" fill="#6B5547" transform="rotate(72)"/>
+    <circle cx="0" cy="-92" r="5" fill="#6B5547" transform="rotate(144)"/>
+    <circle cx="0" cy="-92" r="5" fill="#6B5547" transform="rotate(216)"/>
+    <circle cx="0" cy="-92" r="5" fill="#6B5547" transform="rotate(288)"/>
+
+    <!-- Sítios GABA em forma de diamante (geométrico) -->
+    <g transform="rotate(108)">
+      <polygon points="0,-87 6.5,-80 0,-73 -6.5,-80" fill="#EFE7DD"/>
+      <polygon points="0,-84 3.5,-80 0,-76 -3.5,-80" fill="#6B5547"/>
+    </g>
+    <g transform="rotate(252)">
+      <polygon points="0,-87 6.5,-80 0,-73 -6.5,-80" fill="#EFE7DD"/>
+      <polygon points="0,-84 3.5,-80 0,-76 -3.5,-80" fill="#6B5547"/>
+    </g>
+
+    <!-- Canal central com anel duplo concêntrico -->
+    <circle cx="0" cy="0" r="24" fill="#EFE7DD"/>
+    <circle cx="0" cy="0" r="18" fill="none" stroke="#C9B7A6" stroke-width="1.2"/>
+    <circle cx="0" cy="0" r="9" fill="#6B5547"/>
+    <circle cx="0" cy="0" r="3" fill="#A8B5A2"/>
+  </g>
+</svg>

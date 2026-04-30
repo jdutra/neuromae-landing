@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <title>GABAIA — Conceito A.1: Receptor GABA-A em anel</title>
+  <desc>Cinco subunidades em forma de cunha tocando-se em anel pentamérico, com canal de cloreto central. Estrutura mais fiel ao receptor real, menos parecida com flor.</desc>
+  <g transform="translate(100,100)">
+    <!-- 5 subunidades em cunha (rotação 72° cada) -->
+    <g>
+      <path d="M -14,-22 Q -28,-45 -45,-64 A 78,78 0 0 1 45,-64 Q 28,-45 14,-22 A 26,26 0 0 0 -14,-22 Z" fill="#D8A7A1"/>
+    </g>
+    <g transform="rotate(72)">
+      <path d="M -14,-22 Q -28,-45 -45,-64 A 78,78 0 0 1 45,-64 Q 28,-45 14,-22 A 26,26 0 0 0 -14,-22 Z" fill="#D8A7A1"/>
+    </g>
+    <g transform="rotate(144)">
+      <path d="M -14,-22 Q -28,-45 -45,-64 A 78,78 0 0 1 45,-64 Q 28,-45 14,-22 A 26,26 0 0 0 -14,-22 Z" fill="#D8A7A1"/>
+    </g>
+    <g transform="rotate(216)">
+      <path d="M -14,-22 Q -28,-45 -45,-64 A 78,78 0 0 1 45,-64 Q 28,-45 14,-22 A 26,26 0 0 0 -14,-22 Z" fill="#D8A7A1"/>
+    </g>
+    <g transform="rotate(288)">
+      <path d="M -14,-22 Q -28,-45 -45,-64 A 78,78 0 0 1 45,-64 Q 28,-45 14,-22 A 26,26 0 0 0 -14,-22 Z" fill="#D8A7A1"/>
+    </g>
+    <!-- Canal central (poro de cloreto) -->
+    <circle cx="0" cy="0" r="22" fill="#EFE7DD"/>
+    <circle cx="0" cy="0" r="8" fill="#A8B5A2"/>
+  </g>
+</svg>

@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <title>GABAIA — Conceito 2: Balão de Acolhida (WhatsApp-native)</title>
+  <desc>Balão de fala arredondado em rosa salmão com três pontos sage (digitando/respirando). Comunica direto: "uma conversa que acolhe". Funciona excepcionalmente bem como ícone WhatsApp Business.</desc>
+  <!-- Balão rosa salmão -->
+  <path d="M 100,32
+           C 60,32 30,60 30,95
+           C 30,124 50,148 80,154
+           L 70,176
+           Q 72,178 75,176
+           L 102,154
+           C 142,153 170,127 170,95
+           C 170,60 140,32 100,32 Z"
+        fill="#D8A7A1"/>
+  <!-- Três pontos (digitando) sage -->
+  <circle cx="75" cy="92" r="7" fill="#A8B5A2"/>
+  <circle cx="100" cy="92" r="7" fill="#A8B5A2"/>
+  <circle cx="125" cy="92" r="7" fill="#A8B5A2"/>
+</svg>

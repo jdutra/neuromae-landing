@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <title>GABAIA — Conceito A: Receptor GABA-A (Flor de Calma)</title>
+  <desc>Representação estilizada do receptor GABA-A, um pentâmero com 5 subunidades em roseta e um canal central. Cientificamente preciso (é a estrutura real do receptor que o GABA ativa para acalmar o cérebro), visualmente lembra uma flor — abraço maternal e ciência ao mesmo tempo.</desc>
+  <g transform="translate(100,100)">
+    <!-- 5 pétalas em pentágono — subunidades do receptor -->
+    <ellipse cx="0" cy="-52" rx="18" ry="32" fill="#D8A7A1"/>
+    <ellipse cx="0" cy="-52" rx="18" ry="32" fill="#D8A7A1" transform="rotate(72)"/>
+    <ellipse cx="0" cy="-52" rx="18" ry="32" fill="#D8A7A1" transform="rotate(144)"/>
+    <ellipse cx="0" cy="-52" rx="18" ry="32" fill="#D8A7A1" transform="rotate(216)"/>
+    <ellipse cx="0" cy="-52" rx="18" ry="32" fill="#D8A7A1" transform="rotate(288)"/>
+    <!-- Canal central aberto (efeito do GABA: abre canal de cloreto, traz calma) -->
+    <circle cx="0" cy="0" r="18" fill="#EFE7DD"/>
+    <circle cx="0" cy="0" r="9" fill="#A8B5A2"/>
+  </g>
+</svg>

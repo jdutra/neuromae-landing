@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <title>GABAIA — Conceito A.4: Receptor GABA-A com sítios de ligação e canal Cl⁻</title>
+  <desc>Receptor GABA-A em vista de topo: 5 subunidades em anel (2α-rosa + 2β-sage + 1γ-bege), com marcadores dos sítios de ligação do GABA nas fendas α-β e indicação do íon cloreto atravessando o poro central. Cientificamente preciso, baseado em representações de livros de neurofarmacologia.</desc>
+  <g transform="translate(100,100)">
+    <!-- 5 setores anelares com fendas finas separando -->
+    <!-- γ (topo, bege destaque) -->
+    <path d="M -45.7,-65.6 A 80,80 0 0 1 45.7,-65.6 L 13.7,-19.7 A 24,24 0 0 0 -13.7,-19.7 Z" fill="#C9B7A6"/>
+    <!-- α (72°) -->
+    <g transform="rotate(72)">
+      <path d="M -45.7,-65.6 A 80,80 0 0 1 45.7,-65.6 L 13.7,-19.7 A 24,24 0 0 0 -13.7,-19.7 Z" fill="#D8A7A1"/>
+    </g>
+    <!-- β (144°) -->
+    <g transform="rotate(144)">
+      <path d="M -45.7,-65.6 A 80,80 0 0 1 45.7,-65.6 L 13.7,-19.7 A 24,24 0 0 0 -13.7,-19.7 Z" fill="#A8B5A2"/>
+    </g>
+    <!-- α (216°) -->
+    <g transform="rotate(216)">
+      <path d="M -45.7,-65.6 A 80,80 0 0 1 45.7,-65.6 L 13.7,-19.7 A 24,24 0 0 0 -13.7,-19.7 Z" fill="#D8A7A1"/>
+    </g>
+    <!-- β (288°) -->
+    <g transform="rotate(288)">
+      <path d="M -45.7,-65.6 A 80,80 0 0 1 45.7,-65.6 L 13.7,-19.7 A 24,24 0 0 0 -13.7,-19.7 Z" fill="#A8B5A2"/>
+    </g>
+
+    <!-- Sítios de ligação do GABA: dois entalhes nas fendas α-β -->
+    <!-- Sítio 1: entre setor 1 (α 72°) e setor 2 (β 144°) → fenda em 108° -->
+    <g transform="rotate(108)">
+      <!-- Pequeno arco/entalhe escuro na borda externa marcando a fenda -->
+      <circle cx="0" cy="-80" r="6" fill="#EFE7DD"/>
+      <circle cx="0" cy="-80" r="3.5" fill="#6B5547"/>
+    </g>
+    <!-- Sítio 2: entre setor 3 (α 216°) e setor 4 (β 288°) → fenda em 252° -->
+    <g transform="rotate(252)">
+      <circle cx="0" cy="-80" r="6" fill="#EFE7DD"/>
+      <circle cx="0" cy="-80" r="3.5" fill="#6B5547"/>
+    </g>
+
+    <!-- Canal central de cloreto -->
+    <circle cx="0" cy="0" r="24" fill="#EFE7DD"/>
+    <!-- Íon Cl⁻ representado como pequeno círculo escuro com sinal sutil -->
+    <circle cx="0" cy="0" r="9" fill="#6B5547"/>
+    <!-- Reflexo/abertura do canal (sugerindo "fluxo") -->
+    <circle cx="-2" cy="-2" r="2.5" fill="#EFE7DD" opacity="0.85"/>
+  </g>
+</svg>

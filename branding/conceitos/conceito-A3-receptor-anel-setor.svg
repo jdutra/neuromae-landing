@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <title>GABAIA — Conceito A.3: Receptor GABA-A em anel-setor</title>
+  <desc>Receptor GABA-A representado como anel com 5 setores distintos correspondentes às subunidades 2α + 2β + 1γ. Forma de canal iônico em vista de topo, com poro central de cloreto. Mais "estrutura" e menos "flor".</desc>
+  <g transform="translate(100,100)">
+    <!-- 5 setores anelares (cada um cobre 72°, raio interno 24, externo 80) -->
+    <!-- Setor 1: γ (topo, destaque bege) — apontando ao norte -->
+    <path d="M -47.0,-64.7 A 80,80 0 0 1 47.0,-64.7 L 14.1,-19.4 A 24,24 0 0 0 -14.1,-19.4 Z" fill="#C9B7A6"/>
+    <!-- Setor 2: α (rosa) — rotação 72° -->
+    <g transform="rotate(72)">
+      <path d="M -47.0,-64.7 A 80,80 0 0 1 47.0,-64.7 L 14.1,-19.4 A 24,24 0 0 0 -14.1,-19.4 Z" fill="#D8A7A1"/>
+    </g>
+    <!-- Setor 3: β (sage) — rotação 144° -->
+    <g transform="rotate(144)">
+      <path d="M -47.0,-64.7 A 80,80 0 0 1 47.0,-64.7 L 14.1,-19.4 A 24,24 0 0 0 -14.1,-19.4 Z" fill="#A8B5A2"/>
+    </g>
+    <!-- Setor 4: α (rosa) — rotação 216° -->
+    <g transform="rotate(216)">
+      <path d="M -47.0,-64.7 A 80,80 0 0 1 47.0,-64.7 L 14.1,-19.4 A 24,24 0 0 0 -14.1,-19.4 Z" fill="#D8A7A1"/>
+    </g>
+    <!-- Setor 5: β (sage) — rotação 288° -->
+    <g transform="rotate(288)">
+      <path d="M -47.0,-64.7 A 80,80 0 0 1 47.0,-64.7 L 14.1,-19.4 A 24,24 0 0 0 -14.1,-19.4 Z" fill="#A8B5A2"/>
+    </g>
+    <!-- Canal central de cloreto -->
+    <circle cx="0" cy="0" r="24" fill="#EFE7DD"/>
+    <!-- Indicador do poro (Cl⁻ atravessando) -->
+    <circle cx="0" cy="0" r="9" fill="#6B5547"/>
+    <circle cx="0" cy="0" r="3" fill="#EFE7DD"/>
+  </g>
+</svg>

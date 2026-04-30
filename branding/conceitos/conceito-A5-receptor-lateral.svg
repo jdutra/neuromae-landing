@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <title>GABAIA — Conceito A.5: Receptor GABA-A em vista lateral (textbook style)</title>
+  <desc>Vista lateral do receptor GABA-A com 5 subunidades (α-β-γ-β-α) atravessando a membrana celular. Cl⁻ entrando pelo topo e saindo pela base. Estilo de livro de neurofarmacologia.</desc>
+
+  <!-- Cl⁻ entering from above (extracelular) -->
+  <circle cx="100" cy="22" r="5.5" fill="#6B5547"/>
+
+  <!-- Cell membrane band (subtle horizontal layer) -->
+  <rect x="10" y="82" width="180" height="36" fill="#C9B7A6" opacity="0.22"/>
+  <line x1="10" y1="82" x2="190" y2="82" stroke="#C9B7A6" stroke-width="1"/>
+  <line x1="10" y1="118" x2="190" y2="118" stroke="#C9B7A6" stroke-width="1"/>
+
+  <!-- 5 subunidades como colunas/pills atravessando a membrana -->
+  <!-- α (rosa) -->
+  <rect x="40" y="40" width="22" height="120" rx="11" fill="#D8A7A1"/>
+  <!-- β (sage) -->
+  <rect x="63" y="40" width="22" height="120" rx="11" fill="#A8B5A2"/>
+  <!-- γ (bege destaque) — central, ligeiramente mais alta -->
+  <rect x="86" y="36" width="22" height="128" rx="11" fill="#C9B7A6"/>
+  <!-- β (sage) -->
+  <rect x="109" y="40" width="22" height="120" rx="11" fill="#A8B5A2"/>
+  <!-- α (rosa) -->
+  <rect x="132" y="40" width="22" height="120" rx="11" fill="#D8A7A1"/>
+
+  <!-- Cl⁻ exiting (intracelular) -->
+  <circle cx="100" cy="178" r="5.5" fill="#6B5547"/>
+</svg>

@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 200" width="800" height="200">
+  <title>GABAIA — Wordmark</title>
+  <desc>Wordmark "GABAIA" em Playfair Display Regular + tagline em Inter Light. Para registro INPI, abrir no Inkscape e usar Caminho > Objeto para Caminho para outline o texto.</desc>
+  <text x="400" y="110" text-anchor="middle"
+        font-family="Playfair Display, Georgia, serif" font-size="92" font-weight="400"
+        fill="#6B5547" letter-spacing="3">GABAIA</text>
+  <text x="400" y="155" text-anchor="middle"
+        font-family="Inter, sans-serif" font-size="13" font-weight="300"
+        fill="#C9B7A6" letter-spacing="4">CIÊNCIA, ACOLHIMENTO E TRANSFORMAÇÃO</text>
+</svg>

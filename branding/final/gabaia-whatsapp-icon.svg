@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <title>GABAIA — Ícone WhatsApp Business</title>
+  <desc>Versão pra foto de perfil do WhatsApp Business: símbolo simplificado em fundo circular creme.</desc>
+  <circle cx="100" cy="100" r="100" fill="#EFE7DD"/>
+  <g transform="translate(100,100) scale(0.78)">
+    <path d="M -45.7,-65.6 A 80,80 0 0 1 45.7,-65.6 L 13.7,-19.7 A 24,24 0 0 0 -13.7,-19.7 Z" fill="#D5C4B4"/>
+    <g transform="rotate(72)"><path d="M -45.7,-65.6 A 80,80 0 0 1 45.7,-65.6 L 13.7,-19.7 A 24,24 0 0 0 -13.7,-19.7 Z" fill="#E0B5B0"/></g>
+    <g transform="rotate(144)"><path d="M -45.7,-65.6 A 80,80 0 0 1 45.7,-65.6 L 13.7,-19.7 A 24,24 0 0 0 -13.7,-19.7 Z" fill="#B5C0AE"/></g>
+    <g transform="rotate(216)"><path d="M -45.7,-65.6 A 80,80 0 0 1 45.7,-65.6 L 13.7,-19.7 A 24,24 0 0 0 -13.7,-19.7 Z" fill="#E0B5B0"/></g>
+    <g transform="rotate(288)"><path d="M -45.7,-65.6 A 80,80 0 0 1 45.7,-65.6 L 13.7,-19.7 A 24,24 0 0 0 -13.7,-19.7 Z" fill="#B5C0AE"/></g>
+    <line x1="0" y1="-19" x2="0" y2="-80" stroke="#EFE7DD" stroke-width="2.5" transform="rotate(36)"/>
+    <line x1="0" y1="-19" x2="0" y2="-80" stroke="#EFE7DD" stroke-width="2.5" transform="rotate(108)"/>
+    <line x1="0" y1="-19" x2="0" y2="-80" stroke="#EFE7DD" stroke-width="2.5" transform="rotate(180)"/>
+    <line x1="0" y1="-19" x2="0" y2="-80" stroke="#EFE7DD" stroke-width="2.5" transform="rotate(252)"/>
+    <line x1="0" y1="-19" x2="0" y2="-80" stroke="#EFE7DD" stroke-width="2.5" transform="rotate(324)"/>
+    <circle cx="0" cy="0" r="22" fill="#EFE7DD"/>
+    <circle cx="0" cy="0" r="8" fill="#8B7565"/>
+  </g>
+</svg>

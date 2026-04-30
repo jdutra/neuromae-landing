@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <title>GABAIA — Conceito A.6: Receptor GABA-A em corte longitudinal</title>
+  <desc>Vista lateral do receptor GABA-A cortado pelo meio, revelando o canal interno por onde o Cl⁻ atravessa. 4 subunidades visíveis (α-β nas laterais) com o poro central exposto. Forma "diagrama anatômico" — mais narrativa, mostra a função do receptor.</desc>
+
+  <!-- Cl⁻ entering -->
+  <circle cx="100" cy="22" r="5.5" fill="#6B5547"/>
+
+  <!-- Membrana celular -->
+  <rect x="10" y="82" width="180" height="36" fill="#C9B7A6" opacity="0.22"/>
+  <line x1="10" y1="82" x2="190" y2="82" stroke="#C9B7A6" stroke-width="1"/>
+  <line x1="10" y1="118" x2="190" y2="118" stroke="#C9B7A6" stroke-width="1"/>
+
+  <!-- Coluna esquerda: α -->
+  <rect x="38" y="40" width="22" height="120" rx="11" fill="#D8A7A1"/>
+  <!-- Coluna esquerda: β -->
+  <rect x="61" y="40" width="22" height="120" rx="11" fill="#A8B5A2"/>
+
+  <!-- Canal central (interior do receptor exposto pelo corte) -->
+  <rect x="84" y="38" width="32" height="124" rx="16" fill="#EFE7DD" stroke="#C9B7A6" stroke-width="1"/>
+
+  <!-- Cl⁻ no meio do canal (em movimento através do receptor) -->
+  <circle cx="100" cy="100" r="6" fill="#6B5547"/>
+
+  <!-- Coluna direita: β -->
+  <rect x="117" y="40" width="22" height="120" rx="11" fill="#A8B5A2"/>
+  <!-- Coluna direita: α -->
+  <rect x="140" y="40" width="22" height="120" rx="11" fill="#D8A7A1"/>
+
+  <!-- Cl⁻ exiting -->
+  <circle cx="100" cy="178" r="5.5" fill="#6B5547"/>
+</svg>

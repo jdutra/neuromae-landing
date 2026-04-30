@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 240" width="1200" height="240">
+  <title>GABAIA — Versão monocromática</title>
+  <desc>Versão em uma única cor (#6B5547) para papel timbrado, carimbo, fatura, registro INPI, gravura. Para fundo escuro, trocar #6B5547 por #EFE7DD.</desc>
+  <g transform="translate(20,20)" fill="#6B5547">
+    <g transform="translate(100,100)">
+      <path d="M -45.7,-65.6 A 80,80 0 0 1 45.7,-65.6 L 13.7,-19.7 A 24,24 0 0 0 -13.7,-19.7 Z"/>
+      <g transform="rotate(72)"><path d="M -45.7,-65.6 A 80,80 0 0 1 45.7,-65.6 L 13.7,-19.7 A 24,24 0 0 0 -13.7,-19.7 Z"/></g>
+      <g transform="rotate(144)"><path d="M -45.7,-65.6 A 80,80 0 0 1 45.7,-65.6 L 13.7,-19.7 A 24,24 0 0 0 -13.7,-19.7 Z"/></g>
+      <g transform="rotate(216)"><path d="M -45.7,-65.6 A 80,80 0 0 1 45.7,-65.6 L 13.7,-19.7 A 24,24 0 0 0 -13.7,-19.7 Z"/></g>
+      <g transform="rotate(288)"><path d="M -45.7,-65.6 A 80,80 0 0 1 45.7,-65.6 L 13.7,-19.7 A 24,24 0 0 0 -13.7,-19.7 Z"/></g>
+      <line x1="0" y1="-19" x2="0" y2="-80" stroke="#FFFFFF" stroke-width="2.5" transform="rotate(36)"/>
+      <line x1="0" y1="-19" x2="0" y2="-80" stroke="#FFFFFF" stroke-width="2.5" transform="rotate(108)"/>
+      <line x1="0" y1="-19" x2="0" y2="-80" stroke="#FFFFFF" stroke-width="2.5" transform="rotate(180)"/>
+      <line x1="0" y1="-19" x2="0" y2="-80" stroke="#FFFFFF" stroke-width="2.5" transform="rotate(252)"/>
+      <line x1="0" y1="-19" x2="0" y2="-80" stroke="#FFFFFF" stroke-width="2.5" transform="rotate(324)"/>
+      <circle cx="0" cy="0" r="22" fill="#FFFFFF"/>
+      <circle cx="0" cy="0" r="8" fill="#6B5547"/>
+    </g>
+  </g>
+  <text x="270" y="135" font-family="Playfair Display, Georgia, serif" font-size="84" font-weight="400" fill="#6B5547" letter-spacing="3">GABAIA</text>
+  <text x="270" y="170" font-family="Inter, sans-serif" font-size="13" font-weight="300" fill="#6B5547" letter-spacing="4">CIÊNCIA, ACOLHIMENTO E TRANSFORMAÇÃO</text>
+</svg>
