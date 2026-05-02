@@ -40,11 +40,30 @@ export function Final() {
               boxShadow: "0 16px 34px rgba(88,99,72,0.21)",
             }}
           >
-            Começar 7 dias grátis
+            Me conta o que tá pesando hoje <span aria-hidden="true">→</span>
           </a>
           <p className="mt-[18px] text-[13px] text-muted">
-            7 dias grátis. Depois R$39,90/mês. Cancele por mensagem.
+            Começa em 1 minuto · 7 dias grátis · sem cartão
           </p>
+
+          <div className="mt-7 flex flex-wrap items-center justify-center gap-x-6 gap-y-3 text-[12px] font-bold text-muted">
+            <span className="inline-flex items-center gap-2">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+              Sem cartão
+            </span>
+            <span className="inline-flex items-center gap-2">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.4 8.4 0 0 1-3.8-.9L3 21l1.9-5.7a8.4 8.4 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.4 8.4 0 0 1 3.8-.9h.5a8.5 8.5 0 0 1 8 8v.5z"/></svg>
+              Direto no WhatsApp
+            </span>
+            <span className="inline-flex items-center gap-2">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M12 2 4 6v6c0 5 3.5 9.5 8 10 4.5-.5 8-5 8-10V6l-8-4Z"/><path d="m9 12 2 2 4-4"/></svg>
+              7 dias grátis
+            </span>
+            <span className="inline-flex items-center gap-2">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78Z"/></svg>
+              Sem julgamento
+            </span>
+          </div>
         </div>
       </div>
     </section>

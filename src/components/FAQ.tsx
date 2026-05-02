@@ -26,6 +26,20 @@ const items: FaqItem[] = [
     ),
   },
   {
+    q: "Qual a linha de parentalidade que a GABA segue?",
+    a: (
+      <>
+        <strong>Da vida real!</strong> Unindo <strong><em>conhecimento humano milenar</em></strong> (estoicismo), <strong><em>práticas baseadas em evidências científicas</em></strong> (ciência) e <strong><em>transcendentalismo</em></strong> (fé).
+        <br />
+        <br />
+        A GABA foi formada com base em práticas reais de neurodesenvolvimento, unindo a neurociência comportamental e os demais campos de estudos e práticas profissionais relacionados — médicos, terapeutas ocupacionais, psicólogos, fonoaudiólogos, psicopedagogos, métodos de aprendizagem.
+        <br />
+        <br />
+        E em uma posição filosófica clara: <strong>você forma seres humanos pra atravessar a vida real</strong>, com caráter forte e acolhimento sólido. Na ideia estoica de que sofrer é parte da vida, mas como você atravessa o sofrimento é onde você se torna mãe. E também na fé: independente da crença ou nominação, apenas crendo que algo muito maior que não vemos nos move, e importa.
+      </>
+    ),
+  },
+  {
     q: "Funciona para qualquer perfil de filho — TDAH, TEA, deficiência intelectual, dificuldade de aprendizagem?",
     a: (
       <>
@@ -55,8 +69,8 @@ const items: FaqItem[] = [
       <>
         Sim — a GABA responde em segundos, 24 horas, todos os dias. Esse é o momento em que ela mais aparece, justamente. Mas é importante saber: <strong>ela é IA, não é uma pessoa de plantão.</strong> Para emergências de saúde mental ou risco imediato, sempre vai te direcionar para serviço humano:{" "}
         <HelpLink href="tel:188">CVV 188</HelpLink> ou{" "}
-        <HelpLink href="https://www.cvv.org.br/chat/">chat do CVV</HelpLink>,{" "}
-        <HelpLink href="tel:192">SAMU 192</HelpLink>, UPA ou pronto-socorro mais próximo.
+        <HelpLink href="https://www.cvv.org.br/chat/">chat do CVV</HelpLink>, e{" "}
+        <HelpLink href="tel:192">SAMU 192</HelpLink> em caso de risco imediato.
       </>
     ),
   },
@@ -64,7 +78,7 @@ const items: FaqItem[] = [
     q: "Por que pagar R$39,90/mês se eu posso usar ChatGPT de graça?",
     a: (
       <>
-        ChatGPT é generalista — responde tudo sobre tudo, sem te conhecer, sem contexto de maternidade atípica, e tende a despejar informação demais (que a mãe esgotada não tem como processar). A GABA foi desenhada com práticas baseadas em evidências de neurodesenvolvimento, lembra do contexto entre conversas, te conhece, e tem freios claros para não te sobrecarregar. Se você usa ChatGPT e funciona para você, ótimo — fica nele. A GABA é para quem precisa de uma presença que entende essa rotina específica.
+        ChatGPT é generalista — responde tudo sobre tudo, sem te conhecer, sem o contexto da maternidade atípica, e tende a despejar mais informação do que uma mãe esgotada consegue processar. A GABA foi desenhada pra outra coisa: práticas baseadas em evidências de neurodesenvolvimento, memória entre conversas, ela te reconhece de verdade e tem freios claros pra não te sobrecarregar. É a diferença entre ter uma enciclopédia disponível 24h e ter uma presença que já entende como é o seu dia.
       </>
     ),
   },
@@ -74,8 +88,8 @@ const items: FaqItem[] = [
       <>
         A GABA reconhece sinais de crise e te direciona imediatamente para ajuda profissional —{" "}
         <strong><HelpLink href="tel:188">CVV 188</HelpLink></strong> ou{" "}
-        <strong><HelpLink href="https://www.cvv.org.br/chat/">chat do CVV</HelpLink></strong>,{" "}
-        <strong><HelpLink href="tel:192">SAMU 192</HelpLink></strong>, UPA ou pronto-socorro mais próximo. Ela não substitui psiquiatra de plantão nem profissional treinado em crise.
+        <strong><HelpLink href="https://www.cvv.org.br/chat/">chat do CVV</HelpLink></strong>, e{" "}
+        <strong><HelpLink href="tel:192">SAMU 192</HelpLink></strong> em caso de risco imediato. Ela não substitui psiquiatra de plantão nem profissional treinado em crise.
         <br />
         <br />
         Se você está numa noite assim agora, antes de continuar lendo: por favor, ligue{" "}
@@ -138,21 +152,21 @@ export function FAQ() {
               style={{ background: "rgba(255,248,241,0.62)" }}
             >
               <summary
-                className="flex cursor-pointer list-none items-start justify-between gap-4 px-5 py-4 text-[16px] font-bold text-ink md:px-6 md:text-[17px]"
-                style={{ lineHeight: 1.4 }}
+                className="flex cursor-pointer list-none items-start justify-between gap-4 px-5 py-3.5 text-[14px] font-bold text-ink md:px-6 md:text-[15px]"
+                style={{ lineHeight: 1.45 }}
               >
                 <span>{it.q}</span>
                 <span
                   aria-hidden="true"
-                  className="mt-[3px] flex-none text-[20px] text-muted transition-transform group-open:rotate-45"
+                  className="mt-[2px] flex-none text-[18px] text-muted transition-transform group-open:rotate-45"
                   style={{ lineHeight: 1 }}
                 >
                   +
                 </span>
               </summary>
               <div
-                className="px-5 pb-5 text-[15.5px] text-muted md:px-6 md:pb-6"
-                style={{ lineHeight: 1.62 }}
+                className="px-5 pb-4 text-[14px] text-muted md:px-6 md:pb-5"
+                style={{ lineHeight: 1.6 }}
               >
                 {it.a}
               </div>

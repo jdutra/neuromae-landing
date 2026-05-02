@@ -28,6 +28,153 @@
     width: min(1120px, calc(100% - 40px));
     @apply mx-auto;
   }
+
+  /* Wordmark inline da marca — usar em volta de "GABA" no corpo do texto */
+  .gaba-name {
+    font-family: "Jost", sans-serif;
+    font-weight: 400;
+    letter-spacing: 0.06em;
+  }
+
+  /* Card da fundadora (sem float — alinhado em grid) */
+  .founder-card-float {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 10px;
+    margin: 0 auto;
+    max-width: 200px;
+  }
+  .founder-card-float img {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 1px solid rgba(95, 75, 62, 0.10);
+    box-shadow: 0 10px 28px rgba(70, 55, 44, 0.10);
+  }
+  .founder-card-float .info {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    align-items: center;
+  }
+  .founder-card-float .name {
+    font-family: "Playfair Display", Georgia, serif;
+    font-weight: 500;
+    font-size: 17px;
+    color: #5F4B3E;
+    letter-spacing: -0.01em;
+  }
+  .founder-card-float .creds {
+    font-size: 12px;
+    color: #77675B;
+    line-height: 1.45;
+    max-width: 180px;
+  }
+  .founder-card-float .insta {
+    margin-top: 4px;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 4px 10px;
+    border-radius: 999px;
+    background: rgba(102, 114, 84, 0.10);
+    border: 1px solid rgba(102, 114, 84, 0.20);
+    color: #586348;
+    font-size: 12px;
+    font-weight: 800;
+  }
+
+  /* Diagrama de pilares — sinapse GABA */
+  .pilares-lines { display: none; }
+  @media (min-width: 760px) { .pilares-lines { display: block; } }
+
+  .pilares-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    position: relative;
+    z-index: 1;
+  }
+  @media (min-width: 760px) {
+    .pilares-grid {
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr);
+      grid-template-rows: auto 180px auto;
+      gap: 36px 24px;
+      align-items: center;
+      justify-items: center;
+    }
+  }
+
+  .pilar-hub-symbol {
+    width: 150px;
+    height: 150px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    grid-column: 1 / -1;
+    grid-row: 1;
+  }
+  .pilar-hub-symbol img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+    filter: drop-shadow(0 10px 24px rgba(184, 121, 103, 0.18));
+  }
+  .pilar-hub-symbol::before {
+    content: "";
+    position: absolute;
+    inset: -10px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(216, 167, 161, 0.22) 0%, transparent 65%);
+    z-index: -1;
+  }
+  @media (min-width: 760px) {
+    .pilar-hub-symbol { grid-column: 2; grid-row: 2; width: 170px; height: 170px; }
+  }
+
+  .pilar-pill {
+    background: rgba(255, 248, 241, 0.78);
+    border: 1px solid rgba(102, 114, 84, 0.22);
+    border-radius: 999px;
+    padding: 10px 16px;
+    font-family: "Playfair Display", Georgia, serif;
+    font-style: italic;
+    font-size: 14.5px;
+    color: #5F4B3E;
+    text-align: center;
+    line-height: 1.3;
+    box-shadow: 0 4px 12px rgba(70, 55, 44, 0.05);
+    width: fit-content;
+    max-width: 100%;
+    justify-self: center;
+  }
+  @media (min-width: 760px) {
+    .pilar-pill { font-size: 16px; padding: 10px 18px; }
+  }
+
+  /* Mobile: hub spans 2 cols (row 1), pilares fluem rows 2-4 */
+  .p-pos-1 { grid-column: 1; grid-row: 2; }
+  .p-pos-2 { grid-column: 2; grid-row: 2; }
+  .p-pos-3 { grid-column: 1; grid-row: 3; }
+  .p-pos-4 { grid-column: 2; grid-row: 3; }
+  .p-pos-5 { grid-column: 1; grid-row: 4; }
+  .p-pos-6 { grid-column: 2; grid-row: 4; }
+
+  /* Desktop: orbita 3x3 com hub no centro */
+  @media (min-width: 760px) {
+    .p-pos-1 { grid-column: 1; grid-row: 1; }
+    .p-pos-2 { grid-column: 2; grid-row: 1; }
+    .p-pos-3 { grid-column: 3; grid-row: 1; }
+    .p-pos-4 { grid-column: 1; grid-row: 3; }
+    .p-pos-5 { grid-column: 2; grid-row: 3; }
+    .p-pos-6 { grid-column: 3; grid-row: 3; }
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
