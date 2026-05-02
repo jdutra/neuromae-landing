@@ -1,6 +1,5 @@
 import { Nav } from "./components/Nav";
 import { Hero } from "./components/Hero";
-import { Respiro } from "./components/Respiro";
 import { Produto } from "./components/Produto";
 import { Funciona } from "./components/Funciona";
 import { Fundadora } from "./components/Fundadora";
@@ -17,7 +16,6 @@ export default function App() {
       <Nav />
       <main id="top">
         <Hero />
-        <Respiro />
         <Produto />
         <Funciona />
         <Fundadora />

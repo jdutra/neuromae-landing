@@ -7,11 +7,12 @@ interface MomentCardProps {
 function MomentCard({ avatar, title, body }: MomentCardProps) {
   return (
     <article
-      className="flex flex-col items-center gap-2.5 rounded-[26px] border border-brown/10 text-center"
+      className="relative flex flex-col justify-end overflow-hidden rounded-[30px] border border-brown/10"
       style={{
         background: "rgba(255,248,241,0.52)",
         boxShadow: "0 12px 40px rgba(70,55,44,0.045)",
-        padding: "18px 14px 20px",
+        padding: "24px 20px 22px",
+        minHeight: "230px",
       }}
     >
       <img
@@ -20,21 +21,26 @@ function MomentCard({ avatar, title, body }: MomentCardProps) {
         aria-hidden="true"
         loading="lazy"
         decoding="async"
-        className="flex-none"
+        className="pointer-events-none absolute"
         style={{
-          width: "200px",
-          height: "200px",
+          right: "-12px",
+          top: "4px",
+          width: "150px",
+          height: "150px",
           objectFit: "contain",
-          objectPosition: "center",
+          objectPosition: "top right",
+          opacity: 0.155,
+          filter: "sepia(.16) saturate(.60) contrast(.72)",
+          mixBlendMode: "multiply",
         }}
       />
       <h3
-        className="text-[14px] uppercase text-brown"
-        style={{ letterSpacing: "0.12em", margin: 0 }}
+        className="relative mb-[7px] text-[15px] uppercase text-brown"
+        style={{ letterSpacing: "0.10em" }}
       >
         {title}
       </h3>
-      <p className="text-[14px] text-muted" style={{ lineHeight: 1.48, margin: 0 }}>
+      <p className="relative text-[14px] text-muted" style={{ lineHeight: 1.48, maxWidth: "220px" }}>
         {body}
       </p>
     </article>

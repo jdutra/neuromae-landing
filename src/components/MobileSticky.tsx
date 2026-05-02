@@ -6,14 +6,14 @@ export function MobileSticky() {
       href={WA_LINK}
       target="_blank"
       rel="noopener noreferrer"
-      className="fixed left-3 right-3 bottom-3 z-30 flex items-center justify-center gap-2 rounded-full font-extrabold text-cream-2 md:hidden"
+      className="fixed left-3 right-3 bottom-3 z-30 flex items-center justify-center rounded-full font-extrabold text-cream-2 md:hidden"
       style={{
         minHeight: "54px",
         background: "linear-gradient(180deg,#667254,#586348)",
         boxShadow: "0 16px 34px rgba(65,56,46,0.24)",
       }}
     >
-      Começar agora · grátis <span aria-hidden="true">→</span>
+      Começar 7 dias grátis
     </a>
   );
 }
