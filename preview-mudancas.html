@@ -1,0 +1,1134 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Preview completo — GABAIA</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500&family=Playfair+Display:wght@400;500;600&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --cream: #F3ECE3;
+    --cream-2: #FFF8F1;
+    --latte: #E5D5C7;
+    --ink: #40352E;
+    --muted: #77675B;
+    --soft: #8F8176;
+    --olive: #667254;
+    --olive-2: #586348;
+    --terracotta: #B87967;
+    --brown: #5F4B3E;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    font-family: 'Inter', -apple-system, sans-serif;
+    color: var(--ink);
+    line-height: 1.62;
+    background:
+      radial-gradient(circle at 92% 3%, rgba(184, 121, 103, 0.11), transparent 28%),
+      radial-gradient(circle at 8% 12%, rgba(102, 114, 84, 0.10), transparent 30%),
+      var(--cream);
+    padding-bottom: 100px;
+  }
+  a { color: inherit; text-decoration: none; }
+  .preview-banner {
+    background: rgba(184,121,103,0.12);
+    border-bottom: 1px solid rgba(184,121,103,0.25);
+    padding: 10px 16px;
+    text-align: center;
+    font-size: 13px;
+    color: var(--brown);
+    font-weight: 500;
+  }
+  .preview-banner b { color: var(--terracotta); }
+  .wrap { width: min(1120px, calc(100% - 40px)); margin: 0 auto; }
+
+  /* Nav */
+  nav.gabaia { position: sticky; top: 0; z-index: 20; background: rgba(243,236,227,0.86); backdrop-filter: blur(10px); border-bottom: 1px solid rgba(95,75,62,0.10); }
+  nav.gabaia .wrap { height: 76px; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+  .brand { display: flex; align-items: center; gap: 12px; min-width: 0; }
+  .brand img { width: 40px; height: auto; filter: drop-shadow(0 4px 10px rgba(70,55,44,.10)); }
+  .brand-text { display: flex; flex-direction: column; line-height: 0.92; gap: 2px; }
+  .brand-name { font-family: 'Jost', sans-serif; font-weight: 300; font-size: 26px; color: var(--brown); letter-spacing: 0.22em; line-height: 1; }
+  .brand-by { font-size: 10px; letter-spacing: 0.01em; color: var(--muted); margin-left: 2px; }
+  .brand-by .neuromae-mark { font-family: 'Playfair Display', Georgia, serif; font-weight: 400; font-size: 11px; color: #77675B; letter-spacing: -0.005em; }
+  nav.gabaia .links { display: flex; gap: 24px; font-size: 13px; font-weight: 600; color: var(--muted); }
+  nav.gabaia .links a { opacity: 0.8; transition: 0.2s; cursor: pointer; }
+  nav.gabaia .links a:hover { color: var(--brown); opacity: 1; }
+  nav.gabaia .pill { background: rgba(102,114,84,0.10); border: 1px solid rgba(102,114,84,0.20); color: var(--olive-2); padding: 9px 16px; border-radius: 999px; font-size: 13px; font-weight: 800; cursor: pointer; }
+  @media (max-width: 880px) { nav.gabaia .links { display: none; } }
+
+  /* Common pieces */
+  h2 { font-family: 'Playfair Display', Georgia, serif; font-weight: 500; font-size: clamp(30px, 3.4vw, 44px); line-height: 1.06; letter-spacing: -0.026em; color: var(--ink); margin: 0 0 12px; }
+  .kicker { display: inline-flex; background: rgba(102,114,84,0.10); color: var(--olive-2); font-size: 11px; font-weight: 900; letter-spacing: 0.12em; text-transform: uppercase; padding: 8px 12px; border-radius: 999px; margin-bottom: 14px; }
+  .section-head { text-align: center; max-width: 760px; margin: 0 auto 28px; }
+  .section-head p { font-size: 17px; color: var(--muted); margin: 12px 0 0; }
+  section + section { border-top: 1px solid rgba(95,75,62,0.08); }
+
+  /* Hero */
+  section.hero { position: relative; padding: 70px 0 56px; overflow: hidden; }
+  .hero-atmosphere {
+    position: absolute; inset: 0; z-index: 0; pointer-events: none;
+    background:
+      radial-gradient(ellipse 70% 75% at 78% 38%, rgba(216,167,161,0.24) 0%, rgba(216,167,161,0.06) 42%, transparent 68%),
+      radial-gradient(ellipse 75% 65% at 18% 80%, rgba(168,181,162,0.18) 0%, rgba(168,181,162,0.05) 42%, transparent 62%);
+  }
+  .hero-grid { position: relative; z-index: 2; display: grid; grid-template-columns: minmax(0, 1fr) minmax(420px, 1fr); gap: 32px; align-items: center; }
+  @media (max-width: 880px) { .hero-grid { grid-template-columns: 1fr; gap: 36px; } }
+  .eyebrow-row { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-bottom: 18px; }
+  .eyebrow { display: inline-flex; align-items: center; padding: 6px 12px; border-radius: 999px; font-size: 10.5px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.10em; }
+  .eyebrow.audience { background: rgba(216,167,161,0.22); border: 1px solid rgba(216,167,161,0.32); color: #5F4B3E; }
+  .eyebrow.pillars  { background: #586348; color: #FFF8F1; }
+  .ministats { margin-top: 24px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; max-width: 480px; }
+  .ministat { display: flex; align-items: center; gap: 8px; border-radius: 10px; border: 1px solid rgba(95,75,62,0.06); background: rgba(255,248,241,0.32); padding: 7px 10px; }
+  .ministat .icon { display: inline-flex; flex: none; align-items: center; justify-content: center; width: 24px; height: 24px; border-radius: 50%; background: rgba(102,114,84,0.08); color: var(--olive-2); }
+  .ministat .icon svg { width: 11px; height: 11px; }
+  .ministat .text { display: flex; flex-direction: column; gap: 1px; min-width: 0; }
+  .ministat .text .big { font-size: 14.5px; font-weight: 600; color: var(--brown); line-height: 1.1; letter-spacing: -0.005em; }
+  .ministat .text .small { font-size: 8.5px; font-weight: 500; color: var(--muted); text-transform: uppercase; letter-spacing: 0.07em; line-height: 1.25; }
+  h1.hero-title { font-family: 'Playfair Display', Georgia, serif; font-weight: 500; font-size: clamp(36px, 4.2vw, 56px); line-height: 1.02; letter-spacing: -0.035em; color: var(--ink); margin: 0; max-width: 100%; }
+  h1.hero-title .accent { color: var(--terracotta); }
+  h1.hero-title .nb { white-space: nowrap; }
+  .hero-sub { font-size: clamp(17px, 1.6vw, 21px); line-height: 1.55; color: #5D5047; max-width: 560px; margin: 22px 0 0; }
+  .hero-falas { margin: 26px 0 0; max-width: 580px; display: flex; flex-direction: column; gap: 10px; }
+  .hero-falas p { font-family: 'Playfair Display', Georgia, serif; font-style: italic; font-weight: 400; font-size: clamp(15.5px, 1.4vw, 17.5px); line-height: 1.5; color: #77675B; margin: 0; }
+  .hero-bridge { margin: 22px 0 0; font-size: clamp(16px, 1.5vw, 19px); line-height: 1.55; color: #5D5047; max-width: 560px; }
+  .hero-essa-gaba { margin: 32px 0 0; font-family: 'Playfair Display', Georgia, serif; font-style: italic; font-weight: 500; font-size: clamp(26px, 2.6vw, 34px); line-height: 1.15; color: #B87967; letter-spacing: -0.02em; text-shadow: 0 2px 12px rgba(184,121,103,0.18), 0 1px 2px rgba(95,75,62,0.08); max-width: 560px; }
+  .hero-essa-gaba .gaba-mark { font-family: 'Jost', sans-serif; font-style: normal; font-weight: 300; letter-spacing: 0.22em; font-size: 0.82em; }
+  .hero-tagline-row { margin: 10px 0 0; display: flex; flex-direction: column; gap: 8px; max-width: 560px; }
+  .hero-tagline-row .kicker-label { font-family: 'Jost', sans-serif; font-weight: 400; font-size: 11px; color: #586348; letter-spacing: 0.20em; text-transform: uppercase; }
+  .hero-tagline-row .text { font-family: 'Playfair Display', Georgia, serif; font-style: italic; font-weight: 400; font-size: 16.5px; line-height: 1.45; color: #5F4B3E; margin: 0; }
+  .hero-explain { font-size: 15.5px; color: var(--muted); max-width: 540px; margin: 14px 0 0; }
+  .hero-actions { margin-top: 28px; display: flex; flex-wrap: wrap; align-items: center; gap: 16px; }
+  .cta-primary { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 56px; padding: 0 28px; border-radius: 999px; background: linear-gradient(180deg,#667254,#586348); color: var(--cream-2); font-weight: 800; letter-spacing: -0.01em; box-shadow: 0 16px 34px rgba(88,99,72,0.21); transition: transform 0.2s; cursor: pointer; }
+  .cta-primary:hover { transform: translateY(-1px); }
+  .cta-secondary { font-weight: 700; color: var(--muted); border-bottom: 1px solid rgba(119,103,91,0.35); padding-bottom: 4px; }
+
+  /* Hero CTAs (grid 2 colunas, alinhado com mini-stats) */
+  .hero-actions {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 10px;
+    max-width: 480px; margin-top: 28px;
+    flex-wrap: unset;
+  }
+  .hero-actions a.cta-primary,
+  .hero-actions .cta-suporte {
+    display: inline-flex; align-items: center; justify-content: center; gap: 6px;
+    min-height: 44px; padding: 0 16px; border-radius: 999px;
+    background: linear-gradient(180deg, #667254, #586348);
+    color: var(--cream-2);
+    font-weight: 700; font-size: 13.5px; letter-spacing: 0.02em;
+    white-space: nowrap;
+    box-shadow: 0 14px 28px rgba(88,99,72,0.24);
+    transition: transform 0.2s; cursor: pointer;
+  }
+  .hero-actions a.cta-primary:hover,
+  .hero-actions .cta-suporte:hover { transform: translateY(-1px); }
+  .ministats { margin-top: 10px; }
+  .micro { font-size: 13.5px; color: var(--muted); margin: 12px 0 0; }
+
+  .gaba-spotlight {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: clamp(640px, 75vw, 860px);
+  }
+  .gaba-halo {
+    position: absolute; inset: 0; z-index: 0;
+    display: flex; align-items: center; justify-content: center;
+    pointer-events: none;
+  }
+  .gaba-halo::before {
+    content: '';
+    width: 118%; height: 118%;
+    border-radius: 50%;
+    background: radial-gradient(circle at 50% 44%, rgba(216,167,161,0.50) 0%, rgba(216,167,161,0.28) 16%, rgba(255,248,241,0.75) 36%, rgba(168,181,162,0.22) 60%, rgba(168,181,162,0.08) 78%, transparent 92%);
+    filter: blur(64px);
+  }
+  .gaba-shadow {
+    position: absolute; bottom: 16%; left: 50%; transform: translateX(-50%);
+    width: 62%; height: 26px;
+    background: radial-gradient(ellipse at center, rgba(95,75,62,0.28) 0%, rgba(95,75,62,0.12) 40%, transparent 75%);
+    filter: blur(10px);
+    z-index: 0;
+    pointer-events: none;
+  }
+  .gaba-spotlight img {
+    position: relative; z-index: 1;
+    width: 100%; max-width: min(820px, 100%); height: auto;
+    opacity: 0.96;
+    filter: drop-shadow(0 42px 68px rgba(95,75,62,0.18)) drop-shadow(0 16px 28px rgba(95,75,62,0.08)) sepia(0.10) saturate(0.92) contrast(0.96) brightness(0.98);
+  }
+  .gaba-signature {
+    position: relative; z-index: 2;
+    margin: -8px 0 0;
+    text-align: center;
+    font-family: 'Playfair Display', Georgia, serif;
+    font-style: italic;
+    font-weight: 500;
+    font-size: clamp(20px, 2vw, 26px);
+    color: var(--terracotta);
+    letter-spacing: -0.01em;
+  }
+  .gaba-signature .gaba-mark {
+    font-family: 'Jost', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    letter-spacing: 0.10em;
+    font-size: 0.88em;
+    color: var(--terracotta);
+  }
+
+  /* Conversa subseção */
+  section.conversa { padding: 64px 0; background: rgba(255,248,241,0.30); }
+  .conversa-head { text-align: center; max-width: 680px; margin: 0 auto 40px; }
+  .conversa-head h2 { font-size: clamp(28px, 3.2vw, 40px); line-height: 1.08; }
+  .conversa-head p { font-size: 16.5px; color: var(--muted); margin: 12px 0 0; }
+  .conversa-card-wrap { max-width: 640px; margin: 0 auto; }
+  .conversa-card-wrap .phone-card { margin-top: 0; max-width: 100%; padding: 26px; border-radius: 32px; }
+  .conversa-card-wrap .bubble-mom, .conversa-card-wrap .bubble-gaba { font-size: 15px; padding: 14px 18px; line-height: 1.5; border-radius: 20px; }
+  .conversa-card-wrap .bubble-gaba ol { font-size: 14px; }
+
+  /* PhoneCard */
+  .phone-card { margin-top: 36px; background: rgba(255,248,241,0.78); border: 1px solid rgba(95,75,62,0.12); border-radius: 28px; padding: 20px; max-width: 560px; box-shadow: 0 18px 48px rgba(70,55,44,0.10); backdrop-filter: blur(8px); }
+  .phone-head { display: flex; align-items: center; justify-content: space-between; font-size: 11.5px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--muted); margin-bottom: 14px; }
+  .phone-head .online { display: inline-flex; align-items: center; gap: 8px; }
+  .phone-head .online::before { content: ''; display: block; width: 8px; height: 8px; border-radius: 50%; background: var(--olive); }
+  .bubble-mom, .bubble-gaba { padding: 13px 16px; border-radius: 18px; font-size: 14px; line-height: 1.48; margin: 8px 0; }
+  .bubble-mom { background: #EEE1D7; color: #4D4037; border-bottom-left-radius: 7px; margin-right: 32px; }
+  .bubble-gaba { background: #E7EBDD; color: #3E4935; border-bottom-right-radius: 7px; margin-left: 24px; }
+  .bubble-gaba ol { margin: 8px 0 0 18px; padding: 0; font-size: 13.5px; }
+  .bubble-gaba ol li { margin-bottom: 4px; }
+  .phone-input { margin-top: 14px; background: rgba(255,255,255,0.56); border: 1px solid rgba(95,75,62,0.08); border-radius: 999px; padding: 11px 14px; font-size: 13px; color: var(--soft); display: flex; justify-content: space-between; align-items: center; }
+
+  /* Produto */
+  section.produto { padding: 58px 0; }
+  .info-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  @media (max-width: 760px) { .info-grid { grid-template-columns: 1fr; } }
+  .info-card { background: rgba(255,248,241,0.62); border: 1px solid rgba(95,75,62,0.10); border-radius: 28px; padding: 24px; min-height: 176px; box-shadow: 0 12px 38px rgba(70,55,44,0.055); }
+  .info-card .num { font-family: 'Playfair Display', Georgia, serif; font-size: 36px; line-height: 1; margin-bottom: 18px; color: var(--terracotta); opacity: 0.72; }
+  .info-card h3 { margin: 0 0 8px; font-size: 17px; color: var(--ink); letter-spacing: -0.01em; }
+  .info-card p { margin: 0; font-size: 15px; color: var(--muted); }
+
+  /* Funciona */
+  section.funciona { padding: 64px 0; background: rgba(255,248,241,0.28); }
+  .moments { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; max-width: 720px; margin: 0 auto; }
+  @media (min-width: 760px) { .moments { grid-template-columns: repeat(4, 1fr); gap: 16px; } }
+  .moment { position: relative; background: rgba(255,248,241,0.62); border: 1px solid rgba(95,75,62,0.10); border-radius: 26px; padding: 24px 16px 22px; min-height: 260px; box-shadow: 0 12px 36px rgba(70,55,44,0.06); display: flex; flex-direction: column; align-items: center; text-align: center; }
+  .moment-avatar-wrap { position: relative; width: 180px; height: 150px; margin-bottom: 6px; display: flex; align-items: center; justify-content: center; }
+  .moment-avatar-halo { position: absolute; inset: 0; pointer-events: none; filter: blur(14px); }
+  .moment-avatar-halo.rosa       { background: radial-gradient(ellipse at 50% 50%, rgba(216,167,161,0.32) 0%, rgba(255,248,241,0.4) 55%, transparent 80%); }
+  .moment-avatar-halo.bege       { background: radial-gradient(ellipse at 50% 50%, rgba(201,183,166,0.32) 0%, rgba(255,248,241,0.4) 55%, transparent 80%); }
+  .moment-avatar-halo.sage       { background: radial-gradient(ellipse at 50% 50%, rgba(168,181,162,0.30) 0%, rgba(255,248,241,0.4) 55%, transparent 80%); }
+  .moment-avatar-halo.terracotta { background: radial-gradient(ellipse at 50% 50%, rgba(184,121,103,0.22) 0%, rgba(255,248,241,0.4) 55%, transparent 80%); }
+  .moment-avatar-shadow { position: absolute; bottom: -4px; left: 50%; transform: translateX(-50%); width: 70%; height: 10px; background: radial-gradient(ellipse at center, rgba(95,75,62,0.20) 0%, transparent 75%); filter: blur(5px); pointer-events: none; }
+  .moment img { position: relative; z-index: 1; height: 128px; width: auto; max-width: 100%; object-fit: contain; filter: drop-shadow(0 14px 20px rgba(95,75,62,0.20)) drop-shadow(0 5px 10px rgba(95,75,62,0.10)); }
+  .moment h3 { margin: 8px 0 0; font-size: 13px; text-transform: uppercase; letter-spacing: 0.12em; color: var(--brown); font-weight: 600; }
+  .moment p { margin: 6px 0 0; font-size: 13.5px; color: var(--muted); line-height: 1.5; max-width: 200px; }
+
+  /* Fundadora */
+  section.fundadora { padding: 72px 0; background: rgba(255,248,241,0.34); }
+  .founder-quote { position: relative; max-width: 660px; margin: 28px 0 0; padding: 4px 16px 4px 24px; border-left: 3px solid #B87967; border-radius: 0 14px 14px 0; background: linear-gradient(90deg, rgba(216,167,161,0.08) 0%, rgba(216,167,161,0) 70%); }
+  @media (min-width: 760px) { .founder-quote { padding: 8px 20px 8px 32px; } }
+  .founder-quote .quote-mark { position: absolute; left: 18px; top: -12px; font-family: 'Playfair Display', Georgia, serif; font-size: 62px; line-height: 1; color: rgba(184,121,103,0.32); font-weight: 600; pointer-events: none; user-select: none; }
+  .founder-quote .quote-body { position: relative; display: flex; flex-direction: column; gap: 16px; font-family: 'Playfair Display', Georgia, serif; font-style: italic; font-weight: 400; font-size: 17px; line-height: 1.7; color: #5F4B3E; }
+  .founder-quote .quote-body p { margin: 0; }
+  .founder-quote .quote-body strong { font-style: normal; }
+  .founder-quote .quote-body p.quote-question { font-style: normal; font-weight: 500; }
+
+  /* Fundadora — layout editorial premium */
+  .founder-header { max-width: 640px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 12px; }
+  .founder-header .kicker { margin: 0; }
+  .founder-header h2 { font-size: clamp(28px, 3.2vw, 42px); line-height: 1.05; letter-spacing: -0.026em; margin: 0; }
+
+  .founder-divider { width: 100px; height: 1px; margin: 40px auto; background: linear-gradient(90deg, transparent, rgba(184,121,103,0.50), transparent); }
+  @media (min-width: 760px) { .founder-divider { margin: 48px auto; } }
+
+  .founder-bio { max-width: 640px; margin: 0 auto; display: flex; flex-direction: column; gap: 20px; font-size: 17px; color: var(--muted); line-height: 1.7; }
+  .founder-bio p { margin: 0; }
+  .founder-bio p.opener { font-family: 'Playfair Display', Georgia, serif; font-style: italic; font-weight: 500; font-size: clamp(20px, 2vw, 24px); line-height: 1.4; color: #5F4B3E; }
+  .founder-bio strong { color: var(--brown); }
+
+  /* Bloco de destaque: retrato + citação lado a lado */
+  .founder-feature { max-width: 920px; margin: 48px auto 0; display: flex; flex-direction: column; align-items: center; gap: 32px; }
+  @media (min-width: 760px) { .founder-feature { display: grid; grid-template-columns: minmax(200px, 240px) minmax(0, 1fr); align-items: center; gap: 40px; margin-top: 56px; } }
+  .founder-portrait-card { display: flex; flex-direction: column; align-items: center; gap: 12px; text-align: center; }
+  @media (min-width: 760px) { .founder-portrait-card { align-items: flex-start; text-align: left; } }
+  .founder-portrait-card .portrait-wrap { position: relative; }
+  .founder-portrait-card .halo { position: absolute; inset: 0; z-index: -1; border-radius: 50%; background: radial-gradient(circle at 50% 45%, rgba(216,167,161,0.30) 0%, rgba(216,167,161,0.10) 50%, transparent 75%); filter: blur(28px); transform: scale(1.25); }
+  .founder-portrait-card img { width: 180px; height: 180px; border-radius: 50%; object-fit: cover; border: 3px solid rgba(255,248,241,0.85); box-shadow: 0 18px 44px rgba(70,55,44,0.14); display: block; }
+  .founder-portrait-card .info { display: flex; flex-direction: column; align-items: center; gap: 4px; margin-top: 4px; }
+  @media (min-width: 760px) { .founder-portrait-card .info { align-items: flex-start; } }
+  .founder-portrait-card .name { font-family: 'Playfair Display', Georgia, serif; font-weight: 500; font-size: 19px; color: var(--brown); letter-spacing: -0.01em; line-height: 1.2; }
+  .founder-portrait-card .creds { font-size: 12.5px; color: var(--muted); line-height: 1.45; max-width: 240px; }
+  .founder-portrait-card .insta { display: inline-flex; align-items: center; gap: 4px; padding: 4px 10px; border-radius: 999px; background: rgba(102,114,84,0.10); border: 1px solid rgba(102,114,84,0.20); color: var(--olive-2); font-size: 12px; font-weight: 800; margin-top: 4px; }
+
+  .founder-closing-edit { max-width: 780px; margin: 56px auto 0; display: flex; flex-direction: column; align-items: center; text-align: center; }
+  .founder-closing-edit .mini-divider { width: 60px; height: 1px; background: rgba(184,121,103,0.40); margin-bottom: 28px; }
+  .founder-closing-edit .closing-headline { font-family: 'Playfair Display', Georgia, serif; font-weight: 500; font-size: clamp(26px, 2.8vw, 34px); line-height: 1.2; color: #B87967; letter-spacing: -0.02em; margin: 0 0 8px; }
+  .founder-closing-edit .closing-headline .gaba-mark { font-family: 'Jost', sans-serif; font-weight: 400; letter-spacing: 0.10em; font-size: 0.88em; }
+
+  /* Diagrama de pilares — sinapse GABA */
+  .pilares-diagrama { position: relative; width: 100%; max-width: 720px; margin: 0 auto; }
+  .pilares-lines { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; z-index: 0; display: none; }
+  @media (min-width: 760px) { .pilares-lines { display: block; } }
+
+  .pilares-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; position: relative; z-index: 1; }
+  @media (min-width: 760px) {
+    .pilares-grid { grid-template-columns: minmax(0,1fr) minmax(0,1fr) minmax(0,1fr); grid-template-rows: auto 180px auto; gap: 36px 24px; align-items: center; justify-items: center; }
+  }
+
+  .pilar-hub-symbol { width: 150px; height: 150px; margin: 0 auto; display: flex; align-items: center; justify-content: center; position: relative; grid-column: 1 / -1; grid-row: 1; }
+  .pilar-hub-symbol img { width: 100%; height: 100%; object-fit: contain; display: block; filter: drop-shadow(0 10px 24px rgba(184,121,103,0.18)); }
+  .pilar-hub-symbol::before { content: ""; position: absolute; inset: -10px; border-radius: 50%; background: radial-gradient(circle, rgba(216,167,161,0.22) 0%, transparent 65%); z-index: -1; }
+  @media (min-width: 760px) { .pilar-hub-symbol { grid-column: 2; grid-row: 2; width: 170px; height: 170px; } }
+
+  .pilar-pill { background: rgba(255,248,241,0.78); border: 1px solid rgba(102,114,84,0.22); border-radius: 999px; padding: 10px 16px; font-family: 'Playfair Display', Georgia, serif; font-style: italic; font-size: 14.5px; color: #5F4B3E; text-align: center; line-height: 1.3; box-shadow: 0 4px 12px rgba(70,55,44,0.05); width: fit-content; max-width: 100%; justify-self: center; }
+  @media (min-width: 760px) { .pilar-pill { font-size: 16px; padding: 10px 18px; } }
+
+  /* Mobile: pilares em 2 cols, rows 2-4 (hub é row 1 col span 2) */
+  .p-pos-1 { grid-column: 1; grid-row: 2; }
+  .p-pos-2 { grid-column: 2; grid-row: 2; }
+  .p-pos-3 { grid-column: 1; grid-row: 3; }
+  .p-pos-4 { grid-column: 2; grid-row: 3; }
+  .p-pos-5 { grid-column: 1; grid-row: 4; }
+  .p-pos-6 { grid-column: 2; grid-row: 4; }
+  @media (min-width: 760px) {
+    .p-pos-1 { grid-column: 1; grid-row: 1; }
+    .p-pos-2 { grid-column: 2; grid-row: 1; }
+    .p-pos-3 { grid-column: 3; grid-row: 1; }
+    .p-pos-4 { grid-column: 1; grid-row: 3; }
+    .p-pos-5 { grid-column: 2; grid-row: 3; }
+    .p-pos-6 { grid-column: 3; grid-row: 3; }
+  }
+  .fundadora-grid { display: grid; grid-template-columns: minmax(0, 1.18fr) minmax(260px, .78fr); gap: 48px; align-items: start; }
+  @media (max-width: 880px) { .fundadora-grid { grid-template-columns: 1fr; } }
+  .fundadora-text { font-size: 17px; color: var(--muted); line-height: 1.62; max-width: 640px; }
+  .fundadora-text p { margin: 0 0 18px; }
+  .fundadora-text p:first-child { font-size: 19px; color: var(--brown); line-height: 1.5; font-weight: 500; }
+  .fundadora-text strong { color: var(--brown); }
+  .founder-card { display: flex; flex-direction: column; align-items: center; gap: 12px; padding: 24px; text-align: center; background: rgba(255,248,241,0.62); border: 1px solid rgba(95,75,62,0.10); border-radius: 28px; box-shadow: 0 12px 38px rgba(70,55,44,0.06); position: sticky; top: 100px; }
+  .founder-card img { width: 160px; height: auto; border-radius: 20px; border: 1px solid rgba(95,75,62,0.10); object-fit: cover; }
+  .founder-card .name { font-family: 'Playfair Display', Georgia, serif; font-weight: 500; font-size: 20px; color: var(--brown); letter-spacing: -0.01em; }
+  .founder-card .creds { font-size: 13px; color: var(--muted); line-height: 1.45; max-width: 220px; }
+  .founder-card .insta { display: inline-flex; align-items: center; gap: 4px; padding: 6px 12px; border-radius: 999px; background: rgba(102,114,84,0.10); border: 1px solid rgba(102,114,84,0.20); color: var(--olive-2); font-size: 13px; font-weight: 800; }
+
+  /* Seguranca */
+  section.seguranca { padding: 64px 0; }
+  .trust-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; max-width: 820px; margin: 0 auto; }
+  @media (min-width: 760px) { .trust-grid { grid-template-columns: repeat(4, 1fr); gap: 16px; } }
+  .trust-card { background: rgba(255,248,241,0.68); border: 1px solid rgba(95,75,62,0.10); border-radius: 22px; padding: 22px 20px; box-shadow: 0 8px 24px rgba(70,55,44,0.04); }
+  .trust-icon { display: inline-flex; align-items: center; justify-content: center; width: 38px; height: 38px; border-radius: 50%; background: rgba(102,114,84,0.12); color: var(--olive-2); margin-bottom: 12px; }
+  .trust-icon svg { width: 18px; height: 18px; }
+  .trust-card h3 { margin: 0; font-size: 14px; font-weight: 700; color: var(--ink); letter-spacing: -0.005em; }
+  .trust-card p { margin: 4px 0 0; font-size: 13px; color: var(--muted); line-height: 1.5; }
+  .seguranca-days { margin-top: 36px; display: flex; align-items: center; justify-content: center; }
+  .seguranca-days .days-pill { display: inline-flex; align-items: center; gap: 12px; padding: 12px 20px; border-radius: 999px; background: rgba(102,114,84,0.10); border: 1px solid rgba(102,114,84,0.20); color: var(--olive-2); }
+  .seguranca-days .days-pill .num { font-family: 'Playfair Display', Georgia, serif; font-weight: 500; font-size: 22px; line-height: 1; }
+  .seguranca-days .days-pill .lab { font-size: 13px; font-weight: 700; }
+
+  /* Pricing */
+  section.pricing { padding: 64px 0; }
+  .price-card { max-width: 560px; margin: 0 auto; background: rgba(255,248,241,0.72); border: 1px solid rgba(95,75,62,0.10); border-radius: 34px; padding: 36px; text-align: center; box-shadow: 0 22px 60px rgba(70,55,44,0.10); }
+  .price-eyebrow { display: inline-flex; background: rgba(102,114,84,0.10); border: 1px solid rgba(102,114,84,0.20); color: var(--olive-2); font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.10em; padding: 6px 12px; border-radius: 999px; }
+  .price-amount { margin-top: 20px; display: flex; align-items: baseline; justify-content: center; gap: 4px; font-family: 'Playfair Display', Georgia, serif; color: var(--brown); }
+  .price-amount .currency { font-size: 24px; }
+  .price-amount .value { font-size: 72px; line-height: 1; letter-spacing: -0.04em; font-weight: 500; }
+  .price-amount .cents { font-size: 32px; line-height: 1; }
+  .price-amount .period { font-size: 15px; color: var(--muted); margin-left: 4px; }
+  .price-billing { font-size: 13px; color: var(--muted); margin: 4px 0 0; }
+  .price-includes { list-style: none; padding: 0; margin: 28px auto 0; max-width: 420px; text-align: left; font-size: 15px; color: var(--muted); display: flex; flex-direction: column; gap: 10px; }
+  .price-includes li { display: flex; gap: 10px; align-items: flex-start; }
+  .price-includes .check { flex: none; margin-top: 5px; width: 16px; height: 16px; background: rgba(102,114,84,0.15); color: var(--olive-2); border-radius: 50%; text-align: center; line-height: 16px; font-size: 10px; font-weight: 800; }
+  .price-card .cta-primary { margin-top: 28px; }
+  .price-note { margin-top: 16px; font-size: 13px; color: var(--muted); max-width: 420px; margin-inline: auto; }
+  .price-future { margin-top: 8px; font-size: 12px; color: var(--soft); }
+
+  /* FAQ */
+  section.faq { padding: 64px 0; }
+  .faq-head { max-width: 760px; margin: 0 0 28px; }
+  .faq-list { max-width: 820px; margin: 0 auto; display: flex; flex-direction: column; gap: 12px; }
+  details.faq-item { background: rgba(255,248,241,0.62); border: 1px solid rgba(95,75,62,0.10); border-radius: 20px; transition: 0.2s; }
+  details.faq-item summary { cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: flex-start; gap: 14px; padding: 14px 22px; font-size: 14px; font-weight: 700; color: var(--ink); line-height: 1.45; }
+  @media (min-width: 760px) { details.faq-item summary { font-size: 15px; padding: 14px 24px; } }
+  details.faq-item summary::-webkit-details-marker { display: none; }
+  details.faq-item .plus { flex: none; margin-top: 2px; font-size: 18px; color: var(--muted); transition: transform 0.2s; }
+  details.faq-item[open] .plus { transform: rotate(45deg); }
+  details.faq-item .answer { padding: 0 22px 18px; font-size: 14px; color: var(--muted); line-height: 1.6; }
+  @media (min-width: 760px) { details.faq-item .answer { padding: 0 24px 20px; } }
+  details.faq-item .answer strong { color: var(--brown); }
+  .help-link { font-weight: 700; color: var(--olive-2); text-decoration: underline; text-decoration-color: rgba(88,99,72,0.3); text-underline-offset: 2px; }
+  .faq-after { margin-top: 28px; text-align: center; font-size: 15px; color: var(--muted); }
+  .faq-after a { font-weight: 700; color: var(--olive-2); text-decoration: underline; text-decoration-color: rgba(88,99,72,0.3); text-underline-offset: 2px; }
+
+  /* Final */
+  section.final { padding: 64px 0 72px; text-align: center; }
+  .final-card { max-width: 820px; margin: 0 auto; background: linear-gradient(180deg, rgba(255,248,241,0.70), rgba(255,248,241,0.46)); border: 1px solid rgba(95,75,62,0.10); border-radius: 36px; padding: 44px 28px; box-shadow: 0 22px 60px rgba(70,55,44,0.10); }
+  .final-card h2 { font-size: clamp(32px, 4vw, 50px); margin-bottom: 14px; }
+  .final-card p.lede { font-size: 17px; color: var(--muted); margin: 0 auto 26px; max-width: 660px; }
+  .final-card .cta-primary { margin-bottom: 18px; }
+
+  /* Footer */
+  footer.gabaia { padding: 44px 0 110px; background: #40352E; border-top: 1px solid rgba(255,248,241,0.06); }
+  footer.gabaia .top { display: flex; flex-direction: column; gap: 28px; align-items: center; text-align: center; }
+  @media (min-width: 760px) { footer.gabaia .top { flex-direction: row; align-items: center; justify-content: space-between; text-align: left; } }
+  footer.gabaia .footer-brand { display: flex; align-items: center; gap: 14px; }
+  footer.gabaia .footer-brand img { width: 40px; height: auto; filter: drop-shadow(0 4px 10px rgba(0,0,0,.20)); }
+  footer.gabaia .footer-brand .brand-name { font-family: 'Jost', sans-serif; font-weight: 300; font-size: 24px; color: #F3ECE3; letter-spacing: .22em; line-height: 1; }
+  footer.gabaia .nav-stack { display: flex; flex-direction: column; align-items: center; gap: 14px; }
+  @media (min-width: 760px) { footer.gabaia .nav-stack { align-items: flex-end; } }
+  footer.gabaia .links-row { display: flex; flex-wrap: wrap; justify-content: center; gap: 24px; font-size: 13px; font-weight: 600; color: #C9B7A6; align-items: center; }
+  footer.gabaia .links-row a { color: #C9B7A6; opacity: 0.9; transition: 0.2s; }
+  footer.gabaia .links-row a:hover { color: #FFF8F1; opacity: 1; }
+  footer.gabaia .links-row .greyed { color: #9A8C7E; opacity: 0.7; }
+  footer.gabaia .nav-stack .icon-group { display: inline-flex; align-items: center; justify-content: center; gap: 16px; }
+  footer.gabaia .nav-stack .icon-btn { display: inline-flex; align-items: center; justify-content: center; padding: 0; background: none; border: none; color: #C9B7A6; opacity: 0.9; cursor: pointer; transition: 0.2s; }
+  footer.gabaia .nav-stack .icon-btn:hover { color: #FFF8F1; opacity: 1; }
+  footer.gabaia .legal-block { margin: 32px auto 0; max-width: 680px; padding-top: 24px; border-top: 1px solid rgba(255,248,241,0.08); text-align: center; }
+  footer.gabaia .legal-block .legal { font-size: 12px; line-height: 1.6; color: #9A8C7E; letter-spacing: 0.01em; margin: 0; }
+
+  /* NeuroMãe assinatura no rodapé */
+  footer.gabaia .neuromae-row { margin: 24px 0 0; display: flex; flex-direction: column; align-items: center; gap: 12px; text-align: center; }
+  @media (min-width: 760px) { footer.gabaia .neuromae-row { flex-direction: row; align-items: center; gap: 16px; text-align: left; justify-content: flex-start; } }
+  footer.gabaia .neuromae-brand { display: inline-flex; align-items: center; gap: 10px; transition: opacity 0.2s; text-decoration: none; }
+  footer.gabaia .neuromae-brand:hover { opacity: 0.85; }
+  footer.gabaia .neuromae-brand img { width: 32px; height: 32px; flex: none; filter: drop-shadow(0 2px 6px rgba(0,0,0,.20)); }
+  footer.gabaia .neuromae-brand .neuromae-mark { font-family: 'Playfair Display', Georgia, serif; font-weight: 500; font-size: 16px; color: #F3ECE3; letter-spacing: -0.005em; }
+  footer.gabaia .neuromae-row .copy-line { font-size: 11px; text-transform: uppercase; letter-spacing: 0.14em; color: #9A8C7E; }
+
+  /* Transformacao */
+  section.transformacao { padding: 64px 0; border-bottom: 1px solid rgba(95,75,62,0.08); }
+  .transformacao-grid { display: grid; gap: 16px; max-width: 820px; margin: 0 auto; }
+  @media (min-width: 760px) { .transformacao-grid { grid-template-columns: 1fr 1fr; } }
+  .trans-col { border-radius: 28px; padding: 28px; box-shadow: 0 8px 28px rgba(70,55,44,0.05); border: 1px solid; }
+  .trans-col.antes { background: linear-gradient(180deg, rgba(216,167,161,0.16) 0%, rgba(216,167,161,0.08) 100%); border-color: rgba(216,167,161,0.32); }
+  .trans-col.depois { background: linear-gradient(180deg, rgba(168,181,162,0.10) 0%, rgba(255,248,241,0.50) 100%); border-color: rgba(102,114,84,0.20); }
+  .trans-col .kicker-mini { display: inline-flex; align-items: center; gap: 8px; padding: 6px 12px; border-radius: 999px; font-size: 11px; font-weight: 900; letter-spacing: 0.12em; text-transform: uppercase; }
+  .trans-col.antes .kicker-mini { background: rgba(216,167,161,0.28); color: #8B5949; }
+  .trans-col.depois .kicker-mini { background: rgba(102,114,84,0.12); color: #586348; }
+  .trans-col h3 { font-family: 'Playfair Display', Georgia, serif; font-weight: 500; font-size: 22px; line-height: 1.2; letter-spacing: -0.015em; color: var(--ink); margin: 12px 0 0; }
+  .trans-col ul { list-style: none; padding: 0; margin: 20px 0 0; display: flex; flex-direction: column; gap: 12px; }
+  .trans-col li { display: flex; align-items: flex-start; gap: 10px; font-size: 14.5px; line-height: 1.55; }
+  .trans-col li::before { content: ''; flex: none; margin-top: 8px; width: 6px; height: 6px; border-radius: 50%; }
+  .trans-col.antes li { color: #5D5047; }
+  .trans-col.antes li::before { background: #A86E60; }
+  .trans-col.depois li { color: #40352E; }
+  .trans-col.depois li::before { background: #586348; }
+
+  /* ParaQuem */
+  section.para-quem { padding: 64px 0; border-bottom: 1px solid rgba(95,75,62,0.08); }
+  .para-quem-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; max-width: 820px; margin: 0 auto; }
+  @media (min-width: 760px) { .para-quem-grid { gap: 16px; } }
+  .fit-card { border-radius: 18px; padding: 14px; box-shadow: 0 8px 28px rgba(70,55,44,0.05); border: 1px solid; }
+  @media (min-width: 760px) { .fit-card { border-radius: 26px; padding: 26px; } }
+  .fit-card.yes { background: rgba(102,114,84,0.06); border-color: rgba(102,114,84,0.18); }
+  .fit-card.no  { background: rgba(184,121,103,0.05); border-color: rgba(184,121,103,0.18); }
+  .fit-card .head { display: flex; align-items: center; gap: 8px; margin-bottom: 12px; }
+  @media (min-width: 760px) { .fit-card .head { gap: 12px; margin-bottom: 16px; } }
+  .fit-card .icon { display: inline-flex; flex: none; align-items: center; justify-content: center; width: 26px; height: 26px; border-radius: 50%; }
+  @media (min-width: 760px) { .fit-card .icon { width: 32px; height: 32px; } }
+  .fit-card.yes .icon { background: rgba(102,114,84,0.15); color: #586348; }
+  .fit-card.no  .icon { background: rgba(184,121,103,0.12); color: #A86E60; }
+  .fit-card .icon svg { width: 13px; height: 13px; }
+  @media (min-width: 760px) { .fit-card .icon svg { width: 16px; height: 16px; } }
+  .fit-card h3 { margin: 0; font-family: 'Playfair Display', Georgia, serif; font-weight: 500; font-size: 15px; color: var(--ink); letter-spacing: -0.01em; line-height: 1.2; }
+  @media (min-width: 760px) { .fit-card h3 { font-size: 20px; } }
+  .fit-card ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 8px; }
+  @media (min-width: 760px) { .fit-card ul { gap: 10px; } }
+  .fit-card li { display: flex; align-items: flex-start; gap: 8px; font-size: 12.5px; color: #5D5047; line-height: 1.5; }
+  @media (min-width: 760px) { .fit-card li { gap: 10px; font-size: 14.5px; line-height: 1.55; } }
+  .fit-card li::before { content: ''; flex: none; margin-top: 6px; width: 5px; height: 5px; border-radius: 50%; }
+  @media (min-width: 760px) { .fit-card li::before { margin-top: 7px; width: 6px; height: 6px; } }
+  .fit-card.yes li::before { background: #586348; }
+  .fit-card.no  li::before { background: #A86E60; }
+
+  /* Bloco de ancoragem de preço */
+  .price-anchor-block { max-width: 560px; margin: 28px auto 0; }
+  .price-anchor-list { list-style: none; padding: 0; margin: 0; }
+  .price-anchor-list li { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 12px 0; border-bottom: 1px solid rgba(95,75,62,0.10); }
+  .price-anchor-list li:first-child { padding-top: 0; }
+  .price-anchor-list li.gaba-row { border-bottom: none; padding-bottom: 0; padding-top: 14px; }
+  .price-anchor-list .anchor-label { font-family: 'Playfair Display', Georgia, serif; font-style: italic; color: #5F4B3E; font-size: 14.5px; line-height: 1.4; }
+  .price-anchor-list .gaba-row .anchor-label .gaba-mark { font-family: 'Jost', sans-serif; font-style: normal; font-weight: 300; letter-spacing: 0.22em; font-size: 0.92em; color: #5F4B3E; }
+  .price-anchor-list .anchor-price { flex: none; color: var(--muted); font-size: 13px; font-weight: 500; white-space: nowrap; }
+  .price-anchor-list .anchor-price.highlight { color: #A86E60; font-size: 14px; font-weight: 600; letter-spacing: -0.01em; }
+  .price-anchor-block .anchor-caveat { font-family: 'Playfair Display', Georgia, serif; font-style: italic; font-size: 14px; line-height: 1.55; color: #77675B; max-width: 480px; margin: 28px auto 0; text-align: center; }
+
+  /* Garantia visual no Pricing */
+  .price-guarantee { max-width: 480px; margin: 28px auto 0; display: flex; flex-direction: column; align-items: center; gap: 16px; padding: 24px; border-radius: 24px; background: rgba(216,167,161,0.10); border: 1px solid rgba(184,121,103,0.20); text-align: center; }
+  @media (min-width: 760px) { .price-guarantee { flex-direction: row; gap: 24px; text-align: left; } }
+  .price-guarantee .seal { position: relative; display: flex; flex-direction: column; align-items: center; justify-content: center; flex: none; width: 92px; height: 92px; border-radius: 50%; background: rgba(216,167,161,0.20); color: #A86E60; border: 2px dashed rgba(184,121,103,0.32); line-height: 1; }
+  .price-guarantee .seal .num { font-family: 'Playfair Display', Georgia, serif; font-weight: 500; font-size: 32px; line-height: 1; letter-spacing: -0.02em; }
+  .price-guarantee .seal .lab { margin-top: 2px; font-size: 10px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.18em; }
+  .price-guarantee .body { flex: 1; }
+  .price-guarantee .body p.line1 { margin: 0; font-size: 14px; font-weight: 700; color: var(--brown); line-height: 1.4; }
+  .price-guarantee .body p.line2 { margin: 6px 0 0; font-size: 13px; color: var(--muted); line-height: 1.5; }
+
+  /* Final badges row */
+  .final-badges { margin-top: 28px; display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 12px 24px; font-size: 12px; font-weight: 700; color: var(--muted); }
+  .final-badges span { display: inline-flex; align-items: center; gap: 8px; }
+  .final-badges svg { width: 14px; height: 14px; }
+
+  /* MobileSticky real (com observer) */
+  .mobile-sticky-real {
+    position: fixed; left: 12px; right: 12px; bottom: 12px; z-index: 30;
+    display: flex; align-items: center; justify-content: center;
+    background: linear-gradient(180deg,#667254,#586348);
+    color: var(--cream-2); font-weight: 800;
+    min-height: 54px; border-radius: 999px;
+    box-shadow: 0 16px 34px rgba(65,56,46,0.24);
+    font-size: 16px;
+    opacity: 0; transform: translateY(150%);
+    pointer-events: none;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+  }
+  .mobile-sticky-real.is-visible { opacity: 1; transform: translateY(0); pointer-events: auto; }
+  @media (min-width: 880px) {
+    .mobile-sticky-real { left: auto; right: 24px; bottom: 24px; padding: 0 28px; font-size: 15px; }
+  }
+
+  .section-divider-soft { width: min(1120px, calc(100% - 40px)); margin: 0 auto; border-top: 1px dashed rgba(95,75,62,0.18); padding-top: 16px; font-size: 11px; text-transform: uppercase; letter-spacing: 0.12em; color: var(--soft); text-align: center; }
+</style>
+</head>
+<body>
+
+<div class="preview-banner">
+  Preview estático completo — <b>NÃO é a landing rodando</b>. Para a versão React real, faltam interações JS e o CTA leva pro WhatsApp. Visualmente é igual.
+</div>
+
+<nav class="gabaia">
+  <div class="wrap">
+    <a class="brand" href="#top">
+      <img src="./public/gabaia-symbol-detailed.svg" alt="" aria-hidden="true">
+      <div class="brand-text">
+        <span class="brand-name">GABAIA</span>
+        <span class="brand-by">da <span class="neuromae-mark">NeuroMãe</span></span>
+      </div>
+    </a>
+    <div class="links">
+      <a href="#produto">O que é</a>
+      <a href="#funciona">Como funciona</a>
+      <a href="#fundadora">Quem somos</a>
+      <a href="#pricing">Plano</a>
+      <a href="#faq">Dúvidas</a>
+    </div>
+    <a class="pill">Quero conversar</a>
+  </div>
+</nav>
+
+<section class="hero" id="top">
+  <div class="hero-atmosphere" aria-hidden="true"></div>
+  <div class="wrap hero-grid">
+    <div>
+      <div class="eyebrow-row">
+        <span class="eyebrow audience">Pra mães atípicas</span>
+        <span class="eyebrow pillars">Ciência · Estoicismo · Fé</span>
+      </div>
+      <h1 class="hero-title"><span class="nb">Você não é péssima.</span> <span class="accent nb">Você está esgotada.</span></h1>
+      <div class="hero-falas">
+        <p>“A casa fica em silêncio depois de um dia exaustivo. Eu quero descansar — mas a culpa não deixa.”</p>
+        <p>“Saio de mais uma terapia me perguntando: será que agora vai dar certo?”</p>
+        <p>“O telefone toca. É a escola. Mais uma reunião por conta do comportamento dele.”</p>
+      </div>
+
+      <p class="hero-bridge">Nesses momentos, você só queria uma amiga pra conversar. Alguém que te respondesse de um jeito que você compreenda — não importa quantas vezes você pergunte.</p>
+
+      <p class="hero-essa-gaba">Essa é a <span class="gaba-mark">GABA</span>.</p>
+
+      <div class="hero-tagline-row">
+        <span class="kicker-label">A amiga da NeuroMãe</span>
+        <p class="text">No WhatsApp, 24h por dia. Pronta pra escutar quando você precisar.</p>
+      </div>
+
+      <div class="hero-actions">
+        <a class="cta-primary" data-hero-cta>Conversar com a <span style="font-family:'Jost',sans-serif;font-weight:500;letter-spacing:0.06em;">GABA</span></a>
+        <a class="cta-suporte" href="#">Falar com suporte</a>
+      </div>
+
+      <div class="ministats">
+        <div class="ministat">
+          <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></span>
+          <div class="text">
+            <span class="big">24h</span>
+            <span class="small">pelo WhatsApp</span>
+          </div>
+        </div>
+        <div class="ministat">
+          <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 4 6v6c0 5 3.5 9.5 8 10 4.5-.5 8-5 8-10V6l-8-4Z"/></svg></span>
+          <div class="text">
+            <span class="big">ECA e LGPD</span>
+            <span class="small">Respeitados</span>
+          </div>
+        </div>
+        <div class="ministat">
+          <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 12 20 22 4 22 4 12"/><rect x="2" y="7" width="20" height="5"/><line x1="12" y1="22" x2="12" y2="7"/><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"/><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg></span>
+          <div class="text">
+            <span class="big">7 dias</span>
+            <span class="small">grátis</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="gaba-spotlight">
+      <div class="gaba-halo" aria-hidden="true"></div>
+      <img src="./public/gaba-cafe.png" alt="" aria-hidden="true">
+      <div class="gaba-shadow" aria-hidden="true"></div>
+      <p class="gaba-signature">oi, eu sou a <span class="gaba-mark">GABA</span>.</p>
+    </div>
+  </div>
+</section>
+
+<section class="conversa" id="conversa">
+  <div class="wrap">
+    <div class="conversa-head">
+      <span class="kicker">A voz da GABA</span>
+      <h2>É assim que ela responde — quando ninguém mais responde.</h2>
+      <p>Uma noite de tempestade, uma mãe exausta. A GABA não dá receita: ela escuta, organiza e devolve clareza — sem mais nada pra você fazer amanhã.</p>
+    </div>
+    <div class="conversa-card-wrap">
+      <div class="phone-card">
+        <div class="phone-head">
+          <span>Conversa com GABAIA · 23h47</span>
+          <span class="online">online</span>
+        </div>
+        <div class="bubble-mom">Que noite difícil. Meu filho morre de medo de trovão e tá uma tempestade. Em pânico, não dorme. Estou exausta, ainda preciso trabalhar.</div>
+        <div class="bubble-gaba">Que noite pesada. Cuidando dele em pânico, exausta, ainda com trabalho — é muito pra uma pessoa só aguentar.</div>
+        <div class="bubble-gaba">
+          Respira. Vamos juntas nisso agora:
+          <ol>
+            <li>Cria um esconderijo seguro — armário, cobertor grosso. Espaço fechado ativa proteção no cérebro.</li>
+            <li>Mascara o trovão com ventilador ou som de chuva suave.</li>
+            <li>Fala bem pouco e baixo: "estou aqui, você está seguro".</li>
+          </ol>
+        </div>
+        <div class="bubble-gaba">E você — assim que ele dormir, para tudo. Descansa 20 minutos antes de abrir o trabalho. Você precisa disso também. 💙</div>
+        <div class="phone-input"><span>Escreva ou mande áudio…</span><span>↗</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="produto" id="produto">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="kicker">O produto</span>
+      <h2>Não é um curso. É uma conversa guiada.</h2>
+      <p>Você fala com a GABAIA quando precisar de clareza: no fim do dia, depois de uma situação difícil, antes de uma reunião na escola ou quando a cabeça está cheia demais.</p>
+    </div>
+    <div class="info-grid">
+      <div class="info-card">
+        <div class="num">01</div>
+        <h3>Você pergunta ou desabafa</h3>
+        <p>Pode escrever, organizar uma dúvida ou trazer uma situação real do dia.</p>
+      </div>
+      <div class="info-card">
+        <div class="num">02</div>
+        <h3>A GABAIA organiza</h3>
+        <p>Ela ajuda a separar emoção, contexto e próximos passos possíveis.</p>
+      </div>
+      <div class="info-card">
+        <div class="num">03</div>
+        <h3>Você decide com mais clareza</h3>
+        <p>Sem excesso de informação, sem julgamento e com orientação prática.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="funciona" id="funciona">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="kicker">Para usar no dia a dia</span>
+      <h2>Uma presença única para diferentes momentos.</h2>
+      <p>A GABAIA ajuda a acolher, escutar, organizar e orientar — sem transformar sua rotina em mais uma tarefa.</p>
+    </div>
+    <div class="moments">
+      <article class="moment">
+        <div class="moment-avatar-wrap">
+          <div class="moment-avatar-halo rosa" aria-hidden="true"></div>
+          <img src="./public/gaba-acolhe.png" alt="" aria-hidden="true">
+          <div class="moment-avatar-shadow" aria-hidden="true"></div>
+        </div>
+        <h3>Acolhe</h3>
+        <p>Quando você precisa falar sem se sentir julgada.</p>
+      </article>
+      <article class="moment">
+        <div class="moment-avatar-wrap">
+          <div class="moment-avatar-halo bege" aria-hidden="true"></div>
+          <img src="./public/gaba-escuta.png" alt="" aria-hidden="true" style="height:120px;">
+          <div class="moment-avatar-shadow" aria-hidden="true"></div>
+        </div>
+        <h3>Escuta</h3>
+        <p>Quando a rotina pesa e precisa organizar o que sente.</p>
+      </article>
+      <article class="moment">
+        <div class="moment-avatar-wrap">
+          <div class="moment-avatar-halo sage" aria-hidden="true"></div>
+          <img src="./public/gaba-organiza.png" alt="" aria-hidden="true">
+          <div class="moment-avatar-shadow" aria-hidden="true"></div>
+        </div>
+        <h3>Organiza</h3>
+        <p>Quando há muita informação e pouca clareza.</p>
+      </article>
+      <article class="moment">
+        <div class="moment-avatar-wrap">
+          <div class="moment-avatar-halo terracotta" aria-hidden="true"></div>
+          <img src="./public/gaba-respira.png" alt="" aria-hidden="true">
+          <div class="moment-avatar-shadow" aria-hidden="true"></div>
+        </div>
+        <h3>Orienta</h3>
+        <p>Quando você precisa pensar nos próximos passos.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="transformacao" id="transformacao">
+  <div class="wrap">
+    <div class="section-head" style="max-width:680px;">
+      <span class="kicker">O que muda</span>
+      <h2>Não é virar outra mãe. É não se perder mais no meio do caminho.</h2>
+      <p>A GABA não promete maternidade leve. Promete que quando o difícil vier — e ele vem — você não carregue tudo sozinha.</p>
+    </div>
+
+    <div class="transformacao-grid">
+      <article class="trans-col antes">
+        <span class="kicker-mini">Hoje, talvez, você sente</span>
+        <h3>A maternidade pesando assim:</h3>
+        <ul>
+          <li>Por mais que se esforce, as coisas não melhoram.</li>
+          <li>Quanto mais conhecimento tem, maior fica a culpa.</li>
+          <li>São tantos nomes, diagnósticos e rótulos, que não consegue acompanhar.</li>
+          <li>A cada crise, a impotência aumenta e paralisa.</li>
+          <li>Se sente isolada, ignorante e sem esperança.</li>
+          <li>Compara sua vida com as mães das redes sociais, porque não tem mais amigos reais — e o sofrimento só aumenta.</li>
+        </ul>
+      </article>
+      <article class="trans-col depois">
+        <span class="kicker-mini">Com a Gaba pode ser</span>
+        <h3>Atravessar com chão firme:</h3>
+        <ul>
+          <li>Termina o dia conseguindo nomear o que aconteceu, sem se afogar nele.</li>
+          <li>Tem alguém pra escutar a culpa sem te entregar mais uma lista de tarefas.</li>
+          <li>Conta com prática real e baseada em evidência, sem promessa milagrosa.</li>
+          <li>Sabe pra onde ir quando a noite vira — e o que ouve te devolve clareza, não cobrança.</li>
+          <li>Volta pra você no meio do caos. Cai, levanta, segue. Cada vez mais rápido.</li>
+        </ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="para-quem" id="para-quem">
+  <div class="wrap">
+    <div class="section-head" style="max-width:680px;">
+      <span class="kicker">Antes de começar</span>
+      <h2>Pra ser honesta — a Gaba não é pra todo mundo.</h2>
+      <p>A Gaba não promete maternidade perfeita, criança "bem-comportada" ou rotina impecável. Ela acompanha mães reais, em dias reais. Se isso é o que você procura, segue.</p>
+    </div>
+
+    <div class="para-quem-grid">
+      <article class="fit-card yes">
+        <div class="head">
+          <span class="icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          </span>
+          <h3>É pra você se:</h3>
+        </div>
+        <ul>
+          <li>Quer entender como a neurodivergência funciona.</li>
+          <li>Recebeu um diagnóstico e está perdida, sem saber por onde começar.</li>
+          <li>Precisa de alguém pra desabafar — sem mais julgamentos.</li>
+          <li>Mesmo sozinha, sabe que não vai desistir.</li>
+        </ul>
+      </article>
+
+      <article class="fit-card no">
+        <div class="head">
+          <span class="icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="6" y1="6" x2="18" y2="18"/><line x1="18" y1="6" x2="6" y2="18"/></svg>
+          </span>
+          <h3>Não é pra você se:</h3>
+        </div>
+        <ul>
+          <li>Acha que neurodivergência é "algo a se consertar".</li>
+          <li>Vê a maternidade como uma disputa de "quem é a melhor mãe".</li>
+          <li>Espera que a GABA substitua o acompanhamento de profissionais necessários.</li>
+          <li>Não está disposta a caminhar em parceria — com profissionais, escola e família.</li>
+        </ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="fundadora" id="fundadora" style="padding: 84px 0;">
+  <div class="wrap">
+    <!-- Cabeçalho centralizado -->
+    <div class="founder-header">
+      <span class="kicker">Quem está por trás</span>
+      <h2>Por que a NeuroMãe existe.</h2>
+    </div>
+
+    <!-- Linha divisória editorial -->
+    <div class="founder-divider" aria-hidden="true"></div>
+
+    <!-- Texto biográfico — coluna única editorial -->
+    <div class="founder-bio">
+      <p class="opener">Eu sou Tatiana. Mãe atípica, como você.</p>
+      <p>Meu segundo filho nasceu bem. Aos 45 dias teve uma meningite hospitalar e ficou 21 dias internado. Sobreviveu — com sequelas. TDAH, disfunção sensório-motora, leve deficiência intelectual.</p>
+      <p>Na pandemia, atravessei uma depressão grave. Foi nesse fundo que, aos 38 anos, descobri que eu também sou TDAH. Comecei a estudar psicopedagogia, neurociência comportamental e educação parental porque os profissionais que eu encontrava não conseguiam me responder.</p>
+      <p><strong>Mas eu tive sorte.</strong> Rede de apoio, condições financeiras, acesso a informação. A maioria das mães atípicas não tem nada disso.</p>
+      <p>A NeuroMãe nasceu pra essas mães. Pra ser o lugar seguro que eu não tive — sem enxurrada de informação, sem comparação, sem mais um curso que você sabe que não vai fazer. Só a resposta certa, na hora certa, sem julgamento.</p>
+    </div>
+
+    <!-- Bloco de destaque: retrato + citação lado a lado -->
+    <div class="founder-feature">
+      <aside class="founder-portrait-card">
+        <div class="portrait-wrap">
+          <div class="halo" aria-hidden="true"></div>
+          <img src="./public/tatiana.jpg" alt="Tatiana Junco, fundadora da NeuroMãe" loading="lazy" decoding="async" width="180" height="180">
+        </div>
+        <div class="info">
+          <span class="name">Tatiana Junco</span>
+          <span class="creds">psicopedagoga em formação · pós-graduada em neurociência comportamental</span>
+          <a class="insta" href="https://instagram.com/neuromaeia" target="_blank" rel="noopener noreferrer">@neuromaeia ↗</a>
+        </div>
+      </aside>
+
+      <blockquote class="founder-quote" style="margin: 0;">
+        <span class="quote-mark" aria-hidden="true">“</span>
+        <div class="quote-body">
+          <p>Eu só consegui me reerguer quando integrei três coisas: <strong>ciência</strong> — práticas reais e comprovadas em neurodesenvolvimento, sem fórmula mágica, sem achismo ou crendice, sem terapia que não se sustenta na evidência; <strong>estoicismo</strong> — a sabedoria antiga de aceitar que sofrer faz parte da vida, mas como você atravessa é o que te forma; e <strong>fé</strong> — independente da crença, é esse lado transcendente, que existe algo maior que tudo, que sustenta quando nada mais sustenta.</p>
+          <p class="quote-question">Isso significa que não sofro mais? Que tudo ficou perfeito?</p>
+          <p>Longe disso. Significa que quando o sofrimento vem, eu não me perco mais nele. Caio, sofro (choro, grito, me questiono), mas a cada dia esse período de "lamentação" se encurta, porque já sei como retomar o caminho.”</p>
+        </div>
+      </blockquote>
+    </div>
+
+    <!-- Bloco de fechamento — diagrama sináptico dos pilares -->
+    <div class="founder-closing-edit">
+      <div class="mini-divider" aria-hidden="true"></div>
+      <p class="closing-headline">Esses são os pilares da <span class="gaba-mark">GABA</span>!</p>
+
+      <div style="width: 100%; max-width: 700px; margin: 0 auto;">
+        <svg viewBox="0 60 700 360" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Símbolo da GABAIA com os 6 pilares conectados" style="width: 100%; height: auto; display: block;">
+          <!-- Linhas de conexão -->
+          <g stroke="rgba(184,121,103,0.40)" stroke-width="0.7" fill="none">
+            <line x1="405" y1="128" x2="405" y2="100" />
+            <line x1="430" y1="192" x2="468" y2="192" />
+            <line x1="423" y1="258" x2="468" y2="278" />
+            <line x1="368" y1="286" x2="368" y2="320" />
+            <line x1="288" y1="270" x2="245" y2="290" />
+            <line x1="264" y1="218" x2="225" y2="218" />
+          </g>
+
+          <!-- Símbolo (do lockup vertical) -->
+          <g transform="translate(250, 100)">
+            <circle cx="50" cy="40" r="2.2" fill="#A8B5A2" opacity="0.7"/>
+            <circle cx="155" cy="28" r="3" fill="#8B9476"/>
+            <circle cx="180" cy="92" r="3" fill="#8B9476"/>
+            <circle cx="173" cy="158" r="3" fill="#8B9476"/>
+            <circle cx="118" cy="186" r="3" fill="#8B9476"/>
+            <circle cx="38" cy="170" r="3" fill="#8B9476"/>
+            <circle cx="14" cy="118" r="3" fill="#8B9476"/>
+            <circle cx="22" cy="62" r="2" fill="#A8B5A2" opacity="0.7"/>
+
+            <circle cx="100" cy="100" r="86" fill="none" stroke="#C9B7A6" stroke-width="0.6" opacity="0.5"/>
+
+            <g transform="translate(100,100)">
+              <path d="M -45.7,-65.6 A 80,80 0 0 1 45.7,-65.6 L 13.7,-19.7 A 24,24 0 0 0 -13.7,-19.7 Z" fill="#D5C4B4"/>
+              <g transform="rotate(72)"><path d="M -45.7,-65.6 A 80,80 0 0 1 45.7,-65.6 L 13.7,-19.7 A 24,24 0 0 0 -13.7,-19.7 Z" fill="#E0B5B0"/></g>
+              <g transform="rotate(144)"><path d="M -45.7,-65.6 A 80,80 0 0 1 45.7,-65.6 L 13.7,-19.7 A 24,24 0 0 0 -13.7,-19.7 Z" fill="#B5C0AE"/></g>
+              <g transform="rotate(216)"><path d="M -45.7,-65.6 A 80,80 0 0 1 45.7,-65.6 L 13.7,-19.7 A 24,24 0 0 0 -13.7,-19.7 Z" fill="#E0B5B0"/></g>
+              <g transform="rotate(288)"><path d="M -45.7,-65.6 A 80,80 0 0 1 45.7,-65.6 L 13.7,-19.7 A 24,24 0 0 0 -13.7,-19.7 Z" fill="#B5C0AE"/></g>
+              <line x1="0" y1="-19" x2="0" y2="-80" stroke="#EFE7DD" stroke-width="1.2" transform="rotate(36)"/>
+              <line x1="0" y1="-19" x2="0" y2="-80" stroke="#EFE7DD" stroke-width="1.2" transform="rotate(108)"/>
+              <line x1="0" y1="-19" x2="0" y2="-80" stroke="#EFE7DD" stroke-width="1.2" transform="rotate(180)"/>
+              <line x1="0" y1="-19" x2="0" y2="-80" stroke="#EFE7DD" stroke-width="1.2" transform="rotate(252)"/>
+              <line x1="0" y1="-19" x2="0" y2="-80" stroke="#EFE7DD" stroke-width="1.2" transform="rotate(324)"/>
+              <g transform="rotate(108)"><circle cx="0" cy="-80" r="4" fill="#EFE7DD"/><circle cx="0" cy="-80" r="2.2" fill="#8B7565"/></g>
+              <g transform="rotate(252)"><circle cx="0" cy="-80" r="4" fill="#EFE7DD"/><circle cx="0" cy="-80" r="2.2" fill="#8B7565"/></g>
+              <circle cx="0" cy="0" r="22" fill="#EFE7DD"/>
+              <circle cx="0" cy="0" r="6" fill="#8B7565"/>
+            </g>
+          </g>
+
+          <!-- Labels — Playfair maiúsculo igual à wordmark GABAIA -->
+          <g font-family="Playfair Display, Georgia, serif" font-size="14" font-weight="400" fill="#6B5547" letter-spacing="2">
+            <text x="405" y="92" text-anchor="middle">REAL</text>
+            <text x="475" y="196" text-anchor="start">MILENAR</text>
+            <text x="475" y="276" text-anchor="start">ACOMPANHANDO</text>
+            <text x="475" y="293" text-anchor="start">O FUTURO</text>
+            <text x="368" y="338" text-anchor="middle">SENDO ÚTIL</text>
+            <text x="240" y="296" text-anchor="end">NEM PERMISSIVO</text>
+            <text x="220" y="222" text-anchor="end">NEM RÍGIDO</text>
+          </g>
+        </svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="seguranca" id="seguranca">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="kicker">Confiança</span>
+      <h2>Privacidade pensada para mães e crianças.</h2>
+      <p>Princípios de proteção da LGPD e do ECA digital. Documentos, laudos e fotos são tratados com responsabilidade.</p>
+    </div>
+
+    <div class="trust-grid">
+      <article class="trust-card">
+        <div class="trust-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 4 6v6c0 5 3.5 9.5 8 10 4.5-.5 8-5 8-10V6l-8-4Z"/><path d="m9 12 2 2 4-4"/></svg>
+        </div>
+        <h3>LGPD</h3>
+        <p>Seus dados protegidos pela lei brasileira de proteção de dados.</p>
+      </article>
+      <article class="trust-card">
+        <div class="trust-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78Z"/></svg>
+        </div>
+        <h3>ECA digital</h3>
+        <p>Princípios de proteção infantil em todas as conversas.</p>
+      </article>
+      <article class="trust-card">
+        <div class="trust-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9.88 9.88a3 3 0 1 0 4.24 4.24"/><path d="M10.73 5.08A10.43 10.43 0 0 1 12 5c7 0 10 7 10 7a13.16 13.16 0 0 1-1.67 2.68"/><path d="M6.61 6.61A13.526 13.526 0 0 0 2 12s3 7 10 7a9.74 9.74 0 0 0 5.39-1.61"/><line x1="2" y1="2" x2="22" y2="22"/></svg>
+        </div>
+        <h3>Imagens de menores</h3>
+        <p>Não armazenamos no nosso banco de dados. Orientamos sempre excluir da conversa após o envio.</p>
+      </article>
+      <article class="trust-card">
+        <div class="trust-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg>
+        </div>
+        <h3>Direto no WhatsApp</h3>
+        <p>Sem app extra. Sua conversa segue no aplicativo que você já usa.</p>
+      </article>
+    </div>
+
+    <div class="seguranca-days">
+      <div class="days-pill">
+        <span class="num">7 dias</span>
+        <span class="lab">gratuitos para testar</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="pricing" id="pricing">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="kicker">Plano</span>
+      <h2>Os primeiros sete dias são por minha conta.</h2>
+      <div class="price-anchor-block">
+        <ul class="price-anchor-list">
+          <li>
+            <span class="anchor-label">Uma consulta de neurodesenvolvimento</span>
+            <span class="anchor-price">a partir de R$250</span>
+          </li>
+          <li>
+            <span class="anchor-label">Um curso de parentalidade neuro</span>
+            <span class="anchor-price">a partir de R$800</span>
+          </li>
+          <li class="gaba-row">
+            <span class="anchor-label">A <span class="gaba-mark">GABA</span> — todos os dias, 24h</span>
+            <span class="anchor-price highlight">R$39,90 / mês</span>
+          </li>
+        </ul>
+        <p class="anchor-caveat">Ela não substitui terapia — preenche o espaço entre as consultas, na hora em que você precisar.</p>
+      </div>
+    </div>
+
+    <div class="price-card">
+      <span class="price-eyebrow">PLANO ÚNICO · 7 DIAS GRÁTIS</span>
+      <div class="price-amount">
+        <span class="currency">R$</span>
+        <span class="value">39</span>
+        <span class="cents">,90</span>
+        <span class="period">/mês</span>
+      </div>
+      <p class="price-billing">Cobrado mensalmente. Sem fidelidade.</p>
+      <ul class="price-includes">
+        <li><span class="check">✓</span> Conversa ilimitada no WhatsApp</li>
+        <li><span class="check">✓</span> Texto, áudio e foto de documentos</li>
+        <li><span class="check">✓</span> Disponível 24h, todos os dias</li>
+        <li><span class="check">✓</span> Memória de contexto entre conversas</li>
+        <li><span class="check">✓</span> Cancelamento por mensagem · 1 minuto</li>
+      </ul>
+      <a class="cta-primary">Começar 7 dias grátis →</a>
+      <p class="price-note">Sem cartão · você só paga depois dos 7 dias se decidir continuar.</p>
+
+      <div class="price-guarantee">
+        <div class="seal" aria-hidden="true">
+          <span class="num">7</span>
+          <span class="lab">dias</span>
+        </div>
+        <div class="body">
+          <p class="line1">Cancele em 1 minuto, por mensagem.</p>
+          <p class="line2">Sem retenção, sem burocracia, sem ligação. Você manda <strong>"cancelar"</strong> no WhatsApp e pronto.</p>
+        </div>
+      </div>
+
+      <p class="price-future" style="margin-top:16px;">Plano anual com benefícios extras chegando em breve.</p>
+    </div>
+  </div>
+</section>
+
+<section class="faq" id="faq">
+  <div class="wrap">
+    <div class="faq-head">
+      <span class="kicker">Perguntas honestas</span>
+      <h2 style="text-align:left">O que é, o que não é, e como funciona.</h2>
+    </div>
+
+    <div class="faq-list">
+      <details class="faq-item">
+        <summary><span>A GABA substitui meu terapeuta, psiquiatra ou neuropediatra?</span><span class="plus">+</span></summary>
+        <div class="answer"><strong>Não.</strong> Ela é apoio entre as consultas — para organizar pensamentos, lidar com a rotina e os momentos difíceis. Não diagnostica, não prescreve, não trata. Se você já tem profissionais te acompanhando, ela complementa. Se ainda não tem, ela ajuda você a organizar a busca até encontrar.</div>
+      </details>
+      <details class="faq-item">
+        <summary><span>Qual a linha de parentalidade que a Gaba segue?</span><span class="plus">+</span></summary>
+        <div class="answer"><strong>Da vida real!</strong> Unindo <strong><em>conhecimento humano milenar</em></strong> (estoicismo), <strong><em>práticas baseadas em evidências científicas</em></strong> (ciência) e <strong><em>transcendentalismo</em></strong> (fé).<br><br>A Gaba foi formada com base em práticas reais de neurodesenvolvimento, unindo a neurociência comportamental e os demais campos de estudos e práticas profissionais relacionados — médicos, terapeutas ocupacionais, psicólogos, fonoaudiólogos, psicopedagogos, métodos de aprendizagem.<br><br>E em uma posição filosófica clara: <strong>você forma seres humanos pra atravessar a vida real</strong>, com caráter forte e acolhimento sólido. Na ideia estoica de que sofrer é parte da vida, mas como você atravessa o sofrimento é onde você se torna mãe. E também na fé: independente da crença ou nominação, apenas crendo que algo muito maior que não vemos nos move, e importa.</div>
+      </details>
+      <details class="faq-item">
+        <summary><span>Funciona para qualquer perfil de filho — TDAH, TEA, deficiência intelectual, dificuldade de aprendizagem?</span><span class="plus">+</span></summary>
+        <div class="answer">Foi pensada exatamente para mães e cuidadoras de filhos neurodivergentes nesses perfis. Cada caso é único — ela não dá receita universal. A GABA escuta o seu contexto, considera o que você descreve, e responde com base em práticas reais de neurodesenvolvimento. Em casos muito específicos (TEA nível 3, comorbidades complexas, condições raras), ela vai te direcionar para profissional especializado quando perceber que é o caminho.</div>
+      </details>
+      <details class="faq-item">
+        <summary><span>Posso mandar áudio? Não dou conta de digitar texto longo quando estou cansada.</span><span class="plus">+</span></summary>
+        <div class="answer">Sim. A conversa é no WhatsApp, então áudio funciona naturalmente. Manda do jeito que sair — embolado, com pausa, nasal de quem chorou. Ela transcreve e responde com a mesma profundidade que daria para um texto.</div>
+      </details>
+      <details class="faq-item">
+        <summary><span>Posso usar para mim, ou ela é só sobre meu filho?</span><span class="plus">+</span></summary>
+        <div class="answer">Para você, em primeiro lugar. Você pode falar do seu filho — e vai falar muito — mas a GABA também acompanha o que VOCÊ está sentindo, sua exaustão, suas dúvidas, suas decisões. Mãe atípica precisa de cuidado tanto quanto criança atípica. Esse é o ponto de partida.</div>
+      </details>
+      <details class="faq-item">
+        <summary><span>Posso conversar de madrugada? Funciona quando todo mundo dormiu?</span><span class="plus">+</span></summary>
+        <div class="answer">Sim — a GABA responde em segundos, 24 horas, todos os dias. Esse é o momento em que ela mais aparece, justamente. Mas é importante saber: <strong>ela é IA, não é uma pessoa de plantão.</strong> Para emergências de saúde mental ou risco imediato, sempre vai te direcionar para serviço humano: <a class="help-link" href="tel:188">CVV 188</a> ou <a class="help-link" href="https://www.cvv.org.br/chat/" target="_blank" rel="noopener noreferrer">chat do CVV</a>, <a class="help-link" href="tel:192">SAMU 192</a> em caso de risco imediato.</div>
+      </details>
+      <details class="faq-item">
+        <summary><span>Por que pagar R$39,90/mês se eu posso usar ChatGPT de graça?</span><span class="plus">+</span></summary>
+        <div class="answer">ChatGPT é generalista — responde tudo sobre tudo, sem te conhecer, sem o contexto da maternidade atípica, e tende a despejar mais informação do que uma mãe esgotada consegue processar. A GABA foi desenhada pra outra coisa: práticas baseadas em evidências de neurodesenvolvimento, memória entre conversas, ela te reconhece de verdade e tem freios claros pra não te sobrecarregar. É a diferença entre ter uma enciclopédia disponível 24h e ter uma presença que já entende como é o seu dia.</div>
+      </details>
+      <details class="faq-item">
+        <summary><span>E se eu falar sobre pensamentos pesados — me machucar, não querer continuar?</span><span class="plus">+</span></summary>
+        <div class="answer">A GABA reconhece sinais de crise e te direciona imediatamente para ajuda profissional — <strong><a class="help-link" href="tel:188">CVV 188</a></strong> ou <strong><a class="help-link" href="https://www.cvv.org.br/chat/" target="_blank" rel="noopener noreferrer">chat do CVV</a></strong>, <strong><a class="help-link" href="tel:192">SAMU 192</a></strong> em caso de risco imediato. Ela não substitui psiquiatra de plantão nem profissional treinado em crise.<br><br>Se você está numa noite assim agora, antes de continuar lendo: por favor, ligue <a class="help-link" href="tel:188"><strong>188</strong></a> (ligação gratuita, 24h, sem julgamento) ou converse pelo <a class="help-link" href="https://www.cvv.org.br/chat/" target="_blank" rel="noopener noreferrer"><strong>chat do CVV</strong></a> se preferir não falar. Você importa, e tem gente preparada esperando.</div>
+      </details>
+      <details class="faq-item">
+        <summary><span>Como cancelo se eu não quiser mais?</span><span class="plus">+</span></summary>
+        <div class="answer">Você manda <strong>"cancelar"</strong> no próprio WhatsApp e pronto. Sem ligar para ninguém, sem formulário, sem retenção. Cancelamento imediato. Se quiser apagar todas as suas conversas também, manda <strong>"apagar tudo"</strong> — a gente exclui da nossa base.</div>
+      </details>
+      <details class="faq-item">
+        <summary><span>Como funciona o teste grátis de 7 dias?</span><span class="plus">+</span></summary>
+        <div class="answer">Você começa sem cadastrar cartão. Os 7 dias são completos, sem limitação de quantas conversas. Antes do dia 7 acabar, a GABA te pergunta se você quer continuar — só nesse momento ela pede o pagamento. Se você não responder ou disser não, a conversa simplesmente para. Sem cobrança automática surpresa.</div>
+      </details>
+      <details class="faq-item">
+        <summary><span>Quem está por trás disso? É uma startup que vai sumir amanhã?</span><span class="plus">+</span></summary>
+        <div class="answer">A NeuroMãe é fundada por <strong>Tatiana Junco</strong>, mãe atípica, psicopedagoga em formação e pós-graduada em neurociência comportamental. O projeto nasceu da experiência pessoal dela — e da percepção de que mães atípicas que não têm rede ou condições financeiras precisavam de um lugar seguro. Você pode acompanhar tudo no Instagram <a class="help-link" href="https://instagram.com/neuromaeia" target="_blank" rel="noopener noreferrer">@neuromaeia</a>.</div>
+      </details>
+    </div>
+
+    <p class="faq-after">
+      Outras dúvidas? Manda direto no Instagram <a href="https://instagram.com/neuromaeia" target="_blank" rel="noopener noreferrer">@neuromaeia</a> ou começa o teste e pergunta para a própria GABA.
+    </p>
+  </div>
+</section>
+
+<footer class="gabaia">
+  <div class="wrap">
+    <div class="top">
+      <div class="footer-brand">
+        <img src="./public/gabaia-symbol-detailed.svg" alt="" aria-hidden="true">
+        <span class="brand-name">GABAIA</span>
+      </div>
+      <div class="nav-stack">
+        <nav class="links-row" aria-label="Links do rodapé">
+          <a href="https://wa.me/5543988264917" target="_blank" rel="noopener noreferrer">Contato</a>
+          <span class="greyed">Privacidade · em breve</span>
+          <span class="greyed">LGPD · em breve</span>
+        </nav>
+        <span class="icon-group">
+          <a href="https://instagram.com/neuromaeia" target="_blank" rel="noopener noreferrer" class="icon-btn" aria-label="@neuromaeia no Instagram" title="@neuromaeia no Instagram">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+              <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+              <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+            </svg>
+          </a>
+          <button type="button" class="icon-btn" id="share-page-btn" aria-label="Compartilhar esta página" title="Compartilhar esta página">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/>
+              <polyline points="16 6 12 2 8 6"/>
+              <line x1="12" y1="2" x2="12" y2="15"/>
+            </svg>
+          </button>
+        </span>
+      </div>
+    </div>
+    <div class="legal-block">
+      <p class="legal">A GABAIA é uma inteligência artificial. Ela apoia você no dia a dia, mas não substitui acompanhamento médico, psicológico ou terapêutico. Em situações de risco, procure um profissional de saúde ou ligue para o CVV (188).</p>
+    </div>
+    <div class="neuromae-row">
+      <a href="https://instagram.com/neuromaeia" target="_blank" rel="noopener noreferrer" class="neuromae-brand" aria-label="NeuroMãe">
+        <img src="./public/neuromae-symbol.svg" alt="" aria-hidden="true">
+        <span class="neuromae-mark">NeuroMãe</span>
+      </a>
+      <span class="copy-line">© 2026 · ciência, acolhimento e transformação</span>
+    </div>
+  </div>
+</footer>
+
+<a class="mobile-sticky-real" id="mobile-sticky" aria-hidden="true">Me conta o que tá pesando</a>
+
+<script>
+  (function(){
+    var sticky = document.getElementById('mobile-sticky');
+    var heroCta = document.querySelector('[data-hero-cta]');
+    if (!sticky || !heroCta || !('IntersectionObserver' in window)) {
+      if (sticky) { sticky.classList.add('is-visible'); sticky.setAttribute('aria-hidden','false'); }
+      return;
+    }
+    var observer = new IntersectionObserver(function(entries){
+      var entry = entries[0];
+      if (entry.isIntersecting) {
+        sticky.classList.remove('is-visible');
+        sticky.setAttribute('aria-hidden','true');
+      } else {
+        sticky.classList.add('is-visible');
+        sticky.setAttribute('aria-hidden','false');
+      }
+    }, { threshold: 0.05 });
+    observer.observe(heroCta);
+  })();
+
+  // Botão de compartilhar página (Web Share API + fallback)
+  (function(){
+    var shareBtn = document.getElementById('share-page-btn');
+    if (!shareBtn) return;
+    shareBtn.addEventListener('click', function(){
+      var data = {
+        title: 'GABAIA — A amiga da NeuroMãe',
+        text: 'Conheça a GABAIA: a assistente neuropsicoeducativa pra mães atípicas, no WhatsApp.',
+        url: window.location.href
+      };
+      if (navigator.share) {
+        navigator.share(data).catch(function(){});
+      } else if (navigator.clipboard) {
+        navigator.clipboard.writeText(data.url).then(function(){
+          var original = shareBtn.getAttribute('title');
+          shareBtn.setAttribute('title', 'Link copiado!');
+          setTimeout(function(){ shareBtn.setAttribute('title', original); }, 1800);
+        });
+      }
+    });
+  })();
+</script>
+</body>
+</html>

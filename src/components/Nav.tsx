@@ -7,25 +7,45 @@ export function Nav() {
       style={{ background: "rgba(243,236,227,0.86)" }}
     >
       <div className="wrap flex items-center justify-between gap-5" style={{ height: "76px" }}>
-        <a href="#top" aria-label="GABAIA by NeuroMãe" className="flex min-w-0 items-center gap-3">
+        <a href="#top" aria-label="GABAIA da NeuroMãe" className="flex min-w-0 items-center gap-3">
           <img
-            src="/gaba-cafe.png"
+            src="/gabaia-symbol-detailed.svg"
             alt=""
             aria-hidden="true"
-            width={42}
-            height={29}
-            className="h-auto w-[42px] flex-none -translate-y-px opacity-90"
-            style={{ filter: "sepia(.10) saturate(.86) contrast(.88) drop-shadow(0 6px 14px rgba(70,55,44,.08))" }}
+            width={44}
+            height={44}
+            className="h-auto w-[44px] flex-none"
+            style={{ filter: "drop-shadow(0 4px 10px rgba(70,55,44,.10))" }}
           />
-          <span className="flex flex-col justify-center gap-0.5 leading-none">
-            <span className="font-serif font-medium text-brown" style={{ fontSize: "31px", lineHeight: ".92", letterSpacing: ".035em" }}>
+          <span className="flex flex-col justify-center gap-1 leading-none">
+            <span
+              className="text-brown"
+              style={{
+                fontFamily: "'Jost', sans-serif",
+                fontWeight: 300,
+                fontSize: "26px",
+                lineHeight: 1,
+                letterSpacing: "0.22em",
+              }}
+            >
               GABAIA
             </span>
             <span
               className="hidden text-muted whitespace-nowrap md:block"
-              style={{ fontSize: "10px", textTransform: "uppercase", letterSpacing: ".13em", marginLeft: "2px" }}
+              style={{ fontSize: "10px", letterSpacing: "0.01em", marginLeft: "2px" }}
             >
-              by NeuroMãe
+              da{" "}
+              <span
+                style={{
+                  fontFamily: "'Playfair Display', Georgia, serif",
+                  fontWeight: 400,
+                  fontSize: "11px",
+                  color: "#77675B",
+                  letterSpacing: "-0.005em",
+                }}
+              >
+                NeuroMãe
+              </span>
             </span>
           </span>
         </a>
@@ -42,9 +62,9 @@ export function Nav() {
           href={WA_LINK}
           target="_blank"
           rel="noopener noreferrer"
-          className="hidden items-center justify-center rounded-full border border-olive/20 bg-olive/10 px-4 py-2.5 text-[13px] font-extrabold text-olive-2 md:inline-flex"
+          className="hidden items-center justify-center rounded-full border border-olive/20 bg-olive/10 px-4 py-2.5 text-[13px] font-bold text-olive-2 md:inline-flex"
         >
-          7 dias grátis
+          Quero conversar
         </a>
       </div>
     </nav>

@@ -23,11 +23,122 @@ export function Pricing() {
             className="font-serif font-medium text-ink"
             style={{ fontSize: "clamp(30px,3.4vw,44px)", lineHeight: 1.06, letterSpacing: "-0.026em" }}
           >
-            Comece por 7 dias. Continue só se fizer sentido.
+            Os primeiros sete dias são por minha conta.
           </h2>
-          <p className="mt-[12px] text-[17px] text-muted">
-            Sem cobrança automática surpresa. Você decide se vale a pena depois de testar.
-          </p>
+          <div className="mt-7" style={{ maxWidth: "560px", marginInline: "auto" }}>
+            <ul style={{ listStyle: "none", padding: 0, margin: 0 }}>
+              <li
+                className="flex items-center justify-between gap-4 border-b"
+                style={{
+                  borderColor: "rgba(95,75,62,0.10)",
+                  paddingBottom: "12px",
+                }}
+              >
+                <span
+                  style={{
+                    fontFamily: "'Playfair Display', Georgia, serif",
+                    fontStyle: "italic",
+                    color: "#5F4B3E",
+                    fontSize: "14.5px",
+                    lineHeight: 1.4,
+                  }}
+                >
+                  Uma consulta de neurodesenvolvimento
+                </span>
+                <span
+                  className="flex-none text-muted"
+                  style={{ fontSize: "13px", fontWeight: 500, whiteSpace: "nowrap" }}
+                >
+                  a partir de R$250
+                </span>
+              </li>
+
+              <li
+                className="flex items-center justify-between gap-4 border-b"
+                style={{
+                  borderColor: "rgba(95,75,62,0.10)",
+                  paddingTop: "12px",
+                  paddingBottom: "12px",
+                }}
+              >
+                <span
+                  style={{
+                    fontFamily: "'Playfair Display', Georgia, serif",
+                    fontStyle: "italic",
+                    color: "#5F4B3E",
+                    fontSize: "14.5px",
+                    lineHeight: 1.4,
+                  }}
+                >
+                  Um curso de parentalidade neuro
+                </span>
+                <span
+                  className="flex-none text-muted"
+                  style={{ fontSize: "13px", fontWeight: 500, whiteSpace: "nowrap" }}
+                >
+                  a partir de R$800
+                </span>
+              </li>
+
+              <li
+                className="flex items-center justify-between gap-4"
+                style={{ paddingTop: "14px" }}
+              >
+                <span
+                  style={{
+                    fontFamily: "'Playfair Display', Georgia, serif",
+                    fontStyle: "italic",
+                    color: "#5F4B3E",
+                    fontSize: "14.5px",
+                    fontWeight: 400,
+                    lineHeight: 1.4,
+                  }}
+                >
+                  A{" "}
+                  <span
+                    style={{
+                      fontFamily: "'Jost', sans-serif",
+                      fontStyle: "normal",
+                      fontWeight: 300,
+                      letterSpacing: "0.22em",
+                      fontSize: "0.92em",
+                      color: "#5F4B3E",
+                    }}
+                  >
+                    GABA
+                  </span>{" "}
+                  — todos os dias, 24h
+                </span>
+                <span
+                  className="flex-none"
+                  style={{
+                    color: "#A86E60",
+                    fontSize: "14px",
+                    fontWeight: 600,
+                    whiteSpace: "nowrap",
+                    letterSpacing: "-0.01em",
+                  }}
+                >
+                  R$39,90 / mês
+                </span>
+              </li>
+            </ul>
+
+            <p
+              className="mt-7 text-center"
+              style={{
+                fontFamily: "'Playfair Display', Georgia, serif",
+                fontStyle: "italic",
+                fontSize: "14px",
+                lineHeight: 1.55,
+                color: "#77675B",
+                maxWidth: "480px",
+                marginInline: "auto",
+              }}
+            >
+              Ela não substitui terapia — preenche o espaço entre as consultas, na hora em que você precisar.
+            </p>
+          </div>
         </div>
 
         <div
@@ -80,13 +191,55 @@ export function Pricing() {
               boxShadow: "0 16px 34px rgba(88,99,72,0.21)",
             }}
           >
-            Começar agora · grátis <span aria-hidden="true">→</span>
+            Começar 7 dias grátis <span aria-hidden="true">→</span>
           </a>
 
           <p className="mt-4 text-[13px] text-muted" style={{ maxWidth: "420px", marginInline: "auto" }}>
-            Sem cartão de crédito para começar. Você só paga depois dos 7 dias se decidir continuar.
+            Sem cartão · você só paga depois dos 7 dias se decidir continuar.
           </p>
-          <p className="mt-2 text-[12px] text-soft">
+
+          <div
+            className="mx-auto mt-7 flex flex-col items-center gap-4 rounded-[24px] border p-6 md:flex-row md:gap-6 md:text-left"
+            style={{
+              maxWidth: "480px",
+              background: "rgba(216,167,161,0.10)",
+              borderColor: "rgba(184,121,103,0.20)",
+            }}
+          >
+            <div
+              aria-hidden="true"
+              className="relative flex flex-none items-center justify-center rounded-full"
+              style={{
+                width: "92px",
+                height: "92px",
+                background: "rgba(216,167,161,0.20)",
+                border: "2px dashed rgba(184,121,103,0.32)",
+                color: "#A86E60",
+              }}
+            >
+              <div className="flex flex-col items-center leading-none">
+                <span
+                  className="font-serif font-medium"
+                  style={{ fontSize: "32px", lineHeight: 1, letterSpacing: "-0.02em" }}
+                >
+                  7
+                </span>
+                <span className="mt-0.5 text-[10px] font-extrabold uppercase" style={{ letterSpacing: "0.18em" }}>
+                  dias
+                </span>
+              </div>
+            </div>
+            <div className="flex-1 text-center md:text-left">
+              <p className="text-[14px] font-bold text-brown" style={{ lineHeight: 1.4 }}>
+                Cancele em 1 minuto, por mensagem.
+              </p>
+              <p className="mt-1.5 text-[13px] text-muted" style={{ lineHeight: 1.5 }}>
+                Sem retenção, sem burocracia, sem ligação. Você manda <strong>“cancelar”</strong> no WhatsApp e pronto.
+              </p>
+            </div>
+          </div>
+
+          <p className="mt-4 text-[12px] text-soft">
             Plano anual com benefícios extras chegando em breve.
           </p>
         </div>
