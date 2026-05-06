@@ -28,6 +28,15 @@
     <link rel="icon" type="image/svg+xml" href="/gabaia-symbol.svg" />
     <link rel="alternate icon" type="image/png" href="/favicon-32.png" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
+    <!-- Plausible Analytics — privacy-friendly, sem cookies (alinhado com LGPD/ECA digital).
+         Variante "outbound-links" registra cliques nos CTAs do WhatsApp (wa.me/...) automaticamente.
+         Variante "tagged-events" permite eventos custom via class="plausible-event-name=Nome".
+         IMPORTANTE: o data-domain DEVE bater com o domínio cadastrado em https://plausible.io/sites
+         Se você usar domínio próprio (ex: gabaia.neuromaeia.com.br), troque a string abaixo. -->
+    <script defer data-domain="neuromae-landing.vercel.app"
+            src="https://plausible.io/js/script.outbound-links.tagged-events.js"></script>
+    <script>window.plausible = window.plausible || function() { (window.plausible.q = window.plausible.q || []).push(arguments) }</script>
   </head>
   <body>
     <div id="root"></div>
