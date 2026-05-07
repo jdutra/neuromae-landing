@@ -263,7 +263,7 @@ export default function App() {
       const url = WA_BASE + "?text=" + encodeURIComponent(cta.whatsappText);
       card.innerHTML = `
         <div class="h-cta-line">${cta.line}</div>
-        <div class="h-cta-meta"><strong>R$ 39,90/mês</strong> depois dos 7 dias · cancele por mensagem</div>
+        <div class="h-cta-meta"><strong>R$ 69,90/mês</strong> depois dos 7 dias · cancele por mensagem</div>
         <a class="h-cta-go" href="${url}" target="_blank" rel="noopener noreferrer">
           <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M19.05 4.91A9.82 9.82 0 0 0 12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.27-1.38a9.86 9.86 0 0 0 4.71 1.2h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.0z"/></svg>
           Continuar no WhatsApp →
@@ -979,7 +979,7 @@ export default function App() {
               </div>
               <div className="anchor-row featured">
                 <span className="anchor-label">A <span className="gaba-word">GABA</span>, todos os dias, 24h</span>
-                <span className="anchor-price"><strong>R$ 39,90</strong> / mês</span>
+                <span className="anchor-price"><strong>R$ 69,90</strong> / mês</span>
               </div>
             </div>
             <p>Ela não substitui terapia — preenche o espaço entre as consultas, na hora em que você precisar.</p>
@@ -988,7 +988,7 @@ export default function App() {
             <span className="kicker">Plano único · 7 dias grátis</span>
             <div className="price">
               <span className="cur">R$</span>
-              <span className="num">39</span>
+              <span className="num">69</span>
               <span className="cents">,90</span>
               <span className="per">/mês</span>
             </div>
@@ -1062,7 +1062,7 @@ export default function App() {
               </div>
             </details>
             <details>
-              <summary>Por que pagar R$39,90/mês se posso usar uma IA generalista?</summary>
+              <summary>Por que pagar R$69,90/mês se posso usar uma IA generalista?</summary>
               <div className="answer-faq">
                 Porque a GABA foi desenhada para maternidade atípica: contexto, memória entre conversas, freios para não sobrecarregar e linguagem de acolhimento prático.
               </div>
