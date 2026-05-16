@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import { RiskDisclaimer } from "./RiskDisclaimer";
 
 type FaqItem = {
   q: string;
@@ -51,7 +52,7 @@ const items: FaqItem[] = [
     q: "Posso mandar áudio? Não dou conta de digitar texto longo quando estou cansada.",
     a: (
       <>
-        Sim. A conversa é no WhatsApp, então áudio funciona naturalmente. Manda do jeito que sair — embolado, com pausa, nasal de quem chorou. Ela transcreve e responde com a mesma profundidade que daria para um texto.
+        Sim. A conversa é no WhatsApp, então áudio funciona naturalmente. Manda do jeito que sair — embolado, com pausa, nasal de quem chorou. Ela transcreve e responde de forma clara e acolhedora, do mesmo jeito que faria com um texto.
       </>
     ),
   },
@@ -142,6 +143,10 @@ export function FAQ() {
           >
             O que é, o que não é, e como funciona.
           </h2>
+        </div>
+
+        <div className="mx-auto mb-6 max-w-[820px]">
+          <RiskDisclaimer variant="banner" />
         </div>
 
         <div className="mx-auto flex max-w-[820px] flex-col gap-3">

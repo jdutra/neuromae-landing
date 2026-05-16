@@ -48,7 +48,7 @@ function PhoneCard() {
 
   return (
     <div
-      aria-label="Exemplo de conversa com a GABAIA"
+      aria-label="Exemplo de conversa com a GABA"
       className="rounded-[32px] border border-brown/12 backdrop-blur"
       style={{
         background: "rgba(255,248,241,0.78)",
@@ -56,8 +56,53 @@ function PhoneCard() {
         padding: "26px",
       }}
     >
-      <div className="mb-[18px] flex items-center justify-between text-[12px] font-bold uppercase text-muted" style={{ letterSpacing: "0.05em" }}>
-        <span>Conversa com GABAIA · 23h47</span>
+      <div className="mb-[18px] flex items-center justify-between gap-3 text-[12px] font-bold uppercase text-muted" style={{ letterSpacing: "0.05em" }}>
+        <span className="flex min-w-0 items-center gap-2.5">
+          <span
+            className="inline-flex flex-none items-center justify-center overflow-hidden rounded-full"
+            style={{
+              width: "48px",
+              height: "48px",
+              background: "#FFF8F1",
+              border: "1.5px solid rgba(168,181,162,0.42)",
+              boxShadow: "0 2px 6px rgba(70,55,44,0.10)",
+            }}
+            aria-hidden="true"
+          >
+            <img
+              src="/gaba-logo-v2.svg"
+              alt=""
+              width={48}
+              height={48}
+              style={{
+                width: "100%",
+                height: "100%",
+                objectFit: "cover",
+                objectPosition: "center",
+                transform: "scale(1.18)",
+                transformOrigin: "center",
+                display: "block",
+              }}
+            />
+          </span>
+          <span className="flex flex-col leading-tight" style={{ textTransform: "none", letterSpacing: 0 }}>
+            <span
+              className="text-brown"
+              style={{
+                fontFamily: "'Jost', sans-serif",
+                fontWeight: 400,
+                fontSize: "14px",
+                letterSpacing: "0.18em",
+                textTransform: "uppercase",
+              }}
+            >
+              GABA
+            </span>
+            <span className="text-muted" style={{ fontSize: "10.5px", fontWeight: 600, letterSpacing: "0.05em", textTransform: "uppercase" }}>
+              23h47
+            </span>
+          </span>
+        </span>
         <span className="inline-flex items-center gap-2 before:block before:h-2 before:w-2 before:rounded-full before:bg-olive before:content-['']">
           online
         </span>

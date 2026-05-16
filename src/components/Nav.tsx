@@ -1,4 +1,4 @@
-import { WA_LINK } from "../lib/links";
+import { WhatsAppCTA } from "./WhatsAppCTA";
 
 export function Nav() {
   return (
@@ -7,14 +7,14 @@ export function Nav() {
       style={{ background: "rgba(243,236,227,0.86)" }}
     >
       <div className="wrap flex items-center justify-between gap-5" style={{ height: "76px" }}>
-        <a href="#top" aria-label="GABAIA da NeuroMãe" className="flex min-w-0 items-center gap-3">
+        <a href="#top" aria-label="GABA da NeuroMãe" className="flex min-w-0 items-center gap-3">
           <img
-            src="/gabaia-symbol-detailed.svg"
+            src="/neuromae-logo.svg"
             alt=""
             aria-hidden="true"
-            width={44}
-            height={44}
-            className="h-auto w-[44px] flex-none"
+            width={56}
+            height={56}
+            className="h-auto w-[56px] flex-none"
             style={{ filter: "drop-shadow(0 4px 10px rgba(70,55,44,.10))" }}
           />
           <span className="flex flex-col justify-center gap-1 leading-none">
@@ -28,7 +28,7 @@ export function Nav() {
                 letterSpacing: "0.22em",
               }}
             >
-              GABAIA
+              GABA
             </span>
             <span
               className="hidden text-muted whitespace-nowrap md:block"
@@ -58,14 +58,13 @@ export function Nav() {
           <a href="#faq"       className="opacity-80 transition hover:text-brown hover:opacity-100">Dúvidas</a>
         </div>
 
-        <a
-          href={WA_LINK}
-          target="_blank"
-          rel="noopener noreferrer"
+        <WhatsAppCTA
+          channel="nav_cta"
+          variant="ghost"
           className="hidden items-center justify-center rounded-full border border-olive/20 bg-olive/10 px-4 py-2.5 text-[13px] font-bold text-olive-2 md:inline-flex"
         >
-          Quero conversar
-        </a>
+          Experimentar gratuitamente
+        </WhatsAppCTA>
       </div>
     </nav>
   );

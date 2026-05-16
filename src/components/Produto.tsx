@@ -44,7 +44,7 @@ export function Produto() {
             Não é um curso. É uma conversa guiada.
           </h2>
           <p className="mt-[13px] text-[17px] text-muted">
-            Você fala com a GABAIA quando precisar de clareza: no fim do dia, depois de uma situação difícil, antes de uma reunião na escola ou quando a cabeça está cheia demais.
+            Você fala com a GABA quando precisar de clareza: no fim do dia, depois de uma situação difícil, antes de uma reunião na escola ou quando a cabeça está cheia demais.
           </p>
         </div>
 
@@ -56,7 +56,7 @@ export function Produto() {
           />
           <InfoCard
             num="02"
-            title="A GABAIA organiza"
+            title="A GABA organiza"
             body="Ela ajuda a separar emoção, contexto e próximos passos possíveis."
           />
           <InfoCard

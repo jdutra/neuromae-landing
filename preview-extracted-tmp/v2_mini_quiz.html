@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>NeuroMãe — assistente no WhatsApp para mães atípicas</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600&family=Playfair+Display:wght@400;500;600&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<style>
+:root{
+  --cream:#F4EDE5;--cream2:#FFF9F2;--paper:#FFFCF7;--latte:#E7D9CC;--ink:#3F352F;--brown:#5E4A3E;--muted:#7B6C61;--soft:#98897E;--olive:#637153;--olive2:#526143;--sage:#A8B5A2;--terra:#BE7564;--rose:#E3B8B0;--line:rgba(95,75,62,.12);--shadow:0 24px 70px rgba(70,55,44,.09);--radius:28px;
+}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:var(--ink);background:radial-gradient(circle at 92% 4%,rgba(190,117,100,.15),transparent 30%),radial-gradient(circle at 8% 10%,rgba(168,181,162,.15),transparent 32%),var(--cream);line-height:1.6;padding-bottom:88px}a{text-decoration:none;color:inherit}.wrap{width:min(1120px,calc(100% - 40px));margin:0 auto}.serif{font-family:'Playfair Display',Georgia,serif}.gaba-word{font-family:Jost,sans-serif;letter-spacing:.16em;font-weight:400}.kicker{display:inline-flex;align-items:center;justify-content:center;padding:6px 12px;border-radius:999px;background:rgba(99,113,83,.12);color:var(--olive2);font-size:10.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase}.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;min-height:46px;padding:0 22px;border-radius:999px;font-weight:600;font-size:14.5px;letter-spacing:-.005em;border:1px solid transparent;cursor:pointer;transition:.2s}.btn.primary{background:linear-gradient(180deg,var(--olive),var(--olive2));color:var(--cream2);box-shadow:0 16px 34px rgba(82,97,67,.24)}.btn.secondary{background:rgba(255,249,242,.55);border-color:rgba(82,97,67,.35);color:var(--olive2)}.btn:hover{transform:translateY(-1px)}h1,h2,h3,p{margin-top:0}h1,h2{font-family:'Playfair Display',Georgia,serif;font-weight:500;letter-spacing:-.035em;color:var(--ink)}h1{font-size:clamp(36px,4.4vw,58px);line-height:1.04;margin-bottom:18px;letter-spacing:-.03em}h1 .accent,h2 .accent{color:var(--terra)}h1 .accent{font-style:italic;font-weight:400}h2{font-size:clamp(26px,2.8vw,36px);line-height:1.18;margin-bottom:12px;letter-spacing:-.022em}.section{padding:78px 0;border-top:1px solid rgba(95,75,62,.075)}.section-head{text-align:center;max-width:760px;margin:0 auto 46px}.section-head .kicker{margin-bottom:18px}.section-head p{font-size:16px;color:var(--muted);margin:14px auto 0;line-height:1.65;text-align:justify;text-align-last:center;max-width:620px}.subtle-rule{width:70px;height:1px;background:linear-gradient(90deg,transparent,var(--terra),transparent);margin:18px auto}.nav{position:sticky;top:0;z-index:30;background:rgba(26,20,16,.50);backdrop-filter:blur(16px) saturate(1.1);-webkit-backdrop-filter:blur(16px) saturate(1.1);border-bottom:1px solid rgba(255,255,255,.05)}.nav .wrap{height:78px;display:flex;align-items:center;justify-content:space-between;gap:20px}.brand{display:flex;align-items:center;gap:14px}.brand img{width:64px;height:64px;object-fit:contain}.brand-title{font-family:Jost,sans-serif;font-size:32px;letter-spacing:.20em;font-weight:400;color:var(--brown);line-height:1}.brand-sub{display:inline-flex;align-items:center;gap:8px;font-size:9.5px;color:var(--muted);margin-top:1px;letter-spacing:.05em;text-transform:uppercase;line-height:1}.brand-sub:before,.brand-sub:after{content:"";width:16px;height:1px;background:rgba(95,75,62,.32);display:inline-block}.navlinks{display:flex;align-items:center;gap:24px;color:var(--muted);font-weight:500;font-size:13px;letter-spacing:-.005em}.navlinks a{opacity:.82}.navlinks a:hover{opacity:1;color:var(--brown)}.nav .pill{padding:9px 16px;border-radius:999px;background:rgba(99,113,83,.12);border:1px solid rgba(99,113,83,.22);color:var(--olive2);font-weight:600;font-size:13px;letter-spacing:-.005em;white-space:nowrap}.hero{position:relative;overflow:hidden;min-height:clamp(620px,86vh,800px);margin-top:-78px;padding:156px 0 96px;background:linear-gradient(180deg,#1A1410 0%,#251D17 18%,#2F2620 38%,#3D332C 60%,#564839 86%,#6F5D4A 100%);display:flex;align-items:center;color:var(--cream2)}.hero:before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse 60% 70% at 78% 35%,rgba(190,117,100,.18) 0%,transparent 55%),radial-gradient(ellipse 50% 60% at 18% 75%,rgba(168,181,162,.10) 0%,transparent 60%);pointer-events:none;z-index:1}.hero-grid{position:relative;z-index:2;display:flex;justify-content:flex-start;align-items:center}.hero-grid>div.hero-text{display:flex;flex-direction:column;align-items:flex-start;width:100%;max-width:560px}.badges{display:flex;flex-wrap:wrap;gap:9px;margin-bottom:20px}.badge{font-size:11px;letter-spacing:.13em;text-transform:uppercase;font-weight:900;border-radius:999px;padding:7px 12px}.badge.light{background:rgba(227,184,176,.28);border:1px solid rgba(190,117,100,.18);color:var(--brown)}.badge.dark{background:var(--olive2);color:var(--cream2)}.hero-lede{font-family:'Playfair Display',Georgia,serif;font-size:clamp(19px,1.8vw,24px);line-height:1.3;color:var(--brown);max-width:520px;margin-bottom:18px}.hero-copy{font-size:15.5px;color:var(--muted);max-width:540px;margin-bottom:28px;line-height:1.6}.hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:22px}.trust-row{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:6px}.trust-mini{display:flex;align-items:center;gap:10px;background:transparent;border:0;border-radius:0;padding:0;color:var(--muted);font-size:11px;text-transform:none;letter-spacing:0;font-weight:500;line-height:1.4}.trust-mini strong{display:block;color:var(--ink);font-size:13px;font-weight:700;margin-bottom:2px;letter-spacing:0}.trust-mini .ico{width:36px;height:36px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;background:rgba(255,252,247,.85);border:1px solid rgba(95,75,62,.12);color:var(--olive2);flex:0 0 auto}.btn-ico{width:28px;height:28px;border-radius:50%;background:rgba(255,255,255,.16);display:inline-flex;align-items:center;justify-content:center;flex:0 0 auto}.btn.primary .btn-ico{color:var(--cream2)}.hero-visual{position:relative;margin:0;display:block;width:100%;aspect-ratio:4/5;overflow:visible}.hero-visual img{display:block;width:100%;height:100%;object-fit:cover;-webkit-mask-image:linear-gradient(to right,transparent 0%,rgba(0,0,0,.4) 8%,#000 22%,#000 100%);mask-image:linear-gradient(to right,transparent 0%,rgba(0,0,0,.4) 8%,#000 22%,#000 100%)}.hero-bubble{position:absolute;right:6%;top:14%;width:54px;height:54px;border-radius:50%;display:flex;align-items:center;justify-content:center;border:1px solid rgba(190,117,100,.22);background:rgba(255,252,247,.94);color:var(--terra);box-shadow:0 16px 48px rgba(70,55,44,.10);z-index:2}.hero-bubble:after{content:"";position:absolute;bottom:-5px;left:30%;width:10px;height:10px;background:rgba(255,252,247,.94);border-right:1px solid rgba(190,117,100,.22);border-bottom:1px solid rgba(190,117,100,.22);transform:rotate(45deg)}.thoughts{background:linear-gradient(180deg,rgba(255,249,242,.42),rgba(244,237,229,.35));padding-top:72px}.thought-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.thought-card{position:relative;background:rgba(255,252,247,.70);border:1px solid rgba(95,75,62,.10);border-radius:28px;padding:30px 28px 28px;box-shadow:0 18px 55px rgba(70,55,44,.075);min-height:356px;display:flex;flex-direction:column}.thought-icon{width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;border:1px solid rgba(190,117,100,.25);color:var(--terra);background:rgba(227,184,176,.14);margin-bottom:18px}.thought{font-family:'Playfair Display',Georgia,serif;font-style:italic;font-size:16.5px;line-height:1.6;color:var(--brown);margin-bottom:22px}.thought-card hr{border:0;border-top:1px solid rgba(190,117,100,.22);width:32px;margin:0 0 22px}.answer{font-weight:500;color:var(--ink);font-size:14px;line-height:1.6;margin-bottom:14px}.insight{font-weight:500;color:var(--terra);font-size:14px;line-height:1.6;margin-top:auto}.little-heart{margin-top:24px;text-align:center;color:var(--terra);opacity:.75}.reveal-box{margin:32px auto 0;display:grid;grid-template-columns:auto 1fr auto;gap:20px;align-items:center;background:rgba(255,249,242,.5);border:1px solid rgba(190,117,100,.16);border-radius:22px;padding:16px 22px;max-width:960px}.reveal-box .mark{width:46px;height:46px;border-radius:50%;background:rgba(227,184,176,.34);display:flex;align-items:center;justify-content:center;color:var(--olive2);font-size:20px;border:1px solid rgba(190,117,100,.18)}.reveal-box p{margin:0;font-weight:500;color:var(--brown);font-size:14.5px;line-height:1.55}.reveal-box .strong{font-size:14.5px;color:var(--terra);font-weight:500;padding-left:22px;border-left:1px solid rgba(190,117,100,.22);line-height:1.55}.gaba-mascot{margin:24px auto 0;text-align:center;max-width:140px;padding:0}.gaba-mascot img{display:block;width:100%;height:auto;opacity:.94}.reveal-line{text-align:center;margin:36px 0 0;font-family:'Playfair Display',Georgia,serif;font-size:clamp(22px,2.2vw,30px);line-height:1.25;font-weight:500}.reveal-line .gaba-word{color:var(--olive2)}.chat{background:rgba(255,249,242,.34)}.chat-card{max-width:680px;margin:0 auto;background:rgba(255,252,247,.78);border:1px solid var(--line);border-radius:34px;padding:26px;box-shadow:var(--shadow)}.phone-head{display:flex;justify-content:space-between;align-items:center;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-size:11px;font-weight:600;margin-bottom:16px}.online{display:flex;align-items:center;gap:7px}.online:before{content:"";width:8px;height:8px;border-radius:50%;background:var(--olive)}.bubble{padding:16px 18px;border-radius:20px;margin:10px 0;font-size:15px}.mom{background:#EEE0D6;color:#4D4037;border-bottom-left-radius:8px;margin-right:50px}.gaba{background:#E8ECDD;color:#3F4937;border-bottom-right-radius:8px;margin-left:34px}.gaba ol{margin:8px 0 0 18px;padding:0}.msg-row{display:flex;align-items:flex-start;gap:10px;margin:10px 0}.msg-row .bubble.gaba{margin-left:0;flex:1;min-width:0;margin-top:0;margin-bottom:0}.msg-avatar{flex:0 0 38px;width:38px;height:38px;border-radius:50%;overflow:hidden;background:#FFFCF7;border:1px solid rgba(95,75,62,.10);display:flex;align-items:center;justify-content:center;margin-top:4px;box-shadow:0 2px 8px rgba(70,55,44,.06)}.msg-avatar img{width:100%;height:100%;object-fit:cover;display:block}.msg-row.continued .msg-avatar{background:transparent;border:0;box-shadow:none}.msg-row.continued .msg-avatar img{display:none}.input{display:flex;justify-content:space-between;align-items:center;margin-top:16px;background:rgba(255,255,255,.55);border:1px solid rgba(95,75,62,.09);border-radius:999px;padding:12px 15px;color:var(--soft);font-size:14px}.steps{background:rgba(244,237,229,.58)}.step-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}.step{position:relative;text-align:center;padding:18px 12px}.step .circle{width:76px;height:76px;border-radius:50%;background:rgba(255,252,247,.82);border:1px solid rgba(95,75,62,.08);display:flex;align-items:center;justify-content:center;margin:0 auto 16px;color:var(--olive);box-shadow:0 16px 38px rgba(70,55,44,.06);font-size:30px}.step h3{font-size:16px;line-height:1.35;margin-bottom:7px}.step p{font-size:14px;color:var(--muted);margin:0}.step:not(:last-child):after{content:"→";position:absolute;right:-12px;top:46px;color:var(--olive);font-size:24px;opacity:.45;font-weight:300}.step-cta{margin-top:48px;background:rgba(255,252,247,.62);border:1px solid rgba(95,75,62,.10);border-radius:28px;padding:22px 32px;display:grid;grid-template-columns:1fr auto;gap:24px;align-items:center;box-shadow:0 14px 42px rgba(70,55,44,.06)}.step-cta-text{display:flex;align-items:center;gap:18px}.step-cta-icon{width:54px;height:54px;border-radius:50%;background:rgba(99,113,83,.14);border:1px solid rgba(99,113,83,.22);display:flex;align-items:center;justify-content:center;color:var(--olive2);flex:0 0 auto}.step-cta-text p{margin:0;font-size:15.5px;color:var(--brown);line-height:1.5;max-width:420px}.step-cta-text strong{color:var(--ink);font-weight:700}.step-cta-action{text-align:center}.step-cta-fineprint{margin:10px 0 0;font-size:13px;color:var(--muted)}.step-cta .gaba-word{letter-spacing:.08em}.step .gaba-word{letter-spacing:.08em}.moments-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}.moment{background:rgba(255,252,247,.62);border:1px solid rgba(95,75,62,.09);border-radius:28px;padding:24px 16px;text-align:center;box-shadow:0 14px 42px rgba(70,55,44,.06)}.moment-img{height:128px;display:flex;align-items:center;justify-content:center;margin-bottom:12px}.moment img{max-height:126px;max-width:100%;filter:drop-shadow(0 14px 22px rgba(70,55,44,.16))}.moment h3{text-transform:uppercase;letter-spacing:.14em;color:var(--brown);font-size:13px}.moment p{color:var(--muted);font-size:14px;margin:0}.compare{background:linear-gradient(180deg,rgba(255,249,242,.25),rgba(244,237,229,.55))}.compare-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;max-width:900px;margin:0 auto}.compare-card{border-radius:30px;padding:30px;border:1px solid;box-shadow:0 16px 48px rgba(70,55,44,.055)}.compare-card.before{background:linear-gradient(180deg,rgba(227,184,176,.18),rgba(255,249,242,.40));border-color:rgba(190,117,100,.22)}.compare-card.after{background:linear-gradient(180deg,rgba(168,181,162,.16),rgba(255,249,242,.50));border-color:rgba(99,113,83,.22)}.compare-card h3{font-family:'Playfair Display',Georgia,serif;font-size:20px;font-weight:500;line-height:1.25}.compare-card ul{list-style:none;margin:20px 0 0;padding:0;display:flex;flex-direction:column;gap:12px}.compare-card li{display:flex;gap:10px;color:var(--muted);font-size:15px}.compare-card li:before{content:"";width:7px;height:7px;border-radius:50%;background:var(--terra);margin-top:9px;flex:0 0 auto}.after li:before{background:var(--olive)}.compare .section-head{margin-bottom:46px}.compare .section-head .kicker{margin-bottom:20px}.compare .section-head h2{max-width:600px;margin-left:auto;margin-right:auto}.compare-card{padding:26px 24px}.compare-card .kicker{display:inline-flex;margin-bottom:12px}.compare-card h3{font-size:20px;line-height:1.25}.compare-card li{font-size:14.5px}.cta-band{padding:54px 0;background:rgba(255,252,247,.48);border-top:1px solid rgba(95,75,62,.08);border-bottom:1px solid rgba(95,75,62,.08)}.visual-break{margin:0 auto;padding:0;max-width:680px;display:block}.visual-break img{display:block;width:100%;height:auto;-webkit-mask-image:linear-gradient(to bottom,transparent 0%,#000 12%,#000 88%,transparent 100%);mask-image:linear-gradient(to bottom,transparent 0%,#000 12%,#000 88%,transparent 100%)}.cta-card{max-width:920px;margin:0 auto;border-radius:34px;background:linear-gradient(180deg,rgba(255,252,247,.82),rgba(255,249,242,.56));border:1px solid rgba(95,75,62,.10);padding:34px;display:grid;grid-template-columns:1fr auto;gap:24px;align-items:center;box-shadow:var(--shadow)}.cta-card h2{margin:0}.cta-card p{color:var(--muted);margin:10px 0 0;font-size:16px;line-height:1.65}.fit-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;max-width:900px;margin:0 auto}.fit{border-radius:30px;padding:28px;border:1px solid;box-shadow:0 15px 45px rgba(70,55,44,.055)}.fit.yes{background:rgba(168,181,162,.11);border-color:rgba(99,113,83,.2)}.fit.no{background:rgba(227,184,176,.12);border-color:rgba(190,117,100,.2)}.fit h3{font-family:'Playfair Display',Georgia,serif;font-size:20px;font-weight:500;line-height:1.25}.fit ul{list-style:none;padding:0;margin:16px 0 0;display:flex;flex-direction:column;gap:10px}.fit li{display:flex;gap:10px;color:var(--muted);font-size:14px;line-height:1.6}.fit li:before{content:"✓";color:var(--olive);font-weight:700;flex:0 0 auto}.fit.no li:before{content:"×";color:var(--terra)}.founder{background:rgba(255,249,242,.35)}.founder-grid{display:grid;grid-template-columns:260px 1fr;gap:46px;align-items:start;max-width:940px;margin:0 auto}.founder-card{text-align:center}.portrait{width:100%;max-width:240px;aspect-ratio:4/5;height:auto;object-fit:cover;object-position:center 28%;border-radius:0;border:0;background:transparent;box-shadow:none;-webkit-mask-image:linear-gradient(to bottom,transparent 0%,#000 14%,#000 86%,transparent 100%);mask-image:linear-gradient(to bottom,transparent 0%,#000 14%,#000 86%,transparent 100%)}.founder-card h3{font-family:'Playfair Display',Georgia,serif;font-size:19px;font-weight:500;margin:14px 0 4px;line-height:1.25}.founder-card p{font-size:13px;color:var(--muted);margin-bottom:10px;line-height:1.45}.insta{display:inline-flex;padding:5px 11px;border-radius:999px;background:rgba(99,113,83,.12);color:var(--olive2);font-size:12px;font-weight:600}.founder-text .opener{font-family:'Playfair Display',Georgia,serif;font-style:italic;font-size:21px;color:var(--brown);margin-bottom:18px;line-height:1.3}.founder-text p{font-size:15px;color:var(--muted);margin-bottom:16px;line-height:1.6}.quote{margin-top:26px;border-left:3px solid var(--terra);padding:12px 0 12px 28px;background:linear-gradient(90deg,rgba(190,117,100,.08),transparent);font-family:'Playfair Display',Georgia,serif;font-style:italic;color:var(--brown);font-size:17px;line-height:1.6}.pillar-signature{margin:32px auto 0;max-width:480px;padding:24px 28px;text-align:center;border:1px solid rgba(190,117,100,.18);border-radius:18px;background:rgba(255,252,247,.42);font-family:'Playfair Display',Georgia,serif;font-style:italic;color:var(--terra)}.pillar-signature .signature-icon{display:inline-flex;margin-bottom:10px;color:var(--terra);opacity:.6}.pillar-signature .pillar-line{margin:3px 0;font-size:15px;letter-spacing:.02em;line-height:1.7;color:var(--terra);opacity:.92}.pillar-signature .dot{display:inline-block;margin:0 6px;color:var(--terra);opacity:.5;font-style:normal}.security-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;max-width:880px;margin:0 auto}.security-card{background:transparent;border:0;border-top:1px solid rgba(95,75,62,.12);border-radius:0;padding:18px 10px 0;box-shadow:none;text-align:center}.security-card .icon{display:inline-flex;align-items:center;justify-content:center;color:var(--olive);margin-bottom:10px;line-height:1}.security-card .icon svg{width:22px;height:22px}.security-card h3{font-size:12.5px;margin-bottom:6px;font-weight:600;color:var(--brown);letter-spacing:.005em;line-height:1.3}.security-card p{font-size:11.5px;color:var(--muted);margin:0;line-height:1.6}.pricing{background:rgba(255,249,242,.30)}.anchor{max-width:560px;margin:28px auto 36px;display:flex;flex-direction:column;gap:0}.anchor-row{display:grid;grid-template-columns:1fr auto;gap:24px;align-items:baseline;padding:14px 6px;border-bottom:1px solid rgba(95,75,62,.08)}.anchor-row:last-child{border-bottom:0}.anchor-label{font-family:Inter,-apple-system,sans-serif;font-style:normal;font-size:14.5px;color:var(--brown);font-weight:400;line-height:1.45;text-align:left}.anchor-price{font-family:Inter,-apple-system,sans-serif;font-style:normal;font-size:14px;color:var(--muted);font-weight:400;white-space:nowrap;letter-spacing:.005em;text-align:right}.anchor .gaba-word{letter-spacing:.06em}.anchor-price strong{font-weight:600;color:var(--brown);font-size:14.5px}.anchor-row.featured{margin-top:10px;padding:18px 18px;background:rgba(190,117,100,.07);border:1px solid rgba(190,117,100,.20);border-radius:14px}.anchor-row.featured .anchor-label{color:var(--ink);font-weight:500}.anchor-row.featured .anchor-price{color:var(--terra);font-weight:500}.anchor-row.featured .anchor-price strong{color:var(--terra);font-weight:600;font-size:15.5px}.price-card{max-width:580px;margin:0 auto;background:rgba(255,252,247,.78);border:1px solid rgba(95,75,62,.10);border-radius:36px;padding:38px;text-align:center;box-shadow:var(--shadow)}.price{font-family:'Playfair Display',Georgia,serif;color:var(--brown);display:flex;align-items:baseline;justify-content:center;margin:18px 0 2px}.price .cur{font-size:24px}.price .num{font-size:76px;line-height:1;letter-spacing:-.04em}.price .cents{font-size:32px}.price .per{font-size:16px;color:var(--muted);margin-left:5px}.includes{list-style:none;max-width:420px;margin:28px auto 0;text-align:left;padding:0;display:flex;flex-direction:column;gap:12px}.includes li{display:flex;gap:11px;color:var(--muted);font-size:14.5px;line-height:1.6}.includes li:before{content:"✓";width:18px;height:18px;border-radius:50%;background:rgba(99,113,83,.15);color:var(--olive);font-size:11px;text-align:center;line-height:18px;font-weight:700;flex:0 0 auto;margin-top:3px}.guarantee{margin:26px auto 0;display:flex;gap:18px;align-items:center;text-align:left;background:rgba(227,184,176,.14);border:1px solid rgba(190,117,100,.18);border-radius:24px;padding:20px;max-width:470px}.seal{width:76px;height:76px;border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center;border:2px dashed rgba(190,117,100,.36);color:var(--terra);flex:0 0 auto}.seal strong{font-family:'Playfair Display',Georgia,serif;font-size:28px;line-height:1}.seal span{font-size:10px;font-weight:700;letter-spacing:.16em;text-transform:uppercase}.faq-list{max-width:880px;margin:0 auto;display:flex;flex-direction:column;gap:12px}details{background:rgba(255,252,247,.62);border:1px solid rgba(95,75,62,.10);border-radius:20px}summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;gap:16px;padding:18px 22px;font-weight:600;color:var(--ink);font-size:15px;line-height:1.4}summary::-webkit-details-marker{display:none}summary:after{content:"+";color:var(--muted);font-size:20px;line-height:1}details[open] summary:after{transform:rotate(45deg)}.answer-faq{padding:0 22px 22px;color:var(--muted);font-size:14.5px;line-height:1.6}.footer{background:#3F352F;color:#CDBFB2;padding:44px 0 120px}.footer .wrap{display:flex;justify-content:space-between;gap:24px;align-items:flex-start}.footer-brand{display:flex;align-items:center;gap:12px}.footer-brand img{width:38px}.footer .gaba-word{font-size:25px;color:var(--cream2)}.legal{max-width:640px;font-size:12px;color:#A99B8F;text-align:right}.sticky{position:fixed;right:24px;bottom:24px;z-index:40;background:linear-gradient(180deg,var(--olive),var(--olive2));color:var(--cream2);border-radius:999px;min-height:46px;padding:0 22px;display:flex;align-items:center;justify-content:center;font-weight:600;font-size:14px;letter-spacing:-.005em;box-shadow:0 14px 36px rgba(65,56,46,.22)}@media(max-width:920px){.navlinks{display:none}.hero-grid,.thought-grid,.fit-grid,.founder-grid,.cta-card{grid-template-columns:1fr}.compare-grid{gap:14px}.compare-card{padding:20px 16px}.compare-card h3{font-size:17px}.compare-card li{font-size:13px}.hero-visual{margin-top:32px;aspect-ratio:1/1}.hero-visual img{-webkit-mask-image:none;mask-image:none;border-radius:8px}.thought-card{min-height:auto}.moments-grid{grid-template-columns:1fr 1fr}.security-grid{gap:8px}.security-card{padding:14px 6px 0}.security-card .icon svg{width:20px;height:20px}.security-card h3{font-size:11.5px;margin-bottom:5px}.security-card p{font-size:10.5px;line-height:1.4}.step{padding:12px 6px}.step .circle{width:60px;height:60px;margin-bottom:14px}.step .circle svg{width:26px;height:26px}.step h3{font-size:13px;line-height:1.3;margin-bottom:7px;font-weight:600}.step p{font-size:12px;line-height:1.45;color:var(--soft)}.step .gaba-word{letter-spacing:.08em}.step:not(:last-child):after{font-size:18px;top:30px;right:-5px;opacity:.4}.step-cta{padding:20px 22px;gap:14px}.step-cta-icon{width:44px;height:44px}.step-cta-icon svg{width:21px;height:21px}.step-cta-text p{font-size:14.5px;max-width:none}.step-cta .gaba-word{letter-spacing:.08em}.step-cta-action .btn{font-size:13px;min-height:46px;padding:0 20px}.step-cta-fineprint{font-size:12px}.reveal-box{padding:14px 18px;gap:14px}.reveal-box .mark{width:40px;height:40px;font-size:18px}.reveal-box p{font-size:13px;line-height:1.5}.reveal-box .strong{font-size:13px;padding-left:14px;line-height:1.5}.founder-grid{text-align:center}.quote{text-align:left}.footer .wrap{flex-direction:column}.legal{text-align:left}.cta-card{text-align:center}.cta-card .btn{margin:0 auto}.pillars-list{grid-template-columns:repeat(2,1fr)}.pillar{padding:24px 14px}.pillar:nth-child(2):after{display:none}.pillar:nth-child(3),.pillar:nth-child(4){border-top:1px solid rgba(190,117,100,.18)}.pillar-name{font-size:21px}}@media(max-width:560px){body{padding-bottom:82px}.wrap{width:min(100% - 28px,1120px)}.nav .wrap{height:70px;gap:12px}.brand-title{font-size:22px}.nav .pill{padding:7px 13px;font-size:12px}.hero{padding:44px 0 46px}h1{font-size:32px;line-height:1.08}.hero-lede{font-size:18px}.hero-copy{font-size:14.5px}.hero-actions{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-start}.hero-actions .btn{width:auto;flex:1 1 auto;min-width:0;font-size:12.5px;padding:0 12px;min-height:42px;gap:6px;letter-spacing:-.005em;white-space:nowrap}.hero-actions .btn-ico{width:20px;height:20px}.hero-actions .btn-ico svg{width:13px;height:13px}.hero-actions .gaba-word{letter-spacing:.10em}.hero-grid{display:flex;flex-direction:column;gap:0}.hero-grid>div:first-child{display:contents}.hero-grid .hero-visual{order:-1;margin:-44px -14px 12px;width:calc(100% + 28px);max-width:none;aspect-ratio:4/5}.hero-grid .hero-visual img{-webkit-mask-image:linear-gradient(to bottom,#000 0%,#000 58%,rgba(0,0,0,.4) 82%,transparent 100%);mask-image:linear-gradient(to bottom,#000 0%,#000 58%,rgba(0,0,0,.4) 82%,transparent 100%);border-radius:0}.hero-grid .trust-row{order:2;margin-top:24px;padding-top:20px;border-top:1px solid rgba(95,75,62,.08)}.trust-row{grid-template-columns:repeat(2,1fr);gap:14px}.trust-mini{font-size:10.5px}.trust-mini strong{font-size:12px}.hero-visual{margin-top:24px;aspect-ratio:4/5}.hero-signature{bottom:20px;font-size:20px}.section{padding:56px 0}.thought-card{padding:24px}.pillars-list{grid-template-columns:1fr;max-width:340px;margin-top:36px}.pillar{flex-direction:row;justify-content:center;gap:18px;padding:18px 8px;border-top:1px solid rgba(190,117,100,.18)!important}.pillar:first-child{border-top:0!important}.pillar:after{display:none}.pillar-name{font-size:18px}.pillar-num{font-size:10px}.pillar-name br{display:none}.reveal-box{grid-template-columns:1fr;text-align:center;padding:24px 22px;gap:14px;border-radius:22px}.reveal-box .mark{width:40px;height:40px;font-size:17px;margin:0 auto}.reveal-box p{font-family:'Playfair Display',Georgia,serif;font-style:italic;font-weight:400;font-size:14px;line-height:1.55;color:var(--brown)}.reveal-box .strong{font-family:'Playfair Display',Georgia,serif;font-style:italic;font-weight:400;font-size:14px;line-height:1.55;color:var(--terra);padding:14px 0 0;border-left:0;border-top:1px solid rgba(190,117,100,.22);max-width:280px;margin:0 auto}.security-grid{gap:6px}.security-card{padding:12px 3px 0}.security-card .icon{margin-bottom:7px}.security-card .icon svg{width:16px;height:16px}.security-card h3{font-size:10px;margin-bottom:4px;line-height:1.2}.security-card p{font-size:9.5px;line-height:1.4}.moments-grid{grid-template-columns:repeat(2,1fr);gap:12px}.moment{padding:18px 14px;border-radius:22px}.moment-img{height:100px;margin-bottom:8px}.moment img{max-height:98px}.moment h3{font-size:11.5px;letter-spacing:.13em;margin-bottom:5px}.moment p{font-size:12px;line-height:1.4}.step-grid{gap:4px}.step{padding:8px 3px}.step .circle{width:42px;height:42px;margin-bottom:10px}.step .circle svg{width:18px;height:18px}.step h3{font-size:10.5px;line-height:1.3;margin-bottom:5px;letter-spacing:-.01em;font-weight:600}.step p{font-size:9.5px;line-height:1.45;color:var(--soft);opacity:.9}.step .gaba-word{letter-spacing:.06em}.step:not(:last-child):after{font-size:12px;top:19px;right:-2px}.step-cta{padding:22px 18px 18px;border-radius:22px;grid-template-columns:1fr;gap:14px;text-align:center}.step-cta-text{flex-direction:column;text-align:center;gap:10px;align-items:center}.step-cta-icon{width:38px;height:38px;margin:0 auto}.step-cta-icon svg{width:17px;height:17px}.step-cta-text p{font-size:13.5px;line-height:1.5;max-width:280px}.step-cta .gaba-word{letter-spacing:.08em}.step-cta-action{margin-top:2px}.step-cta-action .btn{font-size:13px;min-height:44px;padding:0 20px;width:auto;display:inline-flex}.step-cta-fineprint{font-size:11.5px;margin-top:10px;color:var(--muted)}.fit,.price-card{padding:24px}.compare-grid{gap:10px}.compare-card{padding:14px 12px;border-radius:20px}.compare-card .kicker{font-size:9px;padding:4px 8px;margin-bottom:8px;letter-spacing:.1em}.compare-card h3{font-size:13.5px;line-height:1.25;letter-spacing:-.01em}.compare-card li{font-size:11px;line-height:1.4;gap:6px}.compare-card ul{margin-top:10px;gap:7px}.compare-card li:before{margin-top:7px;width:5px;height:5px}.compare .section-head{margin-bottom:32px}.compare .section-head .kicker{margin-bottom:14px}.compare .section-head h2{font-size:22px;line-height:1.22;letter-spacing:-.018em}.compare .section-head p{font-size:13.5px;line-height:1.5}.guarantee{flex-direction:column;text-align:center}.anchor-row{flex-direction:column;gap:3px}.footer{padding-bottom:100px}.sticky{left:14px;right:14px;bottom:12px}.mom{margin-right:0}.gaba{margin-left:0}}
+
+/* HERO LIGHT — cream/peach atmosférico, leveza e aconchego */
+.hero{background:radial-gradient(ellipse 70% 80% at 78% 40%,rgba(216,167,161,.18) 0%,rgba(216,167,161,.06) 40%,transparent 65%),radial-gradient(ellipse 60% 70% at 18% 78%,rgba(168,181,162,.10) 0%,transparent 60%),#F4EDE5!important;color:var(--ink)!important;min-height:clamp(620px,82vh,780px)!important}
+.hero h1{color:#5F4B3E;font-family:'Playfair Display',Georgia,serif;font-weight:400;font-size:clamp(38px,5.0vw,64px);line-height:1.10;letter-spacing:-.02em;text-shadow:none;margin-bottom:0;text-align:left}
+.hero h1 .accent{color:#B87967;font-style:italic;font-weight:400}
+.hero .hero-lede{color:#5F4B3E;font-style:italic;font-family:'Playfair Display',Georgia,serif;font-size:clamp(18px,1.7vw,22px);line-height:1.32;margin:24px 0 0;max-width:500px;text-shadow:none;text-align:left}
+.hero .hero-copy{color:#77675B;margin:14px 0 0;max-width:500px;font-size:15.5px;line-height:1.6;text-shadow:none;text-align:left}
+.hero .gaba-word{color:#B87967}
+.hero .hero-actions{justify-content:flex-start;margin:30px 0 0;flex-wrap:wrap;gap:12px}
+.hero .btn.primary{background:linear-gradient(180deg,var(--olive),var(--olive2));color:var(--cream2);box-shadow:0 14px 32px rgba(82,97,67,.22),0 3px 10px rgba(82,97,67,.12);border-color:transparent}
+.hero .btn.secondary{background:rgba(255,252,247,.55);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border:1px solid rgba(95,75,62,.18);color:var(--brown)}
+.hero .btn.secondary:hover{background:rgba(255,252,247,.78);border-color:rgba(95,75,62,.28)}
+.hero .trust-row{margin:44px 0 0;max-width:540px;display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+.hero .trust-mini{color:#77675B;font-weight:400;justify-content:flex-start;text-align:left}
+.hero .trust-mini strong{color:#5F4B3E}
+.hero .trust-mini .ico{background:rgba(255,255,255,.62);border:1px solid rgba(95,75,62,.10);color:var(--olive2)}
+.hero-photo{display:none}
+
+/* NAV CLARA — translúcida cream, sem peso */
+.nav{background:rgba(244,237,229,.85)!important;backdrop-filter:blur(14px) saturate(1.1)!important;-webkit-backdrop-filter:blur(14px) saturate(1.1)!important;border-bottom:1px solid rgba(95,75,62,.10)!important}
+.brand-title{color:#B87967!important}
+.brand-tagline{color:rgba(95,75,62,.62)!important}
+.brand-tagline .sep{color:rgba(184,121,103,.55)!important}
+.navlinks{color:#77675B}
+.navlinks a{opacity:.85}
+.navlinks a:hover{color:#5F4B3E;opacity:1}
+.nav .pill{background:rgba(102,114,84,.10);border:1px solid rgba(102,114,84,.22);color:var(--olive2)}
+.nav .pill:hover{background:rgba(102,114,84,.18);color:var(--olive)}
+
+@media(max-width:920px){.hero{margin-top:-104px;padding:148px 0 350px;min-height:auto}.hero-grid{justify-content:center}.hero-grid>div.hero-text{align-items:center;max-width:none}.hero h1,.hero .hero-lede,.hero .hero-copy{text-align:center}.hero h1{font-weight:300}.hero h1 .accent{font-weight:300}.hero .hero-lede,.hero .hero-copy{margin-left:auto;margin-right:auto;max-width:540px}.hero .hero-actions{justify-content:center}.hero .trust-row{margin-left:auto;margin-right:auto;max-width:540px}.hero .trust-mini{justify-content:flex-start}}
+@media(max-width:560px){.hero{padding:108px 0 280px}.hero h1{font-size:32px;line-height:1.16;font-weight:300}}
+
+/* WORDMARK + TAGLINE — bloco textual ao lado do símbolo */
+.brand .brand-text{display:flex;flex-direction:column;justify-content:center;gap:6px;line-height:1}
+.brand-title{font-family:'Playfair Display',Georgia,serif!important;font-weight:500!important;font-size:44px!important;letter-spacing:.04em!important;color:#CFA77E!important;line-height:1;padding-top:0}
+.brand-tagline{font-family:Inter,sans-serif;font-weight:400;font-size:7px;letter-spacing:.16em;text-transform:uppercase;color:rgba(231,217,204,.78);line-height:1.2;white-space:nowrap}
+.brand-tagline .sep{color:rgba(224,181,131,.65);margin:0 4px;font-weight:400}
+
+/* NAV maior pra acomodar logo + wordmark + tagline */
+.nav .wrap{height:120px!important}
+.hero{margin-top:-120px!important;padding-top:198px!important}
+
+/* HEADER LOGO — símbolo quadrado da NeuroMãe */
+.brand{gap:18px!important;align-items:center}
+.brand img{display:none}
+.brand .brand-logo{display:block;flex:none;width:100px;height:100px;background:url('./public/neuromae-icon.svg') no-repeat center center;background-size:contain}
+@media(max-width:920px){.nav .wrap{height:104px!important}.hero{margin-top:-104px!important;padding-top:164px!important}.brand .brand-logo{width:84px;height:84px}.brand-title{font-size:36px!important}.brand-tagline{font-size:7.5px;letter-spacing:.14em}.brand-tagline .sep{margin:0 3px}}
+@media(max-width:560px){.nav .wrap{height:84px!important}.hero{margin-top:-84px!important}.brand .brand-logo{width:64px;height:64px}.brand-title{font-size:26px!important}.brand{gap:12px!important}.brand-tagline{display:none}}
+
+/* FOOTER LOGO + WORDMARK — escala menor mas mesmo símbolo */
+.footer-brand{display:flex;align-items:center;gap:14px}
+.footer-brand img{display:none}
+.footer-brand .brand-logo{display:block;flex:none;width:60px;height:60px;background:url('./public/neuromae-icon.svg') no-repeat center center;background-size:contain;filter:brightness(1.05)}
+.footer-brand .brand-wordmark{font-family:'Playfair Display',Georgia,serif;font-weight:500;font-size:28px;letter-spacing:-.005em;color:var(--cream2);line-height:1}
+
+/* GABA STAGE — leve, translúcido (sem o bloco marrom pesado) */
+.gaba-stage{background:rgba(255,252,247,.55)!important;backdrop-filter:blur(10px) saturate(1.05)!important;-webkit-backdrop-filter:blur(10px) saturate(1.05)!important;border:1px solid rgba(190,117,100,.10)!important;box-shadow:0 18px 48px rgba(70,55,44,.06),inset 0 1px 0 rgba(255,255,255,.4)!important;padding:54px 28px 60px!important}
+.gaba-stage:before{background:radial-gradient(ellipse at 50% 25%,rgba(227,184,176,.16) 0%,transparent 60%),radial-gradient(ellipse at 50% 90%,rgba(168,181,162,.10) 0%,transparent 55%)!important}
+.gaba-stage:after{display:none!important}
+.gaba-stage .reveal-line{color:var(--brown)!important;text-shadow:none!important;margin-bottom:32px!important}
+.gaba-stage .reveal-line .gaba-word{color:var(--olive2)!important;text-shadow:none!important}
+.gaba-stage .gaba-mascot{max-width:360px!important}
+.gaba-stage .gaba-mascot img{opacity:1!important;filter:drop-shadow(0 22px 30px rgba(70,55,44,.14)) drop-shadow(0 6px 14px rgba(190,117,100,.10))!important}
+.gaba-glow{background:radial-gradient(circle,rgba(227,184,176,.20) 0%,rgba(244,237,229,.10) 35%,transparent 65%)!important;width:115%!important;height:115%!important;filter:blur(22px)!important}
+.gaba-stage-caption{color:var(--muted)!important}
+.gaba-stage-caption .dash{background:rgba(190,117,100,.30)!important}
+@media(max-width:560px){.gaba-stage{padding:42px 18px 50px!important}.gaba-stage .gaba-mascot{max-width:240px!important}}
+
+/* HERO BG — foto reduzida a 50% à direita pra leveza, lado esquerdo cream limpo */
+.hero{isolation:isolate}
+.hero-bg{position:absolute;top:0;right:0;width:50%;height:100%;object-fit:cover;object-position:88% 58%;opacity:.92;filter:saturate(.65) brightness(.94) contrast(1.04) hue-rotate(-6deg);z-index:1;pointer-events:none;-webkit-mask-image:linear-gradient(90deg,transparent 0%,rgba(0,0,0,.20) 6%,rgba(0,0,0,.65) 18%,rgba(0,0,0,.92) 30%,#000 42%,#000 100%);mask-image:linear-gradient(90deg,transparent 0%,rgba(0,0,0,.20) 6%,rgba(0,0,0,.65) 18%,rgba(0,0,0,.92) 30%,#000 42%,#000 100%)}
+/* overlay sutil só no lado da foto pra ancorar paleta — esquerda fica cream puro */
+.hero:before{content:"";position:absolute;inset:0;background:linear-gradient(270deg,rgba(95,75,62,.12) 0%,rgba(95,75,62,.04) 28%,transparent 52%),linear-gradient(180deg,rgba(95,75,62,.04) 0%,transparent 30%,transparent 70%,rgba(95,75,62,.14) 100%);z-index:2;pointer-events:none}
+.hero-grid{position:relative;z-index:5}
+@media(max-width:920px){.hero-bg{position:absolute;top:auto;bottom:24px;left:50%;right:auto;transform:translateX(-50%);width:min(540px,calc(100% - 32px));height:300px;opacity:.94;object-position:72% 50%;border-radius:18px;-webkit-mask-image:linear-gradient(180deg,transparent 0%,rgba(0,0,0,.30) 6%,rgba(0,0,0,.85) 18%,#000 30%,#000 88%,rgba(0,0,0,.85) 96%,rgba(0,0,0,.50) 100%);mask-image:linear-gradient(180deg,transparent 0%,rgba(0,0,0,.30) 6%,rgba(0,0,0,.85) 18%,#000 30%,#000 88%,rgba(0,0,0,.85) 96%,rgba(0,0,0,.50) 100%)}.hero:before{display:none}}
+@media(max-width:560px){.hero-bg{height:240px;border-radius:14px}}
+
+/* ════════════════════════════════════════════
+   HERO V2 — Mini-quiz com GABA mascote
+   ════════════════════════════════════════════ */
+.hero-bg{display:none!important}
+.hero:before{background:radial-gradient(ellipse 60% 70% at 88% 35%,rgba(168,181,162,.10) 0%,transparent 55%),radial-gradient(ellipse 50% 60% at 12% 78%,rgba(190,117,100,.08) 0%,transparent 60%)!important}
+.hero{padding-bottom:72px!important;min-height:clamp(640px,82vh,820px)!important}
+.hero .hero-grid{
+  display:grid!important;
+  grid-template-columns:minmax(0,1fr) minmax(360px,440px)!important;
+  gap:64px!important;
+  align-items:center;
+  justify-content:initial!important;
+}
+.hero .hero-grid > .hero-text{max-width:none!important}
+.hero h1{font-size:clamp(32px,4.2vw,54px)!important}
+
+.quiz-wrap{position:relative;z-index:5}
+.gaba-mascot-quiz{
+  position:absolute;
+  top:-58px;left:-44px;
+  width:130px;
+  z-index:6;
+  pointer-events:none;
+  filter:drop-shadow(0 14px 28px rgba(70,55,44,.18));
+  animation:mascotInV2 1.2s cubic-bezier(.2,.7,.2,1) .3s both;
+}
+@keyframes mascotInV2{
+  from{opacity:0;transform:translateY(24px) rotate(-5deg)}
+  to{opacity:1;transform:translateY(0) rotate(0)}
+}
+
+.quiz-card{
+  background:rgba(255,252,247,.94);
+  border:1px solid rgba(95,75,62,.10);
+  border-radius:30px;
+  padding:34px 28px 28px;
+  box-shadow:0 30px 76px rgba(70,55,44,.14),0 6px 16px rgba(70,55,44,.06);
+  backdrop-filter:blur(8px);
+  -webkit-backdrop-filter:blur(8px);
+  position:relative;
+  animation:quizInV2 1s cubic-bezier(.2,.7,.2,1) both;
+}
+@keyframes quizInV2{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+
+.quiz-kicker{
+  display:inline-flex;align-items:center;
+  padding:6px 12px;border-radius:999px;
+  background:rgba(99,113,83,.12);color:var(--olive2);
+  font-size:10.5px;font-weight:700;
+  letter-spacing:.16em;text-transform:uppercase;
+  margin-bottom:18px;
+}
+.quiz-q{
+  font-family:'Playfair Display',Georgia,serif;
+  font-style:italic;font-weight:500;
+  font-size:25px;color:var(--brown);
+  line-height:1.25;margin:0 0 22px;
+}
+.quiz-q .accent{color:var(--terra);font-style:italic}
+
+.quiz-options{display:flex;flex-direction:column;gap:10px}
+
+.quiz-option{
+  background:rgba(255,249,242,.55);
+  border:1.5px solid rgba(95,75,62,.10);
+  border-radius:18px;
+  padding:14px 18px;
+  cursor:pointer;
+  transition:all .25s;
+  text-align:left;
+  font-family:'Playfair Display',Georgia,serif;
+  font-style:italic;font-size:15.5px;
+  color:var(--brown);line-height:1.4;
+  position:relative;overflow:hidden;
+  display:flex;align-items:center;justify-content:space-between;
+  text-decoration:none;
+  gap:12px;
+}
+.quiz-option:hover{
+  border-color:var(--terra);
+  background:rgba(227,184,176,.10);
+  transform:translateX(2px);
+}
+.quiz-option .opt-arrow{
+  display:inline-block;
+  color:var(--terra);
+  opacity:.55;
+  transition:.2s;
+  font-style:normal;
+  flex-shrink:0;
+}
+.quiz-option:hover .opt-arrow{opacity:1;transform:translateX(3px)}
+.quiz-option.expanded{
+  background:rgba(227,184,176,.14);
+  border-color:var(--terra);
+  cursor:default;
+  flex-direction:column;
+  align-items:flex-start;
+}
+.quiz-option.expanded .opt-arrow{display:none}
+.quiz-option.faded{opacity:.32;pointer-events:none}
+
+.quiz-response{
+  display:none;
+  font-family:Inter,sans-serif;
+  font-style:normal;
+  font-size:14px;
+  color:var(--muted);
+  line-height:1.6;
+  margin-top:14px;
+  padding-top:14px;
+  border-top:1px solid rgba(190,117,100,.20);
+  animation:fadeUpV2 .4s ease both;
+  width:100%;
+}
+.quiz-option.expanded .quiz-response{display:block}
+@keyframes fadeUpV2{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:translateY(0)}}
+
+.quiz-cta{
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  margin-top:14px;
+  background:linear-gradient(180deg,var(--olive),var(--olive2));
+  color:var(--cream2);
+  border:0;border-radius:999px;
+  padding:11px 18px;
+  font-family:Inter,sans-serif;
+  font-size:13px;font-weight:600;letter-spacing:-.005em;
+  text-decoration:none;
+  box-shadow:0 12px 28px rgba(82,97,67,.28);
+  transition:.2s;
+}
+.quiz-cta:hover{transform:translateY(-1px)}
+.quiz-cta svg{width:14px;height:14px}
+
+.quiz-restart{
+  display:none;
+  margin:14px auto 0;
+  background:none;border:0;
+  color:var(--muted);font-size:11.5px;
+  font-style:italic;cursor:pointer;
+  text-decoration:underline;
+  text-decoration-color:rgba(123,108,97,.3);
+  text-underline-offset:2px;
+}
+.quiz-restart.active{display:block}
+.quiz-restart:hover{color:var(--terra)}
+
+.quiz-foot{
+  margin-top:18px;text-align:center;
+  font-size:11.5px;color:var(--muted);
+  letter-spacing:.04em;
+}
+
+@media(max-width:920px){
+  .hero .hero-grid{grid-template-columns:1fr!important;gap:32px!important}
+  .hero .hero-grid > .hero-text{order:1;text-align:center;align-items:center}
+  .hero .hero-grid > .hero-text h1,.hero .hero-grid > .hero-text .hero-lede,.hero .hero-grid > .hero-text .hero-copy{text-align:center}
+  .hero .hero-grid > .quiz-wrap{order:2;max-width:480px;margin:0 auto;width:100%}
+  .gaba-mascot-quiz{width:90px;top:-42px;left:8px}
+  .quiz-q{font-size:22px}
+}
+</style>
+<script>
+/* ════════════════════════════════════════════
+   FALLBACK DE IMAGENS — só atua quando o arquivo
+   é aberto fora da pasta do projeto. Em produção
+   (com /public/), as imagens reais carregam normal.
+   ════════════════════════════════════════════ */
+(function(){
+  var enc = encodeURIComponent;
+  var FB = {
+    gaba: 'data:image/svg+xml;utf8,' + enc(
+      '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">' +
+      '<defs><radialGradient id="g" cx="50%" cy="40%"><stop offset="0%" stop-color="#F4D9C8"/><stop offset="100%" stop-color="#D8AE96"/></radialGradient></defs>' +
+      '<circle cx="50" cy="50" r="46" fill="url(#g)"/>' +
+      '<circle cx="50" cy="50" r="46" fill="none" stroke="#BE7564" stroke-width="1.2" opacity="0.5"/>' +
+      '<circle cx="40" cy="46" r="2.5" fill="#5E4A3E"/>' +
+      '<circle cx="60" cy="46" r="2.5" fill="#5E4A3E"/>' +
+      '<path d="M40 60 Q50 66 60 60" stroke="#BE7564" stroke-width="2" fill="none" stroke-linecap="round"/>' +
+      '<text x="50" y="88" font-family="Georgia,serif" font-size="8" font-style="italic" fill="#5E4A3E" text-anchor="middle" opacity="0.6">GABA</text>' +
+      '</svg>'
+    ),
+    icon: 'data:image/svg+xml;utf8,' + enc(
+      '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">' +
+      '<path d="M50 84 Q22 62 22 42 Q22 28 35 26 Q44 26 50 36 Q56 26 65 26 Q78 28 78 42 Q78 62 50 84 Z" fill="#BE7564"/>' +
+      '<path d="M50 84 Q22 62 22 42 Q22 28 35 26 Q44 26 50 36 Q56 26 65 26 Q78 28 78 42 Q78 62 50 84 Z" fill="none" stroke="#5E4A3E" stroke-width="1" opacity="0.3"/>' +
+      '<circle cx="50" cy="48" r="5" fill="#FFF9F2"/>' +
+      '</svg>'
+    ),
+    portrait: 'data:image/svg+xml;utf8,' + enc(
+      '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 250">' +
+      '<rect width="200" height="250" fill="#E8D7C5"/>' +
+      '<circle cx="100" cy="100" r="38" fill="#BE7564" opacity="0.35"/>' +
+      '<path d="M30 250 Q30 168 100 168 Q170 168 170 250 Z" fill="#BE7564" opacity="0.35"/>' +
+      '<text x="100" y="232" font-family="Inter,sans-serif" font-size="10" fill="#5E4A3E" text-anchor="middle" opacity="0.55" letter-spacing="2">RETRATO · PLACEHOLDER</text>' +
+      '</svg>'
+    ),
+    abraco: 'data:image/svg+xml;utf8,' + enc(
+      '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 800">' +
+      '<rect width="600" height="800" fill="#E8D7C5"/>' +
+      '<circle cx="300" cy="380" r="200" fill="#BE7564" opacity="0.28"/>' +
+      '<text x="300" y="395" font-family="Georgia,serif" font-size="32" font-style="italic" fill="#5E4A3E" text-anchor="middle" opacity="0.75">foto · abraço</text>' +
+      '<text x="300" y="425" font-family="Inter,sans-serif" font-size="11" fill="#5E4A3E" text-anchor="middle" opacity="0.45" letter-spacing="2">PLACEHOLDER</text>' +
+      '</svg>'
+    )
+  };
+
+  function pickFor(src){
+    var s = (src || '').toLowerCase();
+    if (s.indexOf('neuromae-icon') !== -1) return FB.icon;
+    if (s.indexOf('tatiana') !== -1) return FB.portrait;
+    if (s.indexOf('hero-abraco') !== -1) return FB.abraco;
+    return FB.gaba; /* todos os mascotes da GABA + avatar */
+  }
+
+  /* Captura erros de <img> no documento inteiro */
+  document.addEventListener('error', function(e){
+    var t = e.target;
+    if (t && t.tagName === 'IMG' && !t.dataset.fbk){
+      t.dataset.fbk = '1';
+      t.src = pickFor(t.getAttribute('src'));
+    }
+  }, true);
+
+  /* Sonda a brand-logo (CSS background-image) e injeta fallback se falhar */
+  function probeBrandLogo(){
+    var test = new Image();
+    test.onerror = function(){
+      var s = document.createElement('style');
+      s.textContent =
+        '.brand .brand-logo, .footer-brand .brand-logo {' +
+        '  background-image: url("' + FB.icon + '") !important;' +
+        '}';
+      document.head.appendChild(s);
+    };
+    test.src = './public/neuromae-icon.svg';
+  }
+  if (document.readyState === 'loading'){
+    document.addEventListener('DOMContentLoaded', probeBrandLogo);
+  } else {
+    probeBrandLogo();
+  }
+})();
+</script>
+
+</head>
+<body>
+<nav class="nav">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="NeuroMãe">
+      <span class="brand-logo" aria-hidden="true"></span>
+      <div class="brand-text">
+        <div class="brand-title">NeuroMãe</div>
+        <div class="brand-tagline">ciência <span class="sep">*</span> acolhimento <span class="sep">*</span> transformação</div>
+      </div>
+    </a>
+    <div class="navlinks"><a href="#produto">O que é</a><a href="#como">Como funciona</a><a href="#fundadora">Quem somos</a><a href="#pricing">Plano</a><a href="#faq">Dúvidas</a></div>
+    <a class="pill" href="https://wa.me/5543988264917" target="_blank" rel="noopener noreferrer">Falar com a <span class="gaba-word">GABA</span></a>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="wrap hero-grid">
+    <div class="hero-text">
+      <h1>Você não é péssima.<br><span class="accent">Você está esgotada.</span></h1>
+      <p class="hero-lede">A maternidade neurodivergente não vem com manual.</p>
+      <p class="hero-copy">A <span class="gaba-word">GABA</span> é a primeira assistente no WhatsApp que entende o seu contexto. Comece pelo o que tá pesando agora — ela cuida do resto.</p>
+      <div class="trust-row">
+        <div class="trust-mini">
+          <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" width="16" height="16"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span>
+          <span><strong>24h no WhatsApp</strong>sempre que precisar</span>
+        </div>
+        <div class="trust-mini">
+          <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" width="16" height="16"><path d="M12 3 4 6v6c0 4.5 3.4 8.4 8 9 4.6-.6 8-4.5 8-9V6l-8-3z"/><path d="m9 12 2 2 4-4"/></svg></span>
+          <span><strong>100% confidencial</strong>suas conversas são seguras</span>
+        </div>
+        <div class="trust-mini">
+          <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" width="16" height="16"><circle cx="12" cy="9" r="6"/><path d="m9 14-2 7 5-3 5 3-2-7"/></svg></span>
+          <span><strong>Baseada em ciência</strong>e experiência real</span>
+        </div>
+        <div class="trust-mini">
+          <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" width="16" height="16"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></span>
+          <span><strong>Feita por quem</strong>vive na pele</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="quiz-wrap">
+      <img class="gaba-mascot-quiz" src="./public/gaba-acolhe.png" alt="">
+      <div class="quiz-card">
+        <span class="quiz-kicker">comece por aqui</span>
+        <h3 class="quiz-q">o que tá <span class="accent">mais pesado</span><br>hoje?</h3>
+        <div class="quiz-options" id="quizOptions">
+          <div class="quiz-option" data-key="crise">
+            <span class="opt-text">uma crise do meu filho</span>
+            <span class="opt-arrow">→</span>
+            <div class="quiz-response">
+              Crise não é birra. É sistema nervoso transbordando — o dele e provavelmente o seu também. A GABA te ajuda a passar por isso sem culpa, em tempo real.
+              <a class="quiz-cta" href="#" target="_blank" rel="noopener noreferrer">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.05 4.91A9.82 9.82 0 0 0 12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.27-1.38a9.86 9.86 0 0 0 4.71 1.2h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.0z"/></svg>
+                Conversar agora →
+              </a>
+            </div>
+          </div>
+          <div class="quiz-option" data-key="esgotada">
+            <span class="opt-text">esgotamento que não passa</span>
+            <span class="opt-arrow">→</span>
+            <div class="quiz-response">
+              Não é fraqueza. É sinal de carga sem suporte. A GABA te ajuda a tirar peso — sem mais um curso, sem mais uma planilha.
+              <a class="quiz-cta" href="#" target="_blank" rel="noopener noreferrer">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.05 4.91A9.82 9.82 0 0 0 12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.27-1.38a9.86 9.86 0 0 0 4.71 1.2h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.0z"/></svg>
+                Conversar agora →
+              </a>
+            </div>
+          </div>
+          <div class="quiz-option" data-key="culpa">
+            <span class="opt-text">culpa que me persegue</span>
+            <span class="opt-arrow">→</span>
+            <div class="quiz-response">
+              A culpa não é prova de erro. É prova de o quanto você se importa. Vamos desmontar isso juntas, no seu ritmo.
+              <a class="quiz-cta" href="#" target="_blank" rel="noopener noreferrer">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.05 4.91A9.82 9.82 0 0 0 12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.27-1.38a9.86 9.86 0 0 0 4.71 1.2h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.0z"/></svg>
+                Conversar agora →
+              </a>
+            </div>
+          </div>
+          <div class="quiz-option" data-key="naosei">
+            <span class="opt-text">não sei nem explicar</span>
+            <span class="opt-arrow">→</span>
+            <div class="quiz-response">
+              Tá tudo bem. Você não precisa chegar pronta. A GABA escuta texto, áudio, fragmentos. A gente desenrola junto.
+              <a class="quiz-cta" href="#" target="_blank" rel="noopener noreferrer">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.05 4.91A9.82 9.82 0 0 0 12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.27-1.38a9.86 9.86 0 0 0 4.71 1.2h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.0z"/></svg>
+                Conversar agora →
+              </a>
+            </div>
+          </div>
+        </div>
+        <button class="quiz-restart" id="quizRestart">escolher outra</button>
+        <div class="quiz-foot">7 dias por minha conta · sem cartão · cancele em 1 minuto</div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section class="section thoughts" id="pensamentos">
+  <div class="wrap">
+    <div class="section-head"><h2>Talvez você já tenha pensado isso hoje...</h2><div class="subtle-rule"></div></div>
+    <div class="thought-grid">
+      <article class="thought-card"><div class="thought-icon">♡</div><p class="thought">“A casa fica em silêncio depois de um dia exaustivo…<br>Eu só queria descansar — mas a culpa não deixa.”</p><hr><p class="answer">Essa culpa não é verdade.<br>É o cansaço falando mais alto.</p><p class="insight">Você não precisa de mais esforço.<br>Precisa de pausa — sem culpa.</p></article>
+      <article class="thought-card"><div class="thought-icon">♡</div><p class="thought">“Saio de mais uma terapia me perguntando:<br>será que agora vai dar certo?”</p><hr><p class="answer">Não é sobre dar certo de uma vez.<br>É sobre pequenas mudanças que você ainda não percebeu.</p><p class="insight">O progresso não acontece no salto.<br>Acontece no detalhe.</p></article>
+      <article class="thought-card"><div class="thought-icon">♡</div><p class="thought">“O telefone toca. É a escola.<br>Mais uma reunião por conta do comportamento.”</p><hr><p class="answer">Você não está sendo chamada para ser julgada.<br>Você é parte da solução.</p><p class="insight">Você não precisa enfrentar isso sozinha.<br>Precisa de apoio — na hora certa.</p></article>
+    </div>
+    <div class="reveal-box"><div class="mark">♡</div><p>Você está lidando com culpa, dúvida e medo — ao mesmo tempo.<br>E mesmo assim, continua. Todos os dias.</p><p class="strong">Você não precisa de perfeição.<br>Precisa de apoio.</p></div>
+    <div class="gaba-stage">
+      <p class="reveal-line">Pois é... essa é a <span class="gaba-word">GABA</span>.</p>
+      <figure class="gaba-mascot" aria-hidden="true">
+        <span class="gaba-glow" aria-hidden="true"></span>
+        <img src="./public/avatar-gaba-coffe-soft.svg" alt="">
+      </figure>
+      <p class="gaba-stage-caption"><span class="dash"></span>uma presença pra te acolher na hora certa<span class="dash"></span></p>
+    </div>
+  </div>
+</section>
+
+<section class="section chat" id="conversa">
+  <div class="wrap">
+    <div class="section-head"><span class="kicker">A voz da GABA</span><h2>É assim que ela responde — quando ninguém mais responde.</h2><p>Uma noite de tempestade, uma mãe exausta. A GABA não dá receita: ela escuta, organiza e devolve clareza — sem te entregar mais uma cobrança.</p></div>
+    <div class="chat-card"><div class="phone-head"><span>Conversa com GABAIA · 23h47</span><span class="online">online</span></div><div class="bubble mom">Que noite difícil. Meu filho morre de medo de trovão e tá uma tempestade. Em pânico, não dorme. Estou exausta, ainda preciso trabalhar.</div><div class="msg-row gaba-row"><div class="msg-avatar"><img src="./public/gaba-cafe.png" alt="" aria-hidden="true"></div><div class="bubble gaba">Que noite pesada. Cuidando dele em pânico, exausta, ainda com trabalho — é muito pra uma pessoa só aguentar.</div></div><div class="msg-row gaba-row continued"><div class="msg-avatar" aria-hidden="true"></div><div class="bubble gaba">Respira. Vamos juntas nisso agora:<ol><li>Cria um esconderijo seguro: cobertor grosso, canto fechado, luz baixa.</li><li>Mascara o trovão com ventilador ou som de chuva suave.</li><li>Fala pouco e baixo: “estou aqui, você está seguro”.</li></ol></div></div><div class="msg-row gaba-row continued"><div class="msg-avatar" aria-hidden="true"></div><div class="bubble gaba">E você — assim que ele dormir, para tudo. Descansa 20 minutos antes de abrir o trabalho. Você precisa disso também. 💙</div></div><div class="input"><span>Escreva ou mande áudio...</span><span>↗</span></div></div>
+  </div>
+</section>
+
+<section class="section steps" id="produto">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Não é um curso. É uma conversa que te organiza.</h2>
+      <div class="subtle-rule"></div>
+      <p>Você fala com a GABAIA quando precisar de clareza: no fim do dia, depois de uma situação difícil, antes de uma reunião na escola ou quando a cabeça está cheia demais.</p>
+    </div>
+    <div class="step-grid" id="como">
+      <article class="step">
+        <div class="circle" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="currentColor" width="32" height="32"><path d="M19.05 4.91A9.82 9.82 0 0 0 12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.27-1.38a9.86 9.86 0 0 0 4.71 1.2h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.0zM12.04 20.15h-.01a8.2 8.2 0 0 1-4.18-1.15l-.3-.18-3.13.82.84-3.05-.2-.31a8.18 8.18 0 0 1-1.26-4.37c0-4.54 3.69-8.23 8.24-8.23a8.18 8.18 0 0 1 5.82 2.41 8.18 8.18 0 0 1 2.41 5.83c0 4.54-3.7 8.23-8.23 8.23zm4.51-6.16c-.25-.12-1.46-.72-1.69-.8-.23-.08-.39-.12-.56.12-.16.25-.64.8-.78.97-.14.16-.29.18-.54.06-.25-.12-1.04-.38-1.99-1.22-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.02-.38.11-.5.11-.11.25-.29.37-.43.12-.14.16-.25.25-.41.08-.16.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.4-.42-.56-.43h-.48c-.16 0-.43.06-.66.31-.23.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.16 1.74 2.65 4.21 3.71.59.25 1.05.41 1.41.52.59.19 1.13.16 1.55.1.47-.07 1.46-.6 1.66-1.18.21-.58.21-1.07.14-1.18-.06-.11-.22-.18-.47-.3z"/></svg>
+        </div>
+        <h3>1. Você chama a <span class="gaba-word">GABA</span> no WhatsApp</h3>
+        <p>Quando bater a dúvida, a culpa ou o desespero.</p>
+      </article>
+      <article class="step">
+        <div class="circle" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" width="32" height="32"><path d="M12 3l1.6 4.4L18 9l-4.4 1.6L12 15l-1.6-4.4L6 9l4.4-1.6L12 3z"/><path d="M19 13.5l.9 2.6L22.5 17l-2.6.9L19 20.5l-.9-2.6L15.5 17l2.6-.9L19 13.5z"/><path d="M5.5 14.5l.7 2 2 .7-2 .7-.7 2-.7-2-2-.7 2-.7.7-2z"/></svg>
+        </div>
+        <h3>2. A <span class="gaba-word">GABA</span> entende seu contexto</h3>
+        <p>E te faz as perguntas certas para te orientar.</p>
+      </article>
+      <article class="step">
+        <div class="circle" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" width="32" height="32"><path d="M21 12c0 4.42-4.03 8-9 8a9.7 9.7 0 0 1-3.85-.78L3 21l1.38-4.65A8 8 0 0 1 3 12c0-4.42 4.03-8 9-8s9 3.58 9 8z"/><path d="M12 14.5c-2-1.2-3-2.4-3-3.6 0-1 .8-1.6 1.6-1.6.6 0 1.1.3 1.4.8.3-.5.8-.8 1.4-.8.8 0 1.6.6 1.6 1.6 0 1.2-1 2.4-3 3.6z" fill="currentColor"/></svg>
+        </div>
+        <h3>3. Você recebe orientação prática e acolhedora</h3>
+        <p>Na hora certa, do jeito que você precisa.</p>
+      </article>
+      <article class="step">
+        <div class="circle" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" width="32" height="32"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="10" r="3"/><path d="M6.4 18.5c.9-2.4 3.1-4 5.6-4s4.7 1.6 5.6 4"/><path d="M9.5 7.5c.5-1 1.5-1.5 2.5-1.5s2 .5 2.5 1.5"/></svg>
+        </div>
+        <h3>4. Você se sente amparada, mais leve e segura</h3>
+        <p>Para lidar com o que importa: sua família e você.</p>
+      </article>
+    </div>
+    <div class="step-cta">
+      <div class="step-cta-text">
+        <div class="step-cta-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="currentColor" width="26" height="26"><path d="M19.05 4.91A9.82 9.82 0 0 0 12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.27-1.38a9.86 9.86 0 0 0 4.71 1.2h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.0zM12.04 20.15h-.01a8.2 8.2 0 0 1-4.18-1.15l-.3-.18-3.13.82.84-3.05-.2-.31a8.18 8.18 0 0 1-1.26-4.37c0-4.54 3.69-8.23 8.24-8.23a8.18 8.18 0 0 1 5.82 2.41 8.18 8.18 0 0 1 2.41 5.83c0 4.54-3.7 8.23-8.23 8.23zm4.51-6.16c-.25-.12-1.46-.72-1.69-.8-.23-.08-.39-.12-.56.12-.16.25-.64.8-.78.97-.14.16-.29.18-.54.06-.25-.12-1.04-.38-1.99-1.22-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.02-.38.11-.5.11-.11.25-.29.37-.43.12-.14.16-.25.25-.41.08-.16.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.4-.42-.56-.43h-.48c-.16 0-.43.06-.66.31-.23.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.16 1.74 2.65 4.21 3.71.59.25 1.05.41 1.41.52.59.19 1.13.16 1.55.1.47-.07 1.46-.6 1.66-1.18.21-.58.21-1.07.14-1.18-.06-.11-.22-.18-.47-.3z"/></svg>
+        </div>
+        <p>A <span class="gaba-word">GABA</span> está aqui, <strong>24h por dia</strong>, no WhatsApp, para você.</p>
+      </div>
+      <div class="step-cta-action">
+        <a class="btn primary" href="https://wa.me/5543988264917" target="_blank" rel="noopener noreferrer">Quero a <span class="gaba-word">GABA</span> comigo agora →</a>
+        <p class="step-cta-fineprint">As primeiras 7 dias são grátis.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="momentos">
+  <div class="wrap">
+    <div class="section-head"><span class="kicker">Para usar no dia a dia</span><h2>O que você encontra quando fala com a GABA.</h2><p>Acolhe, escuta, organiza e orienta — sem transformar sua rotina em mais uma tarefa.</p></div>
+    <div class="moments-grid"><article class="moment"><div class="moment-img"><img src="./public/gaba-acolhe.png" alt=""></div><h3>Acolhe</h3><p>Quando você precisa falar sem se sentir julgada.</p></article><article class="moment"><div class="moment-img"><img src="./public/gaba-escuta.png" alt=""></div><h3>Escuta</h3><p>Quando a rotina pesa e você precisa organizar o que sente.</p></article><article class="moment"><div class="moment-img"><img src="./public/gaba-organiza.png" alt=""></div><h3>Organiza</h3><p>Quando há muita informação e pouca clareza.</p></article><article class="moment"><div class="moment-img"><img src="./public/gaba-respira.png" alt=""></div><h3>Orienta</h3><p>Quando você precisa pensar nos próximos passos.</p></article></div>
+  </div>
+</section>
+
+<section class="section compare" id="transformacao">
+  <div class="wrap"><div class="section-head"><span class="kicker">O que muda</span><h2>Não é virar outra mãe. É não se perder mais no meio do caminho.</h2><p>A GABA não promete maternidade leve. Promete que, quando o difícil vier — e ele vem — você não carregue tudo sozinha.</p></div><div class="compare-grid"><article class="compare-card before"><span class="kicker">Hoje, talvez</span><h3>A maternidade pesa assim:</h3><ul><li>Por mais que se esforce, parece que nada melhora.</li><li>Quanto mais conhecimento tem, maior fica a culpa.</li><li>A cada crise, a impotência aumenta e paralisa.</li><li>Se sente isolada, ignorante e sem esperança.</li></ul></article><article class="compare-card after"><span class="kicker">Com a GABA</span><h3>Atravessar com chão firme:</h3><ul><li>Nomeia o que aconteceu, sem se afogar no caos.</li><li>Escuta a culpa sem receber mais uma lista de tarefas.</li><li>Conta com prática real e baseada em evidência.</li><li>Sabe para onde ir quando a noite vira.</li></ul></article></div></div>
+</section>
+
+<section class="cta-band"><div class="wrap"><div class="cta-card"><div><h2>Você não precisa passar por hoje sozinha.</h2><p>Comece com 7 dias gratuitos. Sem cartão. Sem fidelidade. Sem promessa milagrosa.</p></div><a class="btn primary" href="https://wa.me/5543988264917" target="_blank" rel="noopener noreferrer">Quero a GABA comigo agora →</a></div></div></section>
+
+<section class="section" id="para-quem"><div class="wrap"><div class="section-head"><span class="kicker">Antes de começar</span><h2>Pra ser honesta — a GABA não é pra todo mundo.</h2><p>Ela acompanha mães reais, em dias reais. Não substitui profissionais, não promete criança perfeita e não entrega fórmula mágica.</p></div><div class="fit-grid"><article class="fit yes"><h3>É pra você se:</h3><ul><li>Quer entender melhor como a neurodivergência funciona.</li><li>Recebeu um diagnóstico e está perdida.</li><li>Precisa desabafar sem mais julgamentos.</li><li>Mesmo cansada, sabe que não vai desistir.</li></ul></article><article class="fit no"><h3>Não é pra você se:</h3><ul><li>Acha que neurodivergência é algo a ser “consertado”.</li><li>Vê maternidade como disputa de melhor mãe.</li><li>Espera substituir profissionais necessários.</li><li>Não quer caminhar em parceria com escola, família e profissionais.</li></ul></article></div></div></section>
+
+<section class="section founder" id="fundadora"><div class="wrap"><div class="section-head"><span class="kicker">Quem está por trás</span><h2>Por que a NeuroMãe existe.</h2></div><div class="founder-grid"><aside class="founder-card"><img class="portrait" src="./public/tatiana.jpg" alt="Tatiana Junco"><h3>Tatiana Junco</h3><p>psicopedagoga em formação · pós-graduada em neurociência comportamental</p><a class="insta" href="https://instagram.com/neuromaeia" target="_blank" rel="noopener noreferrer">@neuromaeia ↗</a></aside><div class="founder-text"><p class="opener">Eu sou Tatiana. Mãe atípica, como você.</p><p>Meu segundo filho nasceu bem. Aos 45 dias teve uma meningite hospitalar e ficou 21 dias internado. Sobreviveu — com sequelas. TDAH, disfunção sensório-motora, leve deficiência intelectual.</p><p>Na pandemia, atravessei uma depressão grave. Foi nesse fundo que, aos 38 anos, descobri que eu também sou TDAH. Comecei a estudar psicopedagogia, neurociência comportamental e educação parental porque os profissionais que eu encontrava não conseguiam me responder.</p><p><strong>Mas eu tive sorte.</strong> Rede de apoio, condições financeiras, acesso à informação. A maioria das mães atípicas não tem nada disso.</p><p>A NeuroMãe nasceu para essas mães: para ser o lugar seguro que eu não tive — sem enxurrada de informação, sem comparação, sem mais um curso que você sabe que não vai fazer.</p><blockquote class="quote">“Eu só consegui me reerguer quando integrei três coisas: ciência, práticas reais, estoicismo e fé. Não para não sofrer mais — mas para não me perder por tanto tempo quando o sofrimento vem.”</blockquote></div></div></div></section>
+
+<section class="section" id="seguranca"><div class="wrap"><div class="section-head"><span class="kicker">Confiança</span><h2>Privacidade pensada para mães e crianças.</h2><p>Princípios de proteção da LGPD e do ECA digital. Documentos, laudos e fotos são tratados com responsabilidade.</p></div><div class="security-grid"><article class="security-card"><div class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" width="22" height="22"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/><circle cx="12" cy="15.5" r="1" fill="currentColor"/></svg></div><h3>LGPD</h3><p>Dados protegidos pela lei brasileira de proteção de dados.</p></article><article class="security-card"><div class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" width="22" height="22"><path d="M12 3 5 6v6c0 4.4 3 7.6 7 9 4-1.4 7-4.6 7-9V6l-7-3z"/><path d="M12 16s-3-1.7-3-3.7c0-1.1.8-1.8 1.7-1.8.5 0 .9.2 1.3.6.4-.4.8-.6 1.3-.6.9 0 1.7.7 1.7 1.8 0 2-3 3.7-3 3.7z" fill="currentColor" stroke="none"/></svg></div><h3>ECA digital</h3><p>Princípios de proteção infantil em todas as conversas.</p></article><article class="security-card"><div class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" width="22" height="22"><path d="M2.5 12s3.5-7 9.5-7c2.4 0 4.4.8 6 2"/><path d="M21.5 12s-3.5 7-9.5 7c-2.4 0-4.4-.8-6-2"/><circle cx="12" cy="12" r="2.6"/><path d="M3.5 3.5l17 17"/></svg></div><h3>Imagens de menores</h3><p>Orientamos excluir da conversa após o envio.</p></article><article class="security-card"><div class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor" width="22" height="22"><path d="M19.05 4.91A9.82 9.82 0 0 0 12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.27-1.38a9.86 9.86 0 0 0 4.71 1.2h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.0zM12.04 20.15h-.01a8.2 8.2 0 0 1-4.18-1.15l-.3-.18-3.13.82.84-3.05-.2-.31a8.18 8.18 0 0 1-1.26-4.37c0-4.54 3.69-8.23 8.24-8.23a8.18 8.18 0 0 1 5.82 2.41 8.18 8.18 0 0 1 2.41 5.83c0 4.54-3.7 8.23-8.23 8.23zm4.51-6.16c-.25-.12-1.46-.72-1.69-.8-.23-.08-.39-.12-.56.12-.16.25-.64.8-.78.97-.14.16-.29.18-.54.06-.25-.12-1.04-.38-1.99-1.22-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.02-.38.11-.5.11-.11.25-.29.37-.43.12-.14.16-.25.25-.41.08-.16.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.4-.42-.56-.43h-.48c-.16 0-.43.06-.66.31-.23.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.16 1.74 2.65 4.21 3.71.59.25 1.05.41 1.41.52.59.19 1.13.16 1.55.1.47-.07 1.46-.6 1.66-1.18.21-.58.21-1.07.14-1.18-.06-.11-.22-.18-.47-.3z"/></svg></div><h3>Direto no WhatsApp</h3><p>Sem app extra. No aplicativo que você já usa.</p></article></div></div></section>
+
+<section class="section pricing" id="pricing"><div class="wrap"><div class="section-head"><span class="kicker">Plano</span><h2>Os primeiros sete dias são por minha conta.</h2><div class="anchor"><div class="anchor-row"><span class="anchor-label">Uma consulta de neurodesenvolvimento</span><span class="anchor-price">a partir de <strong>R$ 250</strong></span></div><div class="anchor-row"><span class="anchor-label">Um curso de parentalidade neuro</span><span class="anchor-price">a partir de <strong>R$ 800</strong></span></div><div class="anchor-row featured"><span class="anchor-label">A <span class="gaba-word">GABA</span>, todos os dias, 24h</span><span class="anchor-price"><strong>R$ 39,90</strong> / mês</span></div></div><p>Ela não substitui terapia — preenche o espaço entre as consultas, na hora em que você precisar.</p></div><div class="price-card"><span class="kicker">Plano único · 7 dias grátis</span><div class="price"><span class="cur">R$</span><span class="num">39</span><span class="cents">,90</span><span class="per">/mês</span></div><p style="color:var(--muted)">Cobrado mensalmente. Sem fidelidade.</p><ul class="includes"><li>Conversa ilimitada no WhatsApp</li><li>Texto, áudio e foto de documentos</li><li>Disponível 24h, todos os dias</li><li>Memória de contexto entre conversas</li><li>Cancelamento por mensagem · 1 minuto</li></ul><a class="btn primary" href="https://wa.me/5543988264917" target="_blank" rel="noopener noreferrer" style="margin-top:28px">Começar 7 dias grátis →</a><p style="color:var(--muted);font-size:13px;margin-top:14px">Sem cartão · você só paga depois dos 7 dias se decidir continuar.</p><div class="guarantee"><div class="seal"><strong>7</strong><span>dias</span></div><p style="margin:0;color:var(--muted)"><strong style="color:var(--brown)">Cancele em 1 minuto, por mensagem.</strong><br>Sem retenção, sem burocracia, sem ligação. Você manda “cancelar” no WhatsApp e pronto.</p></div></div></div></section>
+
+<section class="section" id="faq"><div class="wrap"><div class="section-head" style="text-align:left;margin-left:0"><span class="kicker">Perguntas honestas</span><h2>O que é, o que não é, e como funciona.</h2></div><div class="faq-list"><details open><summary>A GABA substitui meu terapeuta, psiquiatra ou neuropediatra?</summary><div class="answer-faq"><strong>Não.</strong> Ela é apoio entre as consultas — para organizar pensamentos, lidar com a rotina e os momentos difíceis. Não diagnostica, não prescreve, não trata. Se você já tem profissionais acompanhando, ela complementa.</div></details><details><summary>Qual linha de parentalidade a GABA segue?</summary><div class="answer-faq">Conhecimento <em>milenar</em> — humano, que sobreviveu ao tempo, não modinha de verão. Prática <em>real</em> — que funciona às quintas-feiras às 19h, não só na teoria. Ela busca estar <em>sendo útil</em>: resolve o que você veio resolver, sem te entregar mais uma lista de tarefas. E é <em>nem rígida, nem permissiva</em> — firmeza com colo, limite com ternura. A proposta é formar seres humanos para atravessar a vida real.</div></details><details><summary>Funciona para TDAH, TEA, deficiência intelectual e dificuldade de aprendizagem?</summary><div class="answer-faq">Foi pensada para mães e cuidadoras de filhos neurodivergentes. Cada caso é único; quando o caminho exigir profissional especializado, a GABA orienta essa busca.</div></details><details><summary>Posso mandar áudio?</summary><div class="answer-faq">Sim. A conversa é no WhatsApp, então áudio funciona naturalmente. Manda do jeito que sair; ela organiza e responde com profundidade.</div></details><details><summary>Posso usar para mim, ou é só sobre meu filho?</summary><div class="answer-faq">Para você, em primeiro lugar. A GABA também acompanha sua exaustão, suas dúvidas, suas decisões e sua rotina emocional.</div></details><details><summary>Posso conversar de madrugada?</summary><div class="answer-faq">Sim, 24 horas por dia. Em emergências ou risco imediato, procure serviço humano local de urgência ou um profissional de saúde.</div></details><details><summary>Por que pagar R$39,90/mês se posso usar uma IA generalista?</summary><div class="answer-faq">Porque a GABA foi desenhada para maternidade atípica: contexto, memória entre conversas, freios para não sobrecarregar e linguagem de acolhimento prático.</div></details><details><summary>Como cancelo?</summary><div class="answer-faq">Você manda “cancelar” no WhatsApp. Sem ligação, sem formulário e sem retenção.</div></details><details><summary>Como funciona o teste grátis?</summary><div class="answer-faq">Você começa sem cartão. Antes dos 7 dias acabarem, a GABA pergunta se você quer continuar. Se não quiser, a conversa para sem cobrança automática surpresa.</div></details></div></div></section>
+
+<footer class="footer"><div class="wrap"><div><div class="footer-brand"><span class="brand-logo" aria-hidden="true"></span><span class="brand-wordmark">NeuroMãe</span></div><p style="font-size:12px;color:#A99B8F;margin-top:18px">NeuroMãe © 2026 · ciência, acolhimento e transformação</p></div><p class="legal">A NeuroMãe é uma inteligência artificial. Ela apoia você no dia a dia, mas não substitui acompanhamento médico, psicológico ou terapêutico. Em situações de risco, procure um profissional de saúde ou serviço de emergência.</p></div></footer>
+<a class="sticky" href="https://wa.me/5543988264917" target="_blank" rel="noopener noreferrer">Me conta o que tá pesando</a>
+<script>
+/* ════════════════════════════════════════════
+   HERO V2 — Quiz interativo
+   ════════════════════════════════════════════ */
+const WP_BASE_V2 = 'https://wa.me/5543988264917';
+const QUIZ_TEXTS = {
+  crise:"Oi GABA, cheguei pelo site. Meu filho teve uma crise e queria entender o que fazer da próxima vez.",
+  esgotada:"Oi GABA, cheguei pelo site. Tô esgotada e queria começar com você.",
+  culpa:"Oi GABA, cheguei pelo site. Carrego uma culpa que não passa, queria conversar.",
+  naosei:"Oi GABA, cheguei pelo site. Ainda não sei nem explicar, mas queria começar."
+};
+
+document.querySelectorAll('.quiz-option').forEach(opt => {
+  opt.addEventListener('click', () => {
+    if(opt.classList.contains('expanded')) return;
+    const key = opt.getAttribute('data-key');
+    const link = opt.querySelector('.quiz-cta');
+    if(link) link.href = WP_BASE_V2 + '?text=' + encodeURIComponent(QUIZ_TEXTS[key]);
+    document.querySelectorAll('.quiz-option').forEach(o => {
+      if(o !== opt) o.classList.add('faded');
+    });
+    opt.classList.add('expanded');
+    document.getElementById('quizRestart').classList.add('active');
+  });
+});
+
+document.getElementById('quizRestart').addEventListener('click', () => {
+  document.querySelectorAll('.quiz-option').forEach(o => {
+    o.classList.remove('expanded','faded');
+  });
+  document.getElementById('quizRestart').classList.remove('active');
+});
+</script>
+
+</body>
+</html>

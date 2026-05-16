@@ -1,4 +1,4 @@
-import { WA_LINK } from "../lib/links";
+import { WhatsAppCTA } from "./WhatsAppCTA";
 
 export function Hero() {
   return (
@@ -130,6 +130,26 @@ export function Hero() {
           </p>
 
           <div
+            className="mt-[18px] flex justify-center"
+            style={{ maxWidth: "560px" }}
+          >
+            <img
+              src="/avatar-gaba-coffe.svg"
+              alt="Avatar da GABA — personagem cérebro com xícara de café"
+              width={220}
+              height={220}
+              loading="lazy"
+              decoding="async"
+              style={{
+                width: "clamp(180px, 26vw, 240px)",
+                height: "auto",
+                filter:
+                  "drop-shadow(0 18px 32px rgba(95,75,62,0.16)) drop-shadow(0 6px 12px rgba(95,75,62,0.06))",
+              }}
+            />
+          </div>
+
+          <div
             className="mt-[10px] flex flex-col gap-2"
             style={{ maxWidth: "560px" }}
           >
@@ -161,41 +181,33 @@ export function Hero() {
           </div>
 
           <div className="mt-[28px] grid max-w-[480px] grid-cols-2 gap-2.5">
-            <a
-              href={WA_LINK}
+            <WhatsAppCTA
+              channel="whatsapp_cta"
               data-hero-cta
-              target="_blank"
-              rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-1.5 whitespace-nowrap rounded-full text-cream-2 transition hover:-translate-y-px"
               style={{
                 minHeight: "44px",
                 padding: "0 16px",
-                background: "linear-gradient(180deg,#667254,#586348)",
                 fontWeight: 700,
                 fontSize: "13.5px",
                 letterSpacing: "0.02em",
-                boxShadow: "0 14px 28px rgba(88,99,72,0.24)",
               }}
             >
               Conversar com a <span className="gaba-name" style={{ fontWeight: 500 }}>GABA</span>
-            </a>
-            <a
-              href={WA_LINK}
-              target="_blank"
-              rel="noopener noreferrer"
+            </WhatsAppCTA>
+            <WhatsAppCTA
+              channel="whatsapp_cta"
               className="inline-flex items-center justify-center gap-1.5 whitespace-nowrap rounded-full text-cream-2 transition hover:-translate-y-px"
               style={{
                 minHeight: "44px",
                 padding: "0 16px",
-                background: "linear-gradient(180deg,#667254,#586348)",
                 fontWeight: 700,
                 fontSize: "13.5px",
                 letterSpacing: "0.02em",
-                boxShadow: "0 14px 28px rgba(88,99,72,0.24)",
               }}
             >
-              Falar com suporte
-            </a>
+              Experimentar gratuitamente
+            </WhatsAppCTA>
           </div>
 
           <div className="mt-[10px] grid max-w-[480px] grid-cols-3 gap-2.5">

@@ -1,4 +1,5 @@
-import { WA_LINK } from "../lib/links";
+import { WhatsAppCTA } from "./WhatsAppCTA";
+import { RiskDisclaimer } from "./RiskDisclaimer";
 
 export function Pricing() {
   const includes = [
@@ -136,7 +137,7 @@ export function Pricing() {
                 marginInline: "auto",
               }}
             >
-              Ela não substitui terapia — preenche o espaço entre as consultas, na hora em que você precisar.
+              A GABA não substitui acompanhamento profissional. Ela funciona como apoio organizacional e informacional no dia a dia.
             </p>
           </div>
         </div>
@@ -153,7 +154,7 @@ export function Pricing() {
             className="inline-flex items-center gap-2 rounded-full border border-olive/20 bg-olive/10 px-3 py-1.5 text-[12px] font-extrabold uppercase text-olive-2"
             style={{ letterSpacing: "0.10em" }}
           >
-            Plano único · 7 dias grátis
+            Beta gratuito · 7 dias
           </span>
 
           <div className="mt-5 flex items-baseline justify-center gap-1 font-serif text-brown">
@@ -179,24 +180,25 @@ export function Pricing() {
             ))}
           </ul>
 
-          <a
-            href={WA_LINK}
-            target="_blank"
-            rel="noopener noreferrer"
+          <WhatsAppCTA
+            channel="pricing_cta"
             className="mt-7 inline-flex items-center justify-center gap-2 rounded-full px-7 font-extrabold text-cream-2 transition hover:-translate-y-px"
             style={{
               minHeight: "54px",
-              background: "linear-gradient(180deg,#667254,#586348)",
               letterSpacing: "-0.01em",
               boxShadow: "0 16px 34px rgba(88,99,72,0.21)",
             }}
           >
-            Começar 7 dias grátis <span aria-hidden="true">→</span>
-          </a>
+            Experimentar gratuitamente <span aria-hidden="true">→</span>
+          </WhatsAppCTA>
 
           <p className="mt-4 text-[13px] text-muted" style={{ maxWidth: "420px", marginInline: "auto" }}>
             Sem cartão · você só paga depois dos 7 dias se decidir continuar.
           </p>
+
+          <div className="mt-5" style={{ maxWidth: "420px", marginInline: "auto" }}>
+            <RiskDisclaimer />
+          </div>
 
           <div
             className="mx-auto mt-7 flex flex-col items-center gap-4 rounded-[24px] border p-6 md:flex-row md:gap-6 md:text-left"

@@ -1,4 +1,7 @@
-import { WA_LINK } from "../lib/links";
+import { LegalLinks, CONTACT_EMAIL } from "./LegalLinks";
+import { RiskDisclaimer } from "./RiskDisclaimer";
+
+const CNPJ_PLACEHOLDER = "CNPJ — a divulgar após abertura da empresa";
 
 export function Footer() {
   return (
@@ -10,51 +13,48 @@ export function Footer() {
       }}
     >
       <div className="wrap">
-        <div className="flex flex-col items-center gap-7 text-center md:flex-row md:items-center md:justify-between md:text-left">
-          <div className="flex items-center gap-3.5">
-            <img
-              src="/gabaia-symbol-detailed.svg"
-              alt=""
-              aria-hidden="true"
-              width={40}
-              height={40}
-              className="h-auto w-[40px] flex-none"
-              style={{ filter: "drop-shadow(0 4px 10px rgba(0,0,0,.20))" }}
-            />
+        <div className="flex flex-col items-center gap-7 text-center md:flex-row md:items-start md:justify-between md:text-left">
+          {/* Marca + tagline */}
+          <div className="flex flex-col items-center gap-3 md:items-start">
+            <div className="flex items-center gap-3.5">
+              <img
+                src="/neuromae-logo.svg"
+                alt=""
+                aria-hidden="true"
+                width={52}
+                height={52}
+                className="h-auto w-[52px] flex-none"
+                style={{ filter: "drop-shadow(0 4px 10px rgba(0,0,0,.20))" }}
+              />
+              <span
+                style={{
+                  fontFamily: "'Jost', sans-serif",
+                  fontWeight: 300,
+                  fontSize: "24px",
+                  lineHeight: 1,
+                  letterSpacing: "0.22em",
+                  color: "#F3ECE3",
+                }}
+              >
+                GABA
+              </span>
+            </div>
             <span
+              className="text-[12px]"
               style={{
-                fontFamily: "'Jost', sans-serif",
-                fontWeight: 300,
-                fontSize: "24px",
-                lineHeight: 1,
-                letterSpacing: "0.22em",
-                color: "#F3ECE3",
+                color: "#9A8C7E",
+                letterSpacing: "0.06em",
+                fontFamily: "'Playfair Display', Georgia, serif",
+                fontStyle: "italic",
               }}
             >
-              GABAIA
+              da NeuroMãe — ciência, acolhimento e transformação
             </span>
           </div>
 
+          {/* Links legais + sociais */}
           <div className="flex flex-col items-center gap-3 md:items-end">
-            <nav
-              aria-label="Links do rodapé"
-              className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-[13px] font-semibold"
-              style={{ color: "#C9B7A6" }}
-            >
-              <a
-                href={WA_LINK}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="opacity-90 transition hover:opacity-100"
-                style={{ color: "#C9B7A6" }}
-                onMouseEnter={(e) => (e.currentTarget.style.color = "#FFF8F1")}
-                onMouseLeave={(e) => (e.currentTarget.style.color = "#C9B7A6")}
-              >
-                Contato
-              </a>
-              <span style={{ color: "#9A8C7E", opacity: 0.7 }}>Privacidade · em breve</span>
-              <span style={{ color: "#9A8C7E", opacity: 0.7 }}>LGPD · em breve</span>
-            </nav>
+            <LegalLinks variant="dark" />
 
             <div className="flex items-center justify-center gap-4">
               <a
@@ -90,8 +90,8 @@ export function Footer() {
                 title="Compartilhar esta página"
                 onClick={() => {
                   const shareData = {
-                    title: "GABAIA — A amiga da NeuroMãe",
-                    text: "Conheça a GABAIA: a assistente neuropsicoeducativa pra mães atípicas, no WhatsApp.",
+                    title: "GABA — assistente virtual no WhatsApp da NeuroMãe",
+                    text: "Conheça a GABA: assistente virtual baseada em IA pra mães atípicas, no WhatsApp.",
                     url: typeof window !== "undefined" ? window.location.href : "",
                   };
                   if (typeof navigator !== "undefined" && navigator.share) {
@@ -125,51 +125,90 @@ export function Footer() {
           </div>
         </div>
 
+        {/* Aviso de IA + risco — bloco dedicado */}
         <div
-          className="mt-8 pt-6 text-center"
-          style={{ maxWidth: "680px", marginInline: "auto", borderTop: "1px solid rgba(255,248,241,0.08)" }}
+          className="mt-8 pt-6"
+          style={{ borderTop: "1px solid rgba(255,248,241,0.08)" }}
         >
-          <p
-            className="text-[12px]"
-            style={{ lineHeight: 1.6, letterSpacing: "0.01em", color: "#9A8C7E" }}
-          >
-            A GABAIA é uma inteligência artificial. Ela apoia você no dia a dia, mas não substitui acompanhamento médico, psicológico ou terapêutico. Em situações de risco, procure um profissional de saúde ou ligue para o CVV (188).
-          </p>
-        </div>
-
-        <div className="mt-6 flex flex-col items-center gap-3 md:flex-row md:items-center md:gap-4">
-          <a
-            href="https://instagram.com/neuromaeia"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="NeuroMãe"
-            className="flex items-center gap-2.5 transition hover:opacity-90"
-          >
-            <img
-              src="/neuromae-symbol.svg"
-              alt=""
-              aria-hidden="true"
-              width={32}
-              height={32}
-              className="h-auto w-[32px] flex-none"
-              style={{ filter: "drop-shadow(0 2px 6px rgba(0,0,0,.20))" }}
-            />
-            <span
+          <div className="mx-auto flex flex-col gap-3 text-center" style={{ maxWidth: "680px" }}>
+            <p
+              className="text-[12.5px]"
               style={{
+                lineHeight: 1.6,
+                letterSpacing: "0.01em",
+                color: "#C9B7A6",
                 fontFamily: "'Playfair Display', Georgia, serif",
-                fontWeight: 500,
-                fontSize: "16px",
-                color: "#F3ECE3",
-                letterSpacing: "-0.005em",
+                fontStyle: "italic",
               }}
             >
-              NeuroMãe
+              A GABA é uma inteligência artificial e não substitui profissionais de saúde
+              ou serviços de emergência.
+            </p>
+
+            <RiskDisclaimer variant="footer" />
+          </div>
+        </div>
+
+        {/* Linha final: contato, CNPJ placeholder, copyright */}
+        <div className="mt-7 flex flex-col items-center gap-3 text-center md:flex-row md:items-center md:justify-between md:text-left">
+          <div className="flex flex-col items-center gap-1 md:items-start">
+            <a
+              href="https://instagram.com/neuromaeia"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="NeuroMãe"
+              className="flex items-center gap-2.5 transition hover:opacity-90"
+            >
+              <img
+                src="/neuromae-icon.svg"
+                alt=""
+                aria-hidden="true"
+                width={28}
+                height={28}
+                className="h-auto w-[28px] flex-none"
+                style={{ filter: "drop-shadow(0 2px 6px rgba(0,0,0,.20))" }}
+              />
+              <span
+                style={{
+                  fontFamily: "'Playfair Display', Georgia, serif",
+                  fontWeight: 500,
+                  fontSize: "15px",
+                  color: "#F3ECE3",
+                  letterSpacing: "-0.005em",
+                }}
+              >
+                NeuroMãe
+              </span>
+            </a>
+            <span
+              className="text-[11px]"
+              style={{ color: "#9A8C7E", letterSpacing: "0.01em" }}
+            >
+              <a
+                href={`mailto:${CONTACT_EMAIL}`}
+                className="underline decoration-current/30 underline-offset-2 hover:decoration-current"
+                style={{ color: "#9A8C7E" }}
+              >
+                {CONTACT_EMAIL}
+              </a>
             </span>
-          </a>
+            <span
+              className="text-[10.5px]"
+              style={{
+                color: "#7C6F62",
+                letterSpacing: "0.05em",
+                fontStyle: "italic",
+              }}
+            >
+              {CNPJ_PLACEHOLDER}
+            </span>
+          </div>
+
           <span
-            style={{ fontSize: "11px", letterSpacing: "0.14em", textTransform: "uppercase", color: "#9A8C7E" }}
+            className="text-[11px]"
+            style={{ letterSpacing: "0.14em", textTransform: "uppercase", color: "#9A8C7E" }}
           >
-            © {new Date().getFullYear()} · ciência, acolhimento e transformação
+            © {new Date().getFullYear()} NeuroMãe
           </span>
         </div>
       </div>
