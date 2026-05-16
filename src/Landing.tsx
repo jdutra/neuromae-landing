@@ -1,4 +1,3 @@
-// OBSOLETO — substituído pela cópia HTML estática em /public/beta/index.html
-// (que é o que a Vercel/Vite servem em /beta). Pode apagar manualmente:
-//   rm src/Landing.tsx
-export {};
+// OBSOLETO — landing completa servida via /public/beta/index.html.
+// Mantido apenas para satisfazer o import em App.tsx durante a transição.
+export default function Landing() { return null; }

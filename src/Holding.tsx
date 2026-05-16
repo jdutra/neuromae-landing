@@ -1,6 +1,3 @@
-// OBSOLETO — esta tentativa de holding em React foi substituída por uma
-// versão em HTML/CSS puro no /index.html. Manter o arquivo é inofensivo
-// porque /src/ não é carregado em runtime (index.html não importa main.tsx).
-//
-// Pode apagar manualmente quando quiser:  rm src/Holding.tsx
-export {};
+// OBSOLETO — holding page servida via /index.html (HTML puro, sem React).
+// Mantido apenas para satisfazer o import em App.tsx durante a transição.
+export default function Holding() { return null; }
