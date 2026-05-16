@@ -1,14 +1,16 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-/* ============================================================
-   GABAIA / NeuroMãe — landing v2 (port do v1_chat_interativo_v2.html)
-   CSS canônico copiado do HTML standalone da Tati. Tudo fora do
-   @layer base/components do Tailwind pra preservar especificidade
-   e ordem do design original.
-   ============================================================ */
-
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="color-scheme" content="light dark" />
+<meta name="theme-color" content="#F4EDE5" media="(prefers-color-scheme: light)" />
+<meta name="theme-color" content="#1F1813" media="(prefers-color-scheme: dark)" />
+<title>NeuroMãe — assistente no WhatsApp para mães atípicas</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600&family=Playfair+Display:wght@400;500;600&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<style>
 :root{
   --cream:#F4EDE5;--cream2:#FFF9F2;--paper:#FFFCF7;--latte:#E7D9CC;--ink:#3F352F;--brown:#5E4A3E;--muted:#7B6C61;--soft:#98897E;--olive:#637153;--olive2:#526143;--sage:#A8B5A2;--terra:#BE7564;--rose:#E3B8B0;--line:rgba(95,75,62,.12);--shadow:0 24px 70px rgba(70,55,44,.09);--radius:28px;
 }
@@ -58,14 +60,14 @@
 /* HEADER LOGO — símbolo quadrado da NeuroMãe */
 .brand{gap:18px!important;align-items:center}
 .brand img{display:none}
-.brand .brand-logo{display:block;flex:none;width:100px;height:100px;background:url('/neuromae-symbol.svg') no-repeat center center;background-size:contain}
-@media(max-width:920px){.nav .wrap{height:104px!important}.hero{margin-top:-104px!important;padding-top:164px!important}.brand .brand-logo{width:84px;height:84px}.brand-title{font-size:36px!important}.brand-tagline{font-size:7.5px;letter-spacing:.14em}.brand-tagline .sep{margin:0 3px}}
-@media(max-width:560px){.nav .wrap{height:84px!important}.hero{margin-top:-84px!important}.brand .brand-logo{width:64px;height:64px}.brand-title{font-size:26px!important}.brand{gap:12px!important}.brand-tagline{display:none}}
+.brand .brand-logo{display:block;flex:none;width:120px;height:120px;background:url('./public/neuromae-logo.svg') no-repeat center center;background-size:contain}
+@media(max-width:920px){.nav .wrap{height:104px!important}.hero{margin-top:-104px!important;padding-top:164px!important}.brand .brand-logo{width:100px;height:100px}.brand-title{font-size:36px!important}.brand-tagline{font-size:7.5px;letter-spacing:.14em}.brand-tagline .sep{margin:0 3px}}
+@media(max-width:560px){.nav .wrap{height:84px!important}.hero{margin-top:-84px!important}.brand .brand-logo{width:76px;height:76px}.brand-title{font-size:26px!important}.brand{gap:12px!important}.brand-tagline{display:none}}
 
 /* FOOTER LOGO + WORDMARK — escala menor mas mesmo símbolo */
 .footer-brand{display:flex;align-items:center;gap:14px}
 .footer-brand img{display:none}
-.footer-brand .brand-logo{display:block;flex:none;width:60px;height:60px;background:url('/neuromae-symbol.svg') no-repeat center center;background-size:contain;filter:brightness(1.05)}
+.footer-brand .brand-logo{display:block;flex:none;width:72px;height:72px;background:url('./public/neuromae-logo.svg') no-repeat center center;background-size:contain;filter:brightness(1.05)}
 .footer-brand .brand-wordmark{font-family:'Playfair Display',Georgia,serif;font-weight:500;font-size:28px;letter-spacing:-.005em;color:var(--cream2);line-height:1}
 
 /* GABA STAGE — leve, translúcido (sem o bloco marrom pesado) */
@@ -142,21 +144,18 @@
 .hero-chat-avatar{
   width:48px;height:48px;border-radius:50%;
   overflow:hidden;flex-shrink:0;
-  /* Fundo verde claro estilo WhatsApp */
-  background:linear-gradient(160deg,#E7F5DA 0%,#D2EAB6 50%,#C8E2A8 100%);
-  border:1px solid rgba(99,113,83,.18);
+  background:#FFF8F1;
+  border:1.5px solid rgba(168,181,162,.42);
   box-shadow:inset 0 1px 0 rgba(255,255,255,.6),0 1px 3px rgba(70,55,44,.08);
   display:flex;align-items:center;justify-content:center;
   position:relative;
 }
-.hero-chat-avatar img{width:104%;height:104%;object-fit:cover;object-position:center 38%}
-/* Pontinho verde "online" no canto inferior direito do avatar — estilo WhatsApp */
-.hero-chat-avatar::after{
-  content:'';position:absolute;bottom:-1px;right:-1px;
-  width:13px;height:13px;border-radius:50%;
-  background:#25D366;
-  border:2.2px solid #FFFCF7;
-  box-shadow:0 0 0 1px rgba(37,211,102,.20);
+.hero-chat-avatar img{
+  width:100%;height:100%;
+  object-fit:cover;object-position:center;
+  transform:scale(1.18);
+  transform-origin:center;
+  display:block;
 }
 .hero-chat-meta h4{
   margin:0;font-family:Jost,sans-serif;
@@ -995,153 +994,6 @@ body.tod-day .gaba-vapor span:nth-child(3){left:72%;animation:gabaVaporC 4.2s ea
     from{filter:blur(85px) hue-rotate(-8deg)}
     to  {filter:blur(75px) hue-rotate(4deg)}
   }
-
-  /* Wordmark inline da marca — usar em volta de "GABA" no corpo do texto */
-  .gaba-name {
-    font-family: "Jost", sans-serif;
-    font-weight: 400;
-    letter-spacing: 0.06em;
-  }
-
-  /* Card da fundadora (sem float — alinhado em grid) */
-  .founder-card-float {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    gap: 10px;
-    margin: 0 auto;
-    max-width: 200px;
-  }
-  .founder-card-float img {
-    width: 140px;
-    height: 140px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 1px solid rgba(95, 75, 62, 0.10);
-    box-shadow: 0 10px 28px rgba(70, 55, 44, 0.10);
-  }
-  .founder-card-float .info {
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-    align-items: center;
-  }
-  .founder-card-float .name {
-    font-family: "Playfair Display", Georgia, serif;
-    font-weight: 500;
-    font-size: 17px;
-    color: #5F4B3E;
-    letter-spacing: -0.01em;
-  }
-  .founder-card-float .creds {
-    font-size: 12px;
-    color: #77675B;
-    line-height: 1.45;
-    max-width: 180px;
-  }
-  .founder-card-float .insta {
-    margin-top: 4px;
-    display: inline-flex;
-    align-items: center;
-    gap: 4px;
-    padding: 4px 10px;
-    border-radius: 999px;
-    background: rgba(102, 114, 84, 0.10);
-    border: 1px solid rgba(102, 114, 84, 0.20);
-    color: #586348;
-    font-size: 12px;
-    font-weight: 800;
-  }
-
-  /* Diagrama de pilares — sinapse GABA */
-  .pilares-lines { display: none; }
-  @media (min-width: 760px) { .pilares-lines { display: block; } }
-
-  .pilares-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 12px;
-    position: relative;
-    z-index: 1;
-  }
-  @media (min-width: 760px) {
-    .pilares-grid {
-      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr);
-      grid-template-rows: auto 180px auto;
-      gap: 36px 24px;
-      align-items: center;
-      justify-items: center;
-    }
-  }
-
-  .pilar-hub-symbol {
-    width: 150px;
-    height: 150px;
-    margin: 0 auto;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    grid-column: 1 / -1;
-    grid-row: 1;
-  }
-  .pilar-hub-symbol img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    display: block;
-    filter: drop-shadow(0 10px 24px rgba(184, 121, 103, 0.18));
-  }
-  .pilar-hub-symbol::before {
-    content: "";
-    position: absolute;
-    inset: -10px;
-    border-radius: 50%;
-    background: radial-gradient(circle, rgba(216, 167, 161, 0.22) 0%, transparent 65%);
-    z-index: -1;
-  }
-  @media (min-width: 760px) {
-    .pilar-hub-symbol { grid-column: 2; grid-row: 2; width: 170px; height: 170px; }
-  }
-
-  .pilar-pill {
-    background: rgba(255, 248, 241, 0.78);
-    border: 1px solid rgba(102, 114, 84, 0.22);
-    border-radius: 999px;
-    padding: 10px 16px;
-    font-family: "Playfair Display", Georgia, serif;
-    font-style: italic;
-    font-size: 14.5px;
-    color: #5F4B3E;
-    text-align: center;
-    line-height: 1.3;
-    box-shadow: 0 4px 12px rgba(70, 55, 44, 0.05);
-    width: fit-content;
-    max-width: 100%;
-    justify-self: center;
-  }
-  @media (min-width: 760px) {
-    .pilar-pill { font-size: 16px; padding: 10px 18px; }
-  }
-
-  /* Mobile: hub spans 2 cols (row 1), pilares fluem rows 2-4 */
-  .p-pos-1 { grid-column: 1; grid-row: 2; }
-  .p-pos-2 { grid-column: 2; grid-row: 2; }
-  .p-pos-3 { grid-column: 1; grid-row: 3; }
-  .p-pos-4 { grid-column: 2; grid-row: 3; }
-  .p-pos-5 { grid-column: 1; grid-row: 4; }
-  .p-pos-6 { grid-column: 2; grid-row: 4; }
-
-  /* Desktop: orbita 3x3 com hub no centro */
-  @media (min-width: 760px) {
-    .p-pos-1 { grid-column: 1; grid-row: 1; }
-    .p-pos-2 { grid-column: 2; grid-row: 1; }
-    .p-pos-3 { grid-column: 3; grid-row: 1; }
-    .p-pos-4 { grid-column: 1; grid-row: 3; }
-    .p-pos-5 { grid-column: 2; grid-row: 3; }
-    .p-pos-6 { grid-column: 3; grid-row: 3; }
-  }
 }
 
 /* Reduced motion — congela tudo */
@@ -1189,6 +1041,59 @@ body.tod-day .gaba-vapor span:nth-child(3){left:72%;animation:gabaVaporC 4.2s ea
   }
   .section.chat::before{
     background:linear-gradient(to top,transparent 0%,rgba(42,33,27,.30) 100%);
+  }
+}
+
+/* ════════════════════════════════════════════
+   Noite — overrides pra legibilidade no escuro
+   • Logo NeuroMãe ganha halo cream atrás do corpo/rosto
+   • Voice teaser mantém texto escuro sobre fundo claro
+   Ativa em prefers-color-scheme:dark OU body.tod-night
+   ════════════════════════════════════════════ */
+body.tod-night .brand .brand-logo,
+body.tod-night .footer-brand .brand-logo{
+  background:url('./public/neuromae-logo-fundo.svg') no-repeat center center;
+  background-size:contain;
+}
+@media (prefers-color-scheme: dark){
+  .brand .brand-logo,
+  .footer-brand .brand-logo{
+    background:url('./public/neuromae-logo-fundo.svg') no-repeat center center;
+    background-size:contain;
+  }
+}
+
+/* Voice teaser — pinar cores escuras pra texto não sumir no fundo claro à noite */
+body.tod-night .voice-teaser .vt-question,
+body.tod-night .voice-teaser .vt-title{
+  color:#3F352F!important;
+}
+body.tod-night .voice-teaser .vt-sub{
+  color:#7B6C61!important;
+}
+body.tod-night .voice-teaser .vt-kicker{
+  color:#A45F4F!important;
+}
+body.tod-night .voice-teaser{
+  background:linear-gradient(180deg, rgba(255,250,244,.96), rgba(248,239,228,.92))!important;
+  border-color:rgba(190,117,100,.36)!important;
+  box-shadow:0 14px 38px rgba(15,12,10,.30), 0 2px 6px rgba(15,12,10,.18)!important;
+}
+@media (prefers-color-scheme: dark){
+  .voice-teaser .vt-question,
+  .voice-teaser .vt-title{
+    color:#3F352F!important;
+  }
+  .voice-teaser .vt-sub{
+    color:#7B6C61!important;
+  }
+  .voice-teaser .vt-kicker{
+    color:#A45F4F!important;
+  }
+  .voice-teaser{
+    background:linear-gradient(180deg, rgba(255,250,244,.96), rgba(248,239,228,.92))!important;
+    border-color:rgba(190,117,100,.36)!important;
+    box-shadow:0 14px 38px rgba(15,12,10,.30), 0 2px 6px rgba(15,12,10,.18)!important;
   }
 }
 
@@ -1317,6 +1222,125 @@ body.tod-day .gaba-vapor span:nth-child(3){left:72%;animation:gabaVaporC 4.2s ea
   transform:translateY(-1px);
 }
 
+/* Voice teaser — pergunta de uma mãe + player */
+.voice-teaser{
+  display:flex;flex-direction:column;
+  gap:14px;
+  max-width:560px;
+  margin:0 auto 28px;
+  padding:18px 20px 16px;
+  background:linear-gradient(180deg, rgba(255,252,247,.94), rgba(255,248,241,.82));
+  border:1.5px solid rgba(190,117,100,.22);
+  border-radius:20px;
+  box-shadow:0 10px 28px rgba(95,75,62,.08), 0 2px 6px rgba(95,75,62,.04);
+}
+.voice-teaser .vt-quote{
+  display:flex;flex-direction:column;
+  gap:6px;
+}
+.voice-teaser .vt-kicker{
+  font-family:Inter,sans-serif;
+  font-size:10.5px;
+  font-weight:700;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  color:var(--terra);
+}
+.voice-teaser .vt-question{
+  font-family:'Playfair Display',Georgia,serif;
+  font-size:16.5px;
+  font-style:italic;
+  font-weight:400;
+  color:var(--ink);
+  line-height:1.42;
+  margin:0;
+  letter-spacing:-.005em;
+}
+.voice-teaser .vt-player{
+  display:flex;align-items:center;
+  gap:14px;
+  padding-top:10px;
+  border-top:1px solid rgba(190,117,100,.16);
+}
+.vt-play{
+  flex:0 0 auto;
+  width:46px;height:46px;
+  border-radius:50%;
+  border:0;
+  background:linear-gradient(180deg,var(--terra),#A45F4F);
+  color:#FFFCF7;
+  cursor:pointer;
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 6px 14px rgba(190,117,100,.32);
+  transition:transform .15s ease, box-shadow .15s ease;
+  padding:0;
+}
+.vt-play:hover{
+  transform:translateY(-1px);
+  box-shadow:0 9px 18px rgba(190,117,100,.40);
+}
+.vt-play svg{width:18px;height:18px;fill:currentColor;display:block}
+.vt-play .icon-pause{display:none}
+.voice-teaser.is-playing .vt-play .icon-play{display:none}
+.voice-teaser.is-playing .vt-play .icon-pause{display:block}
+.vt-meta{
+  flex:0 0 auto;
+  display:flex;flex-direction:column;
+  min-width:0;
+}
+.vt-title{
+  font-family:'Playfair Display',Georgia,serif;
+  font-size:15.5px;
+  font-weight:500;
+  color:var(--ink);
+  letter-spacing:-.005em;
+  line-height:1.2;
+}
+.vt-sub{
+  font-family:Inter,sans-serif;
+  font-size:11.5px;
+  color:var(--soft);
+  font-variant-numeric:tabular-nums;
+  margin-top:2px;
+}
+.vt-waveform{
+  flex:1;
+  display:flex;align-items:center;
+  gap:2px;
+  height:28px;
+  min-width:0;
+  cursor:pointer;
+}
+.vt-waveform span{
+  display:block;
+  flex:1;
+  min-width:1.5px;
+  background:rgba(190,117,100,.28);
+  border-radius:1.5px;
+  transition:background .12s ease;
+}
+.vt-waveform span.is-played{background:var(--terra)}
+.voice-teaser audio{display:none}
+@media(max-width:560px){
+  .voice-teaser{
+    gap:12px;
+    padding:14px 16px 14px;
+    margin:0 12px 24px;
+    border-radius:18px;
+  }
+  .voice-teaser .vt-question{font-size:15px;line-height:1.4}
+  .voice-teaser .vt-player{
+    flex-wrap:wrap;
+    gap:10px;
+    padding-top:8px;
+  }
+  .vt-meta{flex:1;min-width:0}
+  .vt-waveform{flex:1 0 100%;order:3;height:24px}
+  .vt-title{font-size:13.5px}
+  .vt-sub{font-size:11px}
+  .vt-play{width:42px;height:42px}
+}
+
 /* iPhone stage */
 .iphone-stage{
   position:relative;
@@ -1428,13 +1452,21 @@ body.tod-day .gaba-vapor span:nth-child(3){left:72%;animation:gabaVaporC 4.2s ea
   display:flex;align-items:center;justify-content:center;
 }
 .wa-avatar{
-  width:36px;height:36px;border-radius:50%;
+  width:48px;height:48px;border-radius:50%;
   overflow:hidden;
-  background:linear-gradient(160deg,#E7F5DA,#C8E2A8);
+  background:#FFF8F1;
+  border:1.5px solid rgba(168,181,162,.42);
   flex:0 0 auto;
   display:flex;align-items:center;justify-content:center;
+  box-shadow:0 1px 3px rgba(15,12,10,.12) inset;
 }
-.wa-avatar img{width:108%;height:108%;object-fit:cover;object-position:center 38%}
+.wa-avatar img{
+  width:100%;height:100%;
+  object-fit:cover;object-position:center;
+  transform:scale(1.18);
+  transform-origin:center center;
+  display:block;
+}
 .wa-info{
   flex:1;display:flex;flex-direction:column;
   min-width:0;line-height:1;
@@ -1583,6 +1615,64 @@ body.tod-day .gaba-vapor span:nth-child(3){left:72%;animation:gabaVaporC 4.2s ea
   30%{opacity:1;transform:translateY(-3px)}
 }
 
+/* Audio message bubble (WhatsApp-style) */
+.wa-msg.audio{
+  display:flex;align-items:center;
+  gap:8px;
+  padding:8px 12px 14px 8px;
+  min-width:220px;
+  white-space:normal;
+}
+.wa-msg.audio .wa-audio-play{
+  flex:0 0 auto;
+  width:32px;height:32px;
+  border-radius:50%;
+  border:0;
+  background:rgba(232,237,239,.14);
+  color:#E9EDEF;
+  display:flex;align-items:center;justify-content:center;
+  cursor:pointer;
+  transition:background .15s ease;
+  padding:0;
+}
+.wa-msg.audio .wa-audio-play:hover{background:rgba(232,237,239,.24)}
+.wa-msg.audio .wa-audio-play svg{width:14px;height:14px;fill:currentColor;display:block}
+.wa-msg.audio .wa-audio-play .icon-pause{display:none}
+.wa-msg.audio.is-playing .wa-audio-play .icon-play{display:none}
+.wa-msg.audio.is-playing .wa-audio-play .icon-pause{display:block}
+.wa-msg.audio .wa-audio-waveform{
+  flex:1;
+  display:flex;align-items:center;
+  gap:2px;
+  height:26px;
+  min-width:0;
+  cursor:pointer;
+}
+.wa-msg.audio .wa-audio-waveform span{
+  display:block;
+  flex:1;
+  min-width:1.5px;
+  background:rgba(232,237,239,.30);
+  border-radius:1.5px;
+  transition:background .12s ease;
+}
+.wa-msg.audio .wa-audio-waveform span.is-played{background:#53BDEB}
+.wa-msg.audio .wa-audio-duration{
+  flex:0 0 auto;
+  font-size:11px;
+  color:rgba(255,255,255,.62);
+  font-variant-numeric:tabular-nums;
+  letter-spacing:.01em;
+}
+.wa-msg.audio .wa-time{
+  position:absolute;
+  bottom:2px;right:10px;
+  font-size:9.5px;
+  margin:0;
+  color:rgba(255,255,255,.50);
+}
+.wa-msg.audio audio{display:none}
+
 /* WA input bar */
 .wa-input-bar{
   display:flex;align-items:center;
@@ -1700,13 +1790,14 @@ body.tod-day .gaba-vapor span:nth-child(3){left:72%;animation:gabaVaporC 4.2s ea
   .process-strip .ps-step p{max-width:none;font-size:12.5px}
   .scenario-chips{gap:6px;padding:0 12px}
   .sc-chip{padding:8px 14px;font-size:12.5px}
-  .iphone-frame{width:300px;border-radius:42px;border-width:5px}
+  .iphone-frame{width:300px;border-radius:42px;border-width:5px;aspect-ratio:9/22}
   .iphone-screen{border-radius:36px}
   .iphone-island{width:90px;height:26px;top:11px}
   .ios-statusbar{height:38px;padding:10px 22px 4px;font-size:13.5px}
   .wa-header{height:50px}
   .wa-name{font-size:14px}
-  .wa-msg{font-size:12.5px;max-width:84%}
+  .wa-chat{padding:10px 8px 6px;gap:3px}
+  .wa-msg{font-size:12.5px;max-width:84%;padding:5px 8px 5px 10px;line-height:1.38}
   .btn-wa{padding:13px 24px;font-size:14px}
 }
 
@@ -1744,3 +1835,1036 @@ body.tod-day .gaba-vapor span:nth-child(3){left:72%;animation:gabaVaporC 4.2s ea
   .bridge-italic{color:#E8A192}
   /* iPhone frame não muda — mantém realismo do dispositivo independente do tema */
 }
+</style>
+<script>
+/* ════════════════════════════════════════════
+   FALLBACK DE IMAGENS — só atua quando o arquivo
+   é aberto fora da pasta do projeto. Em produção
+   (com /public/), as imagens reais carregam normal.
+   ════════════════════════════════════════════ */
+(function(){
+  var enc = encodeURIComponent;
+  var FB = {
+    gaba: 'data:image/svg+xml;utf8,' + enc(
+      '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">' +
+      '<defs><radialGradient id="g" cx="50%" cy="40%"><stop offset="0%" stop-color="#F4D9C8"/><stop offset="100%" stop-color="#D8AE96"/></radialGradient></defs>' +
+      '<circle cx="50" cy="50" r="46" fill="url(#g)"/>' +
+      '<circle cx="50" cy="50" r="46" fill="none" stroke="#BE7564" stroke-width="1.2" opacity="0.5"/>' +
+      '<circle cx="40" cy="46" r="2.5" fill="#5E4A3E"/>' +
+      '<circle cx="60" cy="46" r="2.5" fill="#5E4A3E"/>' +
+      '<path d="M40 60 Q50 66 60 60" stroke="#BE7564" stroke-width="2" fill="none" stroke-linecap="round"/>' +
+      '<text x="50" y="88" font-family="Georgia,serif" font-size="8" font-style="italic" fill="#5E4A3E" text-anchor="middle" opacity="0.6">GABA</text>' +
+      '</svg>'
+    ),
+    icon: 'data:image/svg+xml;utf8,' + enc(
+      '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">' +
+      '<path d="M50 84 Q22 62 22 42 Q22 28 35 26 Q44 26 50 36 Q56 26 65 26 Q78 28 78 42 Q78 62 50 84 Z" fill="#BE7564"/>' +
+      '<path d="M50 84 Q22 62 22 42 Q22 28 35 26 Q44 26 50 36 Q56 26 65 26 Q78 28 78 42 Q78 62 50 84 Z" fill="none" stroke="#5E4A3E" stroke-width="1" opacity="0.3"/>' +
+      '<circle cx="50" cy="48" r="5" fill="#FFF9F2"/>' +
+      '</svg>'
+    ),
+    portrait: 'data:image/svg+xml;utf8,' + enc(
+      '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 250">' +
+      '<rect width="200" height="250" fill="#E8D7C5"/>' +
+      '<circle cx="100" cy="100" r="38" fill="#BE7564" opacity="0.35"/>' +
+      '<path d="M30 250 Q30 168 100 168 Q170 168 170 250 Z" fill="#BE7564" opacity="0.35"/>' +
+      '<text x="100" y="232" font-family="Inter,sans-serif" font-size="10" fill="#5E4A3E" text-anchor="middle" opacity="0.55" letter-spacing="2">RETRATO · PLACEHOLDER</text>' +
+      '</svg>'
+    ),
+    abraco: 'data:image/svg+xml;utf8,' + enc(
+      '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 800">' +
+      '<rect width="600" height="800" fill="#E8D7C5"/>' +
+      '<circle cx="300" cy="380" r="200" fill="#BE7564" opacity="0.28"/>' +
+      '<text x="300" y="395" font-family="Georgia,serif" font-size="32" font-style="italic" fill="#5E4A3E" text-anchor="middle" opacity="0.75">foto · abraço</text>' +
+      '<text x="300" y="425" font-family="Inter,sans-serif" font-size="11" fill="#5E4A3E" text-anchor="middle" opacity="0.45" letter-spacing="2">PLACEHOLDER</text>' +
+      '</svg>'
+    )
+  };
+
+  function pickFor(src){
+    var s = (src || '').toLowerCase();
+    if (s.indexOf('gaba-logo') !== -1 || s.indexOf('neuromae-icon') !== -1) return FB.icon;
+    if (s.indexOf('tatiana') !== -1) return FB.portrait;
+    if (s.indexOf('hero-abraco') !== -1) return FB.abraco;
+    return FB.gaba; /* todos os mascotes da GABA + avatar */
+  }
+
+  /* Captura erros de <img> no documento inteiro */
+  document.addEventListener('error', function(e){
+    var t = e.target;
+    if (t && t.tagName === 'IMG' && !t.dataset.fbk){
+      t.dataset.fbk = '1';
+      t.src = pickFor(t.getAttribute('src'));
+    }
+  }, true);
+
+  /* Sonda a brand-logo (CSS background-image) e injeta fallback se falhar */
+  function probeBrandLogo(){
+    var test = new Image();
+    test.onerror = function(){
+      var s = document.createElement('style');
+      s.textContent =
+        '.brand .brand-logo, .footer-brand .brand-logo {' +
+        '  background-image: url("' + FB.icon + '") !important;' +
+        '}';
+      document.head.appendChild(s);
+    };
+    test.src = './public/gaba-logo-v2.svg';
+  }
+  if (document.readyState === 'loading'){
+    document.addEventListener('DOMContentLoaded', probeBrandLogo);
+  } else {
+    probeBrandLogo();
+  }
+})();
+</script>
+
+</head>
+<body>
+<script>
+/* ════════════════════════════════════════════
+   TIME-OF-DAY — define cedo, antes do render,
+   pra mascote já entrar no estado certo (vapor
+   de dia vs respiração de noite) sem flicker
+   ════════════════════════════════════════════ */
+(function(){
+  var h = new Date().getHours();
+  /* Visual mode: dia 5h–17h (vapor sobe), noite 18h–4h (respiração) */
+  var isDay = h >= 5 && h < 18;
+  document.body.classList.add(isDay ? 'tod-day' : 'tod-night');
+
+  /* Bucket de copy (4 momentos, cuidando do tom) */
+  var bucket;
+  if      (h < 5)  bucket = 'madrugada';
+  else if (h < 12) bucket = 'manha';
+  else if (h < 18) bucket = 'tarde';
+  else             bucket = 'noite';
+  document.body.dataset.tod = bucket;
+
+  var captions = {
+    madrugada: 'madrugada longa — ela tá acordada com você',
+    manha:     'bom dia, mãe — ela amanheceu aqui',
+    tarde:     'meio do dia — ela respira com você',
+    noite:     'quando a casa silencia, ela continua acordada'
+  };
+  /* Setar via DOMContentLoaded pra garantir que o span existe */
+  function setCaption(){
+    var el = document.getElementById('gabaStageCaption');
+    if(el) el.textContent = captions[bucket];
+  }
+  if (document.readyState === 'loading'){
+    document.addEventListener('DOMContentLoaded', setCaption);
+  } else {
+    setCaption();
+  }
+})();
+</script>
+<nav class="nav">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="NeuroMãe">
+      <span class="brand-logo" aria-hidden="true"></span>
+      <div class="brand-text">
+        <div class="brand-title">NeuroMãe</div>
+        <div class="brand-tagline">ciência <span class="sep">*</span> acolhimento <span class="sep">*</span> transformação</div>
+      </div>
+    </a>
+    <div class="navlinks"><a href="#produto">O que é</a><a href="#como">Como funciona</a><a href="#fundadora">Quem somos</a><a href="#pricing">Plano</a><a href="#faq">Dúvidas</a></div>
+    <a class="pill" href="https://wa.me/5543988264917" target="_blank" rel="noopener noreferrer">Falar com a <span class="gaba-word">GABA</span></a>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="wrap hero-grid">
+    <div class="hero-text">
+      <h1>Você não é péssima.<br><span class="accent">Você está esgotada.</span></h1>
+      <p class="hero-lede">A maternidade neurodivergente não vem com manual.</p>
+      <p class="hero-copy">Conversa com a <span class="gaba-word">GABA</span> agora — sem cadastro, sem app extra. Ela atende aqui ao lado.</p>
+      <div class="trust-row">
+        <div class="trust-mini">
+          <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" width="16" height="16"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span>
+          <span><strong>24h no WhatsApp</strong>sempre que precisar</span>
+        </div>
+        <div class="trust-mini">
+          <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" width="16" height="16"><path d="M12 3 4 6v6c0 4.5 3.4 8.4 8 9 4.6-.6 8-4.5 8-9V6l-8-3z"/><path d="m9 12 2 2 4-4"/></svg></span>
+          <span><strong>100% confidencial</strong>suas conversas são seguras</span>
+        </div>
+        <div class="trust-mini">
+          <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" width="16" height="16"><circle cx="12" cy="9" r="6"/><path d="m9 14-2 7 5-3 5 3-2-7"/></svg></span>
+          <span><strong>Baseada em ciência</strong>e experiência real</span>
+        </div>
+        <div class="trust-mini">
+          <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" width="16" height="16"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></span>
+          <span><strong>Feita por quem</strong>vive na pele</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-chat-wrap">
+      <img id="gabaMascotFloat" class="gaba-mascot-float" src="./public/gaba-cafe.png" alt="">
+      <div class="hero-chat">
+        <div class="hero-chat-head">
+          <div class="hero-chat-avatar">
+            <img id="heroChatAvatar" src="./public/gaba-logo-v2.svg" alt="">
+          </div>
+          <div class="hero-chat-meta">
+            <h4>GABA</h4>
+            <p>online · responde em segundos</p>
+          </div>
+        </div>
+        <div class="hero-chat-body" id="heroChatBody"></div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section class="section thoughts" id="pensamentos">
+  <div class="wrap">
+    <div class="section-head"><h2>Talvez você já tenha pensado isso hoje...</h2><div class="subtle-rule"></div></div>
+    <div class="thought-grid">
+      <article class="thought-card"><div class="thought-icon">♡</div><p class="thought">“A casa fica em silêncio depois de um dia exaustivo…<br>Eu só queria descansar — mas a culpa não deixa.”</p><hr><p class="answer">Essa culpa não é verdade.<br>É o cansaço falando mais alto.</p><p class="insight">Você não precisa de mais esforço.<br>Precisa de pausa — sem culpa.</p></article>
+      <article class="thought-card"><div class="thought-icon">♡</div><p class="thought">“Saio de mais uma terapia me perguntando:<br>será que agora vai dar certo?”</p><hr><p class="answer">Não é sobre dar certo de uma vez.<br>É sobre pequenas mudanças que você ainda não percebeu.</p><p class="insight">O progresso não acontece no salto.<br>Acontece no detalhe.</p></article>
+      <article class="thought-card"><div class="thought-icon">♡</div><p class="thought">“O telefone toca. É a escola.<br>Mais uma reunião por conta do comportamento.”</p><hr><p class="answer">Você não está sendo chamada para ser julgada.<br>Você é parte da solução.</p><p class="insight">Você não precisa enfrentar isso sozinha.<br>Precisa de apoio — na hora certa.</p></article>
+    </div>
+    <div class="reveal-box"><div class="mark">♡</div><p>Você está lidando com culpa, dúvida e medo — ao mesmo tempo.<br>E mesmo assim, continua. Todos os dias.</p><p class="strong">Você não precisa de perfeição.<br>Precisa de apoio.</p></div>
+    <div class="gaba-stage">
+      <span class="stage-blob stage-blob-terra" aria-hidden="true"></span>
+      <span class="stage-blob stage-blob-sage" aria-hidden="true"></span>
+      <span class="stage-blob stage-blob-rose" aria-hidden="true"></span>
+      <p class="reveal-line">
+        <span class="reveal-rule" aria-hidden="true"></span>
+        <span class="reveal-text">Pois é... essa é a <span class="gaba-word">GABA</span>.</span>
+        <span class="reveal-rule" aria-hidden="true"></span>
+      </p>
+      <div class="gaba-scene">
+        <span class="gaba-halo" aria-hidden="true"></span>
+        <span class="gaba-spark gaba-spark-a" aria-hidden="true"></span>
+        <span class="gaba-spark gaba-spark-b" aria-hidden="true"></span>
+        <span class="gaba-spark gaba-spark-c" aria-hidden="true"></span>
+        <figure class="gaba-mascot" aria-hidden="true">
+          <span class="gaba-breath-ring" aria-hidden="true"></span>
+          <span class="gaba-glow" aria-hidden="true"></span>
+          <img src="./public/avatar-gaba-coffe-refinado-optimized.svg" alt="">
+          <span class="gaba-vapor" aria-hidden="true"><span></span><span></span><span></span></span>
+        </figure>
+      </div>
+      <p class="gaba-stage-caption">
+        <span id="gabaStageCaption">uma presença pra te acolher na hora certa</span>
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="section produto-demo" id="produto">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Não é um curso. É uma conversa que te organiza.</h2>
+      <div class="subtle-rule"></div>
+      <p>Você fala com a <span class="gaba-word">GABA</span> quando precisar de clareza: no fim do dia, depois de uma situação difícil, antes de uma reunião na escola ou quando a cabeça está cheia demais.</p>
+    </div>
+
+    <!-- Strip compacta dos 4 passos — on-ramp pra demo -->
+    <ol class="process-strip" id="como" aria-label="Como funciona">
+      <li class="ps-step">
+        <span class="ps-num">01</span>
+        <span class="ps-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="currentColor" width="22" height="22"><path d="M19.05 4.91A9.82 9.82 0 0 0 12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.27-1.38a9.86 9.86 0 0 0 4.71 1.2h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.0zM12.04 20.15h-.01a8.2 8.2 0 0 1-4.18-1.15l-.3-.18-3.13.82.84-3.05-.2-.31a8.18 8.18 0 0 1-1.26-4.37c0-4.54 3.69-8.23 8.24-8.23a8.18 8.18 0 0 1 5.82 2.41 8.18 8.18 0 0 1 2.41 5.83c0 4.54-3.7 8.23-8.23 8.23zm4.51-6.16c-.25-.12-1.46-.72-1.69-.8-.23-.08-.39-.12-.56.12-.16.25-.64.8-.78.97-.14.16-.29.18-.54.06-.25-.12-1.04-.38-1.99-1.22-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.02-.38.11-.5.11-.11.25-.29.37-.43.12-.14.16-.25.25-.41.08-.16.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.4-.42-.56-.43h-.48c-.16 0-.43.06-.66.31-.23.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.16 1.74 2.65 4.21 3.71.59.25 1.05.41 1.41.52.59.19 1.13.16 1.55.1.47-.07 1.46-.6 1.66-1.18.21-.58.21-1.07.14-1.18-.06-.11-.22-.18-.47-.3z"/></svg>
+        </span>
+        <h3>Você chama no WhatsApp</h3>
+        <p>Quando bater dúvida, culpa ou desespero.</p>
+      </li>
+      <li class="ps-link" aria-hidden="true"></li>
+      <li class="ps-step">
+        <span class="ps-num">02</span>
+        <span class="ps-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" width="22" height="22"><path d="M12 3l1.6 4.4L18 9l-4.4 1.6L12 15l-1.6-4.4L6 9l4.4-1.6L12 3z"/><path d="M19 13.5l.9 2.6L22.5 17l-2.6.9L19 20.5l-.9-2.6L15.5 17l2.6-.9L19 13.5z"/></svg>
+        </span>
+        <h3>Ela entende seu contexto</h3>
+        <p>E te faz as perguntas certas pra te orientar.</p>
+      </li>
+      <li class="ps-link" aria-hidden="true"></li>
+      <li class="ps-step">
+        <span class="ps-num">03</span>
+        <span class="ps-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" width="22" height="22"><path d="M21 12c0 4.42-4.03 8-9 8a9.7 9.7 0 0 1-3.85-.78L3 21l1.38-4.65A8 8 0 0 1 3 12c0-4.42 4.03-8 9-8s9 3.58 9 8z"/><path d="M12 14.5c-2-1.2-3-2.4-3-3.6 0-1 .8-1.6 1.6-1.6.6 0 1.1.3 1.4.8.3-.5.8-.8 1.4-.8.8 0 1.6.6 1.6 1.6 0 1.2-1 2.4-3 3.6z" fill="currentColor"/></svg>
+        </span>
+        <h3>Você recebe orientação prática</h3>
+        <p>Acolhedora, na hora certa, do jeito que precisa.</p>
+      </li>
+      <li class="ps-link" aria-hidden="true"></li>
+      <li class="ps-step">
+        <span class="ps-num">04</span>
+        <span class="ps-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" width="22" height="22"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="10" r="3"/><path d="M6.4 18.5c.9-2.4 3.1-4 5.6-4s4.7 1.6 5.6 4"/><path d="M9.5 7.5c.5-1 1.5-1.5 2.5-1.5s2 .5 2.5 1.5"/></svg>
+        </span>
+        <h3>Você se sente amparada</h3>
+        <p>Mais leve, mais segura, com chão firme pra seguir.</p>
+      </li>
+    </ol>
+
+    <!-- Bridge editorial — vira a demo viva -->
+    <div class="demo-bridge">
+      <span class="kicker">A conversa real</span>
+      <h3 class="bridge-title">É assim que ela responde — <span class="bridge-italic">quando ninguém mais responde.</span></h3>
+      <p>Escolhe o que tá pesando agora. A <span class="gaba-word">GABA</span> mostra como ela responderia.</p>
+    </div>
+
+    <!-- Voice teaser — pergunta real de uma mãe + resposta em voz da GABA -->
+    <div class="voice-teaser" id="voiceTeaser">
+      <div class="vt-quote">
+        <span class="vt-kicker">A pergunta, na voz dela</span>
+        <p class="vt-question">“O que é esse TDAH, que agora todo mundo fala? Toda criança agora é isso, não pode ser mais arteira que querem tacar remédio?”</p>
+      </div>
+      <div class="vt-player">
+        <button class="vt-play" type="button" id="vtPlayBtn" aria-label="Ouvir a resposta da GABA em áudio">
+          <svg class="icon-play" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+          <svg class="icon-pause" viewBox="0 0 24 24"><path d="M6 4h4v16H6zm8 0h4v16h-4z"/></svg>
+        </button>
+        <div class="vt-meta">
+          <span class="vt-title">Ouvir <span class="gaba-word">GABA</span> respondendo</span>
+          <span class="vt-sub">Em áudio · <span id="vtTimeDisplay">1:27</span></span>
+        </div>
+        <div class="vt-waveform" id="vtWaveform" role="slider" aria-label="Progresso do áudio"></div>
+      </div>
+      <audio id="vtAudio" preload="metadata">
+        <source src="./public/gaba-audio-tdah.opus" type="audio/ogg">
+        <source src="./public/gaba-audio-tdah.mp3" type="audio/mpeg">
+      </audio>
+    </div>
+
+    <!-- Scenario chips -->
+    <div class="scenario-chips" role="tablist" id="scenarioChips">
+      <button class="sc-chip is-active" data-scenario="crise" role="tab" aria-selected="true">crise</button>
+      <button class="sc-chip" data-scenario="culpa" role="tab" aria-selected="false">culpa</button>
+      <button class="sc-chip" data-scenario="autismo" role="tab" aria-selected="false">Autismo</button>
+      <button class="sc-chip" data-scenario="tdah" role="tab" aria-selected="false">TDAH</button>
+    </div>
+
+    <!-- iPhone frame com WhatsApp real -->
+    <div class="iphone-stage">
+      <div class="iphone-frame" role="img" aria-label="Conversa com GABA no WhatsApp">
+        <span class="iphone-island" aria-hidden="true"></span>
+        <div class="iphone-screen">
+          <div class="ios-statusbar" aria-hidden="true">
+            <span class="ios-time" id="iosTime">23:47</span>
+            <div class="ios-icons">
+              <svg viewBox="0 0 18 12" width="18" height="12" fill="currentColor"><rect x="0" y="8" width="3" height="4" rx=".5"/><rect x="5" y="6" width="3" height="6" rx=".5"/><rect x="10" y="3" width="3" height="9" rx=".5"/><rect x="15" y="0" width="3" height="12" rx=".5" opacity=".4"/></svg>
+              <svg viewBox="0 0 16 12" width="16" height="12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M1.5 5.5C3.5 3 5.5 2 8 2s4.5 1 6.5 3.5"/><path d="M3.5 7.5C5 6 6.5 5.5 8 5.5s3 .5 4.5 2"/><circle cx="8" cy="9.8" r="1" fill="currentColor"/></svg>
+              <span class="ios-battery"><span class="ios-battery-fill"></span></span>
+            </div>
+          </div>
+          <div class="wa-app">
+            <header class="wa-header">
+              <button class="wa-back" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+              </button>
+              <div class="wa-avatar">
+                <img src="./public/gaba-logo-v2.svg" alt="">
+              </div>
+              <div class="wa-info">
+                <span class="wa-name">GABA</span>
+                <span class="wa-status">online</span>
+              </div>
+              <div class="wa-actions" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg>
+                <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              </div>
+            </header>
+            <div class="wa-chat" id="waChat">
+              <div class="wa-day"><span>hoje</span></div>
+            </div>
+            <footer class="wa-input-bar" aria-hidden="true">
+              <button class="wa-iconbtn">
+                <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M12 4a8 8 0 1 0 0 16 8 8 0 0 0 0-16zm0 14a6 6 0 1 1 0-12 6 6 0 0 1 0 12zm-1-11h2v4h4v2h-4v4h-2v-4H7v-2h4z"/></svg>
+              </button>
+              <div class="wa-input-wrap">
+                <span class="wa-input-text">Mensagem</span>
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M9 9h.01M15 9h.01"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/></svg>
+              </div>
+              <button class="wa-iconbtn">
+                <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
+              </button>
+              <button class="wa-iconbtn wa-mic">
+                <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M12 14a3 3 0 0 0 3-3V5a3 3 0 0 0-6 0v6a3 3 0 0 0 3 3zm5-3a5 5 0 0 1-10 0H5a7 7 0 0 0 6 6.92V21h2v-3.08A7 7 0 0 0 19 11z"/></svg>
+              </button>
+            </footer>
+          </div>
+        </div>
+      </div>
+      <button class="demo-replay" id="demoReplay" aria-label="Tocar a conversa de novo">
+        <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"/></svg>
+        <span>Tocar de novo</span>
+      </button>
+    </div>
+
+    <!-- CTA WhatsApp verde -->
+    <div class="demo-cta">
+      <a class="btn-wa" id="demoCtaLink" href="https://wa.me/5543988264917" target="_blank" rel="noopener noreferrer">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M19.05 4.91A9.82 9.82 0 0 0 12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.27-1.38a9.86 9.86 0 0 0 4.71 1.2h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.0z"/></svg>
+        Continuar essa conversa no WhatsApp
+        <span class="arrow">→</span>
+      </a>
+      <p class="demo-cta-fine">7 dias por minha conta · sem cartão · cancela por mensagem</p>
+    </div>
+
+  </div>
+</section>
+
+<section class="section" id="momentos">
+  <div class="wrap">
+    <div class="section-head"><span class="kicker">Para usar no dia a dia</span><h2>O que você encontra quando fala com a GABA.</h2><p>Acolhe, escuta, organiza e orienta — sem transformar sua rotina em mais uma tarefa.</p></div>
+    <div class="moments-grid"><article class="moment"><div class="moment-img"><img src="./public/gaba-acolhe.png" alt=""></div><h3>Acolhe</h3><p>Quando você precisa falar sem se sentir julgada.</p></article><article class="moment"><div class="moment-img"><img src="./public/gaba-escuta.png" alt=""></div><h3>Escuta</h3><p>Quando a rotina pesa e você precisa organizar o que sente.</p></article><article class="moment"><div class="moment-img"><img src="./public/gaba-organiza.png" alt=""></div><h3>Organiza</h3><p>Quando há muita informação e pouca clareza.</p></article><article class="moment"><div class="moment-img"><img src="./public/gaba-respira.png" alt=""></div><h3>Orienta</h3><p>Quando você precisa pensar nos próximos passos.</p></article></div>
+  </div>
+</section>
+
+<section class="section compare" id="transformacao">
+  <div class="wrap"><div class="section-head"><span class="kicker">O que muda</span><h2>Não é virar outra mãe. É não se perder mais no meio do caminho.</h2><p>A GABA não promete maternidade leve. Promete que, quando o difícil vier — e ele vem — você não carregue tudo sozinha.</p></div><div class="compare-grid"><article class="compare-card before"><span class="kicker">Hoje, talvez</span><h3>A maternidade pesa assim:</h3><ul><li>Por mais que se esforce, parece que nada melhora.</li><li>Quanto mais conhecimento tem, maior fica a culpa.</li><li>A cada crise, a impotência aumenta e paralisa.</li><li>Se sente isolada, ignorante e sem esperança.</li></ul></article><article class="compare-card after"><span class="kicker">Com a GABA</span><h3>Atravessar com chão firme:</h3><ul><li>Nomeia o que aconteceu, sem se afogar no caos.</li><li>Escuta a culpa sem receber mais uma lista de tarefas.</li><li>Conta com prática real e baseada em evidência.</li><li>Sabe para onde ir quando a noite vira.</li></ul></article></div></div>
+</section>
+
+<section class="cta-band"><div class="wrap"><div class="cta-card"><div><h2>Você não precisa passar por hoje sozinha.</h2><p>Comece com 7 dias gratuitos. Sem cartão. Sem fidelidade. Sem promessa milagrosa.</p></div><a class="btn primary" href="https://wa.me/5543988264917" target="_blank" rel="noopener noreferrer">Quero a GABA comigo agora →</a></div></div></section>
+
+<section class="section" id="para-quem"><div class="wrap"><div class="section-head"><span class="kicker">Antes de começar</span><h2>Pra ser honesta — a GABA não é pra todo mundo.</h2><p>Ela acompanha mães reais, em dias reais. Não substitui profissionais, não promete criança perfeita e não entrega fórmula mágica.</p></div><div class="fit-grid"><article class="fit yes"><h3>É pra você se:</h3><ul><li>Quer entender melhor como a neurodivergência funciona.</li><li>Recebeu um diagnóstico e está perdida.</li><li>Precisa desabafar sem mais julgamentos.</li><li>Mesmo cansada, sabe que não vai desistir.</li></ul></article><article class="fit no"><h3>Não é pra você se:</h3><ul><li>Acha que neurodivergência é algo a ser “consertado”.</li><li>Vê maternidade como disputa de melhor mãe.</li><li>Espera substituir profissionais necessários.</li><li>Não quer caminhar em parceria com escola, família e profissionais.</li></ul></article></div></div></section>
+
+<section class="section founder" id="fundadora"><div class="wrap"><div class="section-head"><span class="kicker">Quem está por trás</span><h2>Por que a NeuroMãe existe.</h2></div><div class="founder-grid"><aside class="founder-card"><img class="portrait" src="./public/tatiana.jpg" alt="Tatiana Junco"><h3>Tatiana Junco</h3><p>psicopedagoga em formação · pós-graduada em neurociência comportamental</p><a class="insta" href="https://instagram.com/neuromaeia" target="_blank" rel="noopener noreferrer">@neuromaeia ↗</a></aside><div class="founder-text"><p class="opener">Eu sou Tatiana. Mãe atípica, como você.</p><p>Meu segundo filho nasceu bem. Aos 45 dias teve uma meningite hospitalar e ficou 21 dias internado. Sobreviveu — com sequelas. TDAH, disfunção sensório-motora, leve deficiência intelectual.</p><p>Na pandemia, atravessei uma depressão grave. Foi nesse fundo que, aos 38 anos, descobri que eu também sou TDAH. Comecei a estudar psicopedagogia, neurociência comportamental e educação parental porque os profissionais que eu encontrava não conseguiam me responder.</p><p><strong>Mas eu tive sorte.</strong> Rede de apoio, condições financeiras, acesso à informação. A maioria das mães atípicas não tem nada disso.</p><p>A NeuroMãe nasceu para essas mães: para ser o lugar seguro que eu não tive — sem enxurrada de informação, sem comparação, sem mais um curso que você sabe que não vai fazer.</p><blockquote class="quote">“Eu só consegui me reerguer quando integrei três coisas: ciência, práticas reais, estoicismo e fé. Não para não sofrer mais — mas para não me perder por tanto tempo quando o sofrimento vem.”</blockquote></div></div></div></section>
+
+<section class="section" id="seguranca"><div class="wrap"><div class="section-head"><span class="kicker">Confiança</span><h2>Privacidade pensada para mães e crianças.</h2><p>Princípios de proteção da LGPD e do ECA digital. Documentos, laudos e fotos são tratados com responsabilidade.</p></div><div class="security-grid"><article class="security-card"><div class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" width="22" height="22"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/><circle cx="12" cy="15.5" r="1" fill="currentColor"/></svg></div><h3>LGPD</h3><p>Dados protegidos pela lei brasileira de proteção de dados.</p></article><article class="security-card"><div class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" width="22" height="22"><path d="M12 3 5 6v6c0 4.4 3 7.6 7 9 4-1.4 7-4.6 7-9V6l-7-3z"/><path d="M12 16s-3-1.7-3-3.7c0-1.1.8-1.8 1.7-1.8.5 0 .9.2 1.3.6.4-.4.8-.6 1.3-.6.9 0 1.7.7 1.7 1.8 0 2-3 3.7-3 3.7z" fill="currentColor" stroke="none"/></svg></div><h3>ECA digital</h3><p>Princípios de proteção infantil em todas as conversas.</p></article><article class="security-card"><div class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" width="22" height="22"><path d="M2.5 12s3.5-7 9.5-7c2.4 0 4.4.8 6 2"/><path d="M21.5 12s-3.5 7-9.5 7c-2.4 0-4.4-.8-6-2"/><circle cx="12" cy="12" r="2.6"/><path d="M3.5 3.5l17 17"/></svg></div><h3>Imagens de menores</h3><p>Orientamos excluir da conversa após o envio.</p></article><article class="security-card"><div class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor" width="22" height="22"><path d="M19.05 4.91A9.82 9.82 0 0 0 12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.27-1.38a9.86 9.86 0 0 0 4.71 1.2h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.0zM12.04 20.15h-.01a8.2 8.2 0 0 1-4.18-1.15l-.3-.18-3.13.82.84-3.05-.2-.31a8.18 8.18 0 0 1-1.26-4.37c0-4.54 3.69-8.23 8.24-8.23a8.18 8.18 0 0 1 5.82 2.41 8.18 8.18 0 0 1 2.41 5.83c0 4.54-3.7 8.23-8.23 8.23zm4.51-6.16c-.25-.12-1.46-.72-1.69-.8-.23-.08-.39-.12-.56.12-.16.25-.64.8-.78.97-.14.16-.29.18-.54.06-.25-.12-1.04-.38-1.99-1.22-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.02-.38.11-.5.11-.11.25-.29.37-.43.12-.14.16-.25.25-.41.08-.16.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.4-.42-.56-.43h-.48c-.16 0-.43.06-.66.31-.23.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.16 1.74 2.65 4.21 3.71.59.25 1.05.41 1.41.52.59.19 1.13.16 1.55.1.47-.07 1.46-.6 1.66-1.18.21-.58.21-1.07.14-1.18-.06-.11-.22-.18-.47-.3z"/></svg></div><h3>Direto no WhatsApp</h3><p>Sem app extra. No aplicativo que você já usa.</p></article></div></div></section>
+
+<section class="section pricing" id="pricing"><div class="wrap"><div class="section-head"><span class="kicker">Plano</span><h2>Os primeiros sete dias são por minha conta.</h2><div class="anchor"><div class="anchor-row"><span class="anchor-label">Uma consulta de neurodesenvolvimento</span><span class="anchor-price">a partir de <strong>R$ 250</strong></span></div><div class="anchor-row"><span class="anchor-label">Um curso de parentalidade neuro</span><span class="anchor-price">a partir de <strong>R$ 800</strong></span></div><div class="anchor-row featured"><span class="anchor-label">A <span class="gaba-word">GABA</span>, todos os dias, 24h</span><span class="anchor-price"><strong>R$ 39,90</strong> / mês</span></div></div><p>Ela não substitui terapia — preenche o espaço entre as consultas, na hora em que você precisar.</p></div><div class="price-card"><span class="kicker">Plano único · 7 dias grátis</span><div class="price"><span class="cur">R$</span><span class="num">39</span><span class="cents">,90</span><span class="per">/mês</span></div><p style="color:var(--muted)">Cobrado mensalmente. Sem fidelidade.</p><ul class="includes"><li>Conversa ilimitada no WhatsApp</li><li>Texto, áudio e foto de documentos</li><li>Disponível 24h, todos os dias</li><li>Memória de contexto entre conversas</li><li>Cancelamento por mensagem · 1 minuto</li></ul><a class="btn primary" href="https://wa.me/5543988264917" target="_blank" rel="noopener noreferrer" style="margin-top:28px">Começar 7 dias grátis →</a><p style="color:var(--muted);font-size:13px;margin-top:14px">Sem cartão · você só paga depois dos 7 dias se decidir continuar.</p><div class="guarantee"><div class="seal"><strong>7</strong><span>dias</span></div><p style="margin:0;color:var(--muted)"><strong style="color:var(--brown)">Cancele em 1 minuto, por mensagem.</strong><br>Sem retenção, sem burocracia, sem ligação. Você manda “cancelar” no WhatsApp e pronto.</p></div></div></div></section>
+
+<section class="section" id="faq"><div class="wrap"><div class="section-head" style="text-align:left;margin-left:0"><span class="kicker">Perguntas honestas</span><h2>O que é, o que não é, e como funciona.</h2></div><div class="faq-list"><details open><summary>A GABA substitui meu terapeuta, psiquiatra ou neuropediatra?</summary><div class="answer-faq"><strong>Não.</strong> Ela é apoio entre as consultas — para organizar pensamentos, lidar com a rotina e os momentos difíceis. Não diagnostica, não prescreve, não trata. Se você já tem profissionais acompanhando, ela complementa.</div></details><details><summary>Qual linha de parentalidade a GABA segue?</summary><div class="answer-faq">Conhecimento <em>milenar</em> — humano, que sobreviveu ao tempo, não modinha de verão. Prática <em>real</em> — que funciona às quintas-feiras às 19h, não só na teoria. Ela busca estar <em>sendo útil</em>: resolve o que você veio resolver, sem te entregar mais uma lista de tarefas. E é <em>nem rígida, nem permissiva</em> — firmeza com colo, limite com ternura. A proposta é formar seres humanos para atravessar a vida real.</div></details><details><summary>Funciona para TDAH, TEA, deficiência intelectual e dificuldade de aprendizagem?</summary><div class="answer-faq">Foi pensada para mães e cuidadoras de filhos neurodivergentes. Cada caso é único; quando o caminho exigir profissional especializado, a GABA orienta essa busca.</div></details><details><summary>Posso mandar áudio?</summary><div class="answer-faq">Sim. A conversa é no WhatsApp, então áudio funciona naturalmente. Manda do jeito que sair; ela organiza e responde com profundidade.</div></details><details><summary>Posso usar para mim, ou é só sobre meu filho?</summary><div class="answer-faq">Para você, em primeiro lugar. A GABA também acompanha sua exaustão, suas dúvidas, suas decisões e sua rotina emocional.</div></details><details><summary>Posso conversar de madrugada?</summary><div class="answer-faq">Sim, 24 horas por dia. Em emergências ou risco imediato, procure serviço humano local de urgência ou um profissional de saúde.</div></details><details><summary>Por que pagar R$39,90/mês se posso usar uma IA generalista?</summary><div class="answer-faq">Porque a GABA foi desenhada para maternidade atípica: contexto, memória entre conversas, freios para não sobrecarregar e linguagem de acolhimento prático.</div></details><details><summary>Como cancelo?</summary><div class="answer-faq">Você manda “cancelar” no WhatsApp. Sem ligação, sem formulário e sem retenção.</div></details><details><summary>Como funciona o teste grátis?</summary><div class="answer-faq">Você começa sem cartão. Antes dos 7 dias acabarem, a GABA pergunta se você quer continuar. Se não quiser, a conversa para sem cobrança automática surpresa.</div></details></div></div></section>
+
+<footer class="footer"><div class="wrap"><div><div class="footer-brand"><span class="brand-logo" aria-hidden="true"></span><span class="brand-wordmark">NeuroMãe</span></div><p style="font-size:12px;color:#A99B8F;margin-top:18px">NeuroMãe © 2026 · ciência, acolhimento e transformação</p></div><p class="legal">A NeuroMãe é uma inteligência artificial. Ela apoia você no dia a dia, mas não substitui acompanhamento médico, psicológico ou terapêutico. Em situações de risco, procure um profissional de saúde ou serviço de emergência.</p></div></footer>
+<a class="sticky" href="https://wa.me/5543988264917" target="_blank" rel="noopener noreferrer">Me conta o que tá pesando</a>
+<script>
+/* ════════════════════════════════════════════
+   HERO V1 — Árvore de conversa GABA
+   + streaming letra por letra
+   + input de texto livre no CTA
+   + mascote rotativo por estado emocional
+   + respeito a prefers-reduced-motion
+   ════════════════════════════════════════════ */
+const heroConv = {
+  start:{
+    mascot:"cafe",
+    bot:["Oi, mãe.","Eu sou a GABA.","O que tá mais pesado agora?"],
+    chips:[
+      {text:"meu filho teve uma crise",next:"crise",mascot:"respira"},
+      {text:"tô esgotada",next:"esgotada",mascot:"respira"},
+      {text:"me sinto culpada",next:"culpa",mascot:"acolhe"},
+      {text:"quem é você?",next:"apresentacao",mascot:"cafe"}
+    ]
+  },
+  crise:{
+    mascot:"respira",
+    bot:[
+      "Ouvi você. Respira fundo comigo primeiro.",
+      "Crise não é birra. É sistema nervoso transbordando — o dele e provavelmente o seu também.",
+      "Quer que eu te acompanhe na próxima, em tempo real, antes de virar tempestade?"
+    ],
+    cta:{
+      line:"Os primeiros 7 dias são por minha conta. Sem cartão.",
+      contextLabel:"crise",
+      whatsappText:"Oi GABA, cheguei pelo site. Meu filho teve uma crise e queria entender o que fazer da próxima vez."
+    }
+  },
+  esgotada:{
+    mascot:"respira",
+    bot:[
+      "Ouvi você. Isso não é fraqueza — é sinal.",
+      "Quando o sistema fica em alerta por muito tempo, vira burnout materno. Não é falha sua. É carga sem suporte.",
+      "Quer um caminho leve pra começar a tirar peso?"
+    ],
+    cta:{
+      line:"Os primeiros 7 dias são por minha conta. Sem cartão.",
+      contextLabel:"esgotamento",
+      whatsappText:"Oi GABA, cheguei pelo site. Tô esgotada e queria começar com você."
+    }
+  },
+  culpa:{
+    mascot:"acolhe",
+    bot:[
+      "A culpa que você sente não é prova de erro.",
+      "É prova de quanto você se importa.",
+      "Mãe ruim não se culpa. Mãe ruim não chega aqui."
+    ],
+    cta:{
+      line:"Vamos desmontar essa culpa juntas. 7 dias por minha conta.",
+      contextLabel:"culpa",
+      whatsappText:"Oi GABA, cheguei pelo site. Carrego uma culpa que não passa, queria conversar."
+    }
+  },
+  apresentacao:{
+    mascot:"cafe",
+    bot:[
+      "Oi! 💙 Sou a GABA — da NeuroMãe — sua assistente parental especializada em crianças neurodivergentes: TDAH, TEA, dificuldades de aprendizagem e tudo que vem junto.",
+      "Funciono assim: você me manda mensagens, texto ou áudio (sim, respondo em voz também) e eu dou orientações práticas, acolhimento e estratégias que funcionam no dia a dia.",
+      "Não sou alarmista, não julgo ninguém e trabalho com evidência científica traduzida em linguagem simples.",
+      "Consigo também guardar seus documentos (laudos, receitas, exames), gerar PDFs pra consultas, fazer check-ins diários, e buscar conteúdos sobre neurodivergência.",
+      "Meu limite é claro: não faço diagnóstico, não mexo com medicação e não aceito fotos de crianças (proteção de dados mesmo).",
+      "E o mais importante: sou uma IA, não uma terapeuta. Mas posso te acolher de verdade. Quer me contar sobre seu filho? 💙"
+    ],
+    cta:{
+      line:"Os primeiros 7 dias são por minha conta. Sem cartão.",
+      contextLabel:"apresentação",
+      whatsappText:"Oi GABA, cheguei pelo site e queria entender melhor como funciona."
+    }
+  }
+};
+
+const MASCOT_PATHS = {
+  cafe:    './public/gaba-cafe.png',
+  respira: './public/gaba-respira.png',
+  acolhe:  './public/gaba-acolhe.png',
+  escuta:  './public/gaba-escuta.png',
+  organiza:'./public/gaba-organiza.png'
+};
+const AVATAR_DEFAULT = './public/gaba-logo-v2.svg';
+
+const heroChatBody = document.getElementById('heroChatBody');
+const gabaMascotFloat = document.getElementById('gabaMascotFloat');
+const heroChatAvatar = document.getElementById('heroChatAvatar');
+const WHATSAPP_BASE_V1 = 'https://wa.me/5543988264917';
+
+/* prefers-reduced-motion: query reativa (atualiza se a mãe mudar setting com a aba aberta) */
+const reduceMotionMQL = window.matchMedia('(prefers-reduced-motion: reduce)');
+const prefersReducedMotion = () => reduceMotionMQL.matches;
+
+let lastChipContext = null;       /* lembra do contexto pra usar no input livre */
+let lastWhatsappText = null;
+
+function hScroll(){heroChatBody.scrollTop = heroChatBody.scrollHeight;}
+function hAddMom(text){const m=document.createElement('div');m.className='h-msg mom';m.textContent=text;heroChatBody.appendChild(m);hScroll();}
+function hShowTyping(){const t=document.createElement('div');t.className='h-typing';t.id='hTypingNow';t.innerHTML='<span></span><span></span><span></span>';heroChatBody.appendChild(t);hScroll();}
+function hHideTyping(){const t=document.getElementById('hTypingNow');if(t)t.remove();}
+
+/* Streaming letra por letra — coração da experiência "ela tá pensando" */
+function hStreamBot(text, onDone){
+  const m=document.createElement('div');
+  m.className='h-msg gaba streaming';
+  heroChatBody.appendChild(m);
+  hScroll();
+
+  /* Acessibilidade: quem prefere reduzir movimento recebe tudo de uma vez */
+  if(prefersReducedMotion()){
+    m.textContent=text;
+    m.classList.remove('streaming');
+    hScroll();
+    onDone&&onDone();
+    return;
+  }
+
+  let i=0;
+  const charDelay=22;       /* ms por caractere — sweet spot entre rápido e legível */
+  const punctPause=140;     /* pausinha extra após . , ? ! — */
+  const tick=()=>{
+    if(i>=text.length){
+      m.classList.remove('streaming');
+      hScroll();
+      onDone&&onDone();
+      return;
+    }
+    const ch=text[i];
+    m.textContent += ch;
+    i++;
+    hScroll();
+    const extra=/[.,!?—…]/.test(ch) ? punctPause : 0;
+    setTimeout(tick, charDelay+extra);
+  };
+  tick();
+}
+
+function hShowChips(chips){
+  const row=document.createElement('div');row.className='h-chips';row.id='hChipsRow';
+  chips.forEach(c=>{const b=document.createElement('button');b.className='h-chip';b.textContent=c.text;b.onclick=()=>hChipClick(c);row.appendChild(b);});
+  heroChatBody.appendChild(row);hScroll();
+}
+function hClearChips(){const r=document.getElementById('hChipsRow');if(r)r.remove();}
+
+function hShowCTA(cta){
+  lastChipContext = cta.contextLabel || null;
+  lastWhatsappText = cta.whatsappText;
+
+  const card=document.createElement('div');card.className='h-cta-card';
+  const url=WHATSAPP_BASE_V1+'?text='+encodeURIComponent(cta.whatsappText);
+  card.innerHTML=`
+    <div class="h-cta-line">${cta.line}</div>
+    <div class="h-cta-meta"><strong>R$ 39,90/mês</strong> depois dos 7 dias · cancele por mensagem</div>
+    <a class="h-cta-go" href="${url}" target="_blank" rel="noopener noreferrer">
+      <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M19.05 4.91A9.82 9.82 0 0 0 12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.27-1.38a9.86 9.86 0 0 0 4.71 1.2h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.0z"/></svg>
+      Continuar no WhatsApp →
+    </a>
+    <div class="h-cta-or">ou conta com suas palavras</div>
+    <form class="h-free-form" id="hFreeForm" autocomplete="off">
+      <input type="text" class="h-free-input" id="hFreeInput"
+             placeholder="o que tá pesando aí…"
+             aria-label="Conta pra GABA com suas palavras"
+             maxlength="280" />
+      <button type="submit" class="h-free-send" id="hFreeSend"
+              aria-label="Enviar pra GABA no WhatsApp" disabled>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+      </button>
+    </form>
+    <span class="h-free-hint">abre no WhatsApp já com o que você escreveu</span>
+  `;
+  heroChatBody.appendChild(card);
+
+  /* Wire-up do form de texto livre */
+  const form=card.querySelector('#hFreeForm');
+  const input=card.querySelector('#hFreeInput');
+  const send=card.querySelector('#hFreeSend');
+  input.addEventListener('input',()=>{send.disabled = input.value.trim().length<2;});
+  form.addEventListener('submit',(e)=>{
+    e.preventDefault();
+    const free=input.value.trim();
+    if(free.length<2)return;
+    const ctxBit = lastChipContext ? ` (vim falando sobre ${lastChipContext})` : '';
+    const message = `Oi GABA, cheguei pelo site${ctxBit}. ${free}`;
+    const waUrl = WHATSAPP_BASE_V1 + '?text=' + encodeURIComponent(message);
+    window.open(waUrl, '_blank', 'noopener');
+  });
+
+  const restart=document.createElement('button');restart.className='h-cta-restart';restart.textContent='começar de novo';restart.onclick=hRestart;
+  heroChatBody.appendChild(restart);hScroll();
+}
+
+function hSwapMascot(key){
+  const path = MASCOT_PATHS[key]; if(!path) return;
+  /* Float (lado da bolha) */
+  if(gabaMascotFloat && gabaMascotFloat.getAttribute('src') !== path){
+    if(prefersReducedMotion()){
+      gabaMascotFloat.src = path;
+    }else{
+      gabaMascotFloat.classList.add('swapping');
+      setTimeout(()=>{
+        gabaMascotFloat.src = path;
+        requestAnimationFrame(()=>gabaMascotFloat.classList.remove('swapping'));
+      }, 320);
+    }
+  }
+  /* Avatar do header do chat — usa SVG default no estado calmo, e troca pro PNG do estado ativo */
+  if(heroChatAvatar){
+    const target = key==='cafe' ? AVATAR_DEFAULT : path;
+    if(heroChatAvatar.getAttribute('src') !== target){
+      if(prefersReducedMotion()){
+        heroChatAvatar.src = target;
+      }else{
+        heroChatAvatar.classList.add('swapping');
+        setTimeout(()=>{
+          heroChatAvatar.src = target;
+          requestAnimationFrame(()=>heroChatAvatar.classList.remove('swapping'));
+        }, 320);
+      }
+    }
+  }
+}
+
+function hRestart(){
+  heroChatBody.innerHTML='';
+  lastChipContext=null;
+  lastWhatsappText=null;
+  hSwapMascot('cafe');
+  setTimeout(()=>hNavigate('start'),300);
+}
+
+function hPlayBotSeq(messages,onDone){
+  let i=0;
+  const next=()=>{
+    if(i>=messages.length){onDone&&onDone();return;}
+    hShowTyping();
+    /* Tempo de "digitando…" antes do streaming começar.
+       Em reduced-motion fica curtinho — sinal sem teatro. */
+    const baseTyping = prefersReducedMotion() ? 220 : Math.min(560+messages[i].length*9,1100);
+    setTimeout(()=>{
+      hHideTyping();
+      hStreamBot(messages[i], ()=>{
+        i++;
+        setTimeout(next, prefersReducedMotion()? 120 : 380);
+      });
+    }, baseTyping);
+  };
+  next();
+}
+function hNavigate(key){
+  const node=heroConv[key];if(!node)return;
+  if(node.mascot) hSwapMascot(node.mascot);
+  hPlayBotSeq(node.bot,()=>{
+    if(node.cta){setTimeout(()=>hShowCTA(node.cta),500);}
+    else if(node.chips){setTimeout(()=>hShowChips(node.chips),250);}
+  });
+}
+function hChipClick(chip){
+  hClearChips();
+  if(chip.mascot) hSwapMascot(chip.mascot);
+  hAddMom(chip.text);
+  setTimeout(()=>hNavigate(chip.next),600);
+}
+
+window.addEventListener('load',()=>{
+  const phoneEl=document.querySelector('.hero-chat');
+  if(!phoneEl)return;
+  const obs=new IntersectionObserver(entries=>{
+    if(entries[0].isIntersecting){setTimeout(()=>hNavigate('start'),1100);obs.disconnect();}
+  });
+  obs.observe(phoneEl);
+});
+</script>
+
+<script>
+/* ════════════════════════════════════════════
+   PRODUTO-DEMO — iPhone WhatsApp ao vivo
+   • 4 cenários (crise/culpa/esgotamento/escola)
+   • auto-play em câmera lenta com streaming
+   • troca de cenário, botão replay
+   • CTA WhatsApp com texto pré-preenchido por cenário
+   • iOS clock real-time, prefers-reduced-motion
+   ════════════════════════════════════════════ */
+(function(){
+  const WA_BASE = 'https://wa.me/5543988264917';
+
+  const conv = {
+    crise: {
+      flow: [
+        {from:'user', text:'Que noite difícil. Meu filho morre de medo de trovão e tá uma tempestade. Em pânico, não dorme.', time:'22:55'},
+        {from:'gaba', text:'Que noite pesada. Cuidando dele em pânico, exausta — é muito pra uma pessoa só aguentar.', time:'22:55', typingMs:900},
+        {from:'gaba', text:'Respira. Vamos juntas:\n1. Cria um esconderijo seguro — cobertor grosso, canto fechado, luz baixa.\n2. Mascara o trovão com som de chuva ou ventilador.\n3. Fala pouco e baixo: "estou aqui, você está seguro".', time:'22:56', typingMs:1400},
+        {from:'gaba', text:'Assim que ele dormir, para. 20 minutos antes do trabalho — você precisa disso também.', time:'22:56', typingMs:700}
+      ],
+      waText:'Oi GABA, cheguei pelo site. Meu filho teve uma crise e queria entender o que fazer da próxima vez.'
+    },
+    culpa: {
+      flow: [
+        {from:'user', text:'Carrego uma culpa que não passa. Acho que falho com ele todo dia.', time:'23:12'},
+        {from:'gaba', text:'Essa culpa não é prova de erro. É prova do quanto você se importa.', time:'23:12', typingMs:700},
+        {from:'gaba', text:'Mãe ruim não chega aqui. Mãe ruim não fica perdendo o sono pensando se faz o suficiente.', time:'23:13', typingMs:1100},
+        {from:'gaba', text:'Me conta — o que aconteceu hoje que tá pesando mais?', time:'23:13', typingMs:600}
+      ],
+      waText:'Oi GABA, cheguei pelo site. Carrego uma culpa que não passa, queria conversar.'
+    },
+    autismo: {
+      flow: [
+        {from:'user', text:'Oi GABA, fui indicada por uma amiga. Tenho um filho com autismo grau 3, crio sozinha — sem o pai, com renda limitada, sem rede de apoio. Posso conversar com você?', time:'16:46'},
+        {from:'gaba', text:'Oi! Que bom que te indicaram, e que bom que você veio.\n\nSou a GABA, da NeuroMãe — e sim, estou aqui pra te ajudar no que eu puder.\n\nAntes de qualquer orientação, quero só reconhecer o que você carrega: criar um filho com autismo grau 3 sozinha, sem o pai, com renda limitada e sem rede de apoio. Isso é pesado demais. Você não precisa minimizar isso nem ser forte o tempo todo.\n\nPosso caminhar junto com você no dia a dia em coisas como:\n1. Estratégias práticas pra rotina, comunicação e comportamento do seu filho — sem custo nenhum.\n2. Orientação sobre direitos garantidos por lei pra você e pra ele — escola, saúde, benefícios sociais.\n3. Apoio emocional pra você também, não só pro seu filho.\n\nMe conta um pouco mais sobre ele — qual a idade, como ele se comunica hoje, e qual é o desafio que mais te esgota agora?\n\nEstou aqui, sem pressa e sem julgamento. 💙\n\nSó quero que saiba: sou uma IA, não uma terapeuta. Posso orientar, acolher e caminhar junto — mas não substituo o acompanhamento de um psicólogo ou terapeuta pra você, nem as terapias do seu filho. O sofrimento que você sente é real e faz parte da vida humana — e merece cuidado de verdade, não só de uma IA.', time:'16:47', typingMs:1800}
+      ],
+      waText:'Oi GABA, cheguei pelo site. Tenho um filho com autismo e queria conversar.'
+    },
+    tdah: {
+      flow: [
+        {from:'user', text:'O que é esse TDAH, que agora todo mundo fala? Toda criança agora é isso, não pode ser mais arteira que querem tacar remédio?', time:'16:21'},
+        {from:'gaba', text:'Ouvi você. Essa pergunta vem de cansaço com o tema — e ela é importante.', time:'16:21', typingMs:1000},
+        {from:'gaba', text:'Não é toda criança que tem TDAH. A maioria é arteira mesmo — fase, energia, descoberta. TDAH é outra coisa: um padrão que persiste, atrapalha o dia a dia e não responde aos limites de sempre.\n\nSinais que pedem atenção:\n• dificuldade de focar até no que ela gosta\n• agitação que não passa nem cansada\n• esquecimentos que viram problema na escola e em casa\n• frustração que vira crise numa tarefa simples', time:'16:22', typingMs:1500},
+        {from:'gaba', text:'Sobre remédio: quando tem indicação real, faz parte do cuidado — junto com terapia, rotina, ambiente. Nunca é a primeira nem a única resposta.\n\nO que te trouxe essa dúvida hoje? 💙', time:'16:22', typingMs:1100}
+      ],
+      waText:'Oi GABA, cheguei pelo site. Tenho dúvida sobre TDAH e queria conversar.'
+    }
+  };
+
+  const waChat = document.getElementById('waChat');
+  const ctaLink = document.getElementById('demoCtaLink');
+  const replayBtn = document.getElementById('demoReplay');
+  const chips = document.querySelectorAll('.sc-chip');
+  if(!waChat || !ctaLink || !replayBtn) return;
+
+  const reduceMQL = window.matchMedia('(prefers-reduced-motion: reduce)');
+  const isReduced = () => reduceMQL.matches;
+
+  let timers = [];
+  let currentScenario = 'crise';
+  let currentToken = 0;  /* invalida stream anterior se trocar de cenário */
+
+  function clearTimers(){timers.forEach(clearTimeout);timers=[];}
+  function pushTimer(t){timers.push(t)}
+  function escapeHtml(s){
+    return s.replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  }
+  function scrollChat(){waChat.scrollTop = waChat.scrollHeight}
+
+  function clearChat(){
+    waChat.innerHTML = '<div class="wa-day"><span>hoje</span></div>';
+  }
+
+  function appendUser(text, time){
+    const m = document.createElement('div');
+    m.className = 'wa-msg user';
+    m.innerHTML = '<span class="wa-text">'+escapeHtml(text).replace(/\n/g,'<br>')+'</span><span class="wa-time">'+time+'</span>';
+    waChat.appendChild(m);
+    scrollChat();
+  }
+  function showTyping(){
+    const t = document.createElement('div');
+    t.className = 'wa-typing';
+    t.id = 'waTypingNow';
+    t.innerHTML = '<span></span><span></span><span></span>';
+    waChat.appendChild(t);
+    scrollChat();
+  }
+  function hideTyping(){const t = document.getElementById('waTypingNow');if(t)t.remove();}
+
+  function streamGaba(text, time, token, onDone){
+    const m = document.createElement('div');
+    m.className = 'wa-msg gaba streaming';
+    m.innerHTML = '<span class="wa-text"></span><span class="wa-time">'+time+'</span>';
+    waChat.appendChild(m);
+    const textEl = m.querySelector('.wa-text');
+    scrollChat();
+
+    if(isReduced()){
+      textEl.innerHTML = escapeHtml(text).replace(/\n/g,'<br>');
+      m.classList.remove('streaming');
+      scrollChat();
+      onDone && onDone();
+      return;
+    }
+
+    let i = 0;
+    const charDelay = 20;
+    const punctPause = 130;
+    const tick = () => {
+      if(token !== currentToken) return;
+      if(i >= text.length){
+        m.classList.remove('streaming');
+        scrollChat();
+        onDone && onDone();
+        return;
+      }
+      const ch = text[i];
+      if(ch === '\n') textEl.innerHTML += '<br>';
+      else textEl.innerHTML += escapeHtml(ch);
+      i++;
+      scrollChat();
+      const extra = /[.,!?—…]/.test(ch) ? punctPause : 0;
+      pushTimer(setTimeout(tick, charDelay + extra));
+    };
+    tick();
+  }
+
+  function appendAudio(msg, token){
+    if(token !== currentToken) return;
+    const m = document.createElement('div');
+    m.className = 'wa-msg gaba audio';
+    /* Waveform deterministico (32 barras com altura variando via sin/cos) */
+    const BAR_COUNT = 32;
+    let barsHtml = '';
+    for(let i = 0; i < BAR_COUNT; i++){
+      const h = 4 + Math.round(Math.abs(Math.sin(i * 0.55)) * 10 + Math.abs(Math.cos(i * 0.31 + 1.2)) * 6);
+      barsHtml += '<span style="height:' + h + 'px"></span>';
+    }
+    m.innerHTML =
+      '<button class="wa-audio-play" type="button" aria-label="Tocar áudio">' +
+      '<svg class="icon-play" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>' +
+      '<svg class="icon-pause" viewBox="0 0 24 24"><path d="M6 4h4v16H6zm8 0h4v16h-4z"/></svg>' +
+      '</button>' +
+      '<div class="wa-audio-waveform" role="slider" aria-label="Progresso do áudio">' + barsHtml + '</div>' +
+      '<span class="wa-audio-duration">' + (msg.duration || '0:00') + '</span>' +
+      '<span class="wa-time">' + msg.time + '</span>' +
+      '<audio preload="metadata">' +
+      '<source src="' + msg.src + '" type="audio/ogg">' +
+      (msg.mp3 ? '<source src="' + msg.mp3 + '" type="audio/mpeg">' : '') +
+      '</audio>';
+    waChat.appendChild(m);
+    scrollChat();
+
+    const audio = m.querySelector('audio');
+    const playBtn = m.querySelector('.wa-audio-play');
+    const waveform = m.querySelector('.wa-audio-waveform');
+    const bars = m.querySelectorAll('.wa-audio-waveform span');
+    const durEl = m.querySelector('.wa-audio-duration');
+    const totalDuration = msg.duration || '';
+
+    function fmt(s){
+      const mm = Math.floor(s / 60);
+      const ss = Math.floor(s % 60);
+      return mm + ':' + (ss < 10 ? '0' + ss : ss);
+    }
+
+    playBtn.addEventListener('click', () => {
+      if(audio.paused){
+        /* Pausa qualquer outro áudio que esteja rolando na demo */
+        document.querySelectorAll('.wa-msg.audio audio').forEach(a => {
+          if(a !== audio) a.pause();
+        });
+        audio.play().catch(() => {});
+      } else {
+        audio.pause();
+      }
+    });
+
+    /* Click no waveform = seek */
+    waveform.addEventListener('click', (e) => {
+      if(!audio.duration || !isFinite(audio.duration)) return;
+      const rect = waveform.getBoundingClientRect();
+      const pct = Math.max(0, Math.min(1, (e.clientX - rect.left) / rect.width));
+      audio.currentTime = pct * audio.duration;
+    });
+
+    audio.addEventListener('play', () => m.classList.add('is-playing'));
+    audio.addEventListener('pause', () => m.classList.remove('is-playing'));
+    audio.addEventListener('ended', () => {
+      audio.currentTime = 0;
+      bars.forEach(b => b.classList.remove('is-played'));
+      durEl.textContent = totalDuration;
+    });
+    audio.addEventListener('timeupdate', () => {
+      if(!audio.duration || !isFinite(audio.duration)) return;
+      const progress = audio.currentTime / audio.duration;
+      const playedCount = Math.floor(progress * bars.length);
+      bars.forEach((b, idx) => b.classList.toggle('is-played', idx < playedCount));
+      durEl.textContent = (audio.paused && audio.currentTime === 0) ? totalDuration : fmt(audio.currentTime);
+    });
+  }
+
+  function play(scenario){
+    clearTimers();
+    currentToken++;
+    const token = currentToken;
+    currentScenario = scenario;
+    const data = conv[scenario];
+    if(!data) return;
+
+    /* Atualiza CTA com texto pré-preenchido do cenário */
+    ctaLink.href = WA_BASE + '?text=' + encodeURIComponent(data.waText);
+
+    clearChat();
+
+    /* Toca a sequência com timing realista */
+    let delay = 700;  /* pausa inicial */
+    data.flow.forEach((msg, idx) => {
+      if(msg.from === 'user'){
+        pushTimer(setTimeout(() => {
+          if(token !== currentToken) return;
+          appendUser(msg.text, msg.time);
+        }, delay));
+        delay += 1100;  /* pausa antes do próximo passo */
+      } else {
+        const typingMs = isReduced() ? 250 : (msg.typingMs || 1000);
+        pushTimer(setTimeout(() => {
+          if(token !== currentToken) return;
+          showTyping();
+        }, delay));
+        delay += typingMs;
+        pushTimer(setTimeout(() => {
+          if(token !== currentToken) return;
+          hideTyping();
+          if(msg.type === 'audio'){
+            appendAudio(msg, token);
+          } else {
+            streamGaba(msg.text, msg.time, token);
+          }
+        }, delay));
+        if(msg.type === 'audio'){
+          /* bolha aparece imediatamente; aguarda a usuária dar play */
+          delay += 600;
+        } else {
+          /* estimativa do tempo de stream pra encadear próximo */
+          const streamMs = isReduced() ? 60 : (msg.text.length * 22 + ((msg.text.match(/[.,!?—…]/g) || []).length) * 130);
+          delay += streamMs + 500;
+        }
+      }
+    });
+  }
+
+  function switchScenario(scenario){
+    chips.forEach(c => {
+      const active = c.dataset.scenario === scenario;
+      c.classList.toggle('is-active', active);
+      c.setAttribute('aria-selected', String(active));
+    });
+    play(scenario);
+  }
+
+  /* Wire chips */
+  chips.forEach(c => c.addEventListener('click', () => switchScenario(c.dataset.scenario)));
+
+  /* Voice teaser — player da apresentação da GABA (acima dos chips) */
+  (function setupVoiceTeaser(){
+    const teaser = document.getElementById('voiceTeaser');
+    const vtAudio = document.getElementById('vtAudio');
+    const vtBtn = document.getElementById('vtPlayBtn');
+    const vtWave = document.getElementById('vtWaveform');
+    const vtTime = document.getElementById('vtTimeDisplay');
+    if(!teaser || !vtAudio || !vtBtn || !vtWave) return;
+
+    /* Gera 36 barras determinísticas pro waveform */
+    const VT_BARS = 36;
+    for(let i = 0; i < VT_BARS; i++){
+      const h = 6 + Math.round(Math.abs(Math.sin(i * 0.42)) * 12 + Math.abs(Math.cos(i * 0.27 + 0.7)) * 8);
+      const bar = document.createElement('span');
+      bar.style.height = h + 'px';
+      vtWave.appendChild(bar);
+    }
+    const vtBars = vtWave.querySelectorAll('span');
+    const totalLabel = vtTime ? vtTime.textContent : '';
+
+    function vtFmt(s){
+      const mm = Math.floor(s / 60);
+      const ss = Math.floor(s % 60);
+      return mm + ':' + (ss < 10 ? '0' + ss : ss);
+    }
+
+    vtBtn.addEventListener('click', () => {
+      if(vtAudio.paused){
+        /* pausa qualquer outro áudio rolando na página */
+        document.querySelectorAll('audio').forEach(a => { if(a !== vtAudio) a.pause(); });
+        vtAudio.play().catch(() => {});
+      } else {
+        vtAudio.pause();
+      }
+    });
+
+    vtWave.addEventListener('click', (e) => {
+      if(!vtAudio.duration || !isFinite(vtAudio.duration)) return;
+      const rect = vtWave.getBoundingClientRect();
+      const pct = Math.max(0, Math.min(1, (e.clientX - rect.left) / rect.width));
+      vtAudio.currentTime = pct * vtAudio.duration;
+    });
+
+    vtAudio.addEventListener('play', () => teaser.classList.add('is-playing'));
+    vtAudio.addEventListener('pause', () => teaser.classList.remove('is-playing'));
+    vtAudio.addEventListener('ended', () => {
+      vtAudio.currentTime = 0;
+      vtBars.forEach(b => b.classList.remove('is-played'));
+      if(vtTime) vtTime.textContent = totalLabel;
+    });
+    vtAudio.addEventListener('timeupdate', () => {
+      if(!vtAudio.duration || !isFinite(vtAudio.duration)) return;
+      const progress = vtAudio.currentTime / vtAudio.duration;
+      const playedCount = Math.floor(progress * vtBars.length);
+      vtBars.forEach((b, idx) => b.classList.toggle('is-played', idx < playedCount));
+      if(vtTime){
+        vtTime.textContent = (vtAudio.paused && vtAudio.currentTime === 0) ? totalLabel : vtFmt(vtAudio.currentTime);
+      }
+    });
+  })();
+
+  /* Replay */
+  replayBtn.addEventListener('click', () => play(currentScenario));
+
+  /* Auto-play quando o frame entra no viewport */
+  const stage = document.querySelector('.iphone-stage');
+  if(stage && 'IntersectionObserver' in window){
+    const obs = new IntersectionObserver(entries => {
+      if(entries[0].isIntersecting){
+        setTimeout(() => play(currentScenario), 600);
+        obs.disconnect();
+      }
+    }, {threshold: 0.35});
+    obs.observe(stage);
+  } else {
+    /* Fallback: toca depois de 1.5s */
+    setTimeout(() => play(currentScenario), 1500);
+  }
+
+  /* Relógio iOS — atualiza a cada minuto */
+  function setIosClock(){
+    const el = document.getElementById('iosTime');
+    if(!el) return;
+    const now = new Date();
+    const h = String(now.getHours()).padStart(2,'0');
+    const m = String(now.getMinutes()).padStart(2,'0');
+    el.textContent = h + ':' + m;
+  }
+  setIosClock();
+  setInterval(setIosClock, 60000);
+})();
+</script>
+
+</body>
+</html>

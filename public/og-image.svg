@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%"  stop-color="#F2EAE0" />
+      <stop offset="55%" stop-color="#EFE7DD" />
+      <stop offset="100%" stop-color="#ECE3D7" />
+    </linearGradient>
+    <radialGradient id="halo-rose" cx="78%" cy="20%" r="50%">
+      <stop offset="0%"  stop-color="#D8A7A1" stop-opacity="0.32" />
+      <stop offset="100%" stop-color="#D8A7A1" stop-opacity="0" />
+    </radialGradient>
+    <radialGradient id="halo-sage" cx="12%" cy="82%" r="46%">
+      <stop offset="0%"  stop-color="#A8B5A2" stop-opacity="0.28" />
+      <stop offset="100%" stop-color="#A8B5A2" stop-opacity="0" />
+    </radialGradient>
+    <radialGradient id="orb-light" cx="38%" cy="32%" r="68%">
+      <stop offset="0%"   stop-color="#F8DCD6" stop-opacity="0.95" />
+      <stop offset="38%"  stop-color="#DDA59A" stop-opacity="0.82" />
+      <stop offset="72%"  stop-color="#C9B7A6" stop-opacity="0.55" />
+      <stop offset="100%" stop-color="#A8B5A2" stop-opacity="0.35" />
+    </radialGradient>
+  </defs>
+
+  <!-- Fundo -->
+  <rect width="1200" height="630" fill="url(#bg)" />
+  <rect width="1200" height="630" fill="url(#halo-rose)" />
+  <rect width="1200" height="630" fill="url(#halo-sage)" />
+
+  <!-- Wordmark superior -->
+  <g transform="translate(80, 88)">
+    <text x="0" y="0"
+          font-family="Playfair Display, Georgia, serif"
+          font-size="28"
+          font-weight="500"
+          fill="#6B5547"
+          letter-spacing="0.5">Neuro<tspan font-style="italic" fill="#B07458">Mãe</tspan></text>
+  </g>
+
+  <!-- Kicker -->
+  <text x="80" y="260"
+        font-family="Inter, Helvetica, sans-serif"
+        font-size="16"
+        font-weight="500"
+        fill="rgba(107,85,71,0.62)"
+        letter-spacing="5.2">EM PREPARAÇÃO · 2026</text>
+
+  <!-- Filete -->
+  <line x1="80" y1="290" x2="160" y2="290" stroke="#D8A7A1" stroke-width="1.2" opacity="0.7" />
+
+  <!-- Headline (tagline da bio do IG) -->
+  <g transform="translate(80, 350)">
+    <text x="0" y="0"
+          font-family="Playfair Display, Georgia, serif"
+          font-size="64"
+          font-weight="400"
+          fill="#5A4738"
+          letter-spacing="-1">O aprender começa</text>
+    <text x="0" y="78"
+          font-family="Playfair Display, Georgia, serif"
+          font-size="64"
+          font-weight="400"
+          font-style="italic"
+          fill="#B07458"
+          letter-spacing="-1">onde a mãe é acolhida.</text>
+  </g>
+
+  <!-- Linha de marca -->
+  <text x="80" y="540"
+        font-family="Inter, Helvetica, sans-serif"
+        font-size="17"
+        font-weight="400"
+        fill="rgba(107,85,71,0.75)"
+        letter-spacing="0.3">NeuroMãe · acolhimento materno</text>
+
+  <!-- Orbe no canto direito -->
+  <g transform="translate(960, 315)">
+    <circle cx="0" cy="0" r="172" fill="#D8A7A1" opacity="0.10" />
+    <line x1="0" y1="-145" x2="0" y2="145" stroke="rgba(107,85,71,0.18)" stroke-width="0.9" />
+    <circle cx="0" cy="0" r="110" fill="url(#orb-light)" />
+    <ellipse cx="-32" cy="-30" rx="32" ry="24" fill="rgba(255,248,242,0.55)" />
+    <circle cx="0" cy="-145" r="2.4" fill="rgba(168,181,162,0.7)" />
+    <circle cx="0" cy="145"  r="2.4" fill="rgba(184,121,103,0.7)" />
+  </g>
+</svg>

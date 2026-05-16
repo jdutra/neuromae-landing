@@ -1,0 +1,483 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Preview — Consent Modal LGPD da GABA</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500&family=Playfair+Display:wght@400;500;600&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --cream: #F3ECE3;
+    --cream-2: #FFF8F1;
+    --ink: #40352E;
+    --brown: #5F4B3E;
+    --muted: #77675B;
+    --soft: #8F8176;
+    --olive: #667254;
+    --olive-2: #586348;
+    --terracotta: #B87967;
+    --terracotta-dark: #A86E60;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    font-family: 'Inter', system-ui, sans-serif;
+    color: var(--ink);
+    line-height: 1.62;
+    min-height: 100vh;
+    background:
+      radial-gradient(circle at 92% 3%, rgba(184,121,103,0.11), transparent 28%),
+      radial-gradient(circle at 8% 12%, rgba(102,114,84,0.10), transparent 30%),
+      var(--cream);
+  }
+  .wrap {
+    width: min(1120px, calc(100% - 40px));
+    margin-inline: auto;
+    padding: 60px 0 120px;
+  }
+  .preview-banner {
+    margin: 0 0 40px;
+    padding: 14px 18px;
+    border-radius: 14px;
+    background: rgba(216,167,161,0.16);
+    border: 1px dashed rgba(184,121,103,0.32);
+    color: #5F4B3E;
+    font-size: 13px;
+    line-height: 1.5;
+  }
+  .preview-banner strong { font-weight: 700; color: #8B5949; letter-spacing: -0.005em; }
+  h1 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-weight: 500;
+    font-size: clamp(28px, 4vw, 44px);
+    line-height: 1.06;
+    letter-spacing: -0.026em;
+    margin: 0 0 10px;
+    color: var(--ink);
+  }
+  h1 .accent { color: var(--terracotta); }
+  .lead {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-style: italic;
+    font-size: 17px;
+    color: var(--muted);
+    line-height: 1.5;
+    margin: 0 0 32px;
+    max-width: 560px;
+  }
+  .ctas {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    max-width: 480px;
+    margin-bottom: 50px;
+  }
+  .cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    min-height: 44px;
+    padding: 0 16px;
+    border-radius: 999px;
+    border: none;
+    cursor: pointer;
+    color: var(--cream-2);
+    background: linear-gradient(180deg, var(--olive), var(--olive-2));
+    box-shadow: 0 14px 28px rgba(88,99,72,0.24);
+    font-weight: 700;
+    font-size: 13.5px;
+    letter-spacing: 0.02em;
+    font-family: inherit;
+    transition: transform 0.18s ease;
+  }
+  .cta:hover { transform: translateY(-1px); }
+  .gaba-name {
+    font-family: 'Jost', sans-serif;
+    font-weight: 500;
+    letter-spacing: 0.16em;
+  }
+  .specs {
+    max-width: 760px;
+    padding: 22px 26px;
+    background: rgba(255,248,241,0.6);
+    border: 1px solid rgba(95,75,62,0.12);
+    border-radius: 18px;
+    color: var(--muted);
+    font-size: 14px;
+    line-height: 1.65;
+  }
+  .specs h2 {
+    margin: 0 0 8px;
+    font-family: 'Playfair Display', Georgia, serif;
+    font-weight: 500;
+    color: var(--brown);
+    font-size: 18px;
+    letter-spacing: -0.01em;
+  }
+  .specs ul { margin: 0; padding-left: 18px; }
+  .specs li { margin: 4px 0; }
+
+  /* ===== Modal ===== */
+  .backdrop {
+    position: fixed;
+    inset: 0;
+    z-index: 50;
+    background: rgba(64, 53, 46, 0.46);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    animation: fadeIn 220ms ease-out;
+  }
+  .backdrop.open { display: flex; }
+  @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+  @keyframes scaleIn {
+    from { opacity: 0; transform: translateY(12px) scale(0.985); }
+    to   { opacity: 1; transform: translateY(0) scale(1); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .backdrop, .card { animation: none !important; }
+  }
+  .card {
+    position: relative;
+    background: var(--cream-2);
+    border: 1px solid rgba(95,75,62,0.10);
+    border-radius: 24px;
+    width: 100%;
+    max-width: 520px;
+    box-shadow: 0 32px 80px rgba(70,55,44,0.28), 0 8px 24px rgba(70,55,44,0.10);
+    overflow: hidden;
+    animation: scaleIn 220ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .card-glow {
+    pointer-events: none;
+    position: absolute;
+    inset: 0 0 auto 0;
+    height: 120px;
+    background: radial-gradient(ellipse 80% 100% at 50% 0%, rgba(216,167,161,0.28) 0%, rgba(216,167,161,0.08) 50%, transparent 80%);
+  }
+  .card-body {
+    position: relative;
+    padding: 30px 32px 28px;
+  }
+  .close {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    color: var(--muted);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.18s ease;
+  }
+  .close:hover { background: rgba(95,75,62,0.08); }
+  .kicker {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(102,114,84,0.10);
+    color: var(--olive-2);
+    padding: 6px 12px;
+    border-radius: 999px;
+    font-size: 10.5px;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+  .card h2 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-weight: 500;
+    color: var(--ink);
+    font-size: 24px;
+    line-height: 1.18;
+    letter-spacing: -0.02em;
+    margin: 12px 0 12px;
+  }
+  .card-desc {
+    font-size: 14.5px;
+    color: var(--muted);
+    line-height: 1.6;
+    margin: 0 0 16px;
+  }
+  .limits {
+    background: rgba(216,167,161,0.10);
+    border: 1px solid rgba(184,121,103,0.22);
+    border-radius: 16px;
+    padding: 12px 16px;
+    margin-bottom: 22px;
+    color: var(--brown);
+    font-size: 13.5px;
+    line-height: 1.55;
+  }
+  .limits .label {
+    font-weight: 700;
+    color: #8B5949;
+    letter-spacing: -0.005em;
+    display: block;
+    margin-bottom: 4px;
+  }
+  .limits ul { margin: 0; padding: 0; list-style: none; }
+  .limits li {
+    position: relative;
+    padding-left: 14px;
+    margin: 6px 0;
+  }
+  .limits li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 9px;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: var(--terracotta-dark);
+  }
+  .limits strong { font-weight: 700; }
+  .check-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 11px 14px;
+    border-radius: 14px;
+    cursor: pointer;
+    background: rgba(255,248,241,0.55);
+    border: 1px solid rgba(95,75,62,0.12);
+    transition: background 0.18s ease, border-color 0.18s ease;
+    color: #5D5047;
+    font-size: 13.5px;
+    line-height: 1.5;
+  }
+  .check-row + .check-row { margin-top: 10px; }
+  .check-row.checked {
+    background: rgba(102,114,84,0.06);
+    border-color: rgba(102,114,84,0.32);
+  }
+  .check-box {
+    position: relative;
+    width: 20px;
+    height: 20px;
+    flex: none;
+    border-radius: 6px;
+    background: var(--cream-2);
+    border: 1px solid rgba(95,75,62,0.32);
+    transition: background 0.18s ease, border-color 0.18s ease;
+    margin-top: 1px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .check-row.checked .check-box {
+    background: var(--olive-2);
+    border-color: var(--olive-2);
+  }
+  .check-box svg { display: none; }
+  .check-row.checked .check-box svg { display: block; }
+  .check-row input { position: absolute; opacity: 0; pointer-events: none; }
+  .check-row a {
+    color: var(--olive-2);
+    font-weight: 700;
+    text-decoration: underline;
+    text-decoration-color: rgba(88,99,72,0.32);
+    text-underline-offset: 2px;
+  }
+  .check-row a:hover { text-decoration-color: var(--olive-2); }
+  .submit {
+    width: 100%;
+    margin-top: 22px;
+    padding: 14px 24px;
+    border-radius: 999px;
+    border: none;
+    font-family: inherit;
+    font-weight: 800;
+    font-size: 15px;
+    letter-spacing: -0.005em;
+    background: rgba(95,75,62,0.18);
+    color: var(--soft);
+    cursor: not-allowed;
+    transition: all 0.18s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+  }
+  .submit.enabled {
+    background: linear-gradient(180deg, var(--olive), var(--olive-2));
+    color: var(--cream-2);
+    cursor: pointer;
+    box-shadow: 0 14px 30px rgba(88,99,72,0.22);
+  }
+  .submit.enabled:hover { transform: translateY(-1px); }
+  .footnote {
+    margin: 10px 0 0;
+    text-align: center;
+    font-size: 12px;
+    color: var(--soft);
+    line-height: 1.5;
+  }
+  .footnote strong { color: var(--brown); }
+  .success {
+    margin-top: 20px;
+    padding: 14px 16px;
+    border-radius: 14px;
+    background: rgba(102,114,84,0.10);
+    border: 1px solid rgba(102,114,84,0.32);
+    color: var(--olive-2);
+    font-size: 13px;
+    line-height: 1.5;
+    display: none;
+  }
+  .success.show { display: block; }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="preview-banner">
+      <strong>Preview standalone</strong> · Modal de consentimento LGPD da GABA. Esse arquivo é só para você ver o visual e testar o fluxo — não é a landing real. Para o site completo: <code>npm run dev</code>.
+    </div>
+
+    <span class="kicker">Hero · preview</span>
+    <h1 style="margin-top: 14px;">Você não é péssima. <span class="accent">Você está esgotada.</span></h1>
+    <p class="lead">Clique em qualquer CTA pra ver o modal de consentimento aparecer antes do redirecionamento ao WhatsApp.</p>
+
+    <div class="ctas">
+      <button class="cta" data-cta="hero">Conversar com a <span class="gaba-name">GABA</span></button>
+      <button class="cta" data-cta="hero-2">Experimentar gratuitamente</button>
+    </div>
+
+    <div class="specs">
+      <h2>O que o modal exige</h2>
+      <ul>
+        <li>Explicação curta da GABA (assistente virtual baseada em IA).</li>
+        <li>Limites obrigatórios: <strong>não substitui profissionais de saúde</strong>, uso <strong>+18</strong>.</li>
+        <li>3 checkboxes não pré-marcados: Termos, Política de Privacidade, autorização LGPD.</li>
+        <li>CTA bloqueado até os 3 aceites — fica cinza/cursor "not-allowed".</li>
+        <li>Aceite registrado em <code>localStorage</code> (chave <code>neuromae.gaba.consent.v1</code>) e enviado ao backend quando <code>VITE_CONSENT_ENDPOINT</code> existir.</li>
+        <li>Versão dos Termos/Privacidade muda → força novo aceite automaticamente.</li>
+        <li>Fechável com ESC ou clique no backdrop.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Modal -->
+  <div class="backdrop" id="backdrop" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="card">
+      <div class="card-glow" aria-hidden="true"></div>
+      <div class="card-body">
+        <button class="close" id="close" aria-label="Fechar">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="18" y1="6" x2="6" y2="18" /><line x1="6" y1="6" x2="18" y2="18" />
+          </svg>
+        </button>
+
+        <span class="kicker">Antes de começar</span>
+        <h2 id="modal-title">Como a <span class="gaba-name" style="font-weight: 400;">GABA</span> funciona, em uma respirada.</h2>
+
+        <p class="card-desc">
+          A GABA é uma assistente virtual baseada em inteligência artificial, criada para
+          acolher, organizar informações e apoiar mães na rotina diária.
+        </p>
+
+        <div class="limits">
+          <span class="label">Importante saber:</span>
+          <ul>
+            <li>A GABA <strong>não substitui</strong> médicos, psicólogos, terapeutas, diagnósticos ou atendimento emergencial.</li>
+            <li>Uso destinado a <strong>maiores de 18 anos</strong>.</li>
+          </ul>
+        </div>
+
+        <label class="check-row" data-id="terms">
+          <span class="check-box" aria-hidden="true">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#FFF8F1" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12" /></svg>
+          </span>
+          <input type="checkbox" />
+          <span>Li e concordo com os <a href="/termos-de-uso/" target="_blank">Termos de Uso</a>.</span>
+        </label>
+        <label class="check-row" data-id="privacy">
+          <span class="check-box" aria-hidden="true">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#FFF8F1" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12" /></svg>
+          </span>
+          <input type="checkbox" />
+          <span>Li a <a href="/politica-de-privacidade/" target="_blank">Política de Privacidade</a>.</span>
+        </label>
+        <label class="check-row" data-id="lgpd">
+          <span class="check-box" aria-hidden="true">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#FFF8F1" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12" /></svg>
+          </span>
+          <input type="checkbox" />
+          <span>Autorizo o tratamento dos meus dados conforme a LGPD.</span>
+        </label>
+
+        <button class="submit" id="submit" disabled>
+          Conversar com a GABA <span aria-hidden="true">→</span>
+        </button>
+        <p class="footnote">
+          Em situações de emergência ou risco imediato, procure suporte profissional ou serviço de emergência
+          (<strong>SAMU 192</strong>, <strong>CVV 188</strong>).
+        </p>
+
+        <div class="success" id="success">
+          Aceite registrado <em>(no preview standalone só simula)</em>. No projeto real, esse clique grava
+          o registro no <code>localStorage</code> e abre o WhatsApp em nova aba.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const backdrop = document.getElementById("backdrop");
+    const closeBtn = document.getElementById("close");
+    const submitBtn = document.getElementById("submit");
+    const success = document.getElementById("success");
+    const rows = document.querySelectorAll(".check-row");
+
+    const state = { terms: false, privacy: false, lgpd: false };
+
+    function openModal() {
+      Object.keys(state).forEach(k => state[k] = false);
+      rows.forEach(r => r.classList.remove("checked"));
+      submitBtn.classList.remove("enabled");
+      submitBtn.disabled = true;
+      success.classList.remove("show");
+      backdrop.classList.add("open");
+      document.body.style.overflow = "hidden";
+    }
+    function closeModal() {
+      backdrop.classList.remove("open");
+      document.body.style.overflow = "";
+    }
+
+    document.querySelectorAll("[data-cta]").forEach(btn => btn.addEventListener("click", openModal));
+    closeBtn.addEventListener("click", closeModal);
+    backdrop.addEventListener("click", e => { if (e.target === backdrop) closeModal(); });
+    document.addEventListener("keydown", e => { if (e.key === "Escape" && backdrop.classList.contains("open")) closeModal(); });
+
+    rows.forEach(row => {
+      row.addEventListener("click", e => {
+        e.preventDefault();
+        const id = row.dataset.id;
+        state[id] = !state[id];
+        row.classList.toggle("checked", state[id]);
+        const allOk = state.terms && state.privacy && state.lgpd;
+        submitBtn.classList.toggle("enabled", allOk);
+        submitBtn.disabled = !allOk;
+      });
+    });
+
+    submitBtn.addEventListener("click", () => {
+      if (!submitBtn.classList.contains("enabled")) return;
+      success.classList.add("show");
+    });
+  </script>
+</body>
+</html>

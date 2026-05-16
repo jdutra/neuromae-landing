@@ -1,0 +1,472 @@
+/* NeuroMãe — páginas legais (Termos de Uso, Política de Privacidade)
+   Estilo compartilhado: paleta da marca, tipografia editorial, leitura confortável. */
+
+:root {
+  --cream: #F3ECE3;
+  --cream-2: #FFF8F1;
+  --latte: #E5D5C7;
+  --line: #DDCCBE;
+  --ink: #40352E;
+  --muted: #77675B;
+  --soft: #8F8176;
+  --olive: #667254;
+  --olive-2: #586348;
+  --terracotta: #B87967;
+  --brown: #5F4B3E;
+  --salmon: #D8A7A1;
+  --sage: #A8B5A2;
+  --footer-bg: #40352E;
+  --footer-muted: #9A8C7E;
+  --footer-fg: #C9B7A6;
+  --footer-strong: #F3ECE3;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 16px;
+  line-height: 1.65;
+  color: var(--ink);
+  background:
+    radial-gradient(circle at 92% 3%, rgba(184, 121, 103, 0.11), transparent 28%),
+    radial-gradient(circle at 8% 12%, rgba(102, 114, 84, 0.10), transparent 30%),
+    var(--cream);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a { color: var(--olive-2); text-decoration: none; transition: opacity 0.15s ease; }
+a:hover { opacity: 0.75; text-decoration: underline; }
+
+.wrap {
+  width: min(820px, calc(100% - 40px));
+  margin: 0 auto;
+}
+
+/* ---------- HEADER ---------- */
+.legal-nav {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: rgba(243, 236, 227, 0.92);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(95, 75, 62, 0.10);
+}
+.legal-nav-inner {
+  width: min(1120px, calc(100% - 40px));
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  height: 76px;
+}
+.legal-nav-brand {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  min-width: 0;
+}
+.legal-nav-brand img {
+  width: 52px;
+  height: auto;
+  flex: none;
+  filter: drop-shadow(0 4px 10px rgba(70, 55, 44, 0.10));
+}
+.legal-nav-brand .name {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 4px;
+  line-height: 1;
+}
+.legal-nav-brand .wordmark {
+  font-family: "Jost", sans-serif;
+  font-weight: 300;
+  font-size: 24px;
+  letter-spacing: 0.22em;
+  color: var(--brown);
+}
+.legal-nav-brand .sub {
+  font-size: 10px;
+  color: var(--muted);
+  white-space: nowrap;
+}
+.legal-nav-brand .sub .nm {
+  font-family: "Playfair Display", Georgia, serif;
+  font-weight: 400;
+  font-size: 11px;
+  color: var(--muted);
+}
+.legal-nav-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 9px 16px;
+  border-radius: 999px;
+  border: 1px solid rgba(102, 114, 84, 0.25);
+  background: rgba(102, 114, 84, 0.10);
+  color: var(--olive-2);
+  font-size: 13px;
+  font-weight: 700;
+  transition: background 0.15s ease;
+}
+.legal-nav-back:hover {
+  background: rgba(102, 114, 84, 0.18);
+  text-decoration: none;
+  opacity: 1;
+}
+.legal-nav-back svg {
+  width: 14px;
+  height: 14px;
+}
+
+/* ---------- HERO ---------- */
+.legal-hero {
+  padding: 56px 0 28px;
+  text-align: center;
+}
+.legal-hero .eyebrow {
+  display: inline-block;
+  font-size: 11px;
+  letter-spacing: 0.20em;
+  text-transform: uppercase;
+  color: var(--terracotta);
+  font-weight: 700;
+  margin-bottom: 14px;
+}
+.legal-hero h1 {
+  font-family: "Playfair Display", Georgia, serif;
+  font-weight: 500;
+  font-size: clamp(30px, 5vw, 44px);
+  line-height: 1.15;
+  color: var(--brown);
+  margin: 0 0 18px;
+  letter-spacing: -0.01em;
+}
+.legal-hero .meta {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 8px 12px;
+  font-size: 13px;
+  color: var(--muted);
+}
+.legal-hero .meta .pill {
+  display: inline-block;
+  padding: 4px 11px;
+  border-radius: 999px;
+  background: rgba(168, 181, 162, 0.18);
+  border: 1px solid rgba(102, 114, 84, 0.18);
+  color: var(--olive-2);
+  font-weight: 600;
+  font-size: 12px;
+}
+.legal-hero .meta .dot {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--latte);
+  display: inline-block;
+}
+
+/* ---------- INTRO BLOCK ---------- */
+.legal-intro {
+  background: rgba(255, 248, 241, 0.7);
+  border: 1px solid rgba(95, 75, 62, 0.10);
+  border-radius: 18px;
+  padding: 26px 28px;
+  margin: 18px 0 38px;
+  box-shadow: 0 12px 30px rgba(70, 55, 44, 0.06);
+}
+.legal-intro p {
+  margin: 0 0 12px;
+  font-size: 15.5px;
+  color: var(--ink);
+}
+.legal-intro p:last-child { margin-bottom: 0; }
+
+/* ---------- TOC (sumário) ---------- */
+.legal-toc {
+  background: rgba(229, 213, 199, 0.30);
+  border: 1px solid rgba(95, 75, 62, 0.12);
+  border-radius: 14px;
+  padding: 22px 26px;
+  margin: 0 0 44px;
+}
+.legal-toc h2 {
+  margin: 0 0 14px;
+  font-family: "Playfair Display", Georgia, serif;
+  font-weight: 500;
+  font-size: 17px;
+  color: var(--brown);
+  letter-spacing: 0.005em;
+}
+.legal-toc ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: toc;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 7px 24px;
+}
+@media (min-width: 640px) {
+  .legal-toc ol { grid-template-columns: 1fr 1fr; }
+}
+.legal-toc ol li {
+  counter-increment: toc;
+  font-size: 14px;
+  color: var(--muted);
+  padding-left: 28px;
+  position: relative;
+  line-height: 1.45;
+}
+.legal-toc ol li::before {
+  content: counter(toc, decimal-leading-zero);
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-family: "Playfair Display", Georgia, serif;
+  font-style: italic;
+  font-weight: 500;
+  color: var(--terracotta);
+  font-size: 13px;
+}
+.legal-toc ol li a {
+  color: var(--ink);
+  font-weight: 500;
+}
+.legal-toc ol li a:hover {
+  color: var(--olive-2);
+  text-decoration: none;
+}
+
+/* ---------- CONTENT ---------- */
+.legal-content {
+  padding: 0 0 80px;
+}
+.legal-content section {
+  margin: 0 0 44px;
+  scroll-margin-top: 100px;
+}
+.legal-content h2 {
+  font-family: "Playfair Display", Georgia, serif;
+  font-weight: 500;
+  font-size: clamp(22px, 3.2vw, 28px);
+  line-height: 1.25;
+  color: var(--brown);
+  margin: 0 0 18px;
+  letter-spacing: -0.005em;
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+}
+.legal-content h2 .num {
+  font-family: "Playfair Display", Georgia, serif;
+  font-style: italic;
+  font-weight: 500;
+  font-size: 0.7em;
+  color: var(--terracotta);
+  flex: none;
+}
+.legal-content h3 {
+  font-family: "Inter", sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.4;
+  color: var(--brown);
+  margin: 26px 0 10px;
+  letter-spacing: 0.01em;
+}
+.legal-content p {
+  margin: 0 0 14px;
+  color: var(--ink);
+  font-size: 15.5px;
+  line-height: 1.7;
+}
+.legal-content ul {
+  margin: 0 0 18px;
+  padding: 0 0 0 4px;
+  list-style: none;
+}
+.legal-content ul li {
+  position: relative;
+  padding: 0 0 0 22px;
+  margin: 0 0 8px;
+  color: var(--ink);
+  font-size: 15.5px;
+  line-height: 1.65;
+}
+.legal-content ul li::before {
+  content: "";
+  position: absolute;
+  left: 4px;
+  top: 11px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--terracotta);
+  opacity: 0.7;
+}
+.legal-content strong { color: var(--brown); font-weight: 700; }
+.legal-content em { font-style: italic; color: var(--olive-2); }
+
+.legal-content table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  margin: 14px 0 22px;
+  font-size: 14.5px;
+  border: 1px solid rgba(95, 75, 62, 0.12);
+  border-radius: 12px;
+  overflow: hidden;
+  background: rgba(255, 248, 241, 0.55);
+}
+.legal-content thead th {
+  text-align: left;
+  background: rgba(229, 213, 199, 0.45);
+  color: var(--brown);
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 0.01em;
+  padding: 12px 14px;
+  border-bottom: 1px solid rgba(95, 75, 62, 0.12);
+}
+.legal-content tbody td {
+  padding: 12px 14px;
+  border-bottom: 1px solid rgba(95, 75, 62, 0.08);
+  vertical-align: top;
+  color: var(--ink);
+}
+.legal-content tbody tr:last-child td { border-bottom: none; }
+
+/* ---------- Caixas semânticas ---------- */
+.callout {
+  border-left: 3px solid var(--terracotta);
+  background: rgba(184, 121, 103, 0.08);
+  padding: 16px 18px;
+  border-radius: 0 12px 12px 0;
+  margin: 18px 0;
+}
+.callout.olive {
+  border-color: var(--olive);
+  background: rgba(102, 114, 84, 0.08);
+}
+.callout p:last-child { margin-bottom: 0; }
+.callout strong { color: var(--brown); }
+
+/* Placeholders (campos que Tatiana vai preencher após abertura da empresa) */
+.placeholder {
+  display: inline-block;
+  padding: 1px 8px;
+  border-radius: 6px;
+  background: rgba(216, 167, 161, 0.25);
+  border: 1px dashed rgba(184, 121, 103, 0.55);
+  color: var(--brown);
+  font-family: "Inter", sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+
+/* ---------- FOOTER ---------- */
+.legal-footer {
+  background: var(--footer-bg);
+  padding: 44px 0;
+  border-top: 1px solid rgba(255, 248, 241, 0.06);
+}
+.legal-footer .wrap-wide {
+  width: min(1120px, calc(100% - 40px));
+  margin: 0 auto;
+}
+.legal-footer-row {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+  text-align: center;
+}
+@media (min-width: 720px) {
+  .legal-footer-row {
+    flex-direction: row;
+    justify-content: space-between;
+    text-align: left;
+  }
+}
+.legal-footer-brand {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.legal-footer-brand img {
+  width: 44px;
+  height: auto;
+  filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.20));
+}
+.legal-footer-brand .wordmark {
+  font-family: "Jost", sans-serif;
+  font-weight: 300;
+  font-size: 22px;
+  letter-spacing: 0.22em;
+  color: var(--footer-strong);
+}
+.legal-footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 10px 20px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--footer-fg);
+}
+.legal-footer-links a {
+  color: var(--footer-fg);
+  transition: color 0.15s ease;
+}
+.legal-footer-links a:hover {
+  color: var(--footer-strong);
+  text-decoration: none;
+  opacity: 1;
+}
+.legal-footer-copy {
+  text-align: center;
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--footer-muted);
+  margin-top: 22px;
+  padding-top: 18px;
+  border-top: 1px solid rgba(255, 248, 241, 0.08);
+}
+
+/* ---------- Botão "voltar ao topo" ---------- */
+.back-to-top {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin: 14px 0 0;
+  padding: 8px 14px;
+  border-radius: 999px;
+  background: rgba(102, 114, 84, 0.10);
+  border: 1px solid rgba(102, 114, 84, 0.22);
+  color: var(--olive-2);
+  font-size: 12.5px;
+  font-weight: 700;
+}
+.back-to-top:hover {
+  background: rgba(102, 114, 84, 0.18);
+  text-decoration: none;
+  opacity: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+}

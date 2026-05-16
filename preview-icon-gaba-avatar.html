@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Preview · Mudanças GABA (Nav + Hero + Conversa)</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Jost:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: 'Inter', system-ui, sans-serif;
+    color: #40352E;
+    background: linear-gradient(180deg, #F5EEE3 0%, #F3ECE3 100%);
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 1120px; margin: 0 auto; padding: 0 24px; }
+  .label-section {
+    background: #586348;
+    color: #FFF8F1;
+    padding: 8px 16px;
+    font: 600 11px/1 'Inter', sans-serif;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    text-align: center;
+  }
+  /* === NAV === */
+  nav.preview-nav {
+    position: sticky; top: 0; z-index: 20;
+    background: rgba(243,236,227,0.86);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(70,55,44,0.10);
+  }
+  nav.preview-nav .row {
+    display: flex; align-items: center; justify-content: space-between;
+    height: 76px; gap: 20px;
+  }
+  nav.preview-nav .brand {
+    display: flex; align-items: center; gap: 12px; min-width: 0;
+    text-decoration: none; color: inherit;
+  }
+  nav.preview-nav .brand img {
+    width: 44px; height: 44px;
+    filter: drop-shadow(0 4px 10px rgba(70,55,44,0.10));
+  }
+  nav.preview-nav .wm {
+    display: flex; flex-direction: column; gap: 4px; line-height: 1;
+  }
+  nav.preview-nav .wm-main {
+    font: 300 26px/1 'Jost', sans-serif;
+    letter-spacing: 0.22em; color: #5F4B3E;
+  }
+  nav.preview-nav .wm-sub {
+    font: 400 10px/1 'Inter', sans-serif;
+    letter-spacing: 0.01em; color: #77675B;
+  }
+  nav.preview-nav .wm-sub em {
+    font: 400 11px/1 'Playfair Display', serif;
+    font-style: normal;
+  }
+  nav.preview-nav .links {
+    display: flex; gap: 24px;
+    font: 600 13px/1 'Inter', sans-serif; color: #77675B;
+  }
+  nav.preview-nav .cta {
+    background: rgba(102,114,84,0.10);
+    color: #586348;
+    border: 1px solid rgba(102,114,84,0.20);
+    padding: 10px 16px; border-radius: 999px;
+    font: 700 13px/1 'Inter', sans-serif;
+    text-decoration: none;
+  }
+
+  /* === HERO === */
+  section.hero { padding: 70px 0 56px; position: relative; overflow: hidden; }
+  section.hero .wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; align-items: center; }
+  @media (max-width: 880px) { section.hero .wrap { grid-template-columns: 1fr; } }
+  .pill {
+    display: inline-flex; align-items: center;
+    border-radius: 999px; padding: 6px 12px;
+    font: 800 10.5px/1 'Inter', sans-serif;
+    letter-spacing: 0.10em; text-transform: uppercase;
+  }
+  .pill.rosa {
+    background: rgba(216,167,161,0.22); color: #5F4B3E;
+    border: 1px solid rgba(216,167,161,0.32);
+    margin-right: 8px;
+  }
+  .pill.olive { background: #586348; color: #FFF8F1; }
+  h1.hero-h1 {
+    font: 500 clamp(36px,4.2vw,56px)/1.02 'Playfair Display', serif;
+    letter-spacing: -0.035em; margin: 18px 0 0;
+  }
+  h1.hero-h1 .accent { color: #B87967; white-space: nowrap; }
+  .quotes p {
+    font: italic 400 17px/1.5 'Playfair Display', serif;
+    color: #77675B; margin: 10px 0 0;
+  }
+  .lede {
+    font: 400 18px/1.55 'Inter', sans-serif; color: #5D5047;
+    margin-top: 22px; max-width: 560px;
+  }
+  /* === A frase + avatar centralizado abaixo === */
+  .essa-frase {
+    margin-top: 32px;
+    font: italic 500 clamp(26px,2.6vw,34px)/1.15 'Playfair Display', serif;
+    color: #B87967; letter-spacing: -0.02em;
+    text-shadow: 0 2px 12px rgba(184,121,103,0.18);
+    max-width: 560px;
+  }
+  .essa-frase .gaba-name {
+    font: 300 0.82em/1 'Jost', sans-serif;
+    letter-spacing: 0.22em;
+  }
+  .avatar-block {
+    margin-top: 18px; display: flex; justify-content: center;
+    max-width: 560px;
+  }
+  .avatar-block img {
+    width: clamp(180px, 26vw, 240px); height: auto;
+    filter: drop-shadow(0 18px 32px rgba(95,75,62,0.16))
+            drop-shadow(0 6px 12px rgba(95,75,62,0.06));
+  }
+  .ribbon-row {
+    margin-top: 10px; max-width: 560px;
+    display: flex; flex-direction: column; gap: 8px;
+  }
+  .ribbon-eyebrow {
+    font: 400 11px/1 'Jost', sans-serif;
+    color: #586348; letter-spacing: 0.20em; text-transform: uppercase;
+  }
+  .ribbon-sub {
+    font: italic 400 16.5px/1.45 'Playfair Display', serif;
+    color: #5F4B3E; margin: 0;
+  }
+  .ctas {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 10px;
+    margin-top: 28px; max-width: 480px;
+  }
+  .cta-btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: 6px;
+    min-height: 44px; padding: 0 16px; border-radius: 999px;
+    background: linear-gradient(180deg, #667254, #586348);
+    color: #FFF8F1; text-decoration: none;
+    font: 700 13.5px/1 'Inter', sans-serif; letter-spacing: 0.02em;
+    box-shadow: 0 14px 28px rgba(88,99,72,0.24);
+  }
+  .cta-btn .gaba-name {
+    font: 500 1em/1 'Jost', sans-serif; letter-spacing: 0.18em;
+  }
+
+  /* lado direito do hero — gaba spotlight */
+  .spotlight {
+    position: relative;
+    display: flex; align-items: center; justify-content: center;
+    min-height: 540px;
+  }
+  .spotlight::before {
+    content: ""; position: absolute; inset: 0;
+    background:
+      radial-gradient(circle at 50% 44%, rgba(216,167,161,0.50) 0%, rgba(216,167,161,0.28) 16%, rgba(255,248,241,0.75) 36%, rgba(168,181,162,0.22) 60%, rgba(168,181,162,0.08) 78%, transparent 92%);
+    border-radius: 50%; filter: blur(64px);
+  }
+  .spotlight img {
+    position: relative; z-index: 1; max-width: 100%; height: auto;
+    width: 580px;
+    filter: drop-shadow(0 42px 68px rgba(95,75,62,0.18));
+  }
+  .spotlight .legend {
+    position: absolute; bottom: 6px; z-index: 2;
+    font: italic 500 22px/1 'Playfair Display', serif;
+    color: #B87967;
+  }
+  .spotlight .legend .gaba {
+    font: 400 0.88em/1 'Jost', sans-serif; letter-spacing: 0.10em;
+  }
+
+  /* === CONVERSA / CHATBOX === */
+  section.conversa {
+    padding: 64px 0;
+    background: rgba(255,248,241,0.30);
+    border-top: 1px solid rgba(70,55,44,0.08);
+    border-bottom: 1px solid rgba(70,55,44,0.08);
+  }
+  .conversa-head { max-width: 680px; margin: 0 auto 40px; text-align: center; }
+  .conversa-eyebrow {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(102,114,84,0.10); color: #586348;
+    padding: 8px 12px; border-radius: 999px;
+    font: 800 11px/1 'Inter', sans-serif;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    margin-bottom: 14px;
+  }
+  .conversa-head h2 {
+    font: 500 clamp(28px,3.2vw,40px)/1.08 'Playfair Display', serif;
+    letter-spacing: -0.026em; margin: 0;
+  }
+  .conversa-head .sub {
+    margin-top: 12px; font: 400 16.5px/1.55 'Inter', sans-serif; color: #77675B;
+  }
+
+  .phone {
+    max-width: 640px; margin: 0 auto;
+    background: rgba(255,248,241,0.78);
+    border: 1px solid rgba(70,55,44,0.12);
+    border-radius: 32px;
+    box-shadow: 0 22px 60px rgba(70,55,44,0.10);
+    padding: 26px;
+    backdrop-filter: blur(8px);
+  }
+  /* === Header novo (com avatar redondo do icon-gaba-coffe) === */
+  .phone-header {
+    display: flex; align-items: center; justify-content: space-between; gap: 12px;
+    margin-bottom: 18px;
+    font: 700 12px/1 'Inter', sans-serif;
+    color: #77675B; letter-spacing: 0.05em; text-transform: uppercase;
+  }
+  .phone-header .left {
+    display: flex; align-items: center; gap: 10px; min-width: 0;
+  }
+  .phone-header .avatar {
+    width: 32px; height: 32px;
+    border-radius: 50%; overflow: hidden;
+    background: rgba(216,167,161,0.18);
+    box-shadow: 0 2px 6px rgba(70,55,44,0.10);
+    display: inline-flex; align-items: center; justify-content: center;
+    flex: none;
+  }
+  .phone-header .avatar img { width: 32px; height: 32px; object-fit: cover; }
+  .phone-header .name-block { display: flex; flex-direction: column; line-height: 1.15; }
+  .phone-header .name {
+    font: 400 14px/1 'Jost', sans-serif;
+    letter-spacing: 0.18em; text-transform: uppercase; color: #5F4B3E;
+  }
+  .phone-header .time {
+    font: 600 10.5px/1 'Inter', sans-serif;
+    letter-spacing: 0.05em; color: #99877A;
+  }
+  .phone-header .online {
+    display: inline-flex; align-items: center; gap: 8px;
+  }
+  .phone-header .online::before {
+    content: ""; width: 8px; height: 8px; border-radius: 50%; background: #667254;
+  }
+
+  .bubble {
+    border-radius: 20px; padding: 14px 18px; line-height: 1.5;
+    font: 400 15px/1.5 'Inter', sans-serif;
+    margin: 10px 0;
+  }
+  .bubble.mom {
+    background: #EEE1D7; color: #4D4037;
+    margin-right: 40px;
+    border-bottom-left-radius: 7px;
+  }
+  .bubble.gaba {
+    background: #E7EBDD; color: #3E4935;
+    margin-left: 32px;
+    border-bottom-right-radius: 7px;
+  }
+  .bubble.gaba ol { margin: 8px 0 0 18px; padding: 0; }
+  .bubble.gaba li { font-size: 14px; margin-bottom: 6px; }
+
+  .composer {
+    display: flex; align-items: center; justify-content: space-between;
+    margin-top: 18px;
+    background: rgba(255,255,255,0.56);
+    border: 1px solid rgba(70,55,44,0.08);
+    border-radius: 999px; padding: 12px 16px;
+    font: 400 13.5px/1 'Inter', sans-serif;
+    color: #99877A;
+  }
+
+  /* legend */
+  .changelog {
+    max-width: 720px; margin: 24px auto 64px;
+    background: #FFF8F1;
+    border: 1px solid rgba(70,55,44,0.10);
+    border-radius: 20px;
+    padding: 18px 24px;
+    font: 400 14px/1.55 'Inter', sans-serif; color: #5F4B3E;
+  }
+  .changelog h3 {
+    font: 500 16px/1.2 'Playfair Display', serif;
+    color: #40352E;
+    margin: 0 0 10px;
+  }
+  .changelog ul { margin: 0; padding-left: 18px; }
+  .changelog li { margin: 4px 0; }
+  .changelog code {
+    background: rgba(70,55,44,0.06);
+    padding: 1px 6px; border-radius: 4px;
+    font: 500 12.5px/1 'JetBrains Mono', ui-monospace, monospace;
+  }
+</style>
+</head>
+<body>
+
+<div class="label-section">PREVIEW · 1 / 3 — NAV (header sticky)</div>
+<nav class="preview-nav">
+  <div class="wrap row">
+    <a href="#" class="brand">
+      <img src="public/icon-gaba-coffe.svg" alt="">
+      <span class="wm">
+        <span class="wm-main">GABAIA</span>
+        <span class="wm-sub">da <em>NeuroMãe</em></span>
+      </span>
+    </a>
+    <div class="links">
+      <span>O que é</span><span>Como funciona</span><span>Quem somos</span><span>Plano</span><span>Dúvidas</span>
+    </div>
+    <a href="#" class="cta">Quero conversar</a>
+  </div>
+</nav>
+
+<div class="label-section" style="margin-top: 24px">PREVIEW · 2 / 3 — HERO (frase "Essa é a GABA" + avatar embaixo)</div>
+<section class="hero">
+  <div class="wrap">
+    <div>
+      <span class="pill rosa">Pra mães atípicas</span>
+      <span class="pill olive">Ciência · Estoicismo · Fé</span>
+
+      <h1 class="hero-h1">
+        Você não é péssima. <span class="accent">Você está esgotada.</span>
+      </h1>
+
+      <div class="quotes">
+        <p>"A casa fica em silêncio depois de um dia exaustivo. Eu quero descansar — mas a culpa não deixa."</p>
+        <p>"Saio de mais uma terapia me perguntando: será que agora vai dar certo?"</p>
+        <p>"O telefone toca. É a escola. Mais uma reunião por conta do comportamento dele."</p>
+      </div>
+
+      <p class="lede">
+        Nesses momentos, você só queria uma amiga pra conversar. Alguém que te respondesse de um jeito que você compreenda — não importa quantas vezes você pergunte.
+      </p>
+
+      <p class="essa-frase">
+        Essa é a <span class="gaba-name">GABA</span>.
+      </p>
+
+      <!-- NOVO: avatar logo abaixo da frase, centralizado -->
+      <div class="avatar-block">
+        <img src="public/avatar-gaba-coffe.svg" alt="Avatar da GABA — personagem cérebro com xícara de café">
+      </div>
+
+      <div class="ribbon-row">
+        <span class="ribbon-eyebrow">A amiga da NeuroMãe</span>
+        <p class="ribbon-sub">No WhatsApp, 24h por dia. Pronta pra escutar quando você precisar.</p>
+      </div>
+
+      <div class="ctas">
+        <a class="cta-btn" href="#">Conversar com a <span class="gaba-name">GABA</span></a>
+        <a class="cta-btn" href="#">Falar com suporte</a>
+      </div>
+    </div>
+
+    <div class="spotlight">
+      <img src="public/gaba-cafe.png" alt="">
+      <div class="legend">oi, eu sou a <span class="gaba">GABA</span>.</div>
+    </div>
+  </div>
+</section>
+
+<div class="label-section">PREVIEW · 3 / 3 — CONVERSA (chatbox com avatar redondo no header)</div>
+<section class="conversa">
+  <div class="wrap">
+    <div class="conversa-head">
+      <span class="conversa-eyebrow">A voz da GABA</span>
+      <h2>É assim que ela responde — quando ninguém mais responde.</h2>
+      <p class="sub">Uma noite de tempestade, uma mãe exausta. A GABA não dá receita: ela escuta, organiza e devolve clareza — sem mais nada pra você fazer amanhã.</p>
+    </div>
+
+    <div class="phone" aria-label="Exemplo de conversa com a GABA">
+      <!-- NOVO HEADER COM ICON-GABA-COFFE -->
+      <div class="phone-header">
+        <span class="left">
+          <span class="avatar">
+            <img src="public/icon-gaba-coffe.svg" alt="">
+          </span>
+          <span class="name-block">
+            <span class="name">GABA</span>
+            <span class="time">23h47</span>
+          </span>
+        </span>
+        <span class="online">online</span>
+      </div>
+
+      <div class="bubble mom">
+        Que noite difícil. Meu filho morre de medo de trovão e tá uma tempestade. Em pânico, não dorme. Estou exausta, ainda preciso trabalhar.
+      </div>
+      <div class="bubble gaba">
+        Que noite pesada. Cuidando dele em pânico, exausta, ainda com trabalho — é muito pra uma pessoa só aguentar.
+      </div>
+      <div class="bubble gaba">
+        Respira. Vamos juntas nisso agora:
+        <ol>
+          <li>Cria um esconderijo seguro — armário, cobertor grosso. Espaço fechado ativa proteção no cérebro.</li>
+          <li>Mascara o trovão com ventilador ou som de chuva suave.</li>
+          <li>Fala bem pouco e baixo: "estou aqui, você está seguro".</li>
+        </ol>
+      </div>
+      <div class="bubble gaba">
+        E você — assim que ele dormir, para tudo. Descansa 20 minutos antes de abrir o trabalho. Você precisa disso também. 💙
+      </div>
+
+      <div class="composer">
+        <span>Escreva ou mande áudio…</span>
+        <span aria-hidden="true">↗</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="label-section" style="margin-top: 24px">PREVIEW · 4 / 4 — FUNDADORA (foto da Tatiana atualizada ontem)</div>
+<section style="padding: 84px 0; background: rgba(255,248,241,0.34); border-bottom: 1px solid rgba(70,55,44,0.08);">
+  <div class="wrap" style="max-width: 920px; margin: 0 auto;">
+    <div style="text-align: center; max-width: 640px; margin: 0 auto;">
+      <span style="display: inline-flex; background: rgba(102,114,84,0.10); color: #586348; padding: 6px 12px; border-radius: 999px; font: 800 11px/1 'Inter', sans-serif; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 12px;">Quem está por trás</span>
+      <h2 style="font: 500 clamp(28px, 3.2vw, 42px)/1.05 'Playfair Display', serif; letter-spacing: -0.026em; margin: 0;">Por que a NeuroMãe existe.</h2>
+    </div>
+
+    <div style="max-width: 100px; height: 1px; margin: 40px auto; background: linear-gradient(90deg, transparent, rgba(184,121,103,0.50), transparent);"></div>
+
+    <div style="max-width: 640px; margin: 0 auto; display: flex; flex-direction: column; gap: 20px; font: 400 17px/1.7 'Inter', sans-serif; color: #77675B;">
+      <p style="font: italic 500 22px/1.4 'Playfair Display', serif; color: #5F4B3E; margin: 0;">Eu sou Tatiana. Mãe atípica, como você.</p>
+      <p style="margin: 0;">Meu segundo filho nasceu bem. Aos 45 dias teve uma meningite hospitalar e ficou 21 dias internado. Sobreviveu — com sequelas. TDAH, disfunção sensório-motora, leve deficiência intelectual.</p>
+      <p style="margin: 0;">Na pandemia, atravessei uma depressão grave. Foi nesse fundo que, aos 38 anos, descobri que eu também sou TDAH. Comecei a estudar psicopedagogia, neurociência comportamental e educação parental porque os profissionais que eu encontrava não conseguiam me responder.</p>
+      <p style="margin: 0;"><strong style="color: #5F4B3E;">Mas eu tive sorte.</strong> Rede de apoio, condições financeiras, acesso a informação. A maioria das mães atípicas não tem nada disso.</p>
+      <p style="margin: 0;">A NeuroMãe nasceu pra essas mães. Pra ser o lugar seguro que eu não tive — sem enxurrada de informação, sem comparação, sem mais um curso que você sabe que não vai fazer. Só a resposta certa, na hora certa, sem julgamento.</p>
+    </div>
+
+    <div style="max-width: 920px; margin: 48px auto 0; display: grid; grid-template-columns: 240px 1fr; gap: 40px; align-items: center;">
+      <aside style="display: flex; flex-direction: column; gap: 12px; align-items: flex-start;">
+        <div style="position: relative;">
+          <div style="position: absolute; inset: 0; z-index: -1; border-radius: 50%; background: radial-gradient(circle at 50% 45%, rgba(216,167,161,0.30) 0%, rgba(216,167,161,0.10) 50%, transparent 75%); filter: blur(28px); transform: scale(1.25);"></div>
+          <img src="public/tatiana.jpg" alt="Tatiana Junco, fundadora da NeuroMãe"
+               style="width: 180px; height: 180px; border-radius: 50%; object-fit: cover; border: 3px solid rgba(255,248,241,0.85); box-shadow: 0 18px 44px rgba(70,55,44,0.14);">
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 4px;">
+          <span style="font: 500 19px/1.2 'Playfair Display', serif; color: #5F4B3E; letter-spacing: -0.01em;">Tatiana Junco</span>
+          <span style="font: 400 12.5px/1.45 'Inter', sans-serif; color: #77675B; max-width: 240px;">psicopedagoga em formação · pós-graduada em neurociência comportamental</span>
+          <a href="https://instagram.com/neuromaeia" style="margin-top: 4px; display: inline-flex; align-items: center; gap: 4px; background: rgba(102,114,84,0.10); color: #586348; border: 1px solid rgba(102,114,84,0.20); padding: 4px 12px; border-radius: 999px; font: 800 12px/1 'Inter', sans-serif; text-decoration: none; width: fit-content;">@neuromaeia ↗</a>
+        </div>
+      </aside>
+      <blockquote style="font: italic 400 21px/1.55 'Playfair Display', serif; color: #5F4B3E; border-left: 2px solid rgba(184,121,103,0.40); padding-left: 24px; margin: 0;">
+        "A NeuroMãe nasceu da minha dificuldade — pensando em encurtar o caminho de outras mães que são sozinhas, não têm a rede de apoio que eu tenho, mas merecem ter um lugar seguro."
+      </blockquote>
+    </div>
+  </div>
+</section>
+
+<div class="changelog">
+  <h3>O que mudou neste preview</h3>
+  <ul>
+    <li><strong>Nav:</strong> <code>gabaia-symbol-detailed.svg</code> → <code>icon-gaba-coffe.svg</code></li>
+    <li><strong>Conversa (chatbox):</strong> header virou avatar redondo (32px) com <code>icon-gaba-coffe.svg</code> + nome "GABA" + horário "23h47"</li>
+    <li><strong>Hero:</strong> avatar <code>avatar-gaba-coffe.svg</code> centralizado logo abaixo da frase "Essa é a GABA."</li>
+  </ul>
+  <p style="margin: 10px 0 0; font-size: 13px; color: #77675B;">
+    Esse arquivo é só preview estático — não substitui <code>npm run dev</code>.
+    Pra rodar o projeto de verdade: <code>cd /Users/tatianajunco/projetos/neuromae-landing && npm run dev</code>.
+  </p>
+</div>
+
+</body>
+</html>
