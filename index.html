@@ -7,25 +7,28 @@
 <meta name="theme-color" content="#EFE7DD" media="(prefers-color-scheme: light)" />
 <meta name="theme-color" content="#1F1813" media="(prefers-color-scheme: dark)" />
 <meta name="robots" content="index,follow" />
-<title>NeuroMãe — em preparação</title>
-<meta name="description" content="O aprender começa onde a mãe é acolhida. NeuroMãe — um espaço sereno para mães que cuidam de crianças neurodivergentes. Em fase beta privada." />
-<meta property="og:title" content="NeuroMãe — em preparação" />
-<meta property="og:description" content="O aprender começa onde a mãe é acolhida." />
+<title>NeuroMãe — apoio para mães atípicas</title>
+<meta name="description" content="Iniciativa brasileira de apoio à maternidade atípica — para a mãe e para os filhos. Acolhimento, informação que organiza e presença no dia a dia. Em preparação." />
+<meta property="og:title" content="NeuroMãe — apoio para mães atípicas" />
+<meta property="og:description" content="Apoio prático e sereno para mães de crianças neurodivergentes. Entre na lista de espera." />
 <meta property="og:type" content="website" />
 <meta property="og:locale" content="pt_BR" />
 <meta property="og:url" content="https://www.neuromae.com/" />
-<meta property="og:image" content="/og-image.jpg" />
+<meta property="og:image" content="/og-image.png" />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="NeuroMãe — em preparação" />
-<meta name="twitter:description" content="O aprender começa onde a mãe é acolhida." />
-<meta name="twitter:image" content="/og-image.jpg" />
+<meta name="twitter:title" content="NeuroMãe — apoio para mães atípicas" />
+<meta name="twitter:description" content="Apoio prático e sereno para mães de crianças neurodivergentes. Entre na lista de espera." />
+<meta name="twitter:image" content="/og-image.png" />
 <link rel="canonical" href="https://www.neuromae.com/" />
 <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+<!-- Plausible Analytics — sem cookies, sem banner. Rastreia cliques em links externos (CTA do WhatsApp). -->
+<script defer data-domain="neuromae.com" src="https://plausible.io/js/script.outbound-links.js"></script>
 
 <script type="application/ld+json">
 {
@@ -47,49 +50,40 @@
 
 <style>
   :root {
-    /* Paleta clara (default) */
     --rose:        #D8A7A1;
     --sage:        #A8B5A2;
     --gold:        #E0B98F;
     --cream:       #EFE7DD;
     --cream-deep:  #ECE3D7;
+    --paper:       #FBF6EF;
     --beige:       #C9B7A6;
     --brown:       #6B5547;
     --brown-deep:  #5A4738;
-    --accent:      #B07458;
+    --accent:      #A85C3E;
     --line:        rgba(107,85,71,0.16);
 
-    /* Backgrounds — gradiente da página */
     --bg-grad-1: rgba(216,167,161,0.30);
     --bg-grad-2: rgba(168,181,162,0.24);
     --bg-grad-stop-a: #F2EAE0;
     --bg-grad-stop-b: #EFE7DD;
     --bg-grad-stop-c: #ECE3D7;
 
-    /* Top bar */
-    --topbar-bg: rgba(242, 234, 224, 0.78);
+    --topbar-bg: rgba(242, 234, 224, 0.82);
     --topbar-border: rgba(107, 85, 71, 0.08);
 
-    /* Tipografia */
-    --text-soft: rgba(107,85,71,0.82);
-    --text-mute: rgba(107,85,71,0.65);
-    --text-dim:  rgba(107,85,71,0.5);
+    /* Tipografia — contraste elevado p/ WCAG AA */
+    --text-soft: rgba(74,57,45,0.92);
+    --text-mute: rgba(74,57,45,0.84);
+    --text-dim:  rgba(74,57,45,0.78);
 
-    /* Card text (dentro dos pillars) */
     --card-title: rgba(50,30,22,0.92);
-    --card-body:  rgba(50,30,22,0.78);
-    --card-num:   rgba(50,38,30,0.55);
+    --card-body:  rgba(50,30,22,0.82);
+    --card-num:   rgba(50,38,30,0.62);
 
-    /* Grain blend mode */
     --grain-blend: multiply;
-    --grain-opacity: 0.12;
+    --grain-opacity: 0.10;
   }
 
-  /* ============================================
-     DARK MODE — adapta automaticamente conforme
-     o sistema operacional da usuária (Noite/Dia,
-     macOS Dark Mode, Android Dark theme, etc.)
-  ============================================= */
   @media (prefers-color-scheme: dark) {
     :root {
       --rose:        #F0CBC2;
@@ -97,11 +91,12 @@
       --gold:        #E8C595;
       --cream:       #1F1813;
       --cream-deep:  #2A211B;
+      --paper:       #271F18;
       --beige:       #5A4B3F;
       --brown:       #EBDDCF;
       --brown-deep:  #F4EBDD;
-      --accent:      #E8A192;
-      --line:        rgba(235,221,207,0.12);
+      --accent:      #EDA98C;
+      --line:        rgba(235,221,207,0.14);
 
       --bg-grad-1: rgba(232,161,146,0.10);
       --bg-grad-2: rgba(184,197,176,0.08);
@@ -109,19 +104,19 @@
       --bg-grad-stop-b: #1F1813;
       --bg-grad-stop-c: #1A1410;
 
-      --topbar-bg: rgba(31, 24, 19, 0.78);
+      --topbar-bg: rgba(31, 24, 19, 0.82);
       --topbar-border: rgba(235, 221, 207, 0.10);
 
-      --text-soft: rgba(235,221,207,0.85);
-      --text-mute: rgba(235,221,207,0.65);
-      --text-dim:  rgba(235,221,207,0.45);
+      --text-soft: rgba(245,236,222,0.92);
+      --text-mute: rgba(245,236,222,0.82);
+      --text-dim:  rgba(245,236,222,0.74);
 
       --card-title: rgba(245,232,218,0.95);
-      --card-body:  rgba(245,232,218,0.78);
-      --card-num:   rgba(245,232,218,0.58);
+      --card-body:  rgba(245,232,218,0.82);
+      --card-num:   rgba(245,232,218,0.60);
 
       --grain-blend: screen;
-      --grain-opacity: 0.06;
+      --grain-opacity: 0.05;
     }
   }
 
@@ -135,8 +130,8 @@
     font-weight: 400;
     color: var(--brown);
     background:
-      radial-gradient(ellipse 75% 50% at 85% 12%, var(--bg-grad-1) 0%, transparent 60%),
-      radial-gradient(ellipse 60% 45% at 8% 88%, var(--bg-grad-2) 0%, transparent 64%),
+      radial-gradient(ellipse 75% 50% at 85% 6%, var(--bg-grad-1) 0%, transparent 60%),
+      radial-gradient(ellipse 60% 45% at 8% 96%, var(--bg-grad-2) 0%, transparent 64%),
       linear-gradient(180deg, var(--bg-grad-stop-a) 0%, var(--bg-grad-stop-b) 55%, var(--bg-grad-stop-c) 100%);
     overflow-x: hidden;
     position: relative;
@@ -145,15 +140,11 @@
   a { color: inherit; text-decoration: none; }
   ::selection { background: rgba(216,167,161,0.45); color: var(--brown-deep); }
 
-  /* Cursor customizado REMOVIDO por questões de acessibilidade.
-     Audiência neurodivergente pode ter gatilhos sensoriais com cursores não-padrão. */
-
-  /* SCRIM + GRAIN */
   .boot-scrim {
     position: fixed; inset: 0; z-index: 100;
     background: var(--cream);
     pointer-events: none;
-    animation: boot-fade 1100ms cubic-bezier(0.4, 0, 0.2, 1) 120ms forwards;
+    animation: boot-fade 1000ms cubic-bezier(0.4, 0, 0.2, 1) 100ms forwards;
   }
   @keyframes boot-fade { to { opacity: 0; } }
   .grain {
@@ -163,14 +154,6 @@
     mix-blend-mode: var(--grain-blend);
     opacity: var(--grain-opacity);
     z-index: 1;
-    animation: grain-drift 6s steps(4, end) infinite;
-  }
-  @keyframes grain-drift {
-    0%   { transform: translate(0, 0); }
-    25%  { transform: translate(-3%, 2%); }
-    50%  { transform: translate(2%, -2%); }
-    75%  { transform: translate(-2%, 3%); }
-    100% { transform: translate(0, 0); }
   }
 
   /* TOP BAR */
@@ -180,19 +163,19 @@
     display: grid;
     grid-template-columns: 1fr auto 1fr;
     align-items: center;
-    padding: 22px 40px;
+    padding: 18px 40px;
     font-size: 11px;
     letter-spacing: 0.18em;
     text-transform: uppercase;
-    color: var(--brown);
+    color: rgba(245,236,222,0.80);
     pointer-events: none;
-    background: var(--topbar-bg);
-    backdrop-filter: blur(16px) saturate(1.15);
-    -webkit-backdrop-filter: blur(16px) saturate(1.15);
-    border-bottom: 1px solid var(--topbar-border);
+    background: linear-gradient(180deg, rgba(31,22,15,0.90) 0%, rgba(31,22,15,0.58) 100%);
+    backdrop-filter: blur(14px) saturate(1.1);
+    -webkit-backdrop-filter: blur(14px) saturate(1.1);
+    border-bottom: 1px solid rgba(245,236,222,0.10);
     transition: background 600ms ease, border-color 600ms ease;
   }
-  @media (max-width: 720px) { .top-bar { grid-template-columns: 1fr 1fr; padding: 18px 22px; font-size: 10px; } .top-bar .center-mark { display: none; } }
+  @media (max-width: 720px) { .top-bar { grid-template-columns: 1fr auto; padding: 14px 20px; font-size: 10px; } .top-bar .center-mark { display: none; } }
   .top-bar > * { pointer-events: auto; }
   .top-brand {
     display: inline-flex; align-items: center; gap: 10px;
@@ -201,502 +184,445 @@
     font-size: 17px; letter-spacing: 0.005em;
     text-transform: none; color: var(--brown-deep);
   }
-  .top-brand img { width: 30px; height: 30px; opacity: 0.94; }
-  .center-mark { display: inline-flex; align-items: center; gap: 14px; color: rgba(107,85,71,0.65); }
+  .top-brand .brand-lockup { height: 34px; width: auto; display: block; opacity: 0.98; }
+  .center-mark { display: inline-flex; align-items: center; gap: 12px; color: rgba(245,236,222,0.72); }
   .center-mark .dot {
     width: 6px; height: 6px; border-radius: 50%;
     background: var(--accent);
-    animation: status-pulse 2.4s ease-in-out infinite;
+    animation: status-pulse 2.6s ease-in-out infinite;
   }
-  @keyframes status-pulse { 0%,100% { opacity: 0.5; transform: scale(1); } 50% { opacity: 1; transform: scale(1.5); } }
-  .top-right { justify-self: end; color: rgba(107,85,71,0.65); }
+  @keyframes status-pulse { 0%,100% { opacity: 0.55; transform: scale(1); } 50% { opacity: 1; transform: scale(1.4); } }
+  .top-right { justify-self: end; color: rgba(245,236,222,0.72); }
 
-  /* =========================================================
-     HERO COMPACTO
-  ========================================================= */
-  .hero {
-    position: relative; z-index: 10;
-    display: grid;
-    grid-template-columns: 1.35fr 1fr;
-    align-items: center;
-    padding: 130px 60px 60px;
-    gap: 40px;
-    min-height: 70vh;
-  }
-  @media (max-width: 920px) {
-    .hero { grid-template-columns: 1fr; padding: 100px 24px 30px; gap: 32px; min-height: auto; }
-  }
-
-  .hero-left { display: flex; flex-direction: column; gap: 26px; max-width: 820px; }
-  .hero-kicker {
-    font-size: 11.5px;
-    letter-spacing: 0.24em;
+  /* botão topo (âncora p/ lista) */
+  .top-cta {
+    justify-self: end;
+    display: inline-flex; align-items: center; gap: 7px;
+    padding: 8px 18px;
+    border: 1px solid #A85C3E;
+    border-radius: 999px;
+    font-size: 10.5px; font-weight: 600; letter-spacing: 0.10em;
     text-transform: uppercase;
-    color: rgba(107,85,71,0.65);
-    margin: 0; font-weight: 500;
-    display: inline-flex; align-items: center; flex-wrap: wrap;
+    color: #fff; background: #A85C3E;
+    transition: background 280ms ease, color 280ms ease;
   }
-  .hero-kicker .age { color: var(--accent); margin-left: 6px; letter-spacing: 0.10em; }
-  .hero-kicker .line { display: inline-block; width: 28px; height: 1px; background: var(--accent); vertical-align: middle; margin: 0 14px 3px; opacity: 0.55; }
+  .top-cta:hover { background: #8F4A30; border-color: #8F4A30; color: #fff; }
+  @media (max-width: 720px) { .top-right { display: none; } }
 
+  /* SECTION shells */
+  .section { position: relative; z-index: 10; }
+  .eyebrow {
+    display: flex; align-items: center; gap: 16px;
+    margin: 0 0 30px;
+  }
+  .eyebrow-label {
+    font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--text-dim); font-weight: 600; white-space: nowrap;
+  }
+  .eyebrow .line { position: relative; height: 1px; }
+  .eyebrow .line-left { flex: none; width: 60px;
+    background: linear-gradient(90deg, transparent, var(--line) 70%); }
+  .eyebrow .line-right { flex: 1;
+    background: linear-gradient(90deg, var(--line) 0%, var(--line) 60%, transparent 100%); }
+  .eyebrow .line-left::after,
+  .eyebrow .line-right::after {
+    content: ""; position: absolute; top: 50%; transform: translateY(-50%);
+    width: 6px; height: 6px; border-radius: 50%;
+    background: var(--accent);
+    box-shadow: 0 0 0 3px rgba(168,92,62,0.14), -14px 0 0 -1.5px var(--rose), 14px 0 0 -1.5px var(--sage);
+  }
+  .eyebrow .line-left::after { left: 30px; }
+  .eyebrow .line-right::after { left: 26px; }
+  @media (max-width: 720px) { .eyebrow .line-left { width: 30px; } .eyebrow .line-left::after { display: none; } }
+
+  /* HERO — full-bleed com imagem */
+  .hero {
+    position: relative;
+    min-height: 88vh; min-height: 88dvh;
+    display: flex; align-items: flex-start;
+    overflow: hidden;
+  }
+  .hero-bg { position: absolute; inset: 0; z-index: 0; }
+  .hero-bg img { width: 100%; height: 100%; object-fit: cover; object-position: 62% center; display: block; }
+  .hero-scrim {
+    position: absolute; inset: 0; z-index: 1; pointer-events: none;
+    background:
+      linear-gradient(102deg, rgba(34,23,15,0.86) 0%, rgba(34,23,15,0.58) 32%, rgba(34,23,15,0.12) 58%, rgba(34,23,15,0) 78%),
+      linear-gradient(180deg, rgba(34,23,15,0.42) 0%, rgba(34,23,15,0) 28%);
+  }
+  .hero-content {
+    position: relative; z-index: 3;
+    max-width: 600px;
+    padding: 150px 40px 64px 60px;
+    display: flex; flex-direction: column; gap: 24px;
+  }
+  .hero-kicker {
+    font-size: 11.5px; letter-spacing: 0.22em; text-transform: uppercase;
+    color: rgba(252,244,235,0.88); margin: 0; font-weight: 600;
+    display: inline-flex; align-items: center; flex-wrap: wrap; gap: 6px;
+  }
+  .hero-kicker .age { color: #F0C79C; letter-spacing: 0.10em; }
+  .hero-kicker .line { display: inline-block; width: 26px; height: 1px; background: #F0C79C; opacity: 0.7; }
   .hero-headline {
     margin: 0;
     font-family: 'Playfair Display', Georgia, serif;
     font-weight: 400;
-    font-size: clamp(34px, 4.8vw, 68px);
-    line-height: 1.06;
-    letter-spacing: -0.024em;
-    color: var(--brown-deep);
+    font-size: clamp(34px, 4.6vw, 60px);
+    line-height: 1.08; letter-spacing: -0.022em;
+    color: #FCF5EC;
+    text-shadow: 0 2px 24px rgba(0,0,0,0.38);
   }
-  /* Cada linha visual é um bloco — quebras controladas, sem palavras se desencontrando */
-  .hero-headline .line {
-    display: block;
-    white-space: normal;
-  }
-  .hero-headline .word { display: inline-block; overflow: hidden; vertical-align: top; margin-right: 0.14em; }
-  .hero-headline .word > span { display: inline-block; transform: translateY(110%); opacity: 0; animation: word-rise 1100ms cubic-bezier(0.16,1,0.3,1) forwards; }
-  .hero-headline em { font-style: italic; font-weight: 400; color: var(--accent); }
-  @keyframes word-rise { to { transform: translateY(0); opacity: 1; } }
-
-  .hero-sub {
+  .hero-headline em { font-style: italic; font-weight: 400; color: #F0C79C; }
+  .hero-lead {
     margin: 0;
-    font-family: 'Playfair Display', Georgia, serif;
-    font-style: italic;
-    font-size: clamp(15px, 1.35vw, 18px);
-    line-height: 1.55;
-    color: rgba(107,85,71,0.78);
-    max-width: 100%;
-    opacity: 0;
-    animation: fade-up 1100ms cubic-bezier(0.16,1,0.3,1) 1100ms forwards;
+    font-size: clamp(15px, 1.4vw, 17.5px);
+    line-height: 1.62; color: rgba(252,244,235,0.92);
+    max-width: 520px; font-weight: 400;
+    text-shadow: 0 1px 12px rgba(0,0,0,0.32);
   }
-  .hero-sub span { display: inline; }
-  .hero-sub span + span { margin-left: 4px; }
-  @media (max-width: 920px) {
-    .hero-sub { text-align: center; }
-    .hero-sub span { display: block; margin-left: 0; }
-  }
-  @keyframes fade-up { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+  .hero-lead strong { font-weight: 600; color: #ffffff; }
+  .hero-cta-wrap { display: flex; align-items: center; gap: 24px; flex-wrap: wrap; margin-top: 6px; }
 
-  .hero-cta-wrap { display: flex; align-items: center; gap: 28px; flex-wrap: wrap; opacity: 0; animation: fade-up 1100ms cubic-bezier(0.16,1,0.3,1) 1400ms forwards; }
+  /* CTA primário — terracota, padronizado em toda a página */
   .cta-magnetic {
-    position: relative; display: inline-flex; align-items: center; gap: 14px;
-    padding: 16px 24px;
-    border: 1px solid var(--brown);
-    border-radius: 999px;
-    font-size: 13px; font-weight: 500; letter-spacing: 0.02em;
-    color: var(--brown-deep); background: transparent;
-    cursor: pointer;
-    transition: background 380ms ease, color 380ms ease, border-color 380ms ease, transform 80ms ease;
-    will-change: transform;
+    position: relative; display: inline-flex; align-items: center; gap: 12px;
+    padding: 16px 28px; border-radius: 999px;
+    font-size: 14px; font-weight: 600; letter-spacing: 0.01em;
+    color: #fff; background: #A85C3E;
+    border: 1px solid #A85C3E; cursor: pointer;
+    transition: background 280ms ease, transform 120ms ease, box-shadow 280ms ease;
+    box-shadow: 0 10px 26px rgba(168,92,62,0.30);
   }
-  .cta-magnetic:hover { background: var(--brown-deep); color: var(--cream); border-color: var(--brown-deep); }
-  .cta-arrow { display: inline-flex; transition: transform 500ms cubic-bezier(0.16,1,0.3,1); }
-  .cta-magnetic:hover .cta-arrow { transform: translateX(6px); }
-  .cta-aux { font-family: 'Playfair Display', Georgia, serif; font-style: italic; font-size: 12.5px; color: rgba(107,85,71,0.65); line-height: 1.45; max-width: 200px; }
+  .cta-magnetic:hover { background: #8F4A30; border-color: #8F4A30; transform: translateY(-2px); box-shadow: 0 16px 34px rgba(168,92,62,0.40); }
+  .cta-arrow { display: inline-flex; transition: transform 420ms cubic-bezier(0.16,1,0.3,1); }
+  .cta-magnetic:hover .cta-arrow { transform: translateX(5px); }
+  .cta-aux { font-family: 'Playfair Display', Georgia, serif; font-style: italic; font-size: 13px; color: var(--text-dim); line-height: 1.45; max-width: 230px; }
 
-  /* LOGO no hero — agora menor, com halo */
-  .hero-right { display: flex; justify-content: center; align-items: center; position: relative; }
-  .brand-stage {
-    position: relative;
-    width: clamp(240px, 28vw, 360px);
-    aspect-ratio: 1 / 1;
-    opacity: 0;
-    animation: fade-up 1400ms cubic-bezier(0.16,1,0.3,1) 700ms forwards;
-    margin-left: auto;
-    cursor: default;
-  }
-  .brand-halo {
-    position: absolute; top: 50%; left: 50%;
-    width: 116%; height: 116%;
-    transform: translate(-50%, -50%);
-    background:
-      radial-gradient(ellipse at 42% 38%, rgba(216,167,161,0.28) 0%, transparent 56%),
-      radial-gradient(ellipse at 62% 68%, rgba(168,181,162,0.20) 0%, transparent 60%);
-    pointer-events: none;
-    animation: halo-breathe 9s ease-in-out infinite;
-    z-index: 0;
-  }
-  @keyframes halo-breathe {
-    0%,100% { transform: translate(-50%, -50%) scale(1);    opacity: 0.85; }
-    50%     { transform: translate(-50%, -50%) scale(1.06); opacity: 1;    }
-  }
-  .brand-logo {
-    position: absolute; top: 50%; left: 50%;
-    transform: translate(-50%, -50%);
-    width: 100%; height: 100%;
-    object-fit: contain;
-    z-index: 2;
-    filter:
-      drop-shadow(0 0 22px rgba(255,225,200,0.30))
-      drop-shadow(0 14px 32px rgba(216,167,161,0.28))
-      drop-shadow(0 4px 12px rgba(168,181,162,0.20));
-    animation: logo-breathe 7s ease-in-out infinite;
-    transform-origin: center;
-    will-change: transform;
-    cursor: none;
-    transition: filter 600ms ease;
-  }
-  @keyframes logo-breathe {
-    0%,100% { transform: translate(-50%, -50%) scale(1);    }
-    50%     { transform: translate(-50%, -50%) scale(1.025); }
+  /* no hero (sobre imagem escura): só reforço de sombra; texto auxiliar claro */
+  .hero .cta-magnetic { box-shadow: 0 14px 34px rgba(0,0,0,0.38); }
+  .hero .cta-aux { color: rgba(252,244,235,0.82); text-shadow: 0 1px 10px rgba(0,0,0,0.3); }
+
+  @media (max-width: 920px) {
+    .hero { min-height: 92vh; min-height: 92dvh; }
+    .hero-content { padding: 120px 24px 48px; max-width: 100%; gap: 20px; }
+    .hero-bg img { object-position: center; }
+    .hero-scrim {
+      background:
+        linear-gradient(180deg, rgba(34,23,15,0.82) 0%, rgba(34,23,15,0.40) 34%, rgba(34,23,15,0) 60%),
+        linear-gradient(180deg, rgba(34,23,15,0) 62%, rgba(34,23,15,0.28) 100%);
+    }
   }
 
-  /* =========================================================
-     CARDS DOS PILARES — grid editorial 2×2
-  ========================================================= */
-  .pillars-section {
-    position: relative; z-index: 10;
-    padding: 30px 60px 64px;
-    max-width: 1280px;
-    margin: 0 auto;
+  /* ===== DADOS / REALIDADE ===== */
+  .dados {
+    padding: 40px 60px 50px;
+    max-width: 1200px; margin: 0 auto;
   }
-  @media (max-width: 920px) { .pillars-section { padding: 24px 24px 48px; } }
-
-  .pillars-eyebrow {
-    display: flex; align-items: center; gap: 14px;
-    margin-bottom: 28px;
-    font-size: 11px;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: rgba(107,85,71,0.6);
-    font-weight: 500;
-    opacity: 0;
-    animation: fade-up 1100ms ease 1800ms forwards;
-  }
-  .pillars-eyebrow .num {
+  @media (max-width: 920px) { .dados { padding: 28px 24px 36px; } }
+  .dados-intro {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;
+    margin: 0 0 24px;
     font-family: 'Playfair Display', Georgia, serif;
-    font-style: italic;
-    color: var(--accent);
-    letter-spacing: 0;
-    text-transform: none;
-    font-size: 14px;
+    font-size: clamp(16px, 1.6vw, 22px);
+    line-height: 1.35; color: var(--brown-deep); letter-spacing: -0.01em;
   }
-  .pillars-eyebrow .line { flex: 1; max-width: 280px; height: 1px; background: var(--line); }
-
-  .pillars-grid {
+  .dados-intro .di-2 { font-style: italic; color: var(--accent); text-align: center; }
+  @media (max-width: 880px) {
+    .dados-intro { grid-template-columns: 1fr; gap: 2px; text-align: center; font-size: clamp(17px, 4.4vw, 21px); }
+  }
+  .dados-intro span { font-style: italic; color: var(--accent); }
+  .stats-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: minmax(200px, 26vh) minmax(200px, 26vh);
-    gap: 14px;
-    max-width: 1200px;
-    margin: 0 auto;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    align-items: stretch;
   }
-  @media (max-width: 720px) {
-    .pillars-grid { grid-template-columns: 1fr; grid-template-rows: auto; gap: 12px; }
-  }
-
-  .pillar-card {
-    position: relative;
+  @media (max-width: 880px) { .stats-grid { grid-template-columns: 1fr; max-width: 520px; margin: 0 auto; } }
+  .stat-card {
+    position: relative; overflow: hidden;
+    background: var(--paper);
+    border: 1px solid var(--line);
     border-radius: 16px;
-    overflow: hidden;
-    padding: 24px 26px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    box-shadow: 0 14px 36px rgba(107,85,71,0.07);
-    border: 1px solid rgba(107,85,71,0.07);
-    cursor: default;
-    transition: transform 700ms cubic-bezier(0.16,1,0.3,1),
-                box-shadow 700ms ease,
-                filter 700ms ease;
-    opacity: 0;
-    animation: card-emerge 1200ms cubic-bezier(0.16,1,0.3,1) forwards;
-    min-height: 200px;
+    padding: 28px 26px 22px;
+    box-shadow: 0 12px 30px rgba(107,85,71,0.06);
+    display: flex; flex-direction: column;
   }
-  .pillar-card:nth-child(1) { animation-delay: 2000ms; }
-  .pillar-card:nth-child(2) { animation-delay: 2200ms; }
-  .pillar-card:nth-child(3) { animation-delay: 2400ms; }
-  .pillar-card:nth-child(4) { animation-delay: 2600ms; }
-  @keyframes card-emerge {
-    from { opacity: 0; transform: translateY(28px); }
-    to   { opacity: 1; transform: translateY(0); }
-  }
-  .pillar-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 28px 60px rgba(107,85,71,0.14);
-    filter: brightness(1.02);
-  }
-
-  /* Cada card com seu gradient próprio (claro) */
-  .pillar-card.acolhimento {
-    background:
-      radial-gradient(ellipse at 70% 100%, rgba(255,255,255,0.4) 0%, transparent 60%),
-      radial-gradient(ellipse at 30% 0%, rgba(255,255,255,0.55) 0%, transparent 65%),
-      linear-gradient(135deg, #E8B8B0 0%, #D8A7A1 55%, #C68E87 100%);
-  }
-  .pillar-card.ciencia {
-    background:
-      radial-gradient(ellipse at 30% 100%, rgba(255,255,255,0.35) 0%, transparent 60%),
-      radial-gradient(ellipse at 70% 0%, rgba(255,255,255,0.5) 0%, transparent 65%),
-      linear-gradient(135deg, #B8C5B2 0%, #A8B5A2 55%, #8DA08B 100%);
-  }
-  .pillar-card.presenca {
-    background:
-      radial-gradient(ellipse at 70% 100%, rgba(255,255,255,0.42) 0%, transparent 60%),
-      radial-gradient(ellipse at 30% 0%, rgba(255,255,255,0.55) 0%, transparent 65%),
-      linear-gradient(135deg, #EBC9A0 0%, #E0B98F 55%, #C9A075 100%);
-  }
-  .pillar-card.rotina {
-    background:
-      radial-gradient(ellipse at 30% 100%, rgba(255,255,255,0.4) 0%, transparent 65%),
-      radial-gradient(ellipse at 70% 0%, rgba(255,255,255,0.55) 0%, transparent 70%),
-      linear-gradient(135deg, #DFD2C2 0%, #C9B7A6 55%, #B09D8C 100%);
-  }
-
-  /* ============================================
-     DARK MODE — logo translúcida integrada à vinheta
-     Sem brilho. A logo "vive dentro" da sombra do fundo.
-  ============================================= */
-  @media (prefers-color-scheme: dark) {
-    /* Halo MUITO sutil — só pra suavizar bordas, não pra brilhar */
-    .brand-halo {
-      width: 120% !important; height: 120% !important;
-      background:
-        radial-gradient(circle at center, rgba(232,161,146,0.06) 0%, transparent 70%) !important;
-      filter: blur(2px);
-    }
-    /* Logo bem mais translúcida + sombra escura pra dar profundidade (sem brilho) */
-    .brand-logo {
-      opacity: 0.55;
-      filter:
-        drop-shadow(0 14px 30px rgba(0,0,0,0.55))
-        drop-shadow(0 4px 12px rgba(0,0,0,0.35)) !important;
-    }
-    /* Logo do header também translúcida */
-    .top-brand img {
-      opacity: 0.86;
-      filter: drop-shadow(0 4px 10px rgba(0,0,0,0.30));
-    }
-    /* VINHETA — escurecimento gradual nas bordas da viewport
-       Cria atmosfera cinematográfica e "absorve" a logo no fundo */
-    body::after {
-      content: "";
-      position: fixed;
-      inset: 0;
-      z-index: 2;
-      pointer-events: none;
-      background:
-        radial-gradient(ellipse 90% 80% at center,
-          transparent 30%,
-          rgba(0,0,0,0.15) 65%,
-          rgba(0,0,0,0.42) 100%);
-    }
-  }
-
-  /* Cards no DARK MODE — gradients escuros próprios com a tinta de cada pilar
-     bem visível (rose, sage, gold, beige escuros mas reconhecíveis) */
-  @media (prefers-color-scheme: dark) {
-    .pillar-card {
-      border-color: rgba(255,255,255,0.10);
-    }
-    .pillar-card.acolhimento {
-      background:
-        radial-gradient(ellipse at 70% 100%, rgba(255,200,190,0.06) 0%, transparent 60%),
-        radial-gradient(ellipse at 30% 0%, rgba(255,200,190,0.10) 0%, transparent 65%),
-        linear-gradient(135deg, #7A4842 0%, #5C3530 55%, #422622 100%);
-      border-color: rgba(232,161,146,0.22);
-    }
-    .pillar-card.ciencia {
-      background:
-        radial-gradient(ellipse at 30% 100%, rgba(200,220,200,0.06) 0%, transparent 60%),
-        radial-gradient(ellipse at 70% 0%, rgba(200,220,200,0.10) 0%, transparent 65%),
-        linear-gradient(135deg, #445E42 0%, #344C32 55%, #243822 100%);
-      border-color: rgba(184,197,176,0.22);
-    }
-    .pillar-card.presenca {
-      background:
-        radial-gradient(ellipse at 70% 100%, rgba(255,220,180,0.07) 0%, transparent 60%),
-        radial-gradient(ellipse at 30% 0%, rgba(255,220,180,0.11) 0%, transparent 65%),
-        linear-gradient(135deg, #7A5A35 0%, #5C4225 55%, #422E19 100%);
-      border-color: rgba(232,197,149,0.22);
-    }
-    .pillar-card.rotina {
-      background:
-        radial-gradient(ellipse at 30% 100%, rgba(235,221,207,0.06) 0%, transparent 65%),
-        radial-gradient(ellipse at 70% 0%, rgba(235,221,207,0.09) 0%, transparent 70%),
-        linear-gradient(135deg, #5A4D3F 0%, #443A30 55%, #2E2820 100%);
-      border-color: rgba(235,221,207,0.18);
-    }
-  }
-  .pillar-num {
-    font-family: 'Inter', sans-serif;
-    font-size: 11px;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: var(--card-num);
+  .stat-card::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 3px; }
+  .stat-card:nth-child(1)::before { background: var(--rose); }
+  .stat-card:nth-child(2)::before { background: var(--sage); }
+  .stat-card:nth-child(3)::before { background: var(--gold); }
+  .stat-number {
+    font-family: 'Playfair Display', Georgia, serif;
     font-weight: 500;
+    font-size: clamp(34px, 3.2vw, 46px);
+    line-height: 1; color: var(--accent);
+    letter-spacing: -0.02em;
+    margin-bottom: 12px;
   }
-  .pillar-name {
-    margin: 10px 0 0;
-    font-family: 'Playfair Display', Georgia, serif;
-    font-style: italic;
-    font-weight: 400;
-    font-size: clamp(28px, 3.2vw, 44px);
-    line-height: 1;
-    letter-spacing: -0.012em;
-    color: var(--card-title);
+  .stat-text {
+    font-size: 14.5px; line-height: 1.6; color: var(--text-soft);
+    margin: 0 0 16px;
   }
-  .pillar-body {
+  .stat-source {
     margin-top: auto;
-    padding-top: 18px;
-    font-family: 'Inter', sans-serif;
-    font-weight: 400;
-    font-size: 13.5px;
-    line-height: 1.55;
-    color: var(--card-body);
-    max-width: 440px;
-    text-wrap: balance;
-    -webkit-hyphens: auto;
-    hyphens: auto;
+    padding-top: 12px;
+    border-top: 1px solid var(--line);
+    font-size: 11px; line-height: 1.45; color: var(--text-dim);
+    letter-spacing: 0.01em;
   }
-  .pillar-body em {
+  .stat-source a { text-decoration: underline; text-underline-offset: 2px; }
+  .dados-nota {
+    margin: 26px 0 0; max-width: 100%;
+    display: flex; gap: 14px; align-items: flex-start;
+    padding: 18px 22px; border-radius: 14px;
+    background: rgba(168,181,162,0.12);
+    border: 1px solid rgba(168,181,162,0.30);
+  }
+  .dados-nota .nota-icon { flex: none; width: 26px; height: 26px; color: var(--accent); margin-top: 1px; }
+  .dados-nota p { margin: 0; text-align: justify; font-size: 13.5px; line-height: 1.65; color: var(--brown-deep); }
+
+  /* ===== RECONHECE (identificação, sem teste) ===== */
+  .reconhece {
+    padding: 36px 60px 54px;
+    max-width: 1080px; margin: 0 auto;
+  }
+  @media (max-width: 920px) { .reconhece { padding: 24px 24px 40px; } }
+  .reconhece-intro {
+    margin: 0 0 28px; max-width: 660px;
+    display: flex; flex-direction: column; gap: 10px;
+  }
+  .ri-kicker {
+    font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase;
+    color: var(--text-dim); font-weight: 600;
+  }
+  .ri-lead {
     font-family: 'Playfair Display', Georgia, serif;
-    font-style: italic;
-    color: var(--card-title);
-  }
-  .pillar-quote {
-    display: inline-block;
+    font-size: clamp(15px, 2.2vw, 23px); line-height: 1.4;
+    color: var(--brown-deep); letter-spacing: -0.01em;
     white-space: nowrap;
   }
-  @media (max-width: 720px) {
-    .pillar-quote { white-space: normal; }
+  .ri-lead em { font-style: italic; color: var(--accent); }
+  @media (max-width: 820px) { .ri-lead { white-space: normal; font-size: clamp(16px, 4.4vw, 20px); } }
+  .reconhece-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+  @media (max-width: 760px) { .reconhece-grid { grid-template-columns: 1fr; } }
+  .recon-card {
+    position: relative; background: var(--paper);
+    border: 1px solid var(--line); border-left: 3px solid var(--rose);
+    border-radius: 16px; padding: 26px 30px;
+    box-shadow: 0 12px 30px rgba(107,85,71,0.06);
+  }
+  .recon-card.c2 { border-left-color: var(--sage); }
+  .recon-q {
+    margin: 0 0 12px; font-family: 'Playfair Display', Georgia, serif; font-style: italic;
+    font-size: clamp(18px, 1.9vw, 22px); line-height: 1.3; color: var(--brown-deep);
+  }
+  .recon-a { margin: 0; font-size: 14.5px; line-height: 1.62; color: var(--text-soft); }
+  .recon-cta {
+    margin: 28px 0 0; text-align: center;
+    font-size: 14.5px; line-height: 1.6; color: var(--text-mute);
+  }
+  .recon-cta a {
+    color: var(--accent); font-weight: 600; white-space: nowrap;
+    border-bottom: 1px solid rgba(168,92,62,0.40); padding-bottom: 1px;
+    transition: color 240ms ease, border-color 240ms ease;
+  }
+  .recon-cta a span { display: inline-block; transition: transform 300ms ease; }
+  .recon-cta a:hover { color: var(--brown-deep); border-color: var(--brown-deep); }
+  .recon-cta a:hover span { transform: translateX(4px); }
+
+  /* ===== SOBRE (faixa escura, foto menor) ===== */
+  .sobre {
+    max-width: none; margin: 0;
+    padding: 76px 60px;
+    background: radial-gradient(ellipse 80% 90% at 28% 42%, #75695E 0%, #645850 45%, #4E453D 100%);
+  }
+  @media (max-width: 920px) { .sobre { padding: 48px 24px; } }
+  .sobre .eyebrow, .sobre-feature, .sobre-naoé { max-width: 1100px; margin-left: auto; margin-right: auto; }
+  .sobre .eyebrow { margin-bottom: 34px; }
+  .sobre .eyebrow-label { color: rgba(245,236,222,0.78); }
+  .sobre .eyebrow .line-left { background: linear-gradient(90deg, transparent, rgba(245,236,222,0.22) 70%); }
+  .sobre .eyebrow .line-right { background: linear-gradient(90deg, rgba(245,236,222,0.22) 0%, rgba(245,236,222,0.22) 60%, transparent 100%); }
+
+  .sobre-feature { display: grid; grid-template-columns: 300px 30px 1fr; gap: 30px; align-items: center; }
+  .sf-photo {
+    width: 100%; max-width: 300px; aspect-ratio: 1 / 1; object-fit: cover;
+    border-radius: 50%; border: 3px solid rgba(245,236,222,0.45);
+    box-shadow: 0 0 48px 8px rgba(255,235,205,0.18), 0 24px 54px rgba(0,0,0,0.40);
+  }
+  .sf-rail { position: relative; align-self: stretch; min-height: 280px; }
+  .sf-rail::before {
+    content: ""; position: absolute; left: 50%; top: 4%; bottom: 4%; width: 1px; transform: translateX(-50%);
+    background: linear-gradient(180deg, transparent, rgba(245,236,222,0.30) 12%, rgba(245,236,222,0.30) 88%, transparent);
+  }
+  .rail-node {
+    position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);
+    width: 18px; height: 18px; border-radius: 50%;
+    background: radial-gradient(circle, #A85C3E 0 30%, #F4EADE 32% 100%);
+    box-shadow:
+      0 0 0 5px rgba(245,236,222,0.10),
+      0 -34px 0 -6px var(--sage),
+      0 34px 0 -6px var(--rose);
+  }
+  .sf-text { display: flex; flex-direction: column; gap: 22px; min-width: 0; }
+  .sf-card {
+    background: var(--paper); border: 2px solid rgba(176,116,88,0.45); border-radius: 18px; padding: 30px 34px;
+    box-shadow: 0 18px 44px rgba(0,0,0,0.30);
+  }
+  .sf-card p, .sf-bio p { margin: 0 0 12px; font-size: clamp(15px, 1.4vw, 17px); line-height: 1.66; }
+  .sf-card p:last-child, .sf-bio p:last-child { margin-bottom: 0; }
+  .sf-card p { color: var(--text-soft); }
+  .sf-card strong { color: var(--brown-deep); font-weight: 600; }
+  .sf-card em { font-family: 'Playfair Display', Georgia, serif; font-style: italic; color: var(--accent); }
+  .sf-bio { padding: 0 8px; }
+  .sf-bio p { color: rgba(245,236,222,0.86); }
+  .sf-bio strong { color: #ffffff; font-weight: 600; }
+  .sf-bio em { font-family: 'Playfair Display', Georgia, serif; font-style: italic; color: #F0C79C; }
+  .sobre-naoé {
+    margin: 44px auto 0; max-width: 1100px; padding: 16px 22px;
+    border-left: 3px solid #F0C79C;
+    background: rgba(245,236,222,0.06);
+    border-radius: 0 12px 12px 0;
+    font-size: 13px; line-height: 1.6; color: rgba(245,236,222,0.74);
+  }
+  .sobre-naoé strong { color: #ffffff; }
+  @media (max-width: 820px) {
+    .sobre-feature { grid-template-columns: 1fr; gap: 24px; justify-items: center; }
+    .sf-rail { display: none; }
+    .sf-photo { max-width: 220px; }
+    .sf-text { width: 100%; }
+    .sf-bio { padding: 0; }
   }
 
-  /* Grão interno sutil em cada card */
-  .pillar-card::after {
-    content: "";
-    position: absolute; inset: 0;
-    background-image:
-      radial-gradient(rgba(0,0,0,0.06) 1px, transparent 1px),
-      radial-gradient(rgba(0,0,0,0.04) 1px, transparent 1px);
-    background-size: 3px 3px, 7px 7px;
-    background-position: 0 0, 1px 2px;
-    mix-blend-mode: multiply;
-    opacity: 0.6;
-    pointer-events: none;
+  /* ===== PILARES (creme + acento + ícone) ===== */
+  .pillars-section { padding: 30px 60px 56px; max-width: 1120px; margin: 0 auto; }
+  @media (max-width: 920px) { .pillars-section { padding: 22px 24px 44px; } }
+  .pillars-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  @media (max-width: 720px) { .pillars-grid { grid-template-columns: 1fr; gap: 12px; } }
+  .pillar-card {
+    position: relative; overflow: hidden; border-radius: 16px;
+    padding: 26px 28px 24px;
+    background: var(--paper); border: 1px solid var(--line);
+    box-shadow: 0 12px 30px rgba(107,85,71,0.06);
+    display: flex; flex-direction: column;
   }
+  .pillar-card::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 3px; }
+  .pillar-card.acolhimento::before { background: var(--rose); }
+  .pillar-card.ciencia::before     { background: var(--sage); }
+  .pillar-card.presenca::before    { background: var(--gold); }
+  .pillar-card.rotina::before      { background: var(--beige); }
+  .pillar-icon {
+    width: 42px; height: 42px; border-radius: 12px;
+    display: inline-flex; align-items: center; justify-content: center; margin-bottom: 14px;
+  }
+  .pillar-icon svg { width: 22px; height: 22px; }
+  .pillar-card.acolhimento .pillar-icon { background: rgba(216,167,161,0.18); color: #B86F62; }
+  .pillar-card.ciencia .pillar-icon     { background: rgba(168,181,162,0.22); color: #6E8369; }
+  .pillar-card.presenca .pillar-icon    { background: rgba(224,185,143,0.24); color: #B07F45; }
+  .pillar-card.rotina .pillar-icon      { background: rgba(201,183,166,0.30); color: #8A7361; }
+  .pillar-num { font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--text-dim); font-weight: 600; }
+  .pillar-name { margin: 6px 0 0; font-family: 'Playfair Display', Georgia, serif; font-style: italic; font-weight: 400; font-size: clamp(24px, 2.6vw, 32px); line-height: 1.05; color: var(--brown-deep); }
+  .pillar-body { margin: 12px 0 0; font-size: 14px; line-height: 1.58; color: var(--text-soft); max-width: 440px; }
 
-  /* =========================================================
-     MARQUEE
-  ========================================================= */
+  /* ===== CTA BAND ===== */
+  .cta-band {
+    margin: 18px auto 8px; max-width: 1040px;
+    padding: 48px 56px;
+    border-radius: 22px;
+    background: linear-gradient(135deg, rgba(216,167,161,0.20) 0%, rgba(168,181,162,0.16) 100%), var(--paper);
+    border: 1px solid var(--line);
+    text-align: center;
+    box-shadow: 0 18px 48px rgba(107,85,71,0.08);
+  }
+  @media (max-width: 720px) { .cta-band { margin: 12px 20px; padding: 34px 24px; } }
+  .cta-band h2 {
+    margin: 0 0 14px;
+    font-family: 'Playfair Display', Georgia, serif;
+    font-weight: 400;
+    font-size: clamp(24px, 3vw, 38px);
+    line-height: 1.15; color: var(--brown-deep);
+    letter-spacing: -0.015em;
+  }
+  .cta-band h2 em { font-style: italic; color: var(--accent); }
+  .cta-band p { margin: 0 auto 26px; max-width: 540px; font-size: 15px; line-height: 1.6; color: var(--text-soft); }
+  .cta-band .cta-aux { display: block; margin: 16px auto 0; max-width: none; }
+
+  /* ===== MARQUEE ===== */
   .marquee {
-    position: relative; z-index: 10;
-    overflow: hidden;
+    position: relative; z-index: 10; overflow: hidden;
+    margin-top: 40px;
     padding: 14px 0;
-    border-top: 1px solid var(--line);
-    border-bottom: 1px solid var(--line);
-    background: rgba(255,250,244,0.35);
-    opacity: 0;
-    animation: fade-up 1200ms ease 2800ms forwards;
+    border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);
+    background: rgba(255,250,244,0.30);
   }
   .marquee-track {
-    display: inline-flex; align-items: center; gap: 56px; white-space: nowrap;
-    font-family: 'Playfair Display', Georgia, serif;
-    font-style: italic;
-    font-size: clamp(18px, 1.9vw, 24px);
-    color: var(--brown-deep);
-    animation: marquee-scroll 38s linear infinite;
-    padding-left: 100%;
+    display: inline-flex; align-items: center; gap: 52px; white-space: nowrap;
+    font-family: 'Playfair Display', Georgia, serif; font-style: italic;
+    font-size: clamp(17px, 1.8vw, 23px); color: var(--text-mute);
+    animation: marquee-scroll 40s linear infinite; padding-left: 100%;
   }
-  .marquee-track .sep { width: 5px; height: 5px; border-radius: 50%; background: var(--accent); display: inline-block; opacity: 0.65; }
+  .marquee-track .sep { width: 5px; height: 5px; border-radius: 50%; background: var(--accent); display: inline-block; opacity: 0.6; }
   @keyframes marquee-scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
   @media (hover: hover) { .marquee:hover .marquee-track { animation-play-state: paused; } }
 
-  /* =========================================================
-     FOOTER
-  ========================================================= */
-  footer {
-    position: relative; z-index: 10;
-    padding: 28px 60px 24px;
-    opacity: 0;
-    animation: fade-up 1200ms ease 3100ms forwards;
-  }
-  @media (max-width: 720px) { footer { padding: 24px 22px 22px; } }
-  .footer-row {
-    display: grid;
-    grid-template-columns: 1fr auto 1fr;
-    align-items: center;
-    gap: 24px;
-    max-width: 1480px;
-    margin: 0 auto;
-    font-size: 11px;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
-    color: rgba(107,85,71,0.6);
-  }
-  @media (max-width: 720px) { .footer-row { grid-template-columns: 1fr; text-align: center; gap: 12px; } }
-  .footer-center { justify-self: center; }
-  .footer-right { justify-self: end; display: inline-flex; gap: 18px; }
-  @media (max-width: 720px) { .footer-right { justify-self: center; } }
-  .footer-link { transition: color 300ms ease; }
-  .footer-link:hover { color: var(--brown-deep); }
-  /* Disclaimer evidenciado — bloco com destaque editorial */
+  /* ===== FOOTER ===== */
+  footer { position: relative; z-index: 10; padding: 40px 60px 28px; }
+  @media (max-width: 720px) { footer { padding: 32px 22px 24px; } }
   .legal-notice-box {
-    max-width: 920px;
-    margin: 0 auto 28px;
+    max-width: 920px; margin: 0 auto 28px;
     padding: 22px 32px;
-    border-top: 1px solid rgba(107,85,71,0.18);
-    border-bottom: 1px solid rgba(107,85,71,0.18);
+    border-top: 1px solid rgba(107,85,71,0.18); border-bottom: 1px solid rgba(107,85,71,0.18);
     text-align: center;
   }
-  @media (max-width: 720px) { .legal-notice-box { padding: 18px 16px; margin-bottom: 22px; } }
+  @media (max-width: 720px) { .legal-notice-box { padding: 18px 16px; } }
   .legal-notice-box .age-badge {
-    display: inline-block;
-    margin-bottom: 12px;
-    padding: 4px 14px;
-    border-radius: 999px;
-    background: rgba(176,116,88,0.12);
-    border: 1px solid rgba(176,116,88,0.32);
-    font-family: 'Inter', sans-serif;
-    font-size: 11px;
-    font-weight: 600;
-    letter-spacing: 0.18em;
-    color: var(--accent);
+    display: inline-block; margin-bottom: 12px; padding: 4px 14px;
+    border-radius: 999px; background: rgba(168,92,62,0.12); border: 1px solid rgba(168,92,62,0.34);
+    font-size: 11px; font-weight: 600; letter-spacing: 0.18em; color: var(--accent);
   }
   .legal-notice-box p {
-    margin: 0;
-    font-family: 'Playfair Display', Georgia, serif;
-    font-style: italic;
-    font-size: clamp(13px, 1.1vw, 14.5px);
-    line-height: 1.7;
-    color: rgba(107,85,71,0.85);
-    letter-spacing: 0.005em;
+    margin: 0; font-family: 'Playfair Display', Georgia, serif; font-style: italic;
+    font-size: clamp(13px, 1.1vw, 14.5px); line-height: 1.7; color: var(--text-soft);
   }
-  .legal-notice-box p strong {
-    font-style: normal;
-    font-family: 'Inter', sans-serif;
-    font-weight: 600;
-    color: var(--brown-deep);
-    letter-spacing: 0.01em;
-  }
-  .footer-founder {
-    margin: 22px auto 0;
-    max-width: 760px;
-    text-align: center;
-    font-family: 'Playfair Display', Georgia, serif;
-    font-style: italic;
-    font-size: 12.5px;
-    line-height: 1.55;
-    color: rgba(107,85,71,0.65);
-  }
-  .footer-company {
-    margin: 14px auto 0;
-    max-width: 920px;
-    text-align: center;
-    font-family: 'Inter', sans-serif;
-    font-size: 10.5px;
-    letter-spacing: 0.10em;
-    color: rgba(107,85,71,0.5);
-    line-height: 1.6;
-  }
+  .legal-notice-box p strong { font-style: normal; font-family: 'Inter', sans-serif; font-weight: 600; color: var(--brown-deep); }
 
-  /* ============================================
-     REDUCED MOTION — versão estática completa
-     Para usuárias com TDAH severo, vertigem,
-     epilepsia fotossensível, enxaqueca vestibular,
-     dislexia ou simplesmente preferência pessoal.
-     Configurável no SO: Acessibilidade → Reduzir movimento.
-  ============================================= */
+  /* rodapé em tópicos */
+  .footer-top {
+    max-width: 1100px; margin: 0 auto 30px;
+    display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 32px;
+  }
+  @media (max-width: 720px) { .footer-top { grid-template-columns: 1fr 1fr; gap: 26px; } }
+  .footer-brand .fb-name {
+    font-family: 'Playfair Display', Georgia, serif; font-size: 20px; color: var(--brown-deep);
+  }
+  .footer-brand p { margin: 8px 0 0; max-width: 240px; font-size: 12.5px; line-height: 1.55; color: var(--text-mute); }
+  .footer-col h4 {
+    margin: 0 0 12px; font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase;
+    color: var(--text-dim); font-weight: 600;
+  }
+  .footer-col a, .footer-col span { display: block; font-size: 13px; color: var(--text-mute); line-height: 1.95; }
+  .footer-col a { transition: color 240ms ease; }
+  .footer-col a:hover { color: var(--brown-deep); }
+  .footer-sources { max-width: 1100px; margin: 0 auto 22px; }
+  .footer-sources summary {
+    list-style: none; cursor: pointer;
+    font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--text-dim); font-weight: 600;
+  }
+  .footer-sources summary::-webkit-details-marker { display: none; }
+  .footer-sources summary::after { content: " +"; color: var(--accent); }
+  .footer-sources[open] summary::after { content: " –"; }
+  .footer-sources ol { margin: 12px 0 0; padding-left: 18px; }
+  .footer-sources li { font-size: 12px; line-height: 1.55; color: var(--text-mute); margin: 5px 0; }
+  .footer-sources li a { text-decoration: underline; text-underline-offset: 2px; }
+  .footer-bottom {
+    max-width: 1100px; margin: 0 auto; padding-top: 20px;
+    border-top: 1px solid var(--line);
+    display: flex; flex-wrap: wrap; gap: 6px 18px; justify-content: space-between;
+    font-size: 11px; letter-spacing: 0.06em; color: var(--text-dim); line-height: 1.6;
+  }
+  .footer-link:hover { color: var(--brown-deep); }
+  .footer-lockup { height: 40px; width: auto; display: block; }
+
+  /* ===== REDUCED MOTION ===== */
   @media (prefers-reduced-motion: reduce) {
     *, *::before, *::after {
       animation-duration: 0.001ms !important;
@@ -704,27 +630,11 @@
       animation-delay: 0ms !important;
       transition-duration: 0.001ms !important;
     }
-    /* Tudo já visível, sem fade-in */
-    .hero-headline .word > span { transform: none; opacity: 1; }
-    .hero-sub, .hero-cta-wrap, .pillars-eyebrow, .pillar-card,
-    .brand-stage, .marquee, footer { opacity: 1 !important; }
-
-    /* Marquee parado — texto fica visível mas estático */
     .marquee-track { animation: none !important; transform: none !important; padding-left: 0 !important; }
     .marquee { overflow-x: auto; -webkit-overflow-scrolling: touch; }
-    /* Esconde a duplicação do marquee (que existe pra loop infinito) */
     .marquee-track > *:nth-child(n + 17) { display: none; }
-
-    /* Sem respiração no halo da logo */
-    .brand-halo { animation: none !important; }
-
-    /* Sem grão animado */
-    .grain { animation: none !important; }
-
-    /* Sem pulse no status do top-bar */
-    .center-mark .dot { animation: none !important; opacity: 0.85 !important; transform: none !important; }
-
-    /* Boot scrim some imediatamente */
+    .grain, .center-mark .dot { animation: none !important; }
+    .center-mark .dot { opacity: 0.85 !important; }
     .boot-scrim { display: none !important; }
   }
 </style>
@@ -742,133 +652,199 @@
 </svg>
 
 <header class="top-bar">
-  <a href="/" class="top-brand">
-    <picture>
-      <source media="(prefers-color-scheme: dark)" srcset="/neuromae-logo-fundo-novo.svg" />
-      <img src="/neuromae-logo-color.svg" alt="" aria-hidden="true" />
-    </picture>
-    <span>NeuroMãe</span>
+  <a href="#topo" class="top-brand" aria-label="NeuroMãe">
+    <img class="brand-lockup" src="/neuromae-lockup-dark.png" alt="NeuroMãe" />
   </a>
   <span class="center-mark">
     <span class="dot" aria-hidden="true"></span>
     <span>Em preparação · 2026</span>
   </span>
-  <span class="top-right">Brasil · Fase beta privada</span>
+  <a class="top-cta" href="#lista">Lista de espera</a>
 </header>
 
-<!-- HERO compacto -->
-<section class="hero">
-  <div class="hero-left">
+<!-- HERO -->
+<section class="hero section" id="topo">
+  <picture class="hero-bg">
+    <source media="(max-width: 720px)" srcset="/hero-mobile.jpg" />
+    <img src="/hero.jpg" alt="Xícara de café fumegante sobre uma mesa de madeira, ao lado de uma mão, com luz suave de janela." fetchpriority="high" />
+  </picture>
+  <div class="hero-scrim" aria-hidden="true"></div>
+
+  <div class="hero-content">
     <p class="hero-kicker">
-      <span>Para mães</span>
+      <span>Para mães atípicas</span>
       <span class="line" aria-hidden="true"></span>
       <span class="age">Maiores de 18 anos</span>
     </p>
 
     <h1 class="hero-headline">
-      <span class="line">
-        <span class="word"><span>O</span></span>
-        <span class="word"><span>aprender</span></span>
-        <span class="word"><span>começa</span></span>
-      </span>
-      <span class="line">
-        <em>
-          <span class="word"><span>onde</span></span>
-          <span class="word"><span>a</span></span>
-          <span class="word"><span>mãe</span></span>
-          <span class="word"><span>é</span></span>
-          <span class="word"><span>acolhida.</span></span>
-        </em>
-      </span>
+      O aprender começa<br />
+      <em>onde a mãe é acolhida.</em>
     </h1>
 
-    <p class="hero-sub">
-      <span>Sem mais julgamentos.</span>
-      <span>Dentro da sua realidade.</span>
-      <span>O aprender começa com e por você.</span>
+    <p class="hero-lead">
+      A <strong>NeuroMãe</strong> é uma iniciativa brasileira de apoio à maternidade atípica —
+      para a mãe e para os filhos. Acreditamos que, sem acolher quem cuida, nenhum resultado se sustenta.
+      <strong>Em preparação.</strong>
     </p>
 
     <div class="hero-cta-wrap">
-      <a class="cta-magnetic magnetic-target" data-magnetic
-         href="https://wa.me/554137979827?text=Oi%2C%20gostaria%20de%20saber%20sobre%20a%20lista%20de%20acesso%20antecipado%20da%20NeuroM%C3%A3e."
+      <a class="cta-magnetic"
+         href="https://wa.me/554137979827?text=Oi%2C%20gostaria%20de%20entrar%20na%20lista%20de%20espera%20da%20NeuroM%C3%A3e."
          target="_blank" rel="noopener noreferrer">
-        <span>Entrar na lista privada</span>
+        <span>Entrar na lista de espera</span>
         <span class="cta-arrow" aria-hidden="true">→</span>
       </a>
       <span class="cta-aux">
-        <em>Convite por WhatsApp</em><br />
-        <em>respondemos uma a uma</em>
+        Convite por WhatsApp · acesso antecipado quando abrir. Sem custo pra entrar, sem cartão.
       </span>
-    </div>
-  </div>
-
-  <div class="hero-right">
-    <div class="brand-stage">
-      <div class="brand-halo"></div>
-      <picture>
-        <source media="(prefers-color-scheme: dark)" srcset="/neuromae-logo-fundo-novo.svg" />
-        <img class="brand-logo"
-             src="/neuromae-logo-color.svg"
-             alt="NeuroMãe"
-             loading="eager" />
-      </picture>
     </div>
   </div>
 </section>
 
-<!-- PILARES (cards editoriais) -->
-<section class="pillars-section">
-  <p class="pillars-eyebrow">
-    <span class="num">i.</span>
-    <span>Os quatro pilares</span>
-    <span class="line" aria-hidden="true"></span>
+<!-- DADOS / REALIDADE -->
+<section class="dados section" aria-labelledby="dados-titulo">
+  <p class="eyebrow"><span class="line line-left" aria-hidden="true"></span><span class="eyebrow-label" id="dados-titulo">A realidade, em números</span><span class="line line-right" aria-hidden="true"></span></p>
+
+  <div class="dados-intro">
+    <span class="di-1">Não é exagero seu, nem frescura.</span>
+    <span class="di-2">É o que os dados mostram</span>
+    <span class="di-3">— e quase ninguém nomeia.</span>
+  </div>
+
+  <div class="stats-grid">
+    <div class="stat-card">
+      <span class="stat-number">2,4 mi</span>
+      <p class="stat-text">de pessoas com autismo no Brasil — 1,2% da população. E é só um dos diagnósticos que cabem na maternidade atípica.</p>
+      <p class="stat-source">Fonte: IBGE, Censo Demográfico 2022 (divulgado em 2025).</p>
+    </div>
+
+    <div class="stat-card">
+      <span class="stat-number">~3 anos</span>
+      <p class="stat-text">é o tempo médio entre os primeiros sinais que a mãe percebe e o diagnóstico formal — quase sempre buscando resposta sozinha.</p>
+      <p class="stat-source">Fonte: estudo brasileiro de diagnóstico precoce, dados de 2013–2019 (revisado por pares).</p>
+    </div>
+
+    <div class="stat-card">
+      <span class="stat-number">9 em 10</span>
+      <p class="stat-text">mães relataram algum sinal de esgotamento. Se você está exausta, está longe de ser exceção.</p>
+      <p class="stat-source">Fonte: pesquisa B2Mamy / Kiddle Pass, 2024 (1.868 mães) — pesquisa de opinião.</p>
+    </div>
+  </div>
+
+  <div class="dados-nota" role="note">
+    <svg class="nota-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M20 4H4a1 1 0 0 0-1 1v11a1 1 0 0 0 1 1h3v3l4-3h9a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1z" />
+      <path d="M12 13.4c-1.2-.8-2.6-1.7-2.6-3 0-1.6 1.9-1.8 2.6-.5.7-1.3 2.6-1.1 2.6.5 0 1.3-1.4 2.2-2.6 3z" />
+    </svg>
+    <p>Os números não estão aqui pra assustar — estão aqui porque dão nome a algo que você talvez já viva todo dia. Saber que é real, e comum, já tira parte do peso.</p>
+  </div>
+</section>
+
+<!-- SOBRE / QUEM ESTÁ POR TRÁS -->
+<section class="sobre section" id="sobre" aria-labelledby="sobre-titulo">
+  <p class="eyebrow"><span class="line line-left" aria-hidden="true"></span><span class="eyebrow-label" id="sobre-titulo">Quem está por trás</span><span class="line line-right" aria-hidden="true"></span></p>
+  <div class="sobre-feature">
+    <img class="sf-photo" src="/tatiana-circ.png" alt="Tatiana Junco, fundadora da NeuroMãe." loading="lazy" />
+    <div class="sf-rail" aria-hidden="true"><span class="rail-node"></span></div>
+    <div class="sf-text">
+      <div class="sf-card">
+        <p>A informação sobre maternidade atípica está espalhada e muitas vezes se contradiz.</p>
+        <p>
+          A <strong>NeuroMãe</strong> reúne o que importa num lugar só — organizado, com fontes baseadas em
+          práticas científicas verificadas e na linguagem de quem vive a rotina.
+          <em>Não pra resolver tudo: mas para você não precisar descobrir tudo sozinha.</em>
+        </p>
+      </div>
+      <div class="sf-bio">
+        <p>
+          Foi criada por <strong>Tatiana Junco</strong> — mãe antes de especialista. Descobriu o próprio TDAH
+          em meio a uma depressão, com os filhos pequenos; ao se entender, reconheceu o mesmo neles.
+        </p>
+        <p>
+          A busca por ajudá-los virou estudo e formação — Educação Parental, Neurociência Comportamental,
+          Psicopedagogia — e virou a NeuroMãe.
+          <em>Sem promessa de mãe perfeita: só o caminho mais curto para quem começa agora.</em>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="sobre-naoé">
+    Para deixar claro: a NeuroMãe <strong>não é</strong> serviço de saúde, terapia, tratamento,
+    diagnóstico ou emergência. Não substitui profissionais habilitados, nem dispensa atendimento
+    humano em situações de risco. É apoio informacional e organizacional — e assume esse limite com honestidade.
+  </div>
+</section>
+
+<!-- RECONHECE -->
+<section class="reconhece section" aria-labelledby="reconhece-titulo">
+  <p class="eyebrow"><span class="line line-left" aria-hidden="true"></span><span class="eyebrow-label" id="reconhece-titulo">Talvez você reconheça</span><span class="line line-right" aria-hidden="true"></span></p>
+  <p class="reconhece-intro">
+    <span class="ri-kicker">Sem teste · sem pontuação · sem diagnóstico</span>
+    <span class="ri-lead">Só duas frases. Talvez uma delas diga, em voz alta, <em>o que você sente calada.</em></span>
   </p>
 
+  <div class="reconhece-grid">
+    <div class="recon-card c1">
+      <p class="recon-q">Você se sente esgotada — mas acha que nem tem o direito de estar.</p>
+      <p class="recon-a">Esgotamento não é fraqueza nem falta de amor. É o corpo respondendo a uma carga real, mantida por tempo demais. Reconhecer isso não tira nada de você como mãe — só para de somar culpa ao cansaço.</p>
+    </div>
+    <div class="recon-card c2">
+      <p class="recon-q">Você queria um lugar pra perguntar sem se sentir julgada.</p>
+      <p class="recon-a">Um lugar pra tirar a dúvida do meio da noite, organizar o que parece bagunça e respirar. É exatamente isso que a NeuroMãe está construindo — com cuidado, e sem pressa de te empurrar uma solução pronta.</p>
+    </div>
+  </div>
+
+  <p class="recon-cta">Esse lugar está sendo construído com calma. <a href="#lista">Entre na lista de espera <span aria-hidden="true">→</span></a></p>
+</section>
+
+<!-- PILARES -->
+<section class="pillars-section section" id="pilares" aria-labelledby="pilares-titulo">
+  <p class="eyebrow"><span class="line line-left" aria-hidden="true"></span><span class="eyebrow-label" id="pilares-titulo">Quatro pilares</span><span class="line line-right" aria-hidden="true"></span></p>
   <div class="pillars-grid">
     <article class="pillar-card acolhimento">
-      <div>
-        <span class="pillar-num">01 · Acolhimento</span>
-        <h2 class="pillar-name">Acolhimento</h2>
-      </div>
-      <p class="pillar-body">
-        Onde a mãe é acolhida, o aprender começa.<br />
-        <em>Aqui, ninguém julga.</em>
-      </p>
+      <span class="pillar-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.29 1.51 4.04 3 5.5l7 7Z"/></svg></span>
+      <span class="pillar-num">01</span>
+      <h2 class="pillar-name">Acolhimento</h2>
+      <p class="pillar-body">O ponto de partida é onde você está hoje — não onde "deveria" estar. Aqui ninguém julga.</p>
     </article>
-
     <article class="pillar-card ciencia">
-      <div>
-        <span class="pillar-num">02 · Ciência</span>
-        <h2 class="pillar-name">Ciência</h2>
-      </div>
-      <p class="pillar-body">
-        Práticas baseadas em evidência.<br />
-        Neurociência comportamental aplicada ao desenvolvimento materno e infantil.<br />
-        <em class="pillar-quote">Com método e respeito ao seu tempo.</em>
-      </p>
+      <span class="pillar-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 7v14"/><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/></svg></span>
+      <span class="pillar-num">02</span>
+      <h2 class="pillar-name">Ciência</h2>
+      <p class="pillar-body">Informação baseada em evidência, traduzida em palavras simples. Sem termo difícil e sem promessa mágica.</p>
     </article>
-
     <article class="pillar-card presenca">
-      <div>
-        <span class="pillar-num">03 · Presença</span>
-        <h2 class="pillar-name">Presença</h2>
-      </div>
-      <p class="pillar-body">
-        Ao seu lado. No seu ritmo.<br />
-        <em>No seu tempo.</em>
-      </p>
+      <span class="pillar-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg></span>
+      <span class="pillar-num">03</span>
+      <h2 class="pillar-name">Presença</h2>
+      <p class="pillar-body">No seu ritmo e no seu tempo. Um apoio que não some justo quando a rotina aperta.</p>
     </article>
-
     <article class="pillar-card rotina">
-      <div>
-        <span class="pillar-num">04 · Rotina</span>
-        <h2 class="pillar-name">Rotina</h2>
-      </div>
-      <p class="pillar-body">
-        Pequenas organizações que mudam o cotidiano.<br />
-        <em>Apoio que informa, organiza e acolhe.</em>
-      </p>
+      <span class="pillar-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="m8.5 12.5 2.5 2.5 4.5-5"/></svg></span>
+      <span class="pillar-num">04</span>
+      <h2 class="pillar-name">Rotina</h2>
+      <p class="pillar-body">Pequenas organizações que mudam o dia. Menos teoria, mais o que dá pra fazer hoje.</p>
     </article>
+  </div>
+</section>
+
+<!-- CTA BAND -->
+<section class="section" id="lista">
+  <div class="cta-band">
+    <h2>A lista de espera é <em>por convite</em> e por ordem de chegada.</h2>
+    <p>
+      Quando a NeuroMãe abrir, quem está na lista entra primeiro. Entrar na lista não tem custo
+      e não pede cartão — só um "oi" no WhatsApp.
+    </p>
+    <a class="cta-magnetic"
+       href="https://wa.me/554137979827?text=Oi%2C%20gostaria%20de%20entrar%20na%20lista%20de%20espera%20da%20NeuroM%C3%A3e."
+       target="_blank" rel="noopener noreferrer">
+      <span>Entrar na lista de espera</span>
+      <span class="cta-arrow" aria-hidden="true">→</span>
+    </a>
+    <span class="cta-aux">Convite por WhatsApp · respondemos uma a uma.</span>
   </div>
 </section>
 
@@ -879,14 +855,14 @@
     <span>ciência</span><span class="sep"></span>
     <span>presença</span><span class="sep"></span>
     <span>rotina</span><span class="sep"></span>
-    <span>maternidade neurodivergente</span><span class="sep"></span>
+    <span>maternidade atípica</span><span class="sep"></span>
     <span>apoio</span><span class="sep"></span>
     <span>respiro</span><span class="sep"></span>
     <span>acolhimento</span><span class="sep"></span>
     <span>ciência</span><span class="sep"></span>
     <span>presença</span><span class="sep"></span>
     <span>rotina</span><span class="sep"></span>
-    <span>maternidade neurodivergente</span><span class="sep"></span>
+    <span>maternidade atípica</span><span class="sep"></span>
     <span>apoio</span><span class="sep"></span>
     <span>respiro</span><span class="sep"></span>
   </div>
@@ -894,52 +870,69 @@
 
 <!-- FOOTER -->
 <footer>
-  <!-- Disclaimer evidenciado — bloco com destaque editorial -->
+  <div class="footer-top">
+    <div class="footer-brand">
+      <picture>
+        <source media="(prefers-color-scheme: dark)" srcset="/neuromae-lockup-dark.png" />
+        <img class="footer-lockup" src="/neuromae-lockup.png" alt="NeuroMãe" loading="lazy" />
+      </picture>
+      <p>Apoio à maternidade atípica — para a mãe e para os filhos. Em preparação.</p>
+    </div>
+    <nav class="footer-col" aria-label="NeuroMãe">
+      <h4>NeuroMãe</h4>
+      <a href="#sobre">Quem está por trás</a>
+      <a href="#pilares">Os pilares</a>
+      <a href="#lista">Lista de espera</a>
+    </nav>
+    <nav class="footer-col" aria-label="Contato">
+      <h4>Contato</h4>
+      <a href="mailto:suporte@neuromae.com">suporte@neuromae.com</a>
+      <a href="mailto:privacidade@neuromae.com">privacidade@neuromae.com</a>
+      <a href="https://instagram.com/neuromaeia" target="_blank" rel="noopener noreferrer">@neuromaeia</a>
+    </nav>
+    <nav class="footer-col" aria-label="Legal">
+      <h4>Legal</h4>
+      <a href="/termos-de-uso/">Termos de uso</a>
+      <a href="/politica-de-privacidade/">Privacidade</a>
+      <a href="/politica-de-cookies/">Cookies</a>
+    </nav>
+  </div>
+
   <div class="legal-notice-box" role="note" aria-label="Aviso legal">
     <span class="age-badge">+18 anos</span>
     <p>
-      A <strong>NeuroMãe</strong> é uma plataforma de <strong>tecnologia e apoio informacional e organizacional</strong>,<br />
-      baseada em inteligência artificial conversacional.<br />
-      <strong>Não é serviço de saúde, terapia, tratamento, diagnóstico ou emergência.</strong><br />
-      Não substitui profissionais habilitados da área da saúde, nem dispensa atendimento humano em situações de risco.
+      A <strong>NeuroMãe</strong> é uma iniciativa de apoio informacional e organizacional, com uso de
+      tecnologia (incluindo inteligência artificial).
+      <strong>Não é serviço de saúde, terapia, tratamento, diagnóstico ou emergência</strong> e não
+      substitui profissionais habilitados nem atendimento humano em situações de risco.
     </p>
   </div>
 
-  <div class="footer-row">
-    <span>© <span id="year"></span> NeuroMãe</span>
-    <span class="footer-center">
-      <a href="https://instagram.com/neuromaeia" target="_blank" rel="noopener noreferrer"
-         class="footer-link">@neuromaeia</a>
-    </span>
-    <span class="footer-right">
-      <a href="/termos-de-uso/" class="footer-link">Termos</a>
-      <a href="/politica-de-privacidade/" class="footer-link">Privacidade</a>
-      <a href="mailto:suporte@neuromae.com" class="footer-link">Contato</a>
-    </span>
+  <details class="footer-sources">
+    <summary>Fontes dos dados citados</summary>
+    <ol>
+      <li>IBGE — Censo Demográfico 2022: 2,4 milhões de pessoas com autismo no Brasil (divulgado em 2025).
+        <a href="https://agenciadenoticias.ibge.gov.br/agencia-noticias/2012-agencia-de-noticias/noticias/43464-censo-2022-identifica-2-4-milhoes-de-pessoas-diagnosticadas-com-autismo-no-brasil" target="_blank" rel="noopener noreferrer">agenciadenoticias.ibge.gov.br</a>
+      </li>
+      <li>Estudo sobre diagnóstico precoce de autismo no Brasil (dados de 2013–2019): atraso médio de cerca de 3 anos entre os primeiros sinais e o diagnóstico formal.
+        <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10118402/" target="_blank" rel="noopener noreferrer">ncbi.nlm.nih.gov</a>
+      </li>
+      <li>Pesquisa B2Mamy / Kiddle Pass sobre burnout materno, 2024 (1.868 mães) — pesquisa de opinião, não levantamento populacional.
+        <a href="https://www.cartacapital.com.br/do-micro-ao-macro/burnout-parental-afeta-9-em-cada-10-maes-e-expoe-falta-de-equidade-no-mercado-de-trabalho/" target="_blank" rel="noopener noreferrer">cartacapital.com.br</a>
+      </li>
+    </ol>
+  </details>
+
+  <div class="footer-bottom">
+    <span>© <span id="year"></span> NeuroMãe · JLD Consulting — Desenvolvimento de Sistemas Ltda · CNPJ 41.433.785/0001-73 · Londrina-PR · Brasil</span>
+    <span>Uma iniciativa de Tatiana Junco</span>
   </div>
-
-  <p class="footer-founder">
-    Uma iniciativa de Tatiana Junco — pós-graduada em neurociência comportamental,<br />
-    formada em educação parental, em formação em psicopedagogia e práticas baseadas em evidência.
-  </p>
-
-  <p class="footer-company">
-    JLD Consulting — Desenvolvimento de Sistemas Ltda · CNPJ 41.433.785/0001-73 · Londrina-PR · Brasil
-  </p>
 </footer>
 
 <script>
 (function(){
   'use strict';
-  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   document.getElementById('year').textContent = new Date().getFullYear();
-
-  // Stagger da headline (palavra por palavra emergindo)
-  if (!reduced) {
-    document.querySelectorAll('.hero-headline .word > span').forEach(function(w, i){
-      w.style.animationDelay = (220 + i * 90) + 'ms';
-    });
-  }
 })();
 </script>
 
